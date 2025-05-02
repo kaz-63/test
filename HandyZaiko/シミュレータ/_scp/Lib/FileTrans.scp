@@ -1,0 +1,928 @@
+// Copyright (c) 2005-2010 KEYENCE CORPORATION. All rights reserved.
+/*!
+ * @file FileTrans.scp
+ * @brief Keyence BT-Series アプリケーション用 ファイル転送ライブラリ
+ */
+
+
+/*!
+ * @class ファイル転送パッケージ
+ */
+Package FileTrans
+    type = "DTS_IRDA"    // "DTS_IRDA","DTS_LANCRADLE","FTP_LANCRADLE"
+    ftp_remoteIp = ""
+    ftp_username = "anonymous"
+    ftp_password = "hoo@keyence.co.jp"
+    // 端末更新用の設定
+    update_app = "UPDATE_TYPE_SELECT"
+    update_firm = "UPDATE_TYPE_NONE"
+    update_system = "UPDATE_TYPE_NONE"
+    systemFileName = nil
+    Const firmwarePath = "Apps_DT\\Firmware\\__systemprogram06.bin"
+    Const appFolder= "Apps_DT"
+    Const systemFolder = "Apps_DT\\SystemSoft"
+
+    _NETWORK_FLUG = 0    // NETWORKのオープン状態(1:ここでNETWORKオープンした 0:既にNETWORKオープンしていた)
+    openflg[10]
+
+    /*!
+     * @brief ファイルを送信する。
+     * 
+     * @param filename 端末のファイル名
+     * @param pcfilename PCのファイル名
+     * @return false
+     * @attention なし
+     */
+    Method PutFile(filename, pcfilename)
+        ret
+        tmperror = ""
+        tmpfilename = ""
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:PutFile()\n")
+        EndIf
+
+        With Screen
+            TempScreenInfo:Push()
+            :fontGapx = 0
+            :fontGapy = 1
+            :fontSize = "middle"
+            :Clear()
+            :posx = 1    :posy = 1    :reverse = false    :font = 1    :OutputText("ファイルを")
+            :posx = 1    :posy = 3    :reverse = false    :font = 1    :OutputText("送信します")
+            :posx = 1    :posy = 7    :reverse = false    :font = 1    :OutputText(filename)
+            TempScreenInfo:Pop()
+        EndWith
+
+        If ( pcfilename is nil ) Then
+            If (filename is nil ) Then return (false) EndIf
+            If (filename.mid(1,1) eq ":") Then
+                pcfilename = filename.mid(2,filename.length)
+            Else
+                pcfilename = filename
+            EndIf
+        EndIf
+
+        If Not _connect("ファイル送信") Then Return(False) EndIf    // PCとの接続
+
+        If filename.Left(2) eq "3:" and FileSystem:FindFirst(filename) is false Then
+            ret = False
+            tmperror = "FILENOTFOUND"
+        Else
+            // ファイル送信
+            If type eq "DTS_IRDA" or type eq "DTS_LANCRADLE" Then
+                ret = Comm:PutFile(filename, pcfilename)
+                tmperror = Comm:error
+            Else
+                If filename.Left(2) ne "3:" Then
+                    ret = FTP:PutFile(filename, pcfilename)
+                Else
+                    tmpfilename = filename.Mid(2, filename.length-2)
+                    ret = FileSystem:Copy(filename, tmpfilename, True)
+                    If ret is False Then
+                        If FileSystem:error eq "ERR_FILE_NOT_EXIST" or FileSystem:error eq "ERR_FILE_NOT_FOUND" Then
+                            ret = -14
+                        Else
+                            ret = -1
+                        EndIf
+                    Else
+                        ret = FTP:PutFile(tmpfilename, pcfilename)
+                        If ret == 226 Then    // 226のみ成功と見なす
+                            ret = 0
+                        Else
+                            ret = -1
+                        EndIf
+                        FileSystem:Delete(tmpfilename)
+                    EndIf
+                EndIf
+                If ret == -14 and filename.Left(2) ne "3:" Then tmperror = "FILENOTFOUND" EndIf
+                If ret < 0 Then ret = False
+                Else ret = True
+                EndIf
+            EndIf
+        EndIf
+
+        If ret is False Then
+            _disconnect()
+            If (filename.Left(2) eq "3:") Then
+                If ( tmperror eq "FILENOTFOUND" ) Then
+                    Dialog:Message(nil, "ログファイルがありません","confirm", "", "", "middle")
+                Else
+                    Dialog:Message(nil, "ログファイルの送信に失敗しました","confirm", "", "", "middle")
+                EndIf
+            Else
+                Dialog:Message(nil, "ファイル送信に失敗しました","confirm", "", "", "middle")
+            EndIf
+            Return(False)
+        EndIf
+
+        // ログファイル削除
+        // 送信後にログファイルを削除しない場合は、以下の3行をコメントアウトしてください
+        If (filename.mid(0,2) eq "3:") Then
+            If ret is True Then
+                FileSystem:Delete(filename)
+            EndIf
+        EndIf
+
+        // アプリ更新チェック
+        Update(type)
+
+        _disconnect()    // PCとの切断
+
+        Dialog:Message(nil, "送信完了","confirm", "", "", "middle")
+
+        return(false)
+    EndMethod
+
+    /*!
+     * @brief ファイルを受信する。
+     * 
+     * @param pcfilename PCのファイル名
+     * @param filename 端末のファイル名
+     * @return 成功した場合はtrue、それ以外の場合はfalse
+     * @attention なし
+     */
+    Method GetFile(pcfilename, filename)
+        ret
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:GetFile()\n")
+        EndIf
+
+        With Screen
+            TempScreenInfo:Push()
+            :fontGapx = 0
+            :fontGapy = 1
+            :fontSize = "middle"
+            :Clear()
+            :posx = 1    :posy = 1    :reverse = false    :font = 1    :OutputText("ファイルを")
+            :posx = 1    :posy = 3    :reverse = false    :font = 1    :OutputText("受信します")
+            :posx = 1    :posy = 7    :reverse = false    :font = 1    :OutputText(filename)
+            TempScreenInfo:Pop()
+        EndWith
+
+        If ( pcfilename is nil ) Then
+            If (filename is nil ) Then return (false) EndIf
+            If (filename.mid(1,1) eq ":") Then
+                pcfilename = filename.mid(2,filename.length)
+            Else
+                pcfilename = filename
+            EndIf
+        EndIf
+
+        If Not _connect("ファイル受信") Then Return(False) EndIf    // PCとの接続
+        // ファイル失敗
+        If type eq "DTS_IRDA" or type eq "DTS_LANCRADLE" Then
+            ret = Comm:GetFile(pcfilename, filename)
+        Else
+            ret = FTP:GetFile(pcfilename, filename)
+            If ret == 226 Then    // 226のみ成功と見なす
+                ret = True
+            Else ret = False EndIf
+        EndIf
+        If ret is False Then
+            _disconnect()
+            Dialog:Message(nil, "ファイル受信に失敗しました","confirm", "", "", "middle")
+            Return(False)
+        EndIf
+
+        // アプリ更新チェック
+        Update(type)
+
+        _disconnect()    // PCとの切断
+
+        Dialog:Message(nil, "受信完了","confirm", "", "", "middle")
+
+        return(true)
+    EndMethod
+
+    /*!
+     * @brief 全てのログファイルを送信する。
+     * 
+     * @param なし
+     * @return 成功した場合はtrue、それ以外の場合はfalse
+     * @attention なし
+     */
+    Method PutLogFiles()
+        ret
+        tmperror
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:PutLogFiles()\n")
+        EndIf
+
+        With Screen
+            TempScreenInfo:Push()
+            :fontGapx = 0
+            :fontGapy = 1
+            :fontSize = "middle"
+            :Clear()
+            :posx = 1    :posy = 1    :reverse = false    :font = 1    :OutputText("ログファイルを")
+            :posx = 1    :posy = 3    :reverse = false    :font = 1    :OutputText("送信します")
+            TempScreenInfo:Pop()
+        EndWith
+
+        If type eq "DTS_IRDA" or type eq "DTS_LANCRADLE" Then
+            If Not _connect("全ログ送信") Then Return(False) EndIf    // PCとの接続
+            // ログファイル送信
+            If Not Comm:PutLogFiles(3) Then
+                tmperror = Comm:error
+                _disconnect()    // PCとの切断
+                If ( tmperror eq "FILENOTFOUND" ) Then
+                    Dialog:Message(nil, "ログファイルがありません","confirm", "", "", "middle")
+                Else
+                    Dialog:Message(nil, "ログファイルの送信に失敗しました","confirm", "", "", "middle")
+                EndIf
+                Return(False)
+            EndIf
+
+            // アプリ更新チェック
+            Update(type)
+
+            _disconnect()    // PCとの切断
+
+        ElseIf type eq "FTP_WLAN" or type eq "FTP_LANCRADLE" Then
+            Dialog:Message(nil, "FTPでは全ログファイル送信はできません","confirm", "", "", "middle")
+            return(false)
+        EndIf
+
+        Dialog:Message(nil, "送信完了","confirm", "", "", "middle")
+
+        return(false)
+    EndMethod
+
+    /*!
+     * @brief 全てのマスタファイルを受信する。
+     * 
+     * @param なし
+     * @return 成功した場合はtrue、それ以外の場合はfalse
+     * @attention なし
+     */
+    Method GetMasterFiles()
+        ret
+        i
+        tmpKeyNum
+        filename
+        sfilename            // 置き換えマスターファイル名
+        pcname                // PC側ファイル名
+        fcnt = 0            // リストファイル表題行数
+        getflg = 0        // 受信成功フラグ
+        retcode = false
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:GetMasterFiles()\n")
+        EndIf
+
+        If FileSystem:FindFirst("2:_FILE.LST") is false Then 
+            Dialog:Message(nil, "受信ファイルリストの取得に失敗しました。","confirm", "", "", "middle")
+            return(retcode) 
+        EndIf
+        File2:Initialize()
+        File2:name = "2:_FILE.LST"
+        
+        With Screen
+            TempScreenInfo:Push()
+            :fontGapx = 0
+            :fontGapy = 1
+            :fontSize = "middle"
+            :Clear()
+            :posx = 1    :posy = 1    :reverse = false    :font = 1    :OutputText("ファイルを")
+            :posx = 1    :posy = 3    :reverse = false    :font = 1    :OutputText("受信します")
+            TempScreenInfo:Pop()
+        EndWith
+                // 検索ファイルはここでクローズさせる
+        sfilename = Search:name
+        Search:Initialize()
+        Search:name = sfilename
+        sfilename = Search2:name
+        Search2:Initialize()
+        Search2:name = sfilename
+        MasterAccess:Close()
+
+        // 接続
+        If Not _connect("マスタ受信") Then Return(False) EndIf    // PCとの接続
+
+        TempScreenInfo:Push()
+        Screen:fontGapx = 0    Screen:fontGapy = 1
+        While 1        // ファイルリストループ
+            filename = File2:Gets(8192)
+            If filename is nil Then Wbreak EndIf
+            If filename.length < 3 Then Wbreak EndIf
+
+            With Screen
+                :posx = 1    :posy = 7    :reverse = false    :font = 1
+                :OutputText(" ".repeat(20))
+                :OutputText(filename)
+            EndWith
+
+            If fcnt == 2 Then        // マスターファイルカテゴリ
+                filename = filename.remove("\r")
+                filename = filename.remove("\n")
+                pcname = filename.right(filename.length-2)
+
+                If type eq "DTS_IRDA" or type eq "DTS_LANCRADLE" Then
+                    ret = Comm:GetFile(pcname, filename)
+                    If ret is False Then ret = -1
+                    Else ret = 1 EndIf
+
+                ElseIf type eq "FTP_LANCRADLE" Then
+                    ret = FTP:GetFile(pcname, filename)
+                    If ret == 226 Then    // 226のみ成功と見なす
+                        ret = 1
+                    Else ret = -1 EndIf
+                EndIf
+
+                If ret == 0 Then    // トップへ戻る
+                    getflg = 2
+                    retcode = true
+                ElseIf ret == -1 Then
+                    getflg = 2
+                    Dialog:Message(nil, "ファイル受信に失敗しました\n[" & filename & "]", "confirm", "", "", "middle")
+                    retcode = true
+                Else    // 成功
+                    getflg = 1
+                    MasterAccess:mstTmpName = MasterAccess:ConvertTmpName(filename)
+                    MasterAccess:DeleteTmpFile()
+                    retcode = true
+                EndIf
+
+            EndIf
+            If filename.left(1) eq "<" Then fcnt = fcnt + 1 EndIf
+        Wend
+        If fcnt < 2 and getflg == 0 Then
+            getflg = 3    // ファイルリストが不正
+        EndIf
+
+        TempScreenInfo:Pop()
+        File2:Initialize()
+
+        // アプリ更新チェック
+        Update(type)
+
+        _disconnect()    // PCとの切断
+
+        If getflg == 1 Then
+            Dialog:Message(nil, "受信完了","confirm", "", "", "middle")
+        ElseIf getflg == 0 Then
+            Dialog:Message(nil, "マスタファイルがありません","confirm", "", "", "middle")
+        ElseIf getflg == 3 Then
+            Dialog:Message(nil, "マスタ受信に失敗しました", "confirm", "", "", "middle")
+        EndIf
+        If retcode is False Then
+            MasterAccess_Open()
+        EndIf
+
+        return( retcode )
+    EndMethod
+
+    /*!
+     * @brief 接続（内部関数）
+     * 
+     * @param title メッセージボックスタイトル
+     * @return 成功時：true、失敗時：false
+     * @attention なし
+     */
+    Method _connect(title)
+        ret
+        networkname
+        cnt
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:_connect()\n")
+        EndIf
+
+        For cnt = 0 To 10-1
+            openflg[cnt] = 0
+        Next
+        If RemoteAccess:enable is True Then
+            RemoteAccess:enable = False
+            openflg[0] = 1
+        EndIf
+        If CommRF:enable is True Then
+            CommRF:enable = False
+            openflg[1] = 1
+        EndIf
+
+        If Network:IsOpen("LanCradle") is True Then
+            Network:Close("LanCradle")
+            openflg[2] = 1
+        EndIf
+
+        If Network:IsOpen("Bluetooth SPP") is True Then
+            Network:Close("Bluetooth SPP")
+            openflg[3] = 1
+        EndIf
+
+        //If Network:IsOpen("Bluetooth SPP Slave") is True Then
+        //    Network:Close("Bluetooth SPP Slave")
+        //    openflg[4] = 1
+        //EndIf
+
+        If Network:IsOpen("Bluetooth PPP") is True Then
+            Network:Close("Bluetooth PPP")
+            openflg[5] = 1
+        EndIf
+
+        If Network:IsOpen("Modem") is True Then
+            Network:Close("Modem")
+            openflg[6] = 1
+        EndIf
+
+        If Network:IsOpen("Modem PPP") is True Then
+            Network:Close("Modem PPP")
+            openflg[7] = 1
+        EndIf
+
+        If Network:IsOpen("Modem Cradle") is True Then
+            Network:Close("Modem Cradle")
+            openflg[8] = 1
+        EndIf
+
+        If Network:IsOpen("Modem Cradle PPP") is True Then
+            Network:Close("Modem Cradle PPP")
+            openflg[9] = 1
+        EndIf
+
+        If type eq "DTS_IRDA" Then Comm:deviceId = "IRDA"
+        ElseIf type eq "DTS_LANCRADLE" Then Comm:deviceId = "SOCK_COMPATIBLE"
+        ElseIf type eq "FTP_LANCRADLE" Then Comm:deviceId = "SOCK_COMPATIBLE"
+        Else Return(False)
+        EndIf
+
+        If type eq "DTS_LANCRADLE" or type eq "FTP_LANCRADLE" Then
+            networkname = "LanCradle"
+            If Network:IsOpen(networkname) is False Then
+                Network:Open("sync", networkname)
+            EndIf
+        EndIf
+
+        If type eq "FTP_LANCRADLE" Then
+            ftp_remoteIp = Network:hostIp
+            While True
+                ret = FTP:Open(ftp_remoteIp, ftp_username, ftp_password)
+                If ret >= 0 Then
+                    Wbreak
+                ElseIf ret == -12 Then
+                    If ( Dialog:Message(title, "タイムアウトしました。再接続しますか？","yesno|yes", "", "", "middle") is False ) Then
+                        _rfclose() Return(False)
+                    EndIf
+                    If Network:IsOpen(networkname) is False Then Network:Open("sync", networkname) EndIf
+                ElseIf ret == -13 Then
+                    Dialog:Message(title, "キャンセルされました。","confirm", "", "", "middle") _rfclose() Return(False)
+                Else
+                    Dialog:Message(title, "接続できませんでした。","confirm", "", "", "middle") _rfclose() Return(False)
+                EndIf
+            Wend
+        Else
+            While True
+                If Comm:Connect() Then
+                    Wbreak
+                ElseIf Comm:error eq "TIMEOUT" Then
+                    If ( Dialog:Message(title, "タイムアウトしました。再接続しますか？","yesno|yes", "", "", "middle") is False ) Then
+                        _rfclose() Return(False)
+                    EndIf
+                    If type eq "DTS_LANCRADLE" Then
+                        If Network:IsOpen(networkname) is False Then Network:Open("sync", networkname) EndIf
+                    EndIf
+                ElseIf Comm:error eq "CANCELED" Then
+                    Dialog:Message(title, "キャンセルされました。","confirm", "", "", "middle") _rfclose() Return(False)
+                Else
+                    Dialog:Message(title, "接続できませんでした。","confirm", "", "", "middle") _rfclose() Return(False)
+                EndIf
+            Wend
+        EndIf
+        Return(True)
+    End Method
+
+    /*!
+     * @brief 切断
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+    Method _disconnect()
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:_disconnect()\n")
+        EndIf
+
+        If not type eq "FTP_WLAN" and not type eq "FTP_LANCRADLE" Then
+            Comm:Disconnect()
+        Else
+            FTP:Quit()
+        EndIf
+        _rfclose()
+    End Method
+
+    /*!
+     * @brief RF切断関数（内部関数)
+     * 
+     * @param なし
+     * @return なし
+     * @attention ここでRFオープンした場合はRFクローズ
+     */
+    Method _rfclose()
+        networkname = ""
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:_rfclose()\n")
+        EndIf
+
+        If CommRF:enable is True Then
+            CommRF:enable = False
+        EndIf
+        If type eq "DTS_LANCRADLE" Then networkname = "LanCradle"
+        ElseIf type eq "FTP_WLAN" Then networkname = "infrastructure"
+        ElseIf type eq "FTP_LANCRADLE" Then networkname = "LanCradle"
+        EndIf
+        If networkname ne "" Then
+            If Network:IsOpen(networkname) is True Then
+                Network:Close(networkname)
+            EndIf
+        EndIf
+        If openflg[0] == 1 Then
+            If RemoteAccess:enable is False Then RemoteAccess:enable = True EndIf
+        EndIf
+        If openflg[1] == 1 Then
+            If CommRF:enable is False Then CommRF:enable = True EndIf
+        EndIf
+        If openflg[2] == 1 Then
+            If Network:IsOpen("LanCradle") is False Then Network:Open("sync", "LanCradle") EndIf
+        EndIf
+        If openflg[3] == 1 Then
+            If Network:IsOpen("Bluetooth SPP") is False Then Network:Open("sync", "Bluetooth SPP") EndIf
+        EndIf
+        If openflg[4] == 1 Then
+            If Network:IsOpen("Bluetooth SPP Slave") is False Then Network:Open("sync", "Bluetooth SPP Slave") EndIf
+        EndIf
+        If openflg[5] == 1 Then
+            If Network:IsOpen("Bluetooth PPP") is False Then Network:Open("sync", "Bluetooth PPP") EndIf
+        EndIf
+        If openflg[6] == 1 Then
+            If Network:IsOpen("Modem") is False Then Network:Open("sync", "Modem") EndIf
+        EndIf
+        If openflg[7] == 1 Then
+            If Network:IsOpen("Modem PPP") is False Then Network:Open("sync", "Modem PPP") EndIf
+        EndIf
+        If openflg[8] == 1 Then
+            If Network:IsOpen("Modem Cradle") is False Then Network:Open("sync", "Modem Cradle") EndIf
+        EndIf
+        If openflg[9] == 1 Then
+            If Network:IsOpen("Modem Cradle PPP") is False Then Network:Open("sync", "Modem Cradle PPP") EndIf
+        EndIf
+
+    End Method
+
+    /*!
+     * @brief 
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+    Method MasterAccess_Open()
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:MasterAccess_Open()\n")
+        EndIf
+
+        MasterAccess:Open()
+    Catch
+        // 誤品照合でマスタ受信した場合、JOB:MasterTypeがnilになっている為、
+        // MasterAccess:Open()で例外になるのでここでキャッチする
+    End Method
+
+    /*!
+     * @brief 端末アプリ、システムソフト、ファームウェアの更新チェック
+     *
+     * @param type
+     * @return なし
+     * @attention なし
+     */
+    Method Update(type)
+        queryFileInfoApp[3] = {"", "", ""}
+        queryFileInfoSystem[3] = {"", "", ""}
+        isExistAppUpdateFile = False
+        isExistSystemUpdateFile = False
+        isExistFirmUpdateFile = False
+        doChkUpdateApp = False
+        doChkUpdateSystem = False
+        doChkUpdateFirm = False
+        doUpdateApp = False
+        doUpdateSystem = False
+        doUpdateFirm = False
+        isAppUpdated = False
+        isSystemUpdated = False
+        isFirmUpdated = False
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:Update()\n")
+        EndIf
+
+        If type ne "DTS_IRDA" and type ne "DTS_LANCRADLE" Then
+            Return(False)
+        EndIf
+
+        // 端末アプリ更新ファイル問い合わせ
+        If update_app ne "UPDATE_TYPE_NONE" Then
+            isExistAppUpdateFile = QueryUpdateApp(queryFileInfoApp, appFolder, 0)
+        EndIf
+        // システムソフト更新ファイル問い合わせ
+        If update_system ne "UPDATE_TYPE_NONE" Then
+            isExistSystemUpdateFile = QueryUpdateApp(queryFileInfoSystem, systemFolder, 1)
+        EndIf
+        // ファームウェア更新ファイル問い合わせ
+        If update_firm ne "UPDATE_TYPE_NONE" Then
+            isExistFirmUpdateFile = QueryUpdateFirm()
+        EndIf
+
+        // 端末アプリの更新確認の必要があるか
+        If (update_app ne "UPDATE_TYPE_FORCE") and (isExistAppUpdateFile is True) Then
+            doChkUpdateApp = True
+        ElseIf (update_app eq "UPDATE_TYPE_FORCE") and (isExistAppUpdateFile is True) Then
+            doUpdateApp = True
+        EndIf
+
+        // システムソフトの更新確認の必要があるか
+        If (update_system ne "UPDATE_TYPE_FORCE") and (isExistSystemUpdateFile is True)  Then
+            doChkUpdateSystem = True
+        ElseIf (update_system eq "UPDATE_TYPE_FORCE") and (isExistSystemUpdateFile is True) Then
+            doUpdateSystem = True
+        EndIf
+
+        // ファームウェアの更新確認の必要があるか
+        If (update_firm ne "UPDATE_TYPE_FORCE") and (isExistFirmUpdateFile is True) Then
+            doChkUpdateFirm = True
+        ElseIf (update_firm eq "UPDATE_TYPE_FORCE") and (isExistFirmUpdateFile is True) Then
+            doUpdateFirm = True
+        EndIf
+
+        // 更新確認のダイアログを表示する必要がある場合
+        If (doChkUpdateApp is True) or (doChkUpdateSystem is True) or (doChkUpdateFirm is True) Then
+            // ダイアログが長時間表示されると勝手に切断されている場合があるので、いったん切断して再接続を行う
+            _disconnect()
+
+            If doChkUpdateApp is True Then
+                doUpdateApp = ChkUpdateApp(update_app, "端末アプリケーション", queryFileInfoApp[1], queryFileInfoApp[2])
+            EndIf
+
+            If doChkUpdateSystem is True Then
+                doUpdateSystem = ChkUpdateApp(update_system, "システムソフト", queryFileInfoSystem[1], queryFileInfoSystem[2])
+            EndIf
+
+            If doChkUpdateFirm is True Then
+                doUpdateFirm = ChkUpdateFirm()
+            EndIf
+
+            // このあと通信が必要になる場合だけ再接続する
+            If (doUpdateApp is True) or (doUpdateSystem is True) or (doUpdateFirm is True) Then
+                If Not _connect("端末更新") Then 
+                        Dialog:Message(nil, "端末更新に失敗しました","confirm", "", "", "middle")
+                        Return(nil)
+                EndIf    // PCとの接続
+            EndIf
+        EndIf
+
+        // 端末アプリ受信実行
+        If doUpdateApp is True Then
+            isAppUpdated = DoUpdateApp(queryFileInfoApp[0], "端末アプリケーション")
+        EndIf
+
+        // システムソフト受信実行
+        If doUpdateSystem is True Then
+            isSystemUpdated = DoUpdateApp(queryFileInfoSystem[0], "システムソフト")
+        EndIf
+
+        // ファームウェアの更新
+        if doUpdateFirm is True Then
+            // 更新後に再起動がかかります。
+            isFirmUpdated = Comm:SystemUpdate(firmwarePath, 2, systemFileName)
+
+            If isFirmUpdated is False Then
+                Dialog:Message(nil, "ファームウェア更新に失敗しました","confirm", "", "", "middle")
+            EndIf
+        EndIf
+
+        // システムファイルの更新
+        if isSystemUpdated is True Then
+            // 再起動するため、あらかじめ切断しておく
+            _disconnect()
+            // 更新後に再起動がかかります。
+            Utility:ChangeApplication(systemFileName)
+        EndIf
+
+        // 端末アプリのみの更新
+        If isAppUpdated is True Then
+            If not (systemFileName is nil) Then
+                // 再起動するため、あらかじめ切断しておく
+                _disconnect()
+                // 更新後に再起動がかかります。
+                Utility:ChangeApplication(systemFileName)
+            Else
+                // 再起動するため、あらかじめ切断しておく
+                _disconnect()
+                // 再起動して端末アプリを更新します。
+                Handy:Reset()
+            EndIf
+        EndIf
+    Catch
+        Dialog:Message(nil, "端末更新に失敗しました","confirm", "", "", "middle")
+    End Method
+
+    /*!
+     * @brief ファームウェア更新問い合わせ
+     * 
+     * @param なし
+     * @retval True 更新ファイルあり
+     * @retval False 更新ファイルなし
+     * @attention なし
+     */
+    Method QueryUpdateFirm()
+        ret
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:QueryUpdateFirm()\n")
+        EndIf
+
+        // ファームウェアの更新確認
+        ret = Comm:SystemCheck(firmwarePath)
+
+        If ret is nil Then
+            Return(False)
+        ElseIf ret ne "new" Then
+            Return(False)
+        EndIf
+
+        Return(True)
+    End Method
+
+    /*!
+     * @brief ファームウェア更新チェック
+     * 
+     * @param なし
+     * @retval True 更新する
+     * @retval False 更新しない
+     * @attention なし
+     */
+    Method ChkUpdateFirm()
+        ret
+    Begin
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:ChkUpdateFirm()\n")
+        EndIf
+
+        If update_firm eq "UPDATE_TYPE_SELECT" Then
+            If ( Dialog:Message(nil, "ファームウェア更新を行いますか？\nName:__systemprogram06.bin", "yesno|yes", "", "", "middle") is False ) Then
+                // 更新キャンセル
+                Return(False)
+            EndIf
+        ElseIf update_firm eq "UPDATE_TYPE_FORCE_CONFIRM" Then
+            Dialog:Message(nil, "ファームウェア更新を行います\nName:__systemprogram06.bin", "confirm", "", "", "middle")
+        EndIf
+
+        Return(True)
+    End Method
+    
+    /*!
+     * @brief 端末アプリケーション/システムソフト更新問い合わせ
+     * 
+     * @param queryFileInfoSystem [out] 問い合わせ結果
+     * @param folder 更新対象が格納されているパス
+     * @param type
+     * @arg 0 端末アプリケーション
+     * @arg 1 システムソフト
+     * @retval True 更新ファイルあり
+     * @retval False 更新ファイルなし
+     * @attention なし
+     */
+    Method QueryUpdateApp(queryFileInfoSystem[], folder, type)
+        ret
+        systemVersion
+        majorVersion
+        minorVersion
+        index
+    Begin
+
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:QueryUpdateApp()\n")
+        EndIf
+
+        ret = Comm:QuQuery(folder)
+
+        If ret is False Then
+            // アプリファイルが存在しない
+            Return(False)
+        EndIf
+
+        If type == 0 Then
+            If Comm:quQueryFileVersion eq Handy:fileVersion and Comm:quQueryFileTitle eq Handy:fileTitle Then
+                // 更新の必要が無い
+                Return(False)
+            EndIf
+        Else
+            // Handy:versionをComm:quQueryFileVersionのフォーマットに変更
+            systemVersion = Handy:version.Mid(1, Handy:version.length - 1)
+            index = systemVersion.Find(".", 0)
+            majorVersion = systemVersion.Left(index)
+            minorVersion = systemVersion.Mid(index + 1, systemVersion.length - (index + 1))
+            systemVersion = majorVersion & "." & UTL:utlMakeFixedNumZero((minorVersion % 100), 2)
+            If Comm:quQueryFileVersion eq systemVersion Then
+                // 更新の必要が無い
+                Return(False)
+            EndIf
+        EndIf
+
+        queryFileInfoSystem[0] = Comm:quQueryFileName
+        queryFileInfoSystem[1] = Comm:quQueryFileTitle
+        queryFileInfoSystem[2] = Comm:quQueryFileVersion
+
+        Return(True)
+    End Method
+    
+    /*!
+     * @brief 端末アプリケーション/システムソフト更新チェック
+     * 
+     * @param updateType
+     * @arg UPDATE_TYPE_SELECT        更新要否をユーザが判断
+     * @arg UPDATE_TYPE_FORCE         強制更新
+     * @arg UPDATE_TYPE_FORCE_CONFIRM 強制更新(更新通知ダイアログ表示)
+     * @arg UPDATE_TYPE_NONE          更新しない
+     * @param targetString 更新対象の文字列(ダイアログに表示)
+     * @param fileTitle 更新ファイルタイトル(ダイアログに表示)
+     * @param fileVersion 更新ファイルバージョン(ダイアログに表示)
+     * @retval True 更新する
+     * @retval False 更新しない
+     * @attention なし
+     */
+    Method ChkUpdateApp(updateType, targetString, fileTitle, fileVersion)
+    Begin
+
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:ChkUpdateApp()\n")
+        EndIf
+
+        If updateType eq "UPDATE_TYPE_SELECT" Then
+            If ( Dialog:Message(nil, targetString & "更新を行いますか？\nTitle:" & fileTitle & "\n" & fileVersion, "yesno|yes", "", "", "middle") is False ) Then
+                // 更新キャンセル
+                Return(False)
+            EndIf
+        ElseIf updateType eq "UPDATE_TYPE_FORCE_CONFIRM" Then
+            Dialog:Message(nil, targetString & "更新を行います\nTitle:" & fileTitle & "\n" & fileVersion, "confirm", "", "", "middle")
+        EndIf
+
+        Return(True)
+    End Method
+    
+    /*!
+     * @brief 端末アプリケーション/システムソフト実行
+     * 
+     * @param queryFileName 更新ファイル名
+     * @param targetString 更新対象の文字列(ダイアログに表示)
+     * @retval True 更新成功
+     * @retval False 更新失敗
+     * @attention なし
+     */
+    Method DoUpdateApp(queryFileName, targetString)
+        ret
+        i
+    Begin
+
+        If TraceLog:isOutput is True Then
+            TraceLog:Output("[file] FileTrans.scp [func] FileTrans:DoUpdateApp()\n")
+        EndIf
+
+        // ファイル受信
+        If queryFileName.right(4).toUpper eq ".SB3" Then
+            ret = Comm:GetFile(queryFileName, "1:K_Apl.sb3")
+        Else
+            i = queryFileName.Rfind("\\", queryFileName.length)
+            If i is nil Then
+                systemFileName = "2:" & queryFileName
+            Else
+                systemFileName = "2:" & queryFileName.right(queryFileName.length-(i+1))
+            EndIf
+            // .xho→.app
+            If systemFileName.right(4).toUpper eq ".XHO" Then
+                systemFileName = systemFileName.left(systemFileName.length-4) & ".app"
+            EndIf
+
+            ret = Comm:GetFile(queryFileName, systemFileName)
+
+            If ret is True Then
+                // 更新はファームウェアの更新有無によって決定するため、ここでは更新しない。
+                Dialog:AsyncMessage(nil, "\n  データ保存中\n0:" & systemFileName.right(systemFileName.length - 2), true, 0, 0, "middle")
+                Handy:Wait(10, false)
+            EndIf
+        EndIf
+
+        If ret is False Then
+            Dialog:Message(nil, targetString & "更新に失敗しました","confirm", "", "", "middle")
+            systemFileName = nil
+            Return(False)
+        EndIf
+
+        Return(True)
+    End Method
+
+End Package

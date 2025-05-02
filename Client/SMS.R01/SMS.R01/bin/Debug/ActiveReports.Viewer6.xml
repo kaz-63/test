@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<doc>
+    <assembly>
+        <name>ActiveReports.Viewer6</name>
+    </assembly>
+    <members>
+        <member name="N:DataDynamics.ActiveReports.Toolbar">
+            <summary>DataDynamics.ActiveReports.Toolbar名前空間には、ビューワのツールバーの制御に使用するToolbar、Tool、Buttonの各クラスが含まれています。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.ButtonStyle">
+            <summary>ツールバーのボタンの表示スタイルを決定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Toolbar.ButtonStyle.Icon">
+            <summary>ボタンのアイコンのみを表示します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Toolbar.ButtonStyle.Text">
+            <summary>ボタンのキャプションのみを表示します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Toolbar.ButtonStyle.TextAndIcon">
+            <summary>ボタンのキャプションとアイコンを表示します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.ColorTheme">
+            <summary>ツールバーのテーマ色を決定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Toolbar.ColorTheme.Normal">
+            <summary>ActiveReportsの標準のテーマ色でツールバーを描画します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Toolbar.ColorTheme.SystemTheme">
+            <summary>システムのテーマ色でツールバーを描画します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.Button">
+            <summary>ツールバーに標準ボタンを表示します。</summary>
+            <remarks>注意：ビューワのCopyボタンを有効にするには、RtfExport.dllとTextExport.dllへの参照を追加する必要があります。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.Button.#ctor">
+            <summary>Buttonクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Button.ButtonStyle">
+            <summary>ツールバーボタンの列挙型ButtonStyleを取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.CheckButton">
+            <summary>ツールバーに３つの状態を表すボタンを表示します。</summary>
+            <remarks>チェックボタンの現在の状態は、CheckStateプロパティによって決定されます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.CheckButton.#ctor">
+            <summary>CheckButtonクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.CheckButton.CheckState">
+            <summary>CheckButtonツールの現在の状態を表す値を取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.PlaceHolder">
+            <summary>Windowsフォームコントロールをツールバー上でホストするためのプレースホルダを表します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.PlaceHolder.#ctor">
+            <summary>PlaceHolderクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.PlaceHolder.#ctor">
+            <summary>PlaceHolderクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.PlaceHolder.#ctor(System.Windows.Forms.Control)">
+            <summary>ホストされたコントロール用に、PlaceHolderクラスの新しいインスタンスを初期化します。</summary>
+            <param name="control">ホストされたコントロール。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.PlaceHolder.Control">
+            <summary>ホストされたコントロールへの参照を取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.Separator">
+            <summary>ツールバーに垂直セパレータを表示します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.Separator.#ctor">
+            <summary>Separatorクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.Tool">
+            <summary>ツールバー上のツールを表します。</summary>
+            <remarks>現在のところ、ButtonStyleプロパティはButtonクラスにのみあります。ツールを反復処理して、ButtonStyleを変更する必要がある場合、ButtonStyleを変更しようとする前に、ツールをButtonにキャストしてnullを調べる必要があります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.Accelerator">
+            <summary>ツールのショートカットキーを取得します。このプロパティはReadOnlyです。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.Caption">
+            <summary>ツールに表示するテキストを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.Enabled">
+            <summary>ツールが有効であるかどうかを示す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.Id">
+            <summary>ツールに関連付けられた一意の数字。</summary>
+            <remarks>         ToolClickイベント内でカスタムツールを識別するために使用されます。カスタムツールには5000より大きい番号を割り当てることをお勧めします。          注意：コピーボタンを利用可能にするには、RtfExport.dll、およびTextExportdlllを参照設定に加える必要があります。          ビューワのツールバーにツールを追加し、そのIdに既存のIDを割り当てた場合、それがクリックされたとき自動的にデフォルトの動作をします。たとえば、印刷ボタンを削除し、新たにカスタムボタンを追加してそのIdに2を設定したとします。すると、そのボタンがクリックされたときには、印刷ダイアログが表示されます。                           ID             ツールアイテム                               0             〈見出し一覧〉ボタン                               -1             セパレータ                               2             〈印刷〉ボタン                               -1             セパレータ                               4             〈コピー〉ボタン                               -1             セパレータ                               6             〈検索〉ボタン                               -1             セパレータ                               8             〈単一ページ〉ボタン                               9             〈複数ページ〉ボタン                               21             〈連続ページ〉ボタン                               -1             セパレータ                               11             〈縮小〉ボタン                               12             〈拡大〉ボタン                               13             〈倍率〉コンボボックス                               -1             セパレータ                               15             〈前ページ〉ボタン                               16             〈次ページ〉ボタン                               17             ［ページ番号］テキストボックス                               -1             セパレータ                               19             〈戻る〉ボタン                               20             〈進む〉ボタン                               -1             セパレータ                               22             〈注釈〉ボタン              </remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.ImageIndex">
+            <summary>ツールに割り当てられた画像のインデックス値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.Shortcut">
+            <summary>ツールに列挙されたショートカットキーを取得または設定します。</summary>
+            <remarks>         キーは、コードと修飾子のセットで定義された整数値で識別されます。キー値の最初の４桁はキーコード（Windows仮想キーコードと同じ）になります。また、キー値の最後の４桁は、キー値のSHIFT、CONTROL、ALTキー用のビット修飾子を保持します。     メンバ一覧については、.NET Frameworkクラスラブラリを参照してくだざい。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.Size">
+            <summary>ツールのサイズを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.Tag">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.ToolTip">
+            <summary>ツールのツールチップとして表示されるテキストを取得または設定します。</summary>
+            <remarks>マウスポインタがツール上にあるときに表示されるテキスト。デフォルトは空の文字列（""）です。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.Tool.Visible">
+            <summary>ツールが表示されているかどうかを示す値を取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs">
+            <summary>ToolClickイベントのデータを提供します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs.#ctor">
+            <summary>ToolClickEventArgsクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs.#ctor">
+            <summary>ToolClickEventArgsクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs.#ctor(DataDynamics.ActiveReports.Toolbar.Tool)">
+            <summary>ToolClickEventArgsクラスの新しいインスタンスを初期化し、Toolプロパティを、指定されたツールに設定します。</summary>
+            <param name="tool">クリックされたツールを表します。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs.Tool">
+            <summary>クリックされたツールを取得または設定します。</summary>
+            <remarks>クリックされたツール</remarks>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.ToolsCollection">
+            <summary>Toolbarクラスで使用するToolオブジェクトのコレクションをカプセル化します。</summary>
+            <remarks>         ToolsCollectionは、０から始まるインデックスを持つコレクションです。ツールバーに割り当てられたすべてのToolオブジェクトを保持するためにToolbarクラスによって使用されます。          ビューワ上の「コピー」ボタンをクリックすると、レポートの内容をクリップボードにコピーできます。ただし、ワードパッド、およびMicrosoft     Word文書に適した形式でクリップボードにコピーします。テキストエディタなどに貼り付けを行った場合には、DBCS（2バイトコード）文字は正しく貼り付けることができません。このボタンを非表示にするには、Viewerをカスタマイズするを参照してください。     ToolsCollectionのインデックスは、デフォルトの状態では下記のような内容になっています。     0 : 見出し一覧     1 : （セパレータ）     2 : 印刷     3 : （セパレータ）     4 : コピー     5 : （セパレータ）     6 : 検索     7 : （セパレータ）     8 : 単一ページ     9 : 複数ページ     10 : 連続ページ     11 : （セパレータ）     12 : 縮小     13 : 拡大     14 : ズーム     15 : （セパレータ）     16 : 前ページ     17 : 次ページ     18 : 現在のページ番号     19 : （セパレータ）     20 : 戻る     21 : 進む     22 : （セパレータ）     23 : 注釈</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.Add(DataDynamics.ActiveReports.Toolbar.Tool)">
+            <summary>ツールバーのツールのコレクションの末尾に、新しいツールバーを追加します。</summary>
+            <param name="value">コレクションに追加するツールバーのツール。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.AddRange(DataDynamics.ActiveReports.Toolbar.Tool[])">
+            <summary>このツールバーのツールのコレクションに、別のツールバーのツールのコレクションを追加します。</summary>
+            <param name="avalue">配列に含まれるこのToolsCollectionに追加する、ツールバーのツールのコレクション。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.Contains(DataDynamics.ActiveReports.Toolbar.Tool)">
+            <summary>指定したツールバーのツールがコレクションのメンバであるかどうかを決定します。</summary>
+            <returns>    ブール値。ツールがコレクションのメンバである場合は True、それ以外の場合は     False。</returns>
+            <param name="value">コレクション内で検索するツール。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.CopyTo(DataDynamics.ActiveReports.Toolbar.Tool[],System.Int32)">
+            <summary>コレクションから配列にツールをコピーします。コピーは、配列内の特定のインデックスから開始します。</summary>
+            <param name="tools">コレクションのツールを受け取る配列。</param>
+            <param name="index">ツールの挿入位置を表すインデックス。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.GetEnumerator">
+            <summary>ToolsCollectionを反復処理できる列挙子を返します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.IndexOf(DataDynamics.ActiveReports.Toolbar.Tool)">
+            <summary>指定したツールバーのボタンのコレクション内でのインデックスを取得します。</summary>
+            <returns>コレクション内で見つかったアイテムの０から始まるインデックス。見つからなかった場合は-１。</returns>
+            <param name="value">コレクション内で検索するツール。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.Insert(System.Int32,DataDynamics.ActiveReports.Toolbar.Tool)">
+            <summary>ツールバーのツールのコレクションの指定した位置に、既存のツールを挿入します。 メソッド実行後、挿入されたツールアイテム以降のインデックスは、１つずつ後にずれます。</summary>
+            <param name="index">新しいツールをコレクションに挿入する位置のインデックス。</param>
+            <param name="value">挿入するツール。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.Remove(DataDynamics.ActiveReports.Toolbar.Tool)">
+            <summary>指定したツールをツールバーのツールのコレクションから削除します。 メソッド実行後、削除されたツールアイテム以降のインデックスは、１つずつ前にずれます。</summary>
+            <param name="value">コレクションから削除するツール。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Toolbar.ToolsCollection.ToolById(System.Int32)">
+            <summary>ツールバーのツールのコレクション内から、指定したIDのツールを取得します。</summary>
+            <param name="id">ツールのID。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Toolbar.ToolsCollection.Item(System.Int32)">
+            <summary>ツールバーのツールのコレクション内から、指定したインデックスのツールバーのツールを取得または設定します。</summary>
+            <param name="index">コレクション内のToolの位置を表すインデックス。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Toolbar.ToolClickEventHandler">
+            <summary>ToolbarオブジェクトのToolClickイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むToolClickEventArgs値。</param>
+        </member>
+        <member name="N:DataDynamics.ActiveReports.Viewer">
+            <summary>DataDynamics.ActiveReports.Viewer名前空間には、Viewerクラスが含まれています。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.DisplayUnits">
+            <summary>ビューワのルーラの表示に使用する計測単位を決定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.DisplayUnits.Inches">
+            <summary>ルーラはインチ単位で表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.DisplayUnits.Metric">
+            <summary>ルーラはセンチ単位で表示されます。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.TargetView">
+            <summary>ビューワ内の現在アクティブなビューを決定します。</summary>
+            <remarks>         分割コントロールを使用すると、ビューワを２つのビューに分割できます。この列挙体は、メソッドやプロパティの呼び出しによって、どちらのビューが影響を受けるかを決定します。</remarks>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.TargetView.FirstView">
+            <summary>１つ目の（上の）ビューがアクティブなビューです。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.TargetView.SecondView">
+            <summary>２つ目の（下の）ビューがアクティブなビューです。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.TargetView.BothViews">
+            <summary>両方のビューがアクティブです。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.Units">
+            <summary>ビューワの計測単位を表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.Units.Centimeters">
+            <summary>ビューワ描画メソッドのパラメータをセンチ単位で指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.Units.Inches">
+            <summary>ビューワ描画メソッドのパラメータをインチ単位で指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.Units.Document">
+            <summary>ビューワ描画メソッドのパラメータをドキュメント独自の単位（1/300インチ）で指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.Units.Pixels">
+            <summary>ビューワ描画メソッドのパラメータをピクセル単位で指定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.ViewType">
+            <summary>1ページごとの表示であるか、連続ページによる表示であるかを決定します。</summary>
+            <remarks>実行時には、ページのスクロールに合わせてページ番号とサムネイルのフォーカスが動的に更新されます。</remarks>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.ViewType.Normal">
+            <summary>ビューワには１ページずつ表示されますので、ユーザーは次ページを表示するためのボタンをクリックする必要があります。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Viewer.ViewType.ContinuousScroll">
+            <summary>ビューワには垂直方向に連続的にレポートが表示されますので、ユーザーは次ページへのボタンを押すことなくスクロールによって複数ページを見ることができます。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.FindEventArgs">
+            <summary>Findイベントのデータを提供します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.FindEventArgs.#ctor">
+            <summary>FindEventArgsクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.FindEventArgs.#ctor">
+            <summary>FindEventArgsクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.FindEventArgs.#ctor(System.Boolean,System.Int32)">
+            <summary>FindEventArgsクラスの新しいインスタンスを初期化し、FoundプロパティとPageIndexプロパティを設定します。</summary>
+            <param name="found">テキストが見つかったかどうかを表します。</param>
+            <param name="pageIndex">テキストが見つかったページ番号。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.FindEventArgs.Found">
+            <summary>テキストが見つかったかどうかを表す値を取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.FindEventArgs.PageIndex">
+            <summary>テキストが見つかったページ番号を取得します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.History">
+            <summary>ページ表示履歴を管理します。</summary>
+            <remarks>         ページ表示履歴は、ブラウザの履歴と同様、あるページから別のページへ、ユーザーが移動するにしたがって作成されます。MoveNextメソッドとMovePrevメソッドを使用すると、ページ表示履歴を行き来することができます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.History.Clear">
+            <summary>履歴をクリアします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.History.Dispose">
+            <summary>Historyオブジェクトをメモリから解放します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.History.MoveNext">
+            <summary>履歴の次のページに移動します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.History.MovePrev">
+            <summary>履歴の前のページに移動します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.History.Count">
+            <summary>履歴内におけるページ数を参照します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.History.Position">
+            <summary>履歴内における現在のページの位置を取得します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.HyperLinkEventArgs">
+            <summary>HyperLinkイベントのデータを提供します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.HyperLinkEventArgs.#ctor(System.Windows.Forms.MouseButtons,System.String)">
+            <summary>HyperLinkEventArgsクラスの新しいインスタンスを初期化し、ButtonプロパティとHyperLinkプロパティに指定した値を設定します。</summary>
+            <param name="button">クリックしたマウスボタン。</param>
+            <param name="hyperLink">ハイパーリンクの対象。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.HyperLinkEventArgs.Button">
+            <summary>このイベントが発生するときにユーザーがクリックしたマウスボタンを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.HyperLinkEventArgs.CreateNewTab">
+            <summary>新しいタブが作成されたかどうかされたかどうかを示す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.HyperLinkEventArgs.Handled">
+            <summary>このイベントが処理されたかどうかを示す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.HyperLinkEventArgs.HyperLink">
+            <summary>ハイパーリンクの対象を取得します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.Images">
+            <summary>Viewerツールバーに表示されたイメージを表します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.Images.#ctor">
+            <summary>Imagesクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.AnnotationArrow">
+            <summary>注釈の〈矢印〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.AnnotationBalloon">
+            <summary>注釈の〈吹き出し〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.AnnotationCircle">
+            <summary>注釈の〈円〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.AnnotationLine">
+            <summary>注釈の〈直線〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.AnnotationRectangle">
+            <summary>注釈の〈四角形〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.Annotations">
+            <summary>〈注釈〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.AnnotationText">
+            <summary>注釈の〈テキスト ボックス〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.Back">
+            <summary>〈戻る〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.ContinuousScrollView">
+            <summary>〈連続ページ〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.Copy">
+            <summary>〈コピー〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.Find">
+            <summary>〈検索〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.Forward">
+            <summary>〈進む〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.MultiPageView">
+            <summary>〈複数ページ〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.MultiPageViewPage">
+            <summary>〈複数ページ〉ボタンの個々のページとして表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.NextPage">
+            <summary>〈次ページ〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.PreviousPage">
+            <summary>〈前ページ〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.Print">
+            <summary>〈印刷〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.SinglePageView">
+            <summary>〈単一ページ〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.TableOfContents">
+            <summary>〈見出し一覧〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.ZoomIn">
+            <summary>〈拡大〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Images.ZoomOut">
+            <summary>〈縮小〉ボタンに表示されるイメージを取得します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.PageViewAccessible">
+            <summary>         アクセシビリティアプリケーションが障害を持つユーザーのビューワのUIを調整するために使用する情報を提供します。     この型のすべてのメンバの一覧については、PageViewAccessibleメンバを参照してください。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.PageViewAccessible.#ctor(System.Windows.Forms.Control)">
+            <summary>PageViewAccessibleクラスの新しいインスタンスを初期化します。</summary>
+            <param name="ownerControl">アクセス可能なページビューの格納先のビューワコントロール。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.PageViewAccessible.Dispose">
+            <summary>PageViewAccessibleオブジェクトをメモリから解放します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.PageViewAccessible.Description">
+            <summary>アクセス可能なページビューの視覚的な外観の説明を返します。</summary>
+            <remarks>説明は通常、視覚障害を持つユーザーのためにコンテキストを拡大表示するために使用されます。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.PageViewAccessible.Name">
+            <summary>アクセス可能なページビューの名前を設定するか返します。</summary>
+            <remarks>         これは、ユーザー用のページビューを識別、検索、または通知するための文字列です。名前を検索している子のインデックスでGetChildを呼び出し、子オブジェクトの名前を取得します。          注意：名前は、ユーザーがその意味や目的を理解できるような直感的なものにする必要があります。Nameプロパティは、親の任意の兄弟オブジェクトの名前を複製することはできません。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.PageViewAccessible.Role">
+            <summary>ページビューのロールまたは機能を取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.PageViewAccessible.State">
+            <summary>アクセス可能なページビューの状態を取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.PageViewAccessible.Value">
+            <summary>アクセス可能なページビューの値を設定するか返します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.ReportViewerObject">
+            <summary>ビューワのReportViewerコンポーネントのプロパティを管理します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ReportViewerObject.#ctor">
+            <summary>ReportViewerObjectクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ReportViewerObject.Copy">
+            <summary>ReportViewerObjectオブジェクトをコピーします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ReportViewerObject.Dispose">
+            <summary>ReportViewerObjectをメモリから解放します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ReportViewerObject.MoveToBookmark(DataDynamics.ActiveReports.Document.Bookmark)">
+            <summary>指定したブックマークの位置を表示させます。</summary>
+            <param name="bookmark">ナビゲート先のブックマーク。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ReportViewerObject.Refresh">
+            <summary>強制的に、ReportViewerObject自体を再描画します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.AllowSplitter">
+            <summary>ユーザーにビューの分割を許可するかどうかを決定する値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.BackColor">
+            <summary>ビューワの背景色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.ContextMenu">
+            <summary>ユーザーがレポートビューワのコンポーネントを右クリックしたときに表示するポップアップメニューを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.CurrentPage">
+            <summary>ビューワに現在表示されているドキュメントのページ番号を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.DisplayUnits">
+            <summary>ルーラの描画に使用する計測単位を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.Enabled">
+            <summary>ビューワのReportViewが有効かどうかを決定します。</summary>
+            <remarks>ReportViewerを有効または無効に設定しても、ツールバーは有効または無効になりません。このプロパティは、スクロールバーとスプリッタを有効にします。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.History">
+            <summary>ビューワのページ表示履歴への参照を取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.HyperLinkBackColor">
+            <summary>ハイパーリンクをホストするコントロールの背景色を取得または設定します。デフォルトは透明です。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.HyperLinkForeColor">
+            <summary>ハイパーリンクをホストするコントロールの前景色を取得または設定します。デフォルトは青です。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.HyperLinkUnderline">
+            <summary>ハイパーリンクをホストするコントロールのテキストに下線を引くかどうかを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.MultiplePageCols">
+            <summary>ビューワがMultiPageModeのときの左右に並んだページの数を取得または設定します。</summary>
+            <remarks>このプロパティを設定する前に、ビューワのDocumentプロパティを設定する必要があります。そうしないと、効力を持ちません。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.MultiplePageMode">
+            <summary>ビューワのページ表示モードを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.MultiplePageRows">
+            <summary>ビューワがMultiPageModeのときの上下に並んだページの数を取得または設定します。</summary>
+            <remarks>このプロパティを設定する前に、ビューワのDocumentプロパティを設定する必要があります。そうしないと、効力を持ちません。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.PageOffset">
+            <summary>ビューワ内のページの位置を指定します。</summary>
+            <remarks>         このプロパティは、ドキュメントがビューワにロードされた後に設定する必要があります。そうしないと機能しません。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.PaperColor">
+            <summary>レポートビューの用紙を表す色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.RepositionPage">
+            <summary>プレビュー時に、ページをスクロールさせて、ページの下の方を表示させた状態で改ページしたときに、常にページの先頭から表示するかどうかを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.RulerVisible">
+            <summary>ビューワのルーラが表示されているかどうかを示す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.SearchResultsBackColor">
+            <summary>Viewerコントロールの検索ダイアログを使用した時に検索されたテキストの背景色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.SearchResultsForeColor">
+            <summary>Viewerコントロールの検索ダイアログを使用した時に検索されたテキストの前景色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.SplitView">
+            <summary>ビューワが２つのビューに分割されているかどうかを示す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.TargetView">
+            <summary>SplitViewがTrueのときに現在の対象ビューを表す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.UseHyperLinkSettings">
+            <summary>HyperLinkBackColor、HyperLinkForeColor、HyperLinkUnderlineプロパティの設定を適用するかどうか設定または参照します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.ViewType">
+            <summary>ビューワの表示が、１ページごとの表示であるか連続ページによる表示であるかを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ReportViewerObject.Zoom">
+            <summary>ビューワのズームレベルを取得または設定します。</summary>
+            <remarks>０、-１、-２の値は実行時にのみ設定できます。</remarks>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.TableOfContentsObject">
+            <summary>ビューワの見出し一覧のプロパティを管理します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.#ctor">
+            <summary>TableOfContentsObjectクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.Clear">
+            <summary>見出し一覧の内容をクリアします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.Dispose">
+            <summary>TableOfContentsObjectをメモリから解放します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.Refresh">
+            <summary>コンテキストメニューや見出し一覧の変更を有効にするために、再描画します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.ContextMenu">
+            <summary>ユーザーがツールバーを右クリックしたときに表示するポップアップメニューを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.Enabled">
+            <summary>ビューワの見出し一覧が有効であるかどうかを決定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.SelectedIndex">
+            <summary>目次で現在選択されている項目のインデックスを設定するか返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.Text">
+            <summary>見出し一覧のキャプションを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.Visible">
+            <summary>ビューワの見出し一覧が表示されているかどうかを表す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.TableOfContentsObject.Width">
+            <summary>見出し一覧の幅を取得または設定します（ピクセル単位）。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.ToolbarObject">
+            <summary>ビューワのツールバープロパティを管理します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ToolbarObject.#ctor(DataDynamics.ActiveReports.Viewer.Viewer)">
+            <summary>ToolbarObjectクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ToolbarObject.Dispose">
+            <summary>ToolbarObjectをメモリから解放します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.ContextMenu">
+            <summary>ユーザーがツールバーを右クリックしたときに表示するポップアップメニューを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.DisplayToolTips">
+            <summary>ユーザーがマウスポインタをツールの上に置いたときに、ツールチップを表示するかどうかを決定する値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.Enabled">
+            <summary>ビューワのツールバーが有効かどうかを決定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.Font">
+            <summary>ツールバー上のテキストに使用するフォントを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.Images">
+            <summary>ツールバーの画像への参照を取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.RenderMode">
+            <summary>ビューワのツールバーに適用される描画スタイルを示す値を取得または設定します。</summary>
+            <remarks>デフォルトは ToolStripRenderMode.ManagerRenderMode です。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.Tools">
+            <summary>ツールバーのツールへの参照を取得します。</summary>
+            <remarks>         このプロパティを使用すると、AddメソッドとRemoveメソッドを使用してツールバーのツールをカスタマイズできます。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.ToolStrip">
+            <summary>ToolStripを参照します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.Visible">
+            <summary>ビューワのツールバーが表示されているかどうかを示す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ToolbarObject.Wrappable">
+            <summary>ツールバーのツールが１段に収まらないときに、次の段に折り返すかどうかを決定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.Viewer">
+            <summary>Viewerコントロールは、レポートドキュメントを画面でプレビューするときに使用します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.Viewer.#ctor">
+            <summary>Viewerコントロールの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.Viewer.#ctor">
+            <summary>Viewerコントロールの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.Viewer.ShowFindDialog">
+            <summary>検索ダイアログを表示します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Viewer.ColorTheme">
+            <summary>ツールバーに関連した色のテーマを指定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Viewer.Document">
+            <summary>ビューワコントロールで表示するActiveReportsドキュメントを取得または設定します。</summary>
+            <remarks>         ActiveReport.Run(true)メソッドを使用してレポートを実行する前に、ActiveReport.DocumentからDocumentプロパティに、ドキュメントを割り当てることができます。これにより、レポートのページが同期され、レポートの描画後ただちにビューワにページが表示されます。また、レポートの描画が完了した後で、DocumentプロパティにActiveReport.Documentオブジェクトの値を設定することもできます。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Viewer.Localize">
+            <summary>ViewerのUI部分をローカライズするための値を設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Viewer.ReportViewer">
+            <summary>ReportViewerObjectプロパティへの参照を取得します。</summary>
+            <remarks>         このプロパティは、コントロール内でReportViewerコンポーネントのオプションの設定に使用します。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Viewer.TableOfContents">
+            <summary>TableOfContentsObjectへの参照を取得または設定します。</summary>
+            <remarks>         このプロパティは、コントロールのTableOfContentsObjectコンポーネントのオプションの設定に使用します。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Viewer.TabTitleLength">
+            <summary>タブを使ったブラウジングを行うとき、タブタイトルのキャラクタの長さを設定または参照します。設定可能な値は、5～100です。</summary>
+            <remarks>デフォルトは35です。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.Viewer.Toolbar">
+            <summary>コントロールのToolbarObjectへの参照を取得します。</summary>
+            <remarks>このプロパティは、コントロールのToolbarコンポーネントのプロパティの設定に使用します。</remarks>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Viewer.Viewer.Find">
+            <summary>検索ダイアログがドキュメント内で要求されたテキストを見つけたときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Viewer.Viewer.HyperLink">
+            <summary>ユーザーがハイパーリンクを割り当てられたテキストまたは画像をクリックしたときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Viewer.Viewer.LoadCompleted">
+            <summary>ビューワのすべてのページが完全にロードされた後に発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Viewer.Viewer.TableOfContentsAfterSelect">
+            <summary>見出し一覧でアイテムが選択された後に発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Viewer.Viewer.TableOfContentsClick">
+            <summary>ユーザーが見出し一覧のアイテムをクリックしたときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Viewer.Viewer.TableOfContentsSelectedIndexChanged">
+            <summary>目次で現在選択されている項目のインデックスが変更されるときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Viewer.Viewer.ToolClick">
+            <summary>ユーザーがビューワのツールバーのツールをクリックしたときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Viewer.Viewer.ZoomChanged">
+            <summary>ビューワでズームの値が変更されたときに発生します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.WebViewer">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.WebViewer.#ctor(System.String)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.ZoomChangedEventArgs">
+            <summary>ZoomChangedイベントのデータを提供します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ZoomChangedEventArgs.#ctor">
+            <summary>ZoomChangedEventArgsクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ZoomChangedEventArgs.#ctor">
+            <summary>ZoomChangedEventArgsクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Viewer.ZoomChangedEventArgs.#ctor(System.Single)">
+            <summary>ZoomChangedEventArgsクラスの新しいインスタンスを初期化し、Zoomプロパティ値を設定します。</summary>
+            <param name="zoom">新しいズーム値。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Viewer.ZoomChangedEventArgs.Zoom">
+            <summary>ビューワの新しいZoom値を返します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.CloseButtonClickEventHandler">
+            <summary>閉じるボタンをクリックした時に処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むCustomDrawEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.FindEventHandler">
+            <summary>Findイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むFindEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.HyperLinkEventHandler">
+            <summary>ViewerコントロールのHyperLinkイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むHyperLinkEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Viewer.ZoomChangedEventHandler">
+            <summary>ZoomChangedイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むZoomChangeEventArgs値。</param>
+        </member>
+    </members>
+</doc>

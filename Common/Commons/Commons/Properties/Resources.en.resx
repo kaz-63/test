@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ComDefine_AcquisitionSituation" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ComDefine_ARInformationHelp" xml:space="preserve">
+    <value>AR information help</value>
+  </data>
+  <data name="ComDefine_ARInformationInzuhyoImport" xml:space="preserve">
+    <value>Import qty list</value>
+  </data>
+  <data name="ComDefine_ARInformationRegistration" xml:space="preserve">
+    <value>AR information</value>
+  </data>
+  <data name="ComDefine_ARJohoMeisaiGokiIchiran" xml:space="preserve">
+    <value>Device no. list</value>
+  </data>
+  <data name="ComDefine_ARListUnitInfomationSetting" xml:space="preserve">
+    <value>Notification settings per AR list</value>
+  </data>
+  <data name="ComDefine_ARShinchokuKanri" xml:space="preserve">
+    <value>AR progress management</value>
+  </data>
+  <data name="ComDefine_BoxLabel" xml:space="preserve">
+    <value>Box label</value>
+  </data>
+  <data name="ComDefine_BoxList" xml:space="preserve">
+    <value>Box list</value>
+  </data>
+  <data name="ComDefine_BoxPackingAcquisitionError" xml:space="preserve">
+    <value>Box packing - Import error details</value>
+  </data>
+  <data name="ComDefine_BoxTagList" xml:space="preserve">
+    <value>Box tag list</value>
+  </data>
+  <data name="ComDefine_ButtonTextDetail" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="ComDefine_ButtonTextKaijyo" xml:space="preserve">
+    <value>Unpack</value>
+  </data>
+  <data name="ComDefine_ButtonTextKonpo" xml:space="preserve">
+    <value>Pack</value>
+  </data>
+  <data name="ComDefine_ButtonTextKonpozumi" xml:space="preserve">
+    <value>Packed</value>
+  </data>
+  <data name="ComDefine_ButtonTextShukka" xml:space="preserve">
+    <value>Shipping</value>
+  </data>
+  <data name="ComDefine_ButtonTextTouroku" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ComDefine_ButtonTextUkeire" xml:space="preserve">
+    <value>Receive</value>
+  </data>
+  <data name="ComDefine_ComboAllDisp" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="ComDefine_CommonInfomationSetting" xml:space="preserve">
+    <value>Common notification settings</value>
+  </data>
+  <data name="ComDefine_ConstructionIdentificationList" xml:space="preserve">
+    <value>Project list</value>
+  </data>
+  <data name="ComDefine_DbBackupBackupName" xml:space="preserve">
+    <value>{0}- Database backup</value>
+  </data>
+  <data name="ComDefine_DeliverlDestinationList" xml:space="preserve">
+    <value>Project list</value>
+  </data>
+  <data name="ComDefine_DestinationSetting" xml:space="preserve">
+    <value>Mail recipient settings</value>
+  </data>
+  <data name="ComDefine_ExcelFileAR" xml:space="preserve">
+    <value>AR_information.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileARCost" xml:space="preserve">
+    <value>AR_cost_information.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileFrame" xml:space="preserve">
+    <value>Crate_details.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileOperireki" xml:space="preserve">
+    <value>Work_history_list.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFilePacking" xml:space="preserve">
+    <value>Packing.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFilePackingList" xml:space="preserve">
+    <value>PackingList({0}_{1}).xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFilePartsNameHonyaku" xml:space="preserve">
+    <value>Part_name_transitions.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFileShukkaMeisai" xml:space="preserve">
+    <value>Shipping_details.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileTanaoroshi" xml:space="preserve">
+    <value>location data list.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileTehaiMeisai" xml:space="preserve">
+    <value>Procurement_details.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFileTemplate" xml:space="preserve">
+    <value>Template.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFileUserMaster" xml:space="preserve">
+    <value>Login.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFileZaiko" xml:space="preserve">
+    <value>Inventory_list.xls</value>
+  </data>
+  <data name="ComDefine_Exists" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="ComDefine_HistoryQuery" xml:space="preserve">
+    <value>History inquiry</value>
+  </data>
+  <data name="ComDefine_KenpinAcquisitionError" xml:space="preserve">
+    <value>Inspection - Import error description</value>
+  </data>
+  <data name="ComDefine_KenpinListName" xml:space="preserve">
+    <value>Inspection list</value>
+  </data>
+  <data name="ComDefine_LabelCaptionKojiName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ComDefine_LabelCaptionNonyusaki" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ComDefine_LocationAcquisitionError" xml:space="preserve">
+    <value>Storage/Retrieval - Import error description</value>
+  </data>
+  <data name="ComDefine_MasterPackingList" xml:space="preserve">
+    <value>Master packing list</value>
+  </data>
+  <data name="ComDefine_MeasureAcquisitionError" xml:space="preserve">
+    <value>Weight measurement - Import error description</value>
+  </data>
+  <data name="ComDefine_MenuImageBatch" xml:space="preserve">
+    <value>Batch</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImageForm" xml:space="preserve">
+    <value>Form</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImageMaster" xml:space="preserve">
+    <value>Master</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImagePrinter" xml:space="preserve">
+    <value>Printer</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImagePrinterSetting" xml:space="preserve">
+    <value>PrinterSetting</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImageSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImageSearchForm" xml:space="preserve">
+    <value>SearchForm</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MerchandiseTag" xml:space="preserve">
+    <value>ID. Tag</value>
+  </data>
+  <data name="ComDefine_MsgConnectionError" xml:space="preserve">
+    <value>Server connection failed.
+Please check PC or server.</value>
+  </data>
+  <data name="ComDefine_MsgErrorText" xml:space="preserve">
+    <value>Unexpected error occurred.</value>
+  </data>
+  <data name="ComDefine_MsgNotfoundText" xml:space="preserve">
+    <value>Message not defined.</value>
+  </data>
+  <data name="ComDefine_PackingDetail" xml:space="preserve">
+    <value>Packing details</value>
+  </data>
+  <data name="ComDefine_PackingList" xml:space="preserve">
+    <value>Packing list</value>
+  </data>
+  <data name="ComDefine_PalletDetailRegistration" xml:space="preserve">
+    <value>Packing pallet(s)</value>
+  </data>
+  <data name="ComDefine_PalletLabel" xml:space="preserve">
+    <value>Pallet label</value>
+  </data>
+  <data name="ComDefine_PalletList" xml:space="preserve">
+    <value>Pallet list</value>
+  </data>
+  <data name="ComDefine_PalletPackingAcquisitionError" xml:space="preserve">
+    <value>Pallet packing - Import error description</value>
+  </data>
+  <data name="ComDefine_PalletTagList" xml:space="preserve">
+    <value>Pallet tag list</value>
+  </data>
+  <data name="ComDefine_PickupAcquisitionError" xml:space="preserve">
+    <value>Pickup - Import error description</value>
+  </data>
+  <data name="ComDefine_PrintCNoInput" xml:space="preserve">
+    <value>Print case no.</value>
+  </data>
+  <data name="ComDefine_PropertyNameList" xml:space="preserve">
+    <value>Project list</value>
+  </data>
+  <data name="ComDefine_ReceivingInformartionDetail" xml:space="preserve">
+    <value>Receiving information</value>
+  </data>
+  <data name="ComDefine_ResidentTitle" xml:space="preserve">
+    <value>Resident monitoring</value>
+  </data>
+  <data name="ComDefine_SearchShipmentNumber" xml:space="preserve">
+    <value>Shipment number inquiry</value>
+  </data>
+  <data name="ComDefine_ShimeUpdateUserName" xml:space="preserve">
+    <value>Daily processing</value>
+  </data>
+  <data name="ComDefine_ShinchokuGokiIchiran" xml:space="preserve">
+    <value>Select device no.</value>
+  </data>
+  <data name="ComDefine_ShinchokuKanriHenkoRireki" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="ComDefine_ShinchokuKishuIchiran" xml:space="preserve">
+    <value>Select device types</value>
+  </data>
+  <data name="ComDefine_ShippingInformationItem" xml:space="preserve">
+    <value>Shipping details</value>
+  </data>
+  <data name="ComDefine_ShukkaKeikakuBunkatsu" xml:space="preserve">
+    <value>Split qty</value>
+  </data>
+  <data name="ComDefine_ShukkaKeikakuMeisai" xml:space="preserve">
+    <value>Shipping parts entry</value>
+  </data>
+  <data name="ComDefine_SinchokuKanriMailSetting" xml:space="preserve">
+    <value>Progress management notification settings</value>
+  </data>
+  <data name="ComDefine_SKSRenkeiUserName" xml:space="preserve">
+    <value>SKS linkage inquiry</value>
+  </data>
+  <data name="ComDefine_StockTakingAcquisitionError" xml:space="preserve">
+    <value>Inventory check - Import error description</value>
+  </data>
+  <data name="ComDefine_TagDetailRegistration" xml:space="preserve">
+    <value>Packing tag(s)</value>
+  </data>
+  <data name="ComDefine_TagList" xml:space="preserve">
+    <value>Tag list</value>
+  </data>
+  <data name="ComDefine_TehaiEstimate" xml:space="preserve">
+    <value>Estimate entry</value>
+  </data>
+  <data name="ComDefine_TehaiEstimateMeisai" xml:space="preserve">
+    <value>Estimate inquiry</value>
+  </data>
+  <data name="ComDefine_TehaiMeisai" xml:space="preserve">
+    <value>Procurement entry</value>
+  </data>
+  <data name="ComDefine_TehaiMeisaiBunkatsu" xml:space="preserve">
+    <value>Split procurement qty</value>
+  </data>
+  <data name="ComDefine_TehaiMeisaiListImport" xml:space="preserve">
+    <value>Procurement list import</value>
+  </data>
+  <data name="ComDefine_TitlePasswordChange" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="DbLanguage" xml:space="preserve">
+    <value>US</value>
+  </data>
+  <data name="ComDefine_ExcelFileArShinchoku" xml:space="preserve">
+    <value>AR progress.xlsx</value>
+  </data>
+  <data name="ComDefine_PartsMeiImport" xml:space="preserve">
+    <value>Part name transition importation</value>
+  </data>
+  <data name="ComDefine_ComboAllARDisp" xml:space="preserve">
+    <value>All (AR)</value>
+  </data>
+  <data name="ComDefine_ComboAllMishukkaARDisp" xml:space="preserve">
+    <value>All (AR : not shipped)</value>
+  </data>
+  <data name="ComDefine_ARInformationRelationSelect" xml:space="preserve">
+    <value>AR Link Selection</value>
+  </data>
+  <data name="ComDefine_ExcelFileHandyDataErrorMeisaiKenpin" xml:space="preserve">
+    <value>Scan_error_details.xlsx</value>
+  </data>
+  <data name="ComDefine_ReportCheck" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="ComDefine_TagTouroku" xml:space="preserve">
+    <value>Tag registration linkage</value>
+  </data>
+  <data name="ComDefine_SKSRenkeiJoukyouKakunin" xml:space="preserve">
+    <value>SKS linkage status confirmation</value>
+  </data>
+  <data name="ComDefine_NyuukaKenpinTouroku" xml:space="preserve">
+    <value>Arrived goods registration</value>
+  </data>
+  <data name="ComDefine_ShukkaKaishi" xml:space="preserve">
+    <value>Tag printout</value>
+  </data>
+  <data name="ComDefine_MailSousinRireki" xml:space="preserve">
+    <value>E-mail Sending History</value>
+  </data>
+  <data name="ComDefine_ExcelFileShukkaKeikakuShokai" xml:space="preserve">
+    <value>{0}_Shipment Plan_{1:yyyyMMdd}.xlsx</value>
+  </data>
+  <data name="ComDefine_ShukkaKeikaku" xml:space="preserve">
+    <value>Shipping plan importation</value>
+  </data>
+  <data name="ComDefine_CommonInfomationSetting1" xml:space="preserve">
+    <value>Plan importation mail notification settings</value>
+  </data>
+  <data name="ComDefine_ShukkaKeikakuShuokai" xml:space="preserve">
+    <value>Shipping plan inquiry</value>
+  </data>
+  <data name="ComDefine_ExcelFileShukkaKeikaku" xml:space="preserve">
+    <value>{0} {1} Parts Supply Schedule Rev.{2} {3:yyyyMMdd}.xlsx</value>
+  </data>
+</root>

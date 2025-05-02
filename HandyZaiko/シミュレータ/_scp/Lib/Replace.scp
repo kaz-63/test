@@ -1,0 +1,110 @@
+// Copyright (c) 2005-2010 KEYENCE CORPORATION. All rights reserved.
+/*!
+ * @file Replace.scp
+ * @brief Keyence BT-Series アプリケーション用 置き換えマスタ操作ライブラリ
+ */
+
+/*!
+ * @class 置き換えマスタパッケージ。
+ */
+Package Replace
+	preStr     = ""      //置き換え前データ
+	strResult  = Nil      //結果文字列
+
+    /*!
+     * @brief 置き換えマスタ情報セット
+     * 
+     * @param drvfilename ドライブ情報付のファイル名
+     * @param scrstr 置き換え文字列
+     * @param start 対象限定開始位置
+     * @param charnum 置き換え文字数
+     * @return 成功した場合はtrue、引数不正の場合はfalse、通信エラーの場合は"returntop"
+     * @attention なし
+     */
+	Method Exec(drvfilename, scrstr, start, charnum )
+		btvTmp
+		len = 0
+		scrlen			// 検索キー文字列長さ
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Replace.scp [func] Replace:Exec()\n")
+		EndIf
+
+		strResult = nil
+
+		If ( (start.isDigit is false) or (charnum.isDigit is false) ) Then
+			//start, charnum が数値でなければ抜ける
+			return(false)
+		EndIf
+		
+		//置換対象範囲
+		//scrstr をstart　charnumで切り出す
+		If ( start == 0 ) Then  
+			preStr = scrstr
+		Else
+			scrlen = scrstr.length
+			If ( scrlen < start ) Then //開始位置が文字数以上のとき
+				preStr = ""
+			ElseIf( scrlen < start + charnum -1 ) Then //置換対象の終端位置が文字数以上のとき
+				preStr = scrstr.mid( start - 1, scrlen - start + 1 )
+			Else 
+				preStr = scrstr.mid( start - 1, charnum )
+			EndIf
+		EndIf
+
+		// 2文字目が":"か否かでローカル、リモートを切り分ける
+		If drvfilename.Mid(1,1) eq ":" Then
+			With Search
+				:Initialize() 
+				:name = drvfilename
+				strResult  = :GetFirst(1, preStr)
+			EndWith
+		EndIf
+		Return(true)
+	EndMethod
+
+
+    /*!
+     * @brief 置き換え結果を取得する。
+     * 
+     * @param index 置き換え結果の列
+     * @return 置き換え結果文字列、失敗の場合はnull
+     * @attention なし
+     */
+	Method GetResult(index)
+		p = 0
+		pp
+		len
+		i
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Replace.scp [func] Replace:GetResult()\n")
+		EndIf
+
+		If (strResult is nil) Then
+			Return(nil)
+		EndIf
+
+		For i = 2 To index
+			p = strResult.find( ",", p )
+			If ( p is nil ) Then
+				Return(nil)
+			Else
+				p = p + 1
+			EndIf
+		Next
+
+		pp = strResult.find( ",", p)
+		If ( pp is nil ) Then
+			len = strResult.length - p
+		Else
+			len = pp - p
+		EndIf
+
+		Return(strResult.mid( p, len ))
+
+	EndMethod
+	
+EndPackage

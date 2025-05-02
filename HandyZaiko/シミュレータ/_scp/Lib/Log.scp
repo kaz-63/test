@@ -1,0 +1,1131 @@
+// Copyright (c) 2005-2010 KEYENCE CORPORATION. All rights reserved.
+/*!
+ * @file Log.scp
+ * @brief Keyence BT-Series アプリケーション用 ログ操作ライブラリ
+ */
+
+/*!
+ * @class ログデータ操作パッケージ
+ */
+Package LogAccess
+	name						/**< データベース名/ファイル名 */
+	separator					/**< セパレータ */
+	
+	btvDataId = 1 				//= LogRecord:RecordCount()  
+	btvFieldId = 0 				//フィールドインデックス
+	btvCount					//
+	Const btvMaxlen = 8192+50		/** ログデータ最大長 */
+	
+	logMode = "normalinput"		//修正モード("modifylog") or 通常モード("normalinput")
+	logDispStyle = "normallog"	//ユーザ指定表示("normallog") or リスト表示("listlog")
+	
+	btvJointTempdata 			//連結テンポラリデータ
+	btvTempdata 				//テンポラリデータ
+	
+	recidx						//レコード番号
+	
+	Const headerOffset = 3		/**< ヘッダファイルオフセット */
+	fieldNum = 0				/**< フィールド数 0,1-36 */
+	recordData[36]				/**< レコードデータ 1-36 */
+	modifyRecordData[36]		/**< 履歴修正用レコード */
+	stuckData[36]				/**< 退避データ */
+	listData[10]					/**< リストデータ */
+
+    /*!
+     * @brief (ローカル)ログに残すヘッダ情報種別を設定する
+     * 
+     * @param drive 未使用
+     * @param type ログヘッダ情報種別:"ip"/"termid"
+     * @return ログヘッダの切り替え失敗:false / その他:true
+     * @attention なし
+     */
+	Method SetIdType(drive,type)
+	ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:SetIdType()\n")
+		EndIf
+
+		// ログを残さない、またはリモートログの場合は変更しない
+		If JOB:LogType is nil Then
+			Return (true)
+		EndIf
+		
+		ret = LogRecord:SetLogHeaderType(type)
+
+		If ret is false Then
+			Dialog:Message(nil, "異なるログフォーマットに設定されています。", "confirm", "", "", "middle")
+			Return (false)
+		EndIf
+		
+		Return (true)
+	EndMethod
+	
+    /*!
+     * @brief 作業中のログデータを退避する
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method _Push()
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_Push()\n")
+		EndIf
+
+		For i = 0 to 35 stuckData[i] = recordData[i] Next
+	EndMethod
+
+    /*!
+     * @brief ログデータの復帰
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method _Pop()
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_Pop()\n")
+		EndIf
+
+		For i = 0 to 35 recordData[i] = stuckData[i] Next
+	EndMethod
+
+    /*!
+     * @brief ログヘッダフォーマット整形（未使用？）
+     * 
+     * @param header1 ログヘッダ情報(YYYYMMDDHHMMSSxxxxx)のフォーマットになっていること
+     * @param sepa 未使用
+     * @param type 0:YYYYMMDD,HHMMSS
+     *             1:YYYYMMDD
+     *             2:HHMMSS
+     *             3:xxxxx
+     * @return 整形した文字列
+     * @attention なし
+     */
+	Method _FormatLogHeader(header1,sepa,type)
+		ymd				/**< 年月日 */
+		hm				/**< 時分 */
+		s				/**< 秒 */
+		termID			/**< 端末ID */
+		strResult
+		strtmp
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_FormatLogHeader()\n")
+		EndIf
+
+		strtmp = header1
+
+		ymd = strtmp.mid(0,8)
+		hm  = strtmp.mid(8,4)
+		s   = strtmp.mid(12,2)
+		termID = strtmp.mid(14,5)
+		
+		If type == 0 Then
+			strResult = UTL:utlFormatYYYYMMDD(ymd) & ","
+			strResult = strResult & UTL:utlFormatTime(hm,s) 
+		ElseIf type == 1 Then
+			strResult = UTL:utlFormatYYYYMMDD(ymd) 
+		ElseIf type == 2 Then
+			strResult = UTL:utlFormatTime(hm,s) 
+		ElseIf type == 3 Then
+			strResult = termID 
+		EndIf
+
+		return(strResult)
+	EndMethod
+
+    /*!
+     * @brief 履歴情報初期化
+     * 
+     * @param なし
+     * @return 
+     * @attention なし
+     */
+	Method _InitLogHist()
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_InitLogHist()\n")
+		EndIf
+
+		btvCount = UTL:utlMakeFixedNumEx(GetCount(),3)
+
+		If btvDataId is nil Then
+			btvDataId = GetCount()
+		ElseIf btvDataId > GetCount()  Then
+			btvDataId = GetCount() 
+		EndIf
+		Return(Read( btvDataId ))
+	EndMethod
+
+
+    /*!
+     * @brief モードに応じた履歴表示
+     * 
+     * @param なし
+     * @return 表示終了時のキーコード
+     * @attention なし
+     */
+	Method _ShowHistorySub()
+		btvLogKeycode
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_ShowHistorySub()\n")
+		EndIf
+
+		If logDispStyle eq "normallog" Then
+			btvLogKeycode = _ShowNormalLog()
+		ElseIf logDispStyle eq "listlog" Then
+			btvLogKeycode = _ShowLogList()
+		EndIf
+		return(btvLogKeycode)
+	EndMethod
+
+    /*!
+     * @brief 履歴確認メッセージボックス
+     * 
+     * @param なし
+     * @return 
+     * @attention なし
+     */
+	Method _LogConfirmMessageBox()
+		key
+		ret
+		selection = 1		// 選択項目1:表示切替 2:修正 3:削除
+		reverse[3]			// 反転属性
+		disp = ""			// 表示文字列
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_LogConfirmMessageBox()\n")
+		EndIf
+
+		TempScreenInfo:Push()
+		With Screen
+			:update = false
+			:Clear()
+			:reverse = false
+			:font = 1	:fontSize = "middle"	:fontGapy = 1	:fontGapx = 0
+			disp = "履歴データ " & GetDataNum()
+			:posx = 1	:posy = 1	:OutputText(disp)
+			:posx = 2	:posy = 5	:OutputText("処理内容を")
+			:posx = 2	:posy = 7	:OutputText("選択してください")
+			:posx = 2	:posy = 9	:OutputText("(        /    /")
+            :posx = 3   :posy = 11  :OutputText("    )")
+			//:update = true
+		
+			While 1 
+				Select Case selection
+					Case 1
+						reverse[0] = true	reverse[1] = false	reverse[2] = false
+					Case 2
+						reverse[0] = false	reverse[1] = true	reverse[2] = false
+					Case 3
+						reverse[0] = false	reverse[1] = false	reverse[2] = true
+					Case Else
+						selection = 1
+						reverse[0] = true	reverse[1] = false	reverse[2] = false
+				End Select
+			
+				:update = false
+				:reverse = reverse[0]
+				:posx = 3 	:posy = 9	:OutputText("表示切替")
+				:reverse = reverse[1]
+				:posx = 12 	:posy = 9	:OutputText("修正")
+				:reverse = reverse[2]
+				:posx = 3	:posy = 11	:OutputText("削除")
+				:update = true
+			
+				key = Handy:KeyWait()
+				Select Case key
+				Case "ENT"
+					ret = selection   Wbreak
+				Case "C","BS" 
+					ret = 0   Wbreak 
+				Case "RIGHT"
+					selection = selection + 1
+					If (selection > 3) Then selection = 1 EndIf
+				Case "LEFT"
+					selection = selection - 1
+					If (selection < 1) Then selection = 3 EndIf
+				End Select
+			Wend
+		EndWith
+		TempScreenInfo:Pop()
+		return (ret)
+	EndMethod
+
+    /*!
+     * @brief 履歴表示(通常)
+     * 
+     * @param なし
+     * @return 
+     * @attention なし
+     */
+	Method _ShowNormalLog()
+		btvTitle			// タイトル
+		btvLogKeycode		// ビューア戻り値
+		btvRet
+		btvDispLine			// ビューア表示範囲
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_ShowNormalLog()\n")
+		EndIf
+
+		// ユーザが作成した履歴画面をScreenに書き込む
+		btvRet = UTL_INTERFACE:disp_normallog()
+		If not (btvRet is nil) Then
+			If btvRet eq "returntop" Then return( btvRet ) EndIf
+		EndIf
+
+		btvTitle = "履歴表示 "
+		btvTitle = btvTitle & GetDataNum()
+		
+		With Screen
+			TempScreenInfo:Push()
+			:fontSize="large"
+			:fontGapx=0
+			:fontGapy=0
+			btvDispLine = (160 * 4) * 2 / (14 + :fontGapy) - 1
+			btvLogKeycode = :Viewer(btvTitle, 1, btvDispLine, 1)
+			TempScreenInfo:Pop2()
+		EndWith
+
+		Select Case btvLogKeycode
+		Case "RIGHT"
+			btvDataId = btvDataId + 1
+			If btvDataId > GetCount() Then btvDataId = 1 EndIf
+			_Read2( 1 )
+		Case "LEFT"
+			btvDataId = btvDataId -1
+			If btvDataId < 1 Then btvDataId = GetCount() EndIf
+			_Read2( -1 )
+		End Select
+		
+		return (btvLogKeycode)
+	End Method
+
+    /*!
+     * @brief 履歴リスト表示
+     * 
+     * @param なし
+     * @return 
+     * @attention なし
+     */
+	Method _ShowLogList()
+		i
+		j
+		strRecord		// 表示レコード文字列
+		st				// 表示先頭レコードインデックス
+		ed				// 表示最後尾レコードインデックス
+		Keycode
+		tmpStr
+		linenum
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_ShowLogList()\n")
+		EndIf
+
+		TempScreenInfo:Push()
+		With Screen
+
+			If :status is true Then
+				linenum = 8
+			Else
+				linenum = 9
+			EndIf
+
+			:update = false 
+			:Clear()
+			:reverse = false //:status = true
+			:font = 1 :fontSize = "large" :fontGapx =0 :fontGapy = 1
+			:multiColumn = 1
+			:posx = 1 :posy = 1 
+			:OutputText("履歴一覧 全" & btvCount & "件")
+			:DrawLine(0,17,127,17,"black")
+
+			// 表示するレコードを決める
+			st = btvDataId - 4 
+			ed = btvDataId + 4 + (linenum-9)	// ステータス有り:3 無し:4 にする
+			If st < 1 Then
+				st = 1	ed = linenum
+			EndIf			
+			
+			If ed > GetCount() Then
+				ed = GetCount()
+				st = GetCount() - (linenum-1)
+				If st < 1 Then
+					st = 1	
+				EndIf
+			EndIf
+			
+            :fontSize = "middle"
+			// データ取得
+			Read(st)
+			For i = st to ed
+				listData[i-st] = GetDate("yyyy/mm/dd") & "," & GetTime("hh:mm:ss") 
+				For j = 1  to fieldNum
+					tmpStr = GetData(j)
+					If ( tmpStr is nil ) Then tmpStr = "" EndIf
+					If ( listData[i-st].length + tmpStr.length > 8192 ) Then Fbreak EndIf
+					listData[i-st] = listData[i-st] & "," & tmpStr
+				Next
+				_Read2( 1 )
+			Next
+
+			// 表示
+			:posy = 4
+		EndWith
+
+		While 1
+			With Screen
+				:posy = 4
+				:update = false
+				For i = st to ed
+					:reverse = false
+					strRecord = listData[i-st]
+					
+					// マルチバイトチェック(前方)
+					If strRecord.length <= btvFieldId Then
+						strRecord = strRecord.Mid(btvFieldId, 18)
+					ElseIf UTL:UtlMbCheck(strRecord, btvFieldId) == 3 Then
+						strRecord = " " & strRecord.Mid(btvFieldId+1, 18)
+					Else
+						strRecord = strRecord.Mid(btvFieldId, 18)
+					EndIf
+
+					:OutputText("                  ")
+					If i == btvDataId Then
+						:reverse = True
+						If strRecord.length > 18 Then
+							:posx = 18	:OutputText(" ") :posx = 1
+						EndIf
+					Else
+						:reverse = False
+					EndIf
+					:OutputText(strRecord)
+					:posy = :posy + 2
+				Next
+				
+				:update = true
+			EndWith
+			
+			Keycode = Handy:KeyWait()
+			
+			Select Case Keycode
+			Case "DOWN"
+				btvDataId = btvDataId + 1
+				If btvDataId > GetCount() Then btvDataId = GetCount() EndIf
+				Wbreak
+			Case "UP"
+				btvDataId = btvDataId -1
+				If btvDataId < 1 Then btvDataId = 1 EndIf
+				Wbreak
+			Case "RIGHT"
+				btvFieldId = btvFieldId + 1
+				If btvFieldId > btvMaxlen Then btvFieldId = btvMaxlen  EndIf
+			Case "LEFT"
+				btvFieldId = btvFieldId -1
+				If btvFieldId < 0 Then btvFieldId = 0 EndIf
+			Case Else
+				Wbreak
+			End Select
+		Wend
+
+		TempScreenInfo:Pop()
+		return(	Keycode )
+	End Method
+
+    /*!
+     * @brief 履歴表示メイン処理（外部公開関数）
+     * 
+     * @param なし
+     * @return false:履歴表示終了
+     * @attention なし
+     */
+	Method ShowHistory()
+		btvRet
+		btvRet2
+		btvLogKeycode		// ログ表示画面戻り値
+		i
+		ret
+		returntopflg = false
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:ShowHistory()\n")
+		EndIf
+
+		If (JOB:LogType is nil) Then
+			Dialog:Message(nil, "履歴表示できません","confirm", "", "", "middle")
+			Return( false )	// 必ず文字列を返す([トップに戻る]以外は"retry")
+		EndIf
+
+		//データ退避
+		_Push()
+
+		btvDataId = nil
+
+		ret = _InitLogHist()
+		btvFieldId = 0
+		
+		While 1
+			If ret is false Then
+				Dialog:Message(nil, "履歴データがありません ","confirm", "", "", "middle")
+				Wbreak
+			ElseIf not (ret.isBoolean is true) Then
+				// "returntop"の場合
+				returntopflg = true
+				Wbreak
+			EndIf
+			
+			btvLogKeycode = _ShowHistorySub()
+			If btvLogKeycode eq "returntop" Then
+				// "returntop"の場合
+				returntopflg = true
+				Wbreak
+			EndIf
+			
+			Select Case btvLogKeycode
+			
+			Case "ENT"
+				btvRet = _LogConfirmMessageBox()
+				
+				If (btvRet == 1) Then
+					If logDispStyle eq "normallog" Then
+						logDispStyle = "listlog"
+					Else
+						logDispStyle = "normallog"
+						Read(btvDataId)	// データを読み込み直す
+					EndIf
+				ElseIf (btvRet == 2) Then
+					If JOB:modifiable is false Then
+						Dialog:Message(nil, "ログの修正は禁止されています","confirm", "", "", "middle")
+					Else
+						btvRet2 = Dialog:Message(nil, "このレコードを修正しますか?","yesno|no", "", "", "middle")
+						If btvRet2 is true Then
+							Read(btvDataId)
+							_ModifyLog()
+							// 最終レコード、リモートは現在レコードを再取得する
+							btvDataId = nil
+							ret = _InitLogHist()
+						EndIf
+					EndIf
+				ElseIf (btvRet == 3) Then
+					If JOB:modifiable is false Then
+						Dialog:Message(nil, "ログの削除は禁止されています","confirm", "", "", "middle")
+					Else
+						btvRet2 = Dialog:Message(nil, "このレコードを削除してもよいですか？","yesno|no", "", "", "middle")
+						If btvRet2 is true Then
+							Read(btvDataId)
+							_Delete(btvDataId)
+							btvDataId = nil
+							ret = _InitLogHist()
+							If GetCount() == 0 Then
+								Dialog:Message(nil, "履歴データがなくなりました。","confirm", "", "", "middle")
+								Wbreak
+							EndIf
+						EndIf
+					EndIf
+				EndIf
+				
+			Case "BS","C"
+				Wbreak
+			End Select
+		Wend
+		
+		//データ復帰
+		_Pop()
+		If returntopflg is true Then
+			Return( true )	// "returntop"の場合
+		Else
+			Return( false )	// トップに戻らないという意味のfalse
+		EndIf
+	End Method
+
+    /*!
+     * @brief ログ修正
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method _ModifyLog()
+		keyRes = "retry"
+		logIndex
+		msgpos				// １行メッセージ表示位置
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_ModifyLog()\n")
+		EndIf
+
+		For logIndex = 1 to fieldNum
+			_SetModifyData(logIndex, "")
+		Next
+		
+		logMode = "modifylog"//JOB1:mode = "modifylog"
+		logIndex = 1
+		
+		While ( logIndex <= fieldNum )//keyRes ne "end_modify")
+		
+			_SetModifyData(logIndex, GetData(logIndex))
+			UTL_INTERFACE:disp_modify(logIndex, nil)
+			
+			btvJointTempdata = "" 
+				
+			While 1
+				
+				keyRes = UTL_INTERFACE:modify_input(logIndex)
+				
+				Select Case keyRes
+				Case "next"
+					
+					btvJointTempdata = btvJointTempdata & btvTempdata 
+					
+					_SetModifyData(logIndex, btvJointTempdata)
+					
+					UTL_INTERFACE:disp_modify(logIndex, true)//結果を再描画
+					logIndex = logIndex + 1
+					Wbreak
+
+				Case "return1step"
+					logIndex = logIndex - 1
+					If logIndex < 1 Then 
+						logIndex = 1
+					EndIf
+					Wbreak
+					
+				Case "retry"
+ 				Case Else
+					// ここに入る場合は、PMIフィールドと見なし、フィールドをそのままセットする
+					_SetModifyData(logIndex, :GetData(logIndex))
+					logIndex = logIndex + 1
+					Wbreak
+				End Select
+				
+			Wend
+			
+		Wend
+		
+		If Screen:status is true Then
+			msgpos = 17
+		Else
+			msgpos = 19
+		EndIf
+
+		If UTL:OneLineMessageBox(msgpos) is true Then 
+			_Modify()
+		EndIf
+		logMode = "normalinput"
+		
+	End Method
+
+    /*!
+     * @brief 履歴修正用の入力関数
+     * 
+     * @param なし
+     * @return 
+     * @attention なし
+     */
+	Method ModifyLogData(x, y, column, rev, font, area, logIndex )
+		Keycode
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:ModifyLogData()\n")
+		EndIf
+
+		With InputString
+			:posx = x
+			:posy = y
+			:multiColumn = column 
+			:font = font
+			:reverse = rev 
+			:inputAreaSize = area
+			
+			:minLength = 0 :maxLength = 8192
+			:enableKeyInput = true :shift = 0
+			:scanMode = 1			
+			
+			:data = GetData(logIndex) // 初期値設定
+			
+			Keycode = :Exec()
+			
+			If Keycode eq "ENT" or Keycode eq "TRG" Then
+				If Keycode eq "TRG" Then
+					JOB:Entry_read_OK()
+				EndIf
+				btvTempdata = :data
+				Keycode = "ENT"
+			EndIf
+			
+		EndWith
+		
+		return (Keycode)
+		
+	End Method
+
+    /*!
+     * @brief ファイル名の日付指定
+     * 
+     * @param drvNo ドライブ番号
+     * @param strAdd 付加文字列
+     * @param hh 切り替え時刻（時）
+     * @param mm 切り替え時刻（分）
+     * @return なし
+     * @attention なし
+     */
+	Method SetLogFileName( drvNo, strAdd, hh, mm )
+		strDate			// 現在日付
+		strTime			// 現在時刻
+		tmpHH			// 時
+		tmpMM			// 分
+		tmpDay			// 日
+		strNewDate		// 新日付
+		strNewName		// ファイル名
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:SetLogFileName()\n")
+		EndIf
+
+		strDate = Handy:date
+		tmpDay = strDate.mid(8,2)
+		
+		strTime = Handy:time 
+		tmpHH = strTime.mid(0,2)
+		tmpMM = strTime.mid(3,2)
+		
+		//0:00-11:59
+		If ( (0 <= hh) and (hh <= 11) ) Then
+			If ( ( tmpHH < hh ) or (( tmpHH == hh ) and ( tmpMM < mm )) ) Then
+				strDate = logAddDate( strDate, -1 )
+				If strDate is nil Then
+					Dialog:Message(nil, "日付/時刻設定が不正です","confirm", "", "", "middle")
+					Handy:Reset()
+				EndIf
+			EndIf
+		//12:00-23:59
+		ElseIf( (12 <= hh) and (hh <= 23) ) Then
+			If ( ( tmpHH > hh ) or (( tmpHH == hh ) and ( tmpMM >= mm )) ) Then
+				strDate = logAddDate( strDate, 1 )
+				If strDate is nil Then
+					Dialog:Message(nil, "日付/時刻設定が不正です","confirm", "", "", "middle")
+					Handy:Reset()
+				EndIf
+			EndIf
+		EndIf
+		
+		strNewDate = strDate.mid(2,2) & strDate.mid(5,2) & strDate.mid(8,2)  
+
+		If drvNo <> 0 Then
+			strNewName = drvNo & ":" & strNewDate & strAdd
+		Else
+			strNewName = strNewDate & strAdd
+		EndIf
+		
+		name = strNewName
+		
+	EndMethod
+
+    /*!
+     * @brief 日付加算処理
+     * 
+     * @param strDate 
+     * @param addDay 
+     * @return 
+     * @attention なし
+     */
+	Method logAddDate(strDate,addDay)
+		newDate = ""
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:logAddDate()\n")
+		EndIf
+
+		newDate = Utility:AddDate( strDate, addDay )
+		Return (newDate)
+	Catch
+		Return (nil)
+	EndMethod
+
+    /*!
+     * @brief ログレコード設定
+     * 
+     * @param index インデクス(1-33)
+     * @param strData 設定データ
+     * @return なし
+     * @attention なし
+     */
+	Method SetData( index, strData )
+	Begin 
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:SetData()\n")
+		EndIf
+
+		If index < 1 or index > 33 Then Return(Nil) EndIf
+		recordData[ index + headerOffset -1 ] = strData
+	EndMethod
+	
+    /*!
+     * @brief ログレコード取得
+     * 
+     * @param index インデクス(1-33)
+     * @return ログデータ
+     * @attention なし
+     */
+	Method GetData( index )
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetData()\n")
+		EndIf
+
+		If index < 1 or index > 33 Then Return("") EndIf
+		return(recordData[ index + headerOffset -1])
+	EndMethod
+
+
+    /*!
+     * @brief 修正履歴レコード項目取得
+     * 
+     * @param index インデクス(1-33)
+     * @return 履歴データ
+     * @attention なし
+     */
+	Method GetModifyData( index )
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetModifyData()\n")
+		EndIf
+
+		If index < 1 or index > 33 Then Return("") EndIf
+		Return(modifyRecordData[ index + headerOffset -1])
+	EndMethod
+
+    /*!
+     * @brief 修正履歴レコード項目設定
+     * 
+     * @param index インデクス(1-33)
+     * @param strData 設定データ
+     * @return なし
+     * @attention なし
+     */
+	Method _SetModifyData( index, strData )
+	Begin 
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_SetModifyData()\n")
+		EndIf
+
+		If index < 1 or index > 33 Then Return(Nil) EndIf
+		modifyRecordData[ index + headerOffset -1 ] = strData
+	EndMethod
+
+    /*!
+     * @brief 履歴レコード数取得
+     * 
+     * @param なし
+     * @return "X/Y"フォーマットに整形された文字列
+     * @attention なし
+     */
+	Method GetDataNum()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetDataNum()\n")
+		EndIf
+
+		Return(UTL:utlMakeFixedNumEx(btvDataId,3) & "/" & btvCount)
+	EndMethod
+
+    /*!
+     * @brief 日付項目取得
+     * 
+     * @see UTL:utlDateStyle
+     * @param dispStyle スタイル
+     * @return UTL:utlDateStyleの戻り値
+     * @attention なし
+     */
+	Method GetDate( dispStyle )
+		ret
+		strtmp
+	Begin 
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetDate()\n")
+		EndIf
+
+		strtmp = recordData[ 0 ].Remove("/")
+		ret = UTL:utlDateStyle(strtmp, dispStyle)
+		return( ret ) 
+	EndMethod
+
+    /*!
+     * @brief 時刻項目取得
+     * 
+     * @see UTL:utlTimeStyle2
+     * @param dispStyle スタイル
+     * @return UTL:utlTimeStyle2の戻り値
+     * @attention なし
+     */
+	Method GetTime( dispStyle )
+		ret
+		strtmp
+	Begin 
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetTime()\n")
+		EndIf
+
+		strtmp = recordData[ 1 ].Remove(":")
+		ret = UTL:utlTimeStyle2(strtmp, dispStyle)
+		return( ret ) 
+	EndMethod
+	
+    /*!
+     * @brief 端末ID取得
+     * 
+     * @see UTL:utlTermIDStyle2
+     * @param dispStyle スタイル
+     * @return UTL:utlTermIDStyle2の戻り値 (取得失敗時は"")
+     * @attention なし
+     */
+	 Method GetID( dispStyle )
+	 	ret
+	 Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetID()\n")
+		EndIf
+
+		return( UTL:utlTermIDStyle2(Handy:id, dispStyle) )
+	 Catch
+	 	return( "" )
+	 EndMethod
+
+    /*!
+     * @brief IP取得
+     * 
+     * @see UTL:utlTermIDStyle2
+     * @param dispStyle スタイル
+     * @return UTL:utlTermIPStyle2の戻り値 (取得失敗時は"")
+     * @attention なし
+     */
+	Method GetIP( dispStyle )
+		ret
+	Begin 
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetIP()\n")
+		EndIf
+
+		return( UTL:utlTermIPStyle2(CommRF:localIp, dispStyle) ) 
+	Catch
+		return( "" )
+	EndMethod
+
+    /*!
+     * @brief ヘッダ部分に情報を詰め込む
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method SetHeaderData()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:SetHeaderData()\n")
+		EndIf
+
+		recordData[ 0 ] = Handy:date //年月日
+		recordData[ 1 ] = Handy:time //時分秒
+		recordData[ 2 ] = CommRF:localIp    //IP
+	EndMethod
+
+    /*!
+     * @brief ログレコードの追加書き込み
+     * 
+     * @param なし
+     * @return 1:成功 / -1:失敗 (TOPに戻る:"returntop")
+     * @attention なし
+     */
+	Method Append()
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:Append()\n")
+		EndIf
+
+		With LogRecord
+			:name = name
+			:separator = separator
+			:fieldNum = fieldNum
+			For i = 1 To fieldNum
+				:SetData(i, GetData(i))
+			Next
+			If (:Append()) Then
+				Return(1)
+			Else
+				Return(-1)
+			EndIf
+		End With
+
+	End Method
+
+    /*!
+     * @brief ログレコードの修正
+     * 
+     * @param なし
+     * @return true:成功 / false:失敗 (TOPに戻る:"returntop")
+     * @attention なし
+     */
+	Method _Modify()
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_Modify()\n")
+		EndIf
+
+		With LogRecord
+			:name = name
+			:separator = separator
+			:fieldNum = fieldNum
+			For i = 1 To fieldNum
+				:SetData(i, GetModifyData(i))
+			Next
+			Return(:Modify(recidx))
+		End With
+
+	Catch
+		Return(false)
+	End Method
+
+    /*!
+     * @brief ログレコードの削除
+     * 
+     * @see LogRecord:Delete
+     * @param index 
+     * @return true:成功 / false:失敗 (TOPに戻る:"returntop")
+     * @attention なし
+     */
+	Method _Delete(index)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_Delete()\n")
+		EndIf
+
+		With LogRecord
+			:name = name
+			:separator = separator
+			:fieldNum = fieldNum
+			Return(:Delete(LogRecord:Read(index)))
+		End With
+	Catch
+		Return(false)
+	End Method
+
+	_lastindex = 0
+
+    /*!
+     * @brief ログレコードの読み出し(インデクス指定)
+     * 
+     * @param index インデクス
+     * @return 成功時:true / 失敗時:false
+     * @attention なし
+     */
+	Method Read(index)
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:Read()\n")
+		EndIf
+
+		With LogRecord
+			:name = name
+			:separator = separator
+			_lastindex = index
+			recidx = :Read(index)
+			If recidx is nil Then Return(False) EndIf
+
+			For i = 1 To :fieldNum SetData(i, :GetData(i)) Next
+			recordData[0] = :header.Left(8)		//yyyymmdd
+			recordData[1] = :header.Mid(8,6)	//hhmmss
+			recordData[2] = :header.Mid(14,3)	//iii.iii.iii.iii("."は無い）
+					& "." & :header.Mid(17,3)
+					& "." & :header.Mid(21,3)
+					& "." & :header.Mid(24,3)
+			Return(True)
+		End With
+	End Method
+
+    /*!
+     * @brief ログレコードの読み出し(最後に読み込んだレコードから指定したオフセット分後ろからの読み出し)
+     * 
+     * @param offset オフセット
+     * @return 成功時:true / 失敗時:talse
+     * @attention なし
+     */
+	Method _Read2(offset)
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:_Read2()\n")
+		EndIf
+
+		With LogRecord
+			:name = name
+			:separator = separator
+			_lastindex = _lastindex + offset
+			If _lastindex < 1 Then _lastindex = _lastindex + :recordCount EndIf
+			If _lastindex > :recordCount Then _lastindex = _lastindex - :recordCount EndIf
+			recidx = :Read(_lastindex)
+			If recidx is nil Then Return(False) EndIf
+
+			For i = 1 To :fieldNum SetData(i, :GetData(i)) Next
+			recordData[0] = :header.Left(8)		//yyyymmdd
+			recordData[1] = :header.Mid(8,6)	//hhmmss
+			recordData[2] = :header.Mid(14,3)	//iii.iii.iii.iii("."は無い）
+					& "." & :header.Mid(17,3)
+					& "." & :header.Mid(21,3)
+					& "." & :header.Mid(24,3)
+			Return(True)
+		End With
+	End Method
+
+    /*!
+     * @brief レコード件数の取得
+     * 
+     * @param なし
+     * @return レコード数
+     * @attention なし
+     */
+	Method GetCount()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetCount()\n")
+		EndIf
+
+		With LogRecord
+			:name = name
+			:separator = separator
+			Return(:recordCount)
+		End With
+	End Method
+
+    /*!
+     * @brief 現在のログ記録方法の取得
+     * 
+     * @param なし
+     * @return ログ記録方法
+     * @attention なし
+     */
+	Method GetLogType()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Log.scp [func] LogAccess:GetLogType()\n")
+		EndIf
+
+		If JOB:LogType is nil Then
+			Return ("")
+		Else
+			Return (JOB:LogType)
+		EndIf
+	EndMethod
+
+EndPackage

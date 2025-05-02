@@ -1,0 +1,1209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MultiRowTabelle</name>
+    </assembly>
+    <members>
+        <member name="T:MultiRowTabelle.MultiRowCellCollection">
+            --------------------------------------------------
+            <summary>
+            セル管理用コレクションクラス
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.#ctor(System.Collections.Generic.IList{MultiRowTabelle.MultiRowCell})">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="list">新しいコレクションにラップされているリスト</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="dataField">データフィールド</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.String,GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="dataField">データフィールド</param>
+            <param name="enterKeyActions">Enterキー押下時のアクション</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.String,System.Windows.Forms.ImeMode)">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="dataField">データフィールド</param>
+            <param name="imeMode">IMEモード</param>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.Int32,System.String,GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="enterKeyActions">Enterキー押下時のアクション</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.Int32,System.String,System.Windows.Forms.ImeMode)">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="imeMode">IMEモード</param>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="colSpan">列の連結数</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.Int32,System.Int32,System.String,GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="colSpan">列の連結数</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="enterKeyActions">Enterキー押下時のアクション</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.Int32,System.Int32,System.String,System.Windows.Forms.ImeMode)">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="colSpan">列の連結数</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="imeMode">IMEモード</param>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Add(System.Int32,System.Int32,System.Int32,System.String,System.Windows.Forms.ImeMode,GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="colSpan">列の連結数</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="imeMode">IMEモード</param>
+            <param name="enterKeyActions">Enterキー押下時のアクション</param>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCellCollection.System#ICloneable#Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:MultiRowTabelle.MultiRow">
+            --------------------------------------------------
+            <summary>
+            行管理クラス
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRow.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRow.Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRow.System#ICloneable#Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRow.Cells">
+            --------------------------------------------------
+            <summary>
+            セルコレクション
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:MultiRowTabelle.MultiRowFormat">
+            --------------------------------------------------
+            <summary>
+            1レコード複数行のフォーマット管理クラス
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowFormat.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowFormat.SetRowNum(System.Int32)">
+            --------------------------------------------------
+            <summary>
+            指定行数追加
+            </summary>
+            <param name="rowNum">追加行数</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowFormat.Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowFormat.System#ICloneable#Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowFormat.Rows">
+            --------------------------------------------------
+            <summary>
+            行管理用コレクション
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:MultiRowTabelle.MultiRowSheet">
+            --------------------------------------------------
+            <summary>
+            1レコード複数行拡張用El Tabelle Sheet
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.#ctor(System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="text">シートのテキスト</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.#ctor(System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="maxColumns">最大列数</param>
+            <param name="maxRows">最大行数</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.#ctor(System.Drawing.Color,System.Drawing.Color,System.Drawing.Font)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="backColor">シートの背景色</param>
+            <param name="foreColor">シートの前景色</param>
+            <param name="font">フォント</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.#ctor(System.String,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="text">シートのテキスト</param>
+            <param name="maxColumns">最大列数</param>
+            <param name="maxRows">最大行数</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.#ctor(System.String,System.Drawing.Color,System.Drawing.Color,System.Drawing.Font)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="text">シートのテキスト</param>
+            <param name="backColor">シートの背景色</param>
+            <param name="foreColor">シートの前景色</param>
+            <param name="font">フォント</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.#ctor(System.String,System.Drawing.Color,System.Drawing.Color,System.Drawing.Font,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="text">シートのテキスト</param>
+            <param name="backColor">シートの背景色</param>
+            <param name="foreColor">シートの前景色</param>
+            <param name="font">フォント</param>
+            <param name="maxColumns">最大列数</param>
+            <param name="maxRows">最大行数</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.InitializeComponent">
+            --------------------------------------------------
+            <summary>
+            コンポーネントの初期化
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowSheet_Enter(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            コントロールがフォームのアクティブコントロールになった
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.shortCutEnter_ShortCutNotify(System.Object,GrapeCity.Win.ElTabelle.ShortCutNotifyEventArgs)">
+            --------------------------------------------------
+            <summary>
+            ショートカットキーが押された場合に発生します。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowSheet_RowRemoved(System.Object,GrapeCity.Win.ElTabelle.RowRemovedEventArgs)">
+            --------------------------------------------------
+            <summary>
+            行削除された後に発生します。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowSheet_RowRemoving(System.Object,GrapeCity.Win.ElTabelle.RowRemovingEventArgs)">
+            --------------------------------------------------
+            <summary>
+            行が削除される前に発生します。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowSheet_ValueChanged(System.Object,GrapeCity.Win.ElTabelle.ValueChangedEventArgs)">
+            --------------------------------------------------
+            <summary>
+            シートのセルの値が変更されたときに発生します。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>Y.Higuchi 2010/07/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowSheet_Scroll(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            シートがスクロールされる場合に発生します。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2010/07/09</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowSheet_Resize(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            コントロールのサイズが変更されると発生します。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2010/07/09</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.Dispose(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージ リソースが破棄される場合 true、破棄されない場合は false です。</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.UnMultiRow">
+            --------------------------------------------------
+            <summary>
+            複数行解除
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.SetMultiRowData(System.Data.DataTable,MultiRowTabelle.MultiRowFormat)">
+            --------------------------------------------------
+            <summary>
+            データをグリッドに表示
+            </summary>
+            <param name="dtOriginal">データテーブル</param>
+            <param name="format">フォーマット</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.SetMultiRowDataSource(System.Data.DataSet,System.String,MultiRowTabelle.MultiRowFormat)">
+            --------------------------------------------------
+            <summary>
+            データソースの設定
+            </summary>
+            <param name="ds">データセット</param>
+            <param name="dataMember">使用するデータテーブル名</param>
+            <param name="format">1レコード複数行のフォーマット管理クラス</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.SetMultiRowDataSource(System.Data.DataTable,MultiRowTabelle.MultiRowFormat)">
+            --------------------------------------------------
+            <summary>
+            データソースの設定
+            </summary>
+            <param name="dt">データテーブル</param>
+            <param name="format">1レコード複数行のフォーマット管理クラス</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowFormatRowStyle(System.Int32)">
+            --------------------------------------------------
+            <summary>
+            行のフォーマットを設定
+            </summary>
+            <param name="startRow">開始行</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowFormatRowStyle(System.Int32,System.Data.DataRow)">
+            --------------------------------------------------
+            <summary>
+            行のフォーマットを設定
+            </summary>
+            <param name="startRow">開始行</param>
+            <param name="drOriginal">データロウ</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.SetRowHeader">
+            --------------------------------------------------
+            <summary>
+            行ヘッダのキャプション設定
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.GetMultiRowGetDataSource">
+            --------------------------------------------------
+            <summary>
+            データ取得
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowAdd">
+            --------------------------------------------------
+            <summary>
+            1レコード複数行追加
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowRemove(System.Int32)">
+            --------------------------------------------------
+            <summary>
+            1レコード複数行削除
+            </summary>
+            <param name="rowIndex">行インデックス</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowRemove(System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            複数レコード行削除
+            </summary>
+            <param name="rowIndex">行インデックス</param>
+            <param name="rowCount">削除する行数</param>
+            <create>T.Sakiori 2010/08/13</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.DispPartMerge">
+            --------------------------------------------------
+            <summary>
+            表示部分のみ連結
+            </summary>
+            <create>T.Sakiori 2010/07/09</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowSheet.MultiRowAllClear">
+            --------------------------------------------------
+            <summary>
+            MultiRowSheetのフォーマット及びデータをクリア
+            </summary>
+            <create>Y.Higuchi 2010/07/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowSheet.InnerOriginalSource">
+            --------------------------------------------------
+            <summary>
+            表示開始時に渡されたDataSet
+            </summary>
+            <create>Y.Higuchi 2010/04/22</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowSheet.InnerDataMember">
+            --------------------------------------------------
+            <summary>
+            表示開始時に渡されたテーブル名
+            </summary>
+            <create>Y.Higuchi 2010/04/22</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowSheet.InnerFormat">
+            --------------------------------------------------
+            <summary>
+            表示開始時に渡されたMultiRowFormat
+            </summary>
+            <create>Y.Higuchi 2010/04/22</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowSheet.InnerDataCount">
+            --------------------------------------------------
+            <summary>
+            制御用データ数
+            </summary>
+            <create>Y.Higuchi 2010/04/22</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowSheet.MultiRowAllowUserToAddRows">
+            --------------------------------------------------
+            <summary>
+            (1レコード複数行拡張用)行を追加するオプションがユーザーに表示されるかどうかを示す値を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:MultiRowTabelle.MultiRowCollection">
+            --------------------------------------------------
+            <summary>
+            行管理コレクションクラス
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCollection.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCollection.#ctor(System.Collections.Generic.IList{MultiRowTabelle.MultiRow})">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="list">新しいコレクションにラップされているリスト</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCollection.Add">
+            --------------------------------------------------
+            <summary>
+            末尾にコレクションを追加
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCollection.Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCollection.System#ICloneable#Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:MultiRowTabelle.MultiRowCell">
+            --------------------------------------------------
+            <summary>
+            セル管理用クラス
+            GrapeCity.Win.ElTabelle.CellのEditor、ImeModeのみコピーされます。
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="dataField">データフィールド</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update>Y.Higuchi 2010/05/17</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.String,GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="dataField">データフィールド</param>
+            <param name="enterKeyActions">Enterキー押下時のアクション</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update>Y.Higuchi 2010/05/17</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.String,System.Windows.Forms.ImeMode)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="dataField">データフィールド</param>
+            <param name="imeMode">IMEモード</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update>Y.Higuchi 2010/05/17</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update>Y.Higuchi 2010/05/17</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.Int32,System.String,GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="enterKeyActions">Enterキー押下時のアクション</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update>Y.Higuchi 2010/05/17</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.Int32,System.String,System.Windows.Forms.ImeMode)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="imeMode">IMEモード</param>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="colSpan">列の連結数</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update>Y.Higuchi 2010/05/17</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.Int32,System.Int32,System.String,GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="colSpan">列の連結数</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="enterKeyActions">Enterキー押下時のアクション</param>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update>Y.Higuchi 2010/05/17</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.Int32,System.Int32,System.String,System.Windows.Forms.ImeMode)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="colSpan">列の連結数</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="imeMode">IMEモード</param>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.#ctor(System.Int32,System.Int32,System.Int32,System.String,System.Windows.Forms.ImeMode,GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="col">表示列インデックス</param>
+            <param name="colSpan">列の連結数</param>
+            <param name="rowSpan">行の連結数</param>
+            <param name="dataField">データフィールド</param>
+            <param name="imeMode">IMEモード</param>
+            <param name="enterKeyActions">Enterキー押下時のアクション</param>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update>Y.Higuchi 2010/05/17</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.GetEnterKeyActionArray(GrapeCity.Win.ElTabelle.KeyAction[])">
+            --------------------------------------------------
+            <summary>
+            キーアクションの配列取得
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.CellCopy(GrapeCity.Win.ElTabelle.Cell)">
+            --------------------------------------------------
+            <summary>
+            設定値をCellにコピー
+            </summary>
+            <param name="dest"></param>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:MultiRowTabelle.MultiRowCell.System#ICloneable#Clone">
+            --------------------------------------------------
+            <summary>
+            Clone
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.AlignHorizontal">
+            --------------------------------------------------
+            <summary>
+            セルのコンテンツの水平方向の配置を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.AlignVertical">
+            --------------------------------------------------
+            <summary>
+            セルのコンテンツの垂直方向の配置を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.BackColor">
+            --------------------------------------------------
+            <summary>
+            セルの背景色を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.CanActivate">
+            --------------------------------------------------
+            <summary>
+            セルへの移動を許可するかどうかを示す値を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.DisabledBackColor">
+            --------------------------------------------------
+            <summary>
+            セルが無効の場合の背景色を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.DisabledForeColor">
+            --------------------------------------------------
+            <summary>
+            セルが無効の場合の前景色を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Editor">
+            --------------------------------------------------
+            <summary>
+            セル型を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Enabled">
+            --------------------------------------------------
+            <summary>
+            セルがユーザーとの対話に応答できるかどうかを示す値を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.ErrorIcon">
+            --------------------------------------------------
+            <summary>
+            セルのエラーを示すアイコンを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.ErrorText">
+            --------------------------------------------------
+            <summary>
+            エラーを説明する文字列を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Font">
+            --------------------------------------------------
+            <summary>
+            セルのフォントを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.ForeColor">
+            --------------------------------------------------
+            <summary>
+            セルの前景色を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.FormatCondition">
+            --------------------------------------------------
+            <summary>
+            条件付きフォーマットのオブジェクトを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Formula">
+            --------------------------------------------------
+            <summary>
+            セルの数式を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.ImeMode">
+            --------------------------------------------------
+            <summary>
+            セルの IME (Input Method Editor) 入力モードを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.ImeSentenceMode">
+            --------------------------------------------------
+            <summary>
+            セルの IME (Input Method Editor) 変換モードを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Lock">
+            --------------------------------------------------
+            <summary>
+            セルをロックするかどうかを示す値を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Note">
+            --------------------------------------------------
+            <summary>
+            セルノートを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.NoteDisplayMode">
+            --------------------------------------------------
+            <summary>
+            セルノートの表示状態を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.OwnerDraw">
+            --------------------------------------------------
+            <summary>
+            セルのオーナー描画を有効にするかどうかを示す値を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.PatternColor">
+            --------------------------------------------------
+            <summary>
+            セルの背景パターンの色を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.PatternStyle">
+            --------------------------------------------------
+            <summary>
+            セルの背景パターンのスタイルを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Tag">
+            --------------------------------------------------
+            <summary>
+            セルに関するデータを格納するオブジェクトを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Text">
+            --------------------------------------------------
+            <summary>
+            セルのテキストを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.TextAlignHorizontal">
+            --------------------------------------------------
+            <summary>
+            セルのテキストの水平方向の配置を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.TextAlignVertical">
+            --------------------------------------------------
+            <summary>
+            セルのテキストの垂直方向の配置を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.TextEffect">
+            --------------------------------------------------
+            <summary>
+            セルのテキストの 3D 効果を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.TextIndent">
+            --------------------------------------------------
+            <summary>
+            セルのテキストのインデントを取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.TextRotationAngle">
+            --------------------------------------------------
+            <summary>
+            セルのテキストの角度を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Value">
+            --------------------------------------------------
+            <summary>
+            セルの値を取得または設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.Col">
+            --------------------------------------------------
+            <summary>
+            表示列インデックス
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.ColSpan">
+            --------------------------------------------------
+            <summary>
+            列の連結数
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.RowSpan">
+            --------------------------------------------------
+            <summary>
+            行の連結数
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.DataField">
+            --------------------------------------------------
+            <summary>
+            データフィールド
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.EnterKeyActions">
+            --------------------------------------------------
+            <summary>
+            Enterキー押下時のアクション
+            </summary>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:MultiRowTabelle.MultiRowCell.DefaultEnterKeyActions">
+            --------------------------------------------------
+            <summary>
+            デフォルトのキーアクションの配列
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/04/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+    </members>
+</doc>

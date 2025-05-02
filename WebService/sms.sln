@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "sms", "sms", "{E3952AA5-E878-4398-B38F-53664665BAB9}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
+		TargetFramework = "3.5"
+		ProjectReferences = "{7CF83010-9C8F-482B-B0C0-CA10DA669345}|Commons.dll;{44F553AA-7F15-4878-9F78-74D47392952D}|Condition.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/sms"
+		Debug.AspNetCompiler.PhysicalPath = "sms\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\sms\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/sms"
+		Release.AspNetCompiler.PhysicalPath = "sms\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\sms\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2662"
+		VWDVirtualPath = "/sms"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+	ProjectSection(SvnOrigin) = preProject
+		@Keys = Enlist,Svn.Uri
+		Enlist = Required
+		Svn.Uri = sms/
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "..\Common\Commons\Commons\Commons.csproj", "{7CF83010-9C8F-482B-B0C0-CA10DA669345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Condition", "..\Common\Condition\Condition\Condition.csproj", "{44F553AA-7F15-4878-9F78-74D47392952D}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3952AA5-E878-4398-B38F-53664665BAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3952AA5-E878-4398-B38F-53664665BAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3952AA5-E878-4398-B38F-53664665BAB9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3952AA5-E878-4398-B38F-53664665BAB9}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{7CF83010-9C8F-482B-B0C0-CA10DA669345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF83010-9C8F-482B-B0C0-CA10DA669345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF83010-9C8F-482B-B0C0-CA10DA669345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF83010-9C8F-482B-B0C0-CA10DA669345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F553AA-7F15-4878-9F78-74D47392952D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F553AA-7F15-4878-9F78-74D47392952D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F553AA-7F15-4878-9F78-74D47392952D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F553AA-7F15-4878-9F78-74D47392952D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

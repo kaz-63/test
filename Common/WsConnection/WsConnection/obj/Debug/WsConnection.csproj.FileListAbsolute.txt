@@ -1,0 +1,13 @@
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\WsConnection.dll.config
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\WsConnection.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\WsConnection.pdb
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\Commons.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\DSWUtil.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\DSWUtil.xml
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\Commons.pdb
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\Commons.xml
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\en\Commons.resources.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Debug\ja\Commons.resources.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\obj\Debug\ResolveAssemblyReference.cache
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\obj\Debug\WsConnection.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\obj\Debug\WsConnection.pdb

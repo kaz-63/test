@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B73528DB-BA93-4442-A0DB-CE99D72289FC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMS.M01</RootNamespace>
+    <AssemblyName>SMS.M01</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSWControl, Version=1.7.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DSWUtil, Version=0.5.4.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="ElTabelleHelper, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\ElTabelleHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.Excel, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=b0e38629244efa22" />
+    <Reference Include="GrapeCity.Win.BaseGrid.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+    <Reference Include="GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XlsCreatorHelper, Version=1.0.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsCreatorHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="XlsxCreatorHelper, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsxCreatorHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\BukkenMeiHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BukkenMeiHoshu.Designer.cs">
+      <DependentUpon>BukkenMeiHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BukkenMeiHoshuIkkatsu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BukkenMeiHoshuIkkatsu.Designer.cs">
+      <DependentUpon>BukkenMeiHoshuIkkatsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EcsHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EcsHoshu.Designer.cs">
+      <DependentUpon>EcsHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HaisosakiHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HaisosakiHoshu.Designer.cs">
+      <DependentUpon>HaisosakiHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\KonpoJohoHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KonpoJohoHoshu.Designer.cs">
+      <DependentUpon>KonpoJohoHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NiukeHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NiukeHoshu.Designer.cs">
+      <DependentUpon>NiukeHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NonyusakiHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NonyusakiHoshu.Designer.cs">
+      <DependentUpon>NonyusakiHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PartsMeiHonyakuHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PartsMeiHonyakuHoshu.Designer.cs">
+      <DependentUpon>PartsMeiHonyakuHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PartsMeiHonyakuImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PartsMeiHonyakuImport.Designer.cs">
+      <DependentUpon>PartsMeiHonyakuImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShukkamotoHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShukkamotoHoshu.Designer.cs">
+      <DependentUpon>ShukkamotoHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserMaster.Designer.cs">
+      <DependentUpon>UserMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MeishoHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MeishoHoshu.Designer.cs">
+      <DependentUpon>MeishoHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BasicNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BasicNotify.Designer.cs">
+      <DependentUpon>BasicNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CommonNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommonNotify.Designer.cs">
+      <DependentUpon>CommonNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARListNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARListNotify.Designer.cs">
+      <DependentUpon>ARListNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MailSendInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MailSendInfo.Designer.cs">
+      <DependentUpon>MailSendInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UnsoKaisyaHoshu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UnsoKaisyaHoshu.Designer.cs">
+      <DependentUpon>UnsoKaisyaHoshu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShinchokuNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShinchokuNotify.Designer.cs">
+      <DependentUpon>ShinchokuNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\KeikakuTorikomiNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KeikakuTorikomiNotify.Designer.cs">
+      <DependentUpon>KeikakuTorikomiNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\ARListNotify.en.resx">
+      <DependentUpon>ARListNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARListNotify.ja.resx">
+      <DependentUpon>ARListNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicNotify.en.resx">
+      <DependentUpon>BasicNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicNotify.ja.resx">
+      <DependentUpon>BasicNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BukkenMeiHoshu.en.resx">
+      <DependentUpon>BukkenMeiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BukkenMeiHoshu.ja.resx">
+      <DependentUpon>BukkenMeiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BukkenMeiHoshu.resx">
+      <DependentUpon>BukkenMeiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BukkenMeiHoshuIkkatsu.en.resx">
+      <DependentUpon>BukkenMeiHoshuIkkatsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BukkenMeiHoshuIkkatsu.ja.resx">
+      <DependentUpon>BukkenMeiHoshuIkkatsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BukkenMeiHoshuIkkatsu.resx">
+      <DependentUpon>BukkenMeiHoshuIkkatsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommonNotify.en.resx">
+      <DependentUpon>CommonNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommonNotify.ja.resx">
+      <DependentUpon>CommonNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EcsHoshu.en.resx">
+      <DependentUpon>EcsHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EcsHoshu.ja.resx">
+      <DependentUpon>EcsHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EcsHoshu.resx">
+      <DependentUpon>EcsHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HaisosakiHoshu.en.resx">
+      <DependentUpon>HaisosakiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HaisosakiHoshu.ja.resx">
+      <DependentUpon>HaisosakiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HaisosakiHoshu.resx">
+      <DependentUpon>HaisosakiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KonpoJohoHoshu.en.resx">
+      <DependentUpon>KonpoJohoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KonpoJohoHoshu.ja.resx">
+      <DependentUpon>KonpoJohoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KonpoJohoHoshu.resx">
+      <DependentUpon>KonpoJohoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MailSendInfo.en.resx">
+      <DependentUpon>MailSendInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MailSendInfo.ja.resx">
+      <DependentUpon>MailSendInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MeishoHoshu.en.resx">
+      <DependentUpon>MeishoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MeishoHoshu.ja.resx">
+      <DependentUpon>MeishoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NiukeHoshu.en.resx">
+      <DependentUpon>NiukeHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NiukeHoshu.ja.resx">
+      <DependentUpon>NiukeHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NiukeHoshu.resx">
+      <DependentUpon>NiukeHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NonyusakiHoshu.en.resx">
+      <DependentUpon>NonyusakiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NonyusakiHoshu.ja.resx">
+      <DependentUpon>NonyusakiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NonyusakiHoshu.resx">
+      <DependentUpon>NonyusakiHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PartsMeiHonyakuHoshu.en.resx">
+      <DependentUpon>PartsMeiHonyakuHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PartsMeiHonyakuHoshu.ja.resx">
+      <DependentUpon>PartsMeiHonyakuHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PartsMeiHonyakuHoshu.resx">
+      <DependentUpon>PartsMeiHonyakuHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PartsMeiHonyakuImport.en.resx">
+      <DependentUpon>PartsMeiHonyakuImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PartsMeiHonyakuImport.ja.resx">
+      <DependentUpon>PartsMeiHonyakuImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PartsMeiHonyakuImport.resx">
+      <DependentUpon>PartsMeiHonyakuImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkamotoHoshu.en.resx">
+      <DependentUpon>ShukkamotoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkamotoHoshu.ja.resx">
+      <DependentUpon>ShukkamotoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkamotoHoshu.resx">
+      <DependentUpon>ShukkamotoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserMaster.en.resx">
+      <DependentUpon>UserMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserMaster.ja.resx">
+      <DependentUpon>UserMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserMaster.resx">
+      <DependentUpon>UserMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MeishoHoshu.resx">
+      <DependentUpon>MeishoHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicNotify.resx">
+      <DependentUpon>BasicNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommonNotify.resx">
+      <DependentUpon>CommonNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARListNotify.resx">
+      <DependentUpon>ARListNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MailSendInfo.resx">
+      <DependentUpon>MailSendInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UnsoKaisyaHoshu.en.resx">
+      <DependentUpon>UnsoKaisyaHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UnsoKaisyaHoshu.ja.resx">
+      <DependentUpon>UnsoKaisyaHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UnsoKaisyaHoshu.resx">
+      <DependentUpon>UnsoKaisyaHoshu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuNotify.en.resx">
+      <DependentUpon>ShinchokuNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuNotify.ja.resx">
+      <DependentUpon>ShinchokuNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuNotify.resx">
+      <DependentUpon>ShinchokuNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KeikakuTorikomiNotify.en.resx">
+      <DependentUpon>KeikakuTorikomiNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KeikakuTorikomiNotify.ja.resx">
+      <DependentUpon>KeikakuTorikomiNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KeikakuTorikomiNotify.resx">
+      <DependentUpon>KeikakuTorikomiNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.en.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Commons\Commons\Commons.csproj">
+      <Project>{7CF83010-9C8F-482B-B0C0-CA10DA669345}</Project>
+      <Name>Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\WsConnection\WsConnection\WsConnection.csproj">
+      <Project>{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}</Project>
+      <Name>WsConnection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMS.E01\SMS.E01\SMS.E01.csproj">
+      <Project>{E1D56A03-5204-4548-9C84-C40C8FA95F6A}</Project>
+      <Name>SMS.E01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMS.P02\SMS.P02\SMS.P02.csproj">
+      <Project>{C0F2E4D2-1E6A-4858-B8BC-B49008A72675}</Project>
+      <Name>SMS.P02</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SystemBase\SystemBase\SystemBase.csproj">
+      <Project>{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}</Project>
+      <Name>SystemBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(ProjectDir)"
+copy "$(TargetPath)" "..\..\..\Bin\
+if exist "$(TargetDir)en\" xcopy "$(TargetDir)en\*.*" "..\..\..\Bin\en\" /D/E/C/I/H/Y
+if exist "$(TargetDir)ja\" xcopy "$(TargetDir)ja\*.*" "..\..\..\Bin\ja\" /D/E/C/I/H/Y
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,61 @@
+MENU,0,  ■ 梱包メニュー ■
+MENU,1, １. 引渡作業| ２. 現品集荷| ３. Ｂｏｘ梱包| ４. パレット梱包| ５. 計測
+MENU,2, ６. データ削除
+SHUKA,0,      ■ 集荷 ■     
+SHUKA,1,件数:
+SHUKA,2, TagNo [           ]
+SHUKA,3, 前回Tag
+SHUKA,4, F1:戻る   ENT:登録
+BOX,0,  ■ Ｂｏｘ梱包 ■   
+BOX,1, BoxNo    
+BOX,2,          件数:
+BOX,3, TagNo [           ]
+BOX,4, 前回Tag
+BOX,5, F1:戻る   ENT:登録
+PALLET,0, ■ パレット梱包 ■  
+PALLET,1, ﾊﾟﾚｯﾄNo  
+PALLET,2,          件数:
+PALLET,3, BoxNo    [        ]
+PALLET,4, 前回
+PALLET,5, F1:戻る   ENT:登録
+GYOMU,0,UserID: 
+GYOMU,1, １. 手配業務| ２. 梱包業務
+TEHAI,0,  ■ 手配メニュー ■
+TEHAI,1, １. 入荷検品| ２. データ削除
+KENPIN,0,   ■ 入荷検品 ■    
+KENPIN,1, 手配No.
+KENPIN,2, 入荷数
+KENPIN,3, 前回
+KENPIN,4, F1:戻る   ENT:登録
+MEASURE,0,      ■ 計測 ■     
+MEASURE,1, TagNo
+MEASURE,2, 重量(Kg)
+MEASURE,3, 前回Tag
+MEASURE,4, F1:戻る   ENT:登録
+DELETE,0, F1:戻る   ENT:削除
+DELETE,1,Box梱包ﾌｧｲﾙ一覧
+DELETE,2,ﾊﾟﾚｯﾄ梱包ﾌｧｲﾙ一覧
+DELETE,3,計測ﾌｧｲﾙ一覧
+DELETE,4,  ■ データ削除 ■   
+DELETE,5, 2.現品集荷
+DELETE,6, 3.Box梱包
+DELETE,7, 4.ﾊﾟﾚｯﾄ梱包
+DELETE,8, 5.計測
+DELETE,9, 6.全て
+DELETE,10, F1:戻る   ENT:実行
+DELETE,11, 1.引渡作業
+DEL_TEHAI,0, F1:戻る   ENT:削除
+DEL_TEHAI,1,検品ﾌｧｲﾙ一覧      
+DEL_TEHAI,2,  ■ データ削除 ■   
+DEL_TEHAI,3, 1.入荷検品
+DEL_TEHAI,4, 4.全て
+DEL_TEHAI,5, F1:戻る   ENT:実行
+LOGIN,0,     ■ Login ■     
+LOGIN,1, 作業者
+LOGIN,2,    [            ]
+LOGIN,3, F1:戻る   ENT:登録
+HIKIWATASHI,0,      ■ 引渡 ■     
+HIKIWATASHI,1,件数:
+HIKIWATASHI,2, TagNo [           ]
+HIKIWATASHI,3, 前回Tag
+HIKIWATASHI,4, F1:戻る   ENT:登録

@@ -1,0 +1,38 @@
+Login,0,   < Login >    
+Login,1, Login ID:
+Login,2,    [            ]
+Login,3,F1: Back   ENT: Login
+Menu,0,1.Storage entry|2.Retrieval entry|3.Inventory check|4.Delete data
+Menu,1,5.Logout
+Menu,2,ID:
+Location,0, Storage entry  
+Location,1, Location
+Location,2,    [              ]
+Location,3, F1: Back   ENT: Add
+Location,4,           Qty:
+Location,5, Pallet/Box/Tag
+Location,6, Previous
+Kanryo,0,Retrieval entry 
+Kanryo,1,           Qty:
+Kanryo,2, Box/Tag
+Kanryo,3,    [            ]
+Kanryo,4, Previous
+Kanryo,5, F1: Back   ENT: Add
+Tanaoroshi,0,Inventory check 
+Tanaoroshi,1, Location
+Tanaoroshi,2,    [              ]
+Tanaoroshi,3, F1: Back   ENT: Add
+Tanaoroshi,4,           Qty:
+Tanaoroshi,5, Box/Tag
+Tanaoroshi,6,    [            ]
+Tanaoroshi,7, Previous
+Delete,0,Storage data list    
+Delete,1,Retrieval data list  
+Delete,2,Inventory data list  
+Delete,3,  Delete data   
+Delete,4, 1. Storage
+Delete,5, 2. Retrieval
+Delete,6, 3. Inventory
+Delete,7, 4. All
+Delete,8, F1: Back  ENT: Exec
+Delete,9, F1: Back  ENT: Del.

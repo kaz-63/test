@@ -1,0 +1,1501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="tlpInputDetail.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tlpInputDetail.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <assembly alias="GrapeCity.Win.WorkBook.v40" name="GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+  <data name="shtMeisai.Data" type="GrapeCity.Win.ElTabelle.SheetData, GrapeCity.Win.WorkBook.v40" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        VEJXR0NYQQAEAAAA1wfJBAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAIILAAAQAAAAYQAAAJoAAACuAAAATQAAAP////8BAgAAAAEBAQEAAAAAAQAA
+        AAAAAAABABgAAAAADE1TIFVJIEdvdGhpYwAAEEEAAAAAAwAAAIAAMgAAAAMAAAAAARkAAAAAAAAANQAA
+        ACUAAAABAAAAAAAAAAAYAAAAAAxNUyBVSSBHb3RoaWMAABBBAAAAAAMAAACAAAAAAAAAAAAAEAAAAAAB
+        APyp8dJNYlA/ZAAAAAHQCgAAAQAAAAgAAAABAAAAwAoAAAFFAAAAkAAAAOIBAAAYAgAApQIAANMDAACe
+        BAAAMgUAAK4FAADKBwAARggAAMIIAAA+CQAAugkAADYKAABkCgAAkgoAAEcAAAAANUVMVF9YQV9DSElO
+        QV81YjgwZWUzY2EyOTQ0YjQ0YjE0MjY1MDQ3ZmQ1ZDE0NF9UYWJlbGxlAQAAAAoAAAABAAAAAQAAAE4B
+        AAABAAAAAAAAAAAAAAAAAAEAAQAAAAAAARgAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAGAAAAAAM
+        TVMgVUkgR290aGljAAAQQQAAAAADAAAAgAAAAAAAAAAAAAYAAAAAASMAAAANAAAAAAEjAAAAAAEEAAAA
+        AACAPwABBgAAAAABXwAAAAAA6OTk/wABAAAAAQMAAAAAAAAAAAEjAAAAAAAAAAAAAwAAAAIAAAACAAAA
+        cQAAAAABAAAAEQAAAA0AAAAAAQAAAAcAAAABAAEAAAAAAAAAAAAGc2hlZXQxAAAAAAAAAAAAAAAAAAAA
+        AAAAAAEBAQEAAAAAAAIlVgACJVYAAAAAAAAAAAAAAAAAAiVDAAIlUgAAAAAAAAIlVgMAAAD/AAAAAAEA
+        AAAAAAAAAADwPwABAAAAAQAAAAAAAAAAAAAAAAEAAAABAQAAMgAAAP//////////AQEAAAABAAACAAAA
+        AAAAAAABAQIAAAAAAgAAAAIAAAAAAAAAAAEjAAAAiQAAAAAAAAABAAEA/Knx0k1iUD9kAAAAAQ4AAAAA
+        AAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAgAAAAAAAAADwAAAAAAAAAQAAAAAAAAACAAAAAA
+        AAAAQAAAAAAAAACAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAABAAAAAAAAAAIAAAAAAAAKgEAAEYAAAD/
+        ////AAABAAAAAQAAAAAAAABIAAAA/////wAAEgAAAP////8AAQEAAAAAAAAAIgAAAP////8AAQEAAAAA
+        AAAAEgAAAP////8AAAoAAAAKAAAAAAAAABYAAAD/////AAABAAAAFgAAAP////8AAAIAAAAWAAAA////
+        /wAAAwAAABYAAAD/////AAAEAAAAFgAAAP////8AAAUAAAAWAAAA/////wAABgAAABYAAAD/////AAAH
+        AAAAFgAAAP////8AAAgAAAAWAAAA/////wAACQAAABYAAAD/////AAAiAAAA/////wAAAQAAAAAAAAAS
+        AAAA/////wAAAQAAAAAAAAAPAAAA/////wAAAAAAAAAAAAAPAAAA/////wAAAAAAAAAAAADHAAAAAAMA
+        AAABAQYAAAAAAQYAAAAAAAAAAAEAAACpAAAAAQEAAAABAAAAAAUAAAAAAAAAAAABAAAAAQEAIAAAAAEA
+        QEAAAAAAAAD/AAEAAAD/AQAAAP8BAAAA/wEAAAD/AAQAAAAAAAAAABwAAAABAAAAEAAAAAAAAAABAEBA
+        AAAAAAAAAAMlQSUBADsAAAABAAAAKwAAAAAAAAAAAAAAAQDAQCAAAAAAAAAJUGFsbGV0Tm8uAAMlQSUA
+        /////wAJUGFsbGV0Tm8uAZAAAAAAAwAAAAEBBgAAAAABBgAAAAABAAAAAAAAAHIAAAABAQAAAAoAAAAA
+        BQAAAAAAAAAAAAEAAAABAQAgAAAAAQBAQAAAAAAAAP8AAQAAAP8BAAAA/wEAAAD/AQAAAP8AHAAAAAEA
+        AAAQAAAAAAAAAAEAQEAAAAAAAAAAAyUxJQEABAAAAAAAAAAABAAAAAAAAAB4AAAAAAMAAAABAQYAAAAA
+        AQYAAAAAAQAAAAEAAABaAAAAAQEAAAABAAAAAAUAAAAAAAAAAAABAAAAAQEAIAAAAAEAQEAAAAAAAAD/
+        AAEAAAD/AQAAAP8BAAAA/wEAAAD/AAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAGAIAAAMAAAAAAQAA
+        AAAAAAAAAAUCAAABAQAAAAoAAAAABQAAAAAAAAAAAAEAAAABAQAxAAAAAQAACAAAAAAAAAABAAAA/wEA
+        AAD/AQAAAP8BAAAA/wAAAAAAAAAAAAADAAAAAAAAAAA7AAAAAQAAAC8AAAAAAAAAAQAgCAAAAwAAAAAA
+        AAABAAAAAACRIgAABgAAAAAAAAABAQACQTkAAQAAAAAAAAAAGQAAAAEAAAANAAAAAAAAAAEBAQEAAgAA
+        AAAAAAAAUgEAAAoAAAA9AAAAAAAAAAAAAAABACAIAAADAAAAAAAAAAEBAAAAAAAAAAAAAQAAAAAAAAAC
+        AAAAAAZQOTk5OTkABlA5OTk5OQAGUDk5OTk5EQAAAAEAAAAAAAAAAQEBAQAAAAAAAAAAAAAAAAARAAAA
+        AgAAAAAAAAABAQEBAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAEQAAAAQA
+        AAAAAAAAAQEBAQAAAAAAAAAAAAAAAAARAAAABQAAAAAAAAABAQEBAAAAAAAAAAAAAAAAABEAAAAGAAAA
+        AAAAAAEBAQEAAAAAAAAAAAAAAAAAEQAAAAcAAAAAAAAAAQEBAQAAAAAAAAAAAAAAAAARAAAACAAAAAAA
+        AAABAQEBAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAeAAAAAADAAAAAQAG
+        AAAAAAEGAAAAAAEAAAABAAAAWgAAAAEBAAAAAQAAAAAFAAAAAAAAAAAAAQAAAAEBACAAAAABAEBAAAAA
+        AAAA/wABAAAA/wEAAAD/AQAAAP8BAAAA/wAEAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAHgAAAAAAwAA
+        AAEABgAAAAABBgAAAAABAAAAAQAAAFoAAAABAQAAAAoAAAAABQAAAAAAAAAAAAEAAAABAQAgAAAAAQBA
+        QAAAAAAAAP8AAQAAAP8BAAAA/wEAAAD/AQAAAP8ABAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAB4AAAA
+        AAMAAAABAAYAAAAAAQYAAAAAAQAAAAEAAABaAAAAAQEAAAABAAAAAAUAAAAAAAAAAAABAAAAAQEAIAAA
+        AAEAQEAAAAAAAAD/AAEAAAD/AQAAAP8BAAAA/wEAAAD/AAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAA
+        eAAAAAADAAAAAQAGAAAAAAEGAAAAAAEAAAABAAAAWgAAAAEBAAAAAQAAAAAFAAAAAAAAAAAAAQAAAAEB
+        ACAAAAABAEBAAAAAAAAA/wABAAAA/wEAAAD/AQAAAP8BAAAA/wAEAAAAAAAAAAAEAAAAAAAAAAAEAAAA
+        AAAAAHgAAAAAAwAAAAEABgAAAAABBgAAAAABAAAAAQAAAFoAAAABAQAAAAEAAAAABQAAAAAAAAAAAAEA
+        AAABAQAgAAAAAQBAQAAAAAAAAP8AAQAAAP8BAAAA/wEAAAD/AQAAAP8ABAAAAAAAAAAABAAAAAAAAAAA
+        BAAAAAAAAAAqAAAAAQABAAEFAAAAAwAAAAEAAAAAFAAAAP//////////AAAAAAEAAAAAAAAAKgAAAAEA
+        AQABBQAAAAMAAAABAAAAABQAAAD//////////wAAAAAKAAAAAAAAACoAAAABAAEAAQUAAAAAAAAAAAAA
+        AAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="shtMeisai.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="shtMeisai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 3</value>
+  </data>
+  <data name="shtMeisai.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 391</value>
+  </data>
+  <data name="shtMeisai.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;shtMeisai.Name" xml:space="preserve">
+    <value>shtMeisai</value>
+  </data>
+  <data name="&gt;&gt;shtMeisai.Type" xml:space="preserve">
+    <value>GrapeCity.Win.ElTabelle.Sheet, GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8</value>
+  </data>
+  <data name="&gt;&gt;shtMeisai.Parent" xml:space="preserve">
+    <value>tlpInputDetail</value>
+  </data>
+  <data name="&gt;&gt;shtMeisai.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblNote.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNote.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 394</value>
+  </data>
+  <data name="lblNote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 12</value>
+  </data>
+  <data name="lblNote.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblNote.Text" xml:space="preserve">
+    <value>Pallet設定削除【F4】</value>
+  </data>
+  <data name="&gt;&gt;lblNote.Name" xml:space="preserve">
+    <value>lblNote</value>
+  </data>
+  <data name="&gt;&gt;lblNote.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNote.Parent" xml:space="preserve">
+    <value>tlpInputDetail</value>
+  </data>
+  <data name="&gt;&gt;lblNote.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtItem.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtItem.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Disable</value>
+  </data>
+  <data name="txtItem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtItem.MaxLength" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="txtItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 19</value>
+  </data>
+  <data name="txtItem.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtItem.Text" xml:space="preserve">
+    <value>WWWWWWWWWMWWWWWWWWWMWWWWWWWWWM</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtItem.Name" xml:space="preserve">
+    <value>txtItem</value>
+  </data>
+  <data name="&gt;&gt;txtItem.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtItem.Parent" xml:space="preserve">
+    <value>lblItem.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtItem.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblItem.ChildPanel.Name" xml:space="preserve">
+    <value>lblItem.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblItem.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblItem.ChildPanel.Parent" xml:space="preserve">
+    <value>lblItem</value>
+  </data>
+  <data name="&gt;&gt;lblItem.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblItem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 0</value>
+  </data>
+  <data name="lblItem.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 19</value>
+  </data>
+  <data name="lblItem.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblItem.Text" xml:space="preserve">
+    <value>ITEM(機種)</value>
+  </data>
+  <data name="&gt;&gt;lblItem.Name" xml:space="preserve">
+    <value>lblItem</value>
+  </data>
+  <data name="&gt;&gt;lblItem.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblItem.Parent" xml:space="preserve">
+    <value>tlpInputDetail</value>
+  </data>
+  <data name="&gt;&gt;lblItem.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtDescription1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtDescription1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Disable</value>
+  </data>
+  <data name="txtDescription1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtDescription1.MaxLength" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="txtDescription1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 19</value>
+  </data>
+  <data name="txtDescription1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtDescription1.Text" xml:space="preserve">
+    <value>WWWWWWWWWMWWWWWWWWWMWWWWWWWWWM</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtDescription1.Name" xml:space="preserve">
+    <value>txtDescription1</value>
+  </data>
+  <data name="&gt;&gt;txtDescription1.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDescription1.Parent" xml:space="preserve">
+    <value>lblDescription1.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtDescription1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblDescription1.ChildPanel.Name" xml:space="preserve">
+    <value>lblDescription1.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblDescription1.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDescription1.ChildPanel.Parent" xml:space="preserve">
+    <value>lblDescription1</value>
+  </data>
+  <data name="&gt;&gt;lblDescription1.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblDescription1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 19</value>
+  </data>
+  <data name="lblDescription1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblDescription1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 19</value>
+  </data>
+  <data name="lblDescription1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblDescription1.Text" xml:space="preserve">
+    <value>DESCRIPTION(M-NO)</value>
+  </data>
+  <data name="&gt;&gt;lblDescription1.Name" xml:space="preserve">
+    <value>lblDescription1</value>
+  </data>
+  <data name="&gt;&gt;lblDescription1.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDescription1.Parent" xml:space="preserve">
+    <value>tlpInputDetail</value>
+  </data>
+  <data name="&gt;&gt;lblDescription1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtDescription2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtDescription2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Disable</value>
+  </data>
+  <data name="txtDescription2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtDescription2.MaxLength" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="txtDescription2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 19</value>
+  </data>
+  <data name="txtDescription2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtDescription2.Text" xml:space="preserve">
+    <value>WWWWWWWWWMWWWWWWWWWMWWWWWWWWWM</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtDescription2.Name" xml:space="preserve">
+    <value>txtDescription2</value>
+  </data>
+  <data name="&gt;&gt;txtDescription2.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDescription2.Parent" xml:space="preserve">
+    <value>lblDescription2.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtDescription2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblDescription2.ChildPanel.Name" xml:space="preserve">
+    <value>lblDescription2.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblDescription2.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDescription2.ChildPanel.Parent" xml:space="preserve">
+    <value>lblDescription2</value>
+  </data>
+  <data name="&gt;&gt;lblDescription2.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblDescription2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 38</value>
+  </data>
+  <data name="lblDescription2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblDescription2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 19</value>
+  </data>
+  <data name="lblDescription2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblDescription2.Text" xml:space="preserve">
+    <value>DESCRIPTION(名称)</value>
+  </data>
+  <data name="&gt;&gt;lblDescription2.Name" xml:space="preserve">
+    <value>lblDescription2</value>
+  </data>
+  <data name="&gt;&gt;lblDescription2.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDescription2.Parent" xml:space="preserve">
+    <value>tlpInputDetail</value>
+  </data>
+  <data name="&gt;&gt;lblDescription2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tlpInputDetail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 121</value>
+  </data>
+  <data name="tlpInputDetail.RowCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tlpInputDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 414</value>
+  </data>
+  <data name="tlpInputDetail.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tlpInputDetail.Name" xml:space="preserve">
+    <value>tlpInputDetail</value>
+  </data>
+  <data name="&gt;&gt;tlpInputDetail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpInputDetail.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;tlpInputDetail.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tlpInputDetail.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="shtMeisai" Row="0" RowSpan="3" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblNote" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblItem" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblDescription1" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblDescription2" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,20,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="tlpInputBasic.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="tlpInputBasic.ColumnCount" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="txtCaseNo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtCaseNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 38</value>
+  </data>
+  <data name="txtCaseNo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtCaseNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="txtCaseNo.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="txtCaseNo.Text" xml:space="preserve">
+    <value>999</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtCaseNo.Name" xml:space="preserve">
+    <value>txtCaseNo</value>
+  </data>
+  <data name="&gt;&gt;txtCaseNo.Type" xml:space="preserve">
+    <value>DSWControl.DSWNumericTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtCaseNo.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;txtCaseNo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblCaseNo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblCaseNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblCaseNo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblCaseNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 38</value>
+  </data>
+  <data name="lblCaseNo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblCaseNo.Text" xml:space="preserve">
+    <value>C/NO</value>
+  </data>
+  <data name="lblCaseNo.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblCaseNo.Name" xml:space="preserve">
+    <value>lblCaseNo</value>
+  </data>
+  <data name="&gt;&gt;lblCaseNo.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblCaseNo.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblCaseNo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtNetW.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtNetW.Location" type="System.Drawing.Point, System.Drawing">
+    <value>470, 38</value>
+  </data>
+  <data name="txtNetW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtNetW.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 19</value>
+  </data>
+  <data name="txtNetW.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="txtNetW.Text" xml:space="preserve">
+    <value>99,999.99</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtNetW.Name" xml:space="preserve">
+    <value>txtNetW</value>
+  </data>
+  <data name="&gt;&gt;txtNetW.Type" xml:space="preserve">
+    <value>DSWControl.DSWNumericTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtNetW.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;txtNetW.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblStyle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblStyle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 0</value>
+  </data>
+  <data name="lblStyle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 38</value>
+  </data>
+  <data name="lblStyle.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblStyle.Text" xml:space="preserve">
+    <value>PKG
+STYLE</value>
+  </data>
+  <data name="lblStyle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblStyle.Name" xml:space="preserve">
+    <value>lblStyle</value>
+  </data>
+  <data name="&gt;&gt;lblStyle.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblStyle.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblStyle.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblDimention.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblDimention.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 0</value>
+  </data>
+  <data name="lblDimention.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblDimention.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 19</value>
+  </data>
+  <data name="lblDimention.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblDimention.Text" xml:space="preserve">
+    <value>DIMENSION</value>
+  </data>
+  <data name="lblDimention.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblDimention.Name" xml:space="preserve">
+    <value>lblDimention</value>
+  </data>
+  <data name="&gt;&gt;lblDimention.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDimention.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblDimention.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtMokuzaiJyuryo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtMokuzaiJyuryo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 38</value>
+  </data>
+  <data name="txtMokuzaiJyuryo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtMokuzaiJyuryo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 19</value>
+  </data>
+  <data name="txtMokuzaiJyuryo.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="txtMokuzaiJyuryo.Text" xml:space="preserve">
+    <value>99,999.99</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtMokuzaiJyuryo.Name" xml:space="preserve">
+    <value>txtMokuzaiJyuryo</value>
+  </data>
+  <data name="&gt;&gt;txtMokuzaiJyuryo.Type" xml:space="preserve">
+    <value>DSWControl.DSWNumericTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtMokuzaiJyuryo.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;txtMokuzaiJyuryo.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblDimentionL.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblDimentionL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 19</value>
+  </data>
+  <data name="lblDimentionL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblDimentionL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="lblDimentionL.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblDimentionL.Text" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="lblDimentionL.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionL.Name" xml:space="preserve">
+    <value>lblDimentionL</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionL.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionL.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionL.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtMMNet.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtMMNet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 38</value>
+  </data>
+  <data name="txtMMNet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtMMNet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 19</value>
+  </data>
+  <data name="txtMMNet.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="txtMMNet.Text" xml:space="preserve">
+    <value>999,999.999</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtMMNet.Name" xml:space="preserve">
+    <value>txtMMNet</value>
+  </data>
+  <data name="&gt;&gt;txtMMNet.Type" xml:space="preserve">
+    <value>DSWControl.DSWNumericTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtMMNet.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;txtMMNet.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblDimentionW.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblDimentionW.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 19</value>
+  </data>
+  <data name="lblDimentionW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblDimentionW.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="lblDimentionW.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblDimentionW.Text" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="lblDimentionW.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionW.Name" xml:space="preserve">
+    <value>lblDimentionW</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionW.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionW.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionW.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="txtDimentionH.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtDimentionH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 38</value>
+  </data>
+  <data name="txtDimentionH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtDimentionH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="txtDimentionH.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="txtDimentionH.Text" xml:space="preserve">
+    <value>9,999</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtDimentionH.Name" xml:space="preserve">
+    <value>txtDimentionH</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionH.Type" xml:space="preserve">
+    <value>DSWControl.DSWNumericTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionH.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionH.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblDimentionH.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblDimentionH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 19</value>
+  </data>
+  <data name="lblDimentionH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblDimentionH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="lblDimentionH.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lblDimentionH.Text" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="lblDimentionH.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionH.Name" xml:space="preserve">
+    <value>lblDimentionH</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionH.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionH.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblDimentionH.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="txtDimentionW.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtDimentionW.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 38</value>
+  </data>
+  <data name="txtDimentionW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtDimentionW.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="txtDimentionW.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="txtDimentionW.Text" xml:space="preserve">
+    <value>9,999</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtDimentionW.Name" xml:space="preserve">
+    <value>txtDimentionW</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionW.Type" xml:space="preserve">
+    <value>DSWControl.DSWNumericTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionW.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionW.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lblMMNet.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblMMNet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 0</value>
+  </data>
+  <data name="lblMMNet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblMMNet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 38</value>
+  </data>
+  <data name="lblMMNet.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblMMNet.Text" xml:space="preserve">
+    <value>MMENT</value>
+  </data>
+  <data name="lblMMNet.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblMMNet.Name" xml:space="preserve">
+    <value>lblMMNet</value>
+  </data>
+  <data name="&gt;&gt;lblMMNet.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblMMNet.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblMMNet.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="txtDimentionL.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtDimentionL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 38</value>
+  </data>
+  <data name="txtDimentionL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtDimentionL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="txtDimentionL.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="txtDimentionL.Text" xml:space="preserve">
+    <value>9,999</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtDimentionL.Name" xml:space="preserve">
+    <value>txtDimentionL</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionL.Type" xml:space="preserve">
+    <value>DSWControl.DSWNumericTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionL.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;txtDimentionL.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="lblGrossW.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblGrossW.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 0</value>
+  </data>
+  <data name="lblGrossW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblGrossW.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 38</value>
+  </data>
+  <data name="lblGrossW.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblGrossW.Text" xml:space="preserve">
+    <value>GROSS/W</value>
+  </data>
+  <data name="lblGrossW.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblGrossW.Name" xml:space="preserve">
+    <value>lblGrossW</value>
+  </data>
+  <data name="&gt;&gt;lblGrossW.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblGrossW.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblGrossW.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="txtStyle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtStyle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 38</value>
+  </data>
+  <data name="txtStyle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="txtStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 19</value>
+  </data>
+  <data name="txtStyle.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="txtStyle.Text" xml:space="preserve">
+    <value>WWWWW</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;txtStyle.Name" xml:space="preserve">
+    <value>txtStyle</value>
+  </data>
+  <data name="&gt;&gt;txtStyle.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtStyle.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;txtStyle.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="lblNetW.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblNetW.Location" type="System.Drawing.Point, System.Drawing">
+    <value>470, 0</value>
+  </data>
+  <data name="lblNetW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblNetW.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 38</value>
+  </data>
+  <data name="lblNetW.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblNetW.Text" xml:space="preserve">
+    <value>NET/W</value>
+  </data>
+  <data name="lblNetW.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblNetW.Name" xml:space="preserve">
+    <value>lblNetW</value>
+  </data>
+  <data name="&gt;&gt;lblNetW.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblNetW.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblNetW.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="lblMokuzaiJyuryo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblMokuzaiJyuryo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 0</value>
+  </data>
+  <data name="lblMokuzaiJyuryo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="lblMokuzaiJyuryo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 38</value>
+  </data>
+  <data name="lblMokuzaiJyuryo.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblMokuzaiJyuryo.Text" xml:space="preserve">
+    <value>木材
+重量</value>
+  </data>
+  <data name="lblMokuzaiJyuryo.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblMokuzaiJyuryo.Name" xml:space="preserve">
+    <value>lblMokuzaiJyuryo</value>
+  </data>
+  <data name="&gt;&gt;lblMokuzaiJyuryo.Type" xml:space="preserve">
+    <value>DSWControl.DSWControlLinkLabel.DSWControlLinkLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblMokuzaiJyuryo.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;lblMokuzaiJyuryo.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="nudGrossW.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="nudGrossW.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Disable</value>
+  </data>
+  <data name="nudGrossW.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 38</value>
+  </data>
+  <data name="nudGrossW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="nudGrossW.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 19</value>
+  </data>
+  <data name="nudGrossW.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="nudGrossW.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="nudGrossW.ThousandsSeparator" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;nudGrossW.Name" xml:space="preserve">
+    <value>nudGrossW</value>
+  </data>
+  <data name="&gt;&gt;nudGrossW.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudGrossW.Parent" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;nudGrossW.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="tlpInputBasic.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 44</value>
+  </data>
+  <data name="tlpInputBasic.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tlpInputBasic.Size" type="System.Drawing.Size, System.Drawing">
+    <value>572, 60</value>
+  </data>
+  <data name="tlpInputBasic.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tlpInputBasic.Name" xml:space="preserve">
+    <value>tlpInputBasic</value>
+  </data>
+  <data name="&gt;&gt;tlpInputBasic.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpInputBasic.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;tlpInputBasic.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tlpInputBasic.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="txtCaseNo" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblCaseNo" Row="0" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtNetW" Row="2" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="lblStyle" Row="0" RowSpan="2" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDimention" Row="0" RowSpan="1" Column="2" ColumnSpan="3" /&gt;&lt;Control Name="txtMokuzaiJyuryo" Row="2" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="lblDimentionL" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="txtMMNet" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lblDimentionW" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="txtDimentionH" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lblDimentionH" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="txtDimentionW" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lblMMNet" Row="0" RowSpan="2" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="txtDimentionL" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblGrossW" Row="0" RowSpan="2" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="txtStyle" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblNetW" Row="0" RowSpan="2" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="lblMokuzaiJyuryo" Row="0" RowSpan="2" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="nudGrossW" Row="2" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="txtKojiNo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtKojiNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtKojiNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 19</value>
+  </data>
+  <data name="txtKojiNo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtKojiNo.Name" xml:space="preserve">
+    <value>txtKojiNo</value>
+  </data>
+  <data name="&gt;&gt;txtKojiNo.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtKojiNo.Parent" xml:space="preserve">
+    <value>lblKojiNo.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtKojiNo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblKojiNo.ChildPanel.Name" xml:space="preserve">
+    <value>lblKojiNo.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblKojiNo.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblKojiNo.ChildPanel.Parent" xml:space="preserve">
+    <value>lblKojiNo</value>
+  </data>
+  <data name="&gt;&gt;lblKojiNo.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKojiNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>679, 6</value>
+  </data>
+  <data name="lblKojiNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 19</value>
+  </data>
+  <data name="lblKojiNo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblKojiNo.Text" xml:space="preserve">
+    <value>管理No.</value>
+  </data>
+  <data name="&gt;&gt;lblKojiNo.Name" xml:space="preserve">
+    <value>lblKojiNo</value>
+  </data>
+  <data name="&gt;&gt;lblKojiNo.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblKojiNo.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;lblKojiNo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtShip.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtShip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Off</value>
+  </data>
+  <data name="txtShip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtShip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 19</value>
+  </data>
+  <data name="txtShip.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtShip.Name" xml:space="preserve">
+    <value>txtShip</value>
+  </data>
+  <data name="&gt;&gt;txtShip.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtShip.Parent" xml:space="preserve">
+    <value>lblShip.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtShip.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ChildPanel.Name" xml:space="preserve">
+    <value>lblShip.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ChildPanel.Parent" xml:space="preserve">
+    <value>lblShip</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblShip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>493, 6</value>
+  </data>
+  <data name="lblShip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 19</value>
+  </data>
+  <data name="lblShip.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblShip.Text" xml:space="preserve">
+    <value>便(Ship)</value>
+  </data>
+  <data name="&gt;&gt;lblShip.Name" xml:space="preserve">
+    <value>lblShip</value>
+  </data>
+  <data name="&gt;&gt;lblShip.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblShip.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtKojiName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtKojiName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtKojiName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>375, 19</value>
+  </data>
+  <data name="txtKojiName.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtKojiName.Name" xml:space="preserve">
+    <value>txtKojiName</value>
+  </data>
+  <data name="&gt;&gt;txtKojiName.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtKojiName.Parent" xml:space="preserve">
+    <value>lblKojiName.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtKojiName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblKojiName.ChildPanel.Name" xml:space="preserve">
+    <value>lblKojiName.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblKojiName.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblKojiName.ChildPanel.Parent" xml:space="preserve">
+    <value>lblKojiName</value>
+  </data>
+  <data name="&gt;&gt;lblKojiName.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKojiName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 6</value>
+  </data>
+  <data name="lblKojiName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>475, 19</value>
+  </data>
+  <data name="lblKojiName.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblKojiName.Text" xml:space="preserve">
+    <value>工事識別NO</value>
+  </data>
+  <data name="&gt;&gt;lblKojiName.Name" xml:space="preserve">
+    <value>lblKojiName</value>
+  </data>
+  <data name="&gt;&gt;lblKojiName.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblKojiName.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;lblKojiName.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pnlMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Name" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblCorner.Name" xml:space="preserve">
+    <value>lblCorner</value>
+  </data>
+  <data name="&gt;&gt;lblCorner.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCorner.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;lblCorner.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="fbrFunction.F01Button.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F01Button.Name" xml:space="preserve">
+    <value>fbrFunction.F01Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F01Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="fbrFunction.F01ButtonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F02Button.Name" xml:space="preserve">
+    <value>fbrFunction.F02Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F02Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F03Button.Name" xml:space="preserve">
+    <value>fbrFunction.F03Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F03Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="fbrFunction.F04Button.Text" xml:space="preserve">
+    <value>全削除</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F04Button.Name" xml:space="preserve">
+    <value>fbrFunction.F04Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F04Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="fbrFunction.F04ButtonText" xml:space="preserve">
+    <value>全削除</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F05Button.Name" xml:space="preserve">
+    <value>fbrFunction.F05Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F05Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F06Button.Name" xml:space="preserve">
+    <value>fbrFunction.F06Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F06Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F07Button.Name" xml:space="preserve">
+    <value>fbrFunction.F07Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F07Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F08Button.Name" xml:space="preserve">
+    <value>fbrFunction.F08Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F08Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F09Button.Name" xml:space="preserve">
+    <value>fbrFunction.F09Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F09Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F10Button.Name" xml:space="preserve">
+    <value>fbrFunction.F10Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F10Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F11Button.Name" xml:space="preserve">
+    <value>fbrFunction.F11Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F11Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F12Button.Name" xml:space="preserve">
+    <value>fbrFunction.F12Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F12Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="fbrFunction.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.Name" xml:space="preserve">
+    <value>fbrFunction</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionBar.DSWFunctionBar, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pnlTitle.Name" xml:space="preserve">
+    <value>pnlTitle</value>
+  </data>
+  <data name="&gt;&gt;pnlTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtUserName.Name" xml:space="preserve">
+    <value>txtUserName</value>
+  </data>
+  <data name="&gt;&gt;txtUserName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtRoleName.Name" xml:space="preserve">
+    <value>txtRoleName</value>
+  </data>
+  <data name="&gt;&gt;txtRoleName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pnlTitleSpace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 4</value>
+  </data>
+  <data name="pnlTitleSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>684, 28</value>
+  </data>
+  <data name="&gt;&gt;pnlTitleSpace.Name" xml:space="preserve">
+    <value>pnlTitleSpace</value>
+  </data>
+  <data name="&gt;&gt;pnlTitleSpace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>50</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>946, 664</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>KiwakuKonpoMeisai</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>KiwakuKonpoMeisai</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>SystemBase.Forms.CustomOrderForm, SystemBase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>

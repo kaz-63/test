@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:element name="GetNonyusaki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondNonyusaki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondNonyusaki">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ship" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KanriFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName0" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName5" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName6" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName7" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RemoveFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BukkenNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GamenFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransportFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EstimateFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipFrom" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipTo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipSeiban" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipFromCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TagShip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SyoriFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Seiban" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Kishu" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Naiyo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TouchakuyoteiDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KikaiParts" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SeigyoParts" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Biko" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConsignName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNonyusakiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNonyusakiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondRole">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RoleFlag" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNonyusakiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNonyusaki" />
+  </wsdl:message>
+  <wsdl:message name="GetNonyusakiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNonyusakiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRole" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsMasterSoap">
+    <wsdl:operation name="GetNonyusaki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">納入先マスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetNonyusakiSoapIn" />
+      <wsdl:output message="tns:GetNonyusakiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">権限マスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetRoleSoapIn" />
+      <wsdl:output message="tns:GetRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsMasterSoap" type="tns:WsMasterSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNonyusaki">
+      <soap:operation soapAction="http://smssrv/GetNonyusaki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <soap:operation soapAction="http://smssrv/GetRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsMasterSoap12" type="tns:WsMasterSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNonyusaki">
+      <soap12:operation soapAction="http://smssrv/GetNonyusaki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <soap12:operation soapAction="http://smssrv/GetRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsMaster">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsMasterSoap" binding="tns:WsMasterSoap">
+      <soap:address location="http://smssrv/sms/WsMaster.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsMasterSoap12" binding="tns:WsMasterSoap12">
+      <soap12:address location="http://smssrv/sms/WsMaster.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

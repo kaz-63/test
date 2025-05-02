@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WsAttachFile" CodeBehind="~/App_Code/WsAttachFile.cs" %>

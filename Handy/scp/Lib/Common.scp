@@ -1,0 +1,339 @@
+Include "Lib\Const"
+Include "Lib\Error"
+
+//////////////////////////////////////////////////////////////////////////
+//						共通パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package Common
+
+	//---------------------------------------------------
+	// 初期処理 メニュー画面以外
+	Method Initialize()
+	Begin
+		
+		// ステータス表示設定
+		Screen:status = false
+		
+	EndMethod
+
+	Method BarcodeRead()
+	Begin
+		// --バーコード読み取り設定--
+		BCR:timeOut = 50// 100[msec]単位
+		
+		With CODE39
+			:enable = true :includeStartChar = false :useCD = false :includeCD = true 
+			If ( :max > 3 ) Then  :min = 3 :max = 50  Else  :max = 50 :min = 3  EndIf
+		EndWith
+		
+		
+		CODE93:enable = false
+		CODE128:enable = false
+		
+		JAN:enable = false
+		EAN128:enable = false
+		ITF:enable = false
+		NW7:enable = false
+		TOF:enable = false
+		COOP:enable = false
+		
+	EndMethod
+	
+	//---------------------------------------------------
+	// 読み取りNG時のデバイス動作設定
+	Method read_NG()
+	Begin
+		
+		With Buzzer
+			:onTime = 1 :offTime =1  :loopCount = 2 :synchronization =false :pitch = 7 :volume = 3
+		EndWith
+		
+		With Led
+			:onTime = 1 :offTime = 1 :loopCount = 3 :synchronization =false :color = "red"
+		EndWith
+
+		With Vibration
+			:onTime = 2 :offTime = 0 :loopCount = 1 :synchronization =false
+		EndWith
+		
+		Led:Exec()
+		Vibration:Exec()
+		Buzzer:Exec()
+	End Method
+	
+	
+	//---------------------------------------------------
+	// 照合OK時のデバイス動作設定
+	Method read_OK()
+	Begin
+		
+		With Buzzer
+			:onTime = 1 :offTime = 0 :loopCount = 1 :synchronization =false :pitch = 14 :volume = 3
+		EndWith
+		
+		With Led
+			:onTime = 1 :offTime = 0 :loopCount = 1 :synchronization =false :color = "green"
+		EndWith
+
+		Buzzer:Exec()
+		Led:Exec()
+		
+	End Method
+	
+	// 各種データ数返却
+	Method dataCount(filename)
+	Begin
+		If FileSystem:FindFirst(filename) is true Then
+			File:Initialize()
+			File:name = filename
+			
+			If filename eq ConstString:KENPIN_DATA Then
+				Return(FileSystem:findFileSize / ConstString:KENPIN_BYTE_SIZE)
+			ElseIf filename eq ConstString:MEASURE_DATA Then
+				Return(FileSystem:findFileSize / ConstString:MEASURE_BYTE_SIZE)
+			ElseIf filename.Right(2) eq ConstString:SAVE_BOX Then
+				Return(FileSystem:findFileSize / ConstString:B_SIZE)
+			ElseIf filename.Right(2) eq ConstString:SAVE_PARET Then
+				Return(FileSystem:findFileSize / ConstString:P_SIZE)
+			Else
+				Return(FileSystem:findFileSize / ConstString:S_SIZE)
+			EndIf
+			
+		Else
+			Return (0)
+		EndIf
+	EndMethod
+	
+	// 前回入力データ返却
+	Method lastData(fileName)
+		lastPos
+		codeSize
+	Begin
+		If FileSystem:FindFirst(fileName) is true Then
+			If fileName eq ConstString:KENPIN_DATA Then
+				lastPos = ConstString:KENPIN_BYTE_SIZE
+				codeSize = ConstString:TEHAI_NO_SIZE
+			ElseIf fileName eq ConstString:MEASURE_DATA Then
+				lastPos = ConstString:MEASURE_BYTE_SIZE
+				codeSize = ConstString:TAG_SIZE
+			ElseIf fileName.Right(2) eq ConstString:SAVE_PARET Then
+				lastPos = ConstString:LAST_P_POS
+				codeSize = ConstString:NO_SIZE
+			Else
+				lastPos = ConstString:LAST_SB_POS
+				codeSize = ConstString:TAG_SIZE
+			EndIf
+			File:Initialize()
+			File:name = fileName
+			File:currentPos = FileSystem:findFileSize - lastPos
+			Return (File:Gets(codeSize))
+		Else
+			Return ("")
+		EndIf
+	EndMethod
+
+	// ファイル数返却
+	// title: ".B"[ボックス梱包ログ] ".P"[パレット梱包ログ]
+	Method fileCount(title)
+		file_num = 0	// ファイル数
+		ret
+	Begin
+		ret = FileSystem:FindFirst(ConstString:DRIVE_NAME)
+		While (ret is true)
+			If (FileSystem:findFileName.Right(2) eq title) Then
+				file_num = file_num + 1
+			EndIf
+			ret = FileSystem:FindNext()
+		Wend
+		Return (file_num)
+	EndMethod
+	
+	/*!
+	 * @brief 後方に空白文字パディング
+	 * 
+	 * @param str 文字列
+	 * @param sz 全体文字列長
+	 * @return パディング済み文字列
+	 */
+	Method str_pad(str, sz)
+		padding = " "
+	Begin
+		If (sz < str.length) Then
+			Return (str)
+		Else
+			Return (str & padding.Repeat(sz - str.length))
+		EndIf
+	EndMethod
+	
+	// ドライブ2からファイルリスト以外を全て削除します。
+	Method utlDeleteNonUsedFile()
+		findflg = false		// ファイル検索フラグ
+		ret
+		filename
+	Begin
+
+		If FileSystem:FindFirst("_FILE.LST") is false Then return() EndIf
+		File2:Initialize()
+		File2:name = "_FILE.LST"
+
+		ret = FileSystem:FindFirst(ConstString:DRIVE_NAME)
+		While ret is true
+			File2:currentPos = 0
+
+			findflg = false
+			While 1		// ファイルリストループ
+				filename = File2:Gets(126)
+				If filename is nil Then Wbreak EndIf
+				If filename.length < 3 Then Wbreak EndIf
+				If filename.left(1) ne "<" Then
+					filename = filename.remove("\r")
+					filename = filename.remove("\n")
+						If filename.toUpper eq FileSystem:findFileName.toUpper Then
+						findflg = true
+					Wbreak
+					EndIf
+				EndIf
+			Wend
+			If findflg is false Then
+				FileSystem:Delete(FileSystem:findFileName)
+				ret = FileSystem:FindFirst(ConstString:DRIVE_NAME)
+			Else
+				ret = FileSystem:FindNext()
+			EndIf
+
+		Wend
+		File2:Initialize()
+
+	EndMethod
+	
+	// @brief 指定ファイル1件削除
+	//
+	// @param filename ファイル名(拡張子込み)
+	// @return ファイル削除数
+	Method fileDelete(fileName)
+		delCount = 0
+	Begin
+		FileSystem:Initialize()
+		
+		If FileSystem:FindFirst(fileName) Then
+			FileSystem:Delete(FileSystem:findFileName)
+			delCount = delCount + 1
+		EndIf
+		
+		Return(delCount)
+	EndMethod
+	
+	// @brief 拡張子ファイル全削除
+	//
+	// @param drive ドライブ名
+	// @param fileExt ファイル拡張子
+	// @return ファイル削除数
+	Method fileDeleteExt(drive, fileExt)
+		ret
+		delCount = 0
+	Begin
+		FileSystem:Initialize()
+		
+		ret = FileSystem:FindFirst(drive)
+		While (ret)
+			If FileSystem:findFileName.Right(fileExt.length) eq fileExt Then
+				FileSystem:Delete(FileSystem:findFileName)
+				delCount = delCount + 1
+				ret = FileSystem:FindFirst(drive)
+			Else
+				ret = FileSystem:FindNext()
+			EndIf
+		Wend
+		
+		Return(delCount)
+	EndMethod
+
+	
+EndPackage
+
+//////////////////////////////////////////////////////////////////////////////////
+// 入力時の遷移先振り分け
+// next = 次へ  back = 1つ前の作業へ  returntop = メニューに戻る  retry = もう一度
+//////////////////////////////////////////////////////////////////////////////////
+Package InputLoop
+	
+	// 入力判定メソッド
+	Method input_loop(btvKeycode,current)
+		btvRet
+	Begin
+
+		Select Case btvKeycode
+		Case "ENT"
+			Return ("next")
+		Case "TRG"
+			Return ("next")
+		End Select
+		
+		If current eq "sagyou1" Then
+			Select Case btvKeycode
+				Case "C"
+					Return ("returntop")
+				Case "ERR_BCR_INPUT"
+					ErrorCode:error_code = 9
+					Common:read_NG()
+					Return ("back")
+				Case "ERR_RANGE_UPPER"
+					ErrorCode:error_code = 4
+					Common:read_NG()
+					Return ("back")
+				Case "ERR_RANGE_LOWER"
+					Return ("back")
+				Case "F1"
+					Return ("returntop")
+			End Select
+			Return ("back")
+		Else
+			Select Case btvKeycode
+				Case "C"
+					Return ("back")
+				Case "ERR_BCR_INPUT"
+					ErrorCode:error_code = 9
+					Common:read_NG()
+					Return ("retry")
+				Case "ERR_RANGE_UPPER"
+					ErrorCode:error_code = 4
+					Common:read_NG()
+					Return ("retry")
+				Case "ERR_RANGE_LOWER"
+					Return ("retry")
+				Case "F1"
+					Return ("back")
+			End Select
+			Return ("retry")
+		EndIf
+
+	End Method
+
+EndPackage
+
+//-----------------------------------
+// 共通メソッド(画面系)
+//-----------------------------------
+Package CommonDisp
+	
+	// @brief 右端未使用領域を指定フォントサイズに応じて黒塗りする(BT-600)
+	//
+	// @param font   フォント
+	// @param top    y座標開始
+	// @param bottom y座標終了
+	Method fillBlack(font, top, bottom)
+	Begin
+		Select Case font
+			Case "12"
+				Screen:DrawBox(126, top, 127, bottom, "black", true)
+			Case "small"
+				Screen:DrawBox(126, top, 127, bottom, "black", true)
+			Case "middle"
+				Screen:DrawBox(126, top, 127, bottom, "black", true)
+			
+			// "large"は画面横幅使い切れるため設定不要
+			//Case "large"
+			//Screen:DrawBox(126, top, 127, bottom, "black", true)
+		End Select
+	EndMethod
+EndPackage

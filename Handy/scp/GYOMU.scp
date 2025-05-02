@@ -1,0 +1,56 @@
+/********************************************************************************
+ファイル名	：	GYOMU.scp
+バージョン	：	Ver.1.00
+作成日付	：	2018/10/10
+動作説明	：	業務選択を行う
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	// 言語設定
+	Language:Initialize(System:arg2, ConstString:SCP_NAME_GYOMU)
+	// メッセージ設定
+	Message:Initialize(System:arg2, ConstString:SCP_NAME_GYOMU)
+	
+	GYOMU:gyomu_main()
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+Package GYOMU
+	
+	//---------------------------------------------------
+	// メニュメソッド
+	Method gyomu_main()
+		btvMenupos = 1
+	Begin
+		
+		// ステータス表示設定
+		Screen:status = true
+		
+		While 1
+			btvMenupos = Handy:ShowMenu(Language:langItem[0] & System:arg3, Language:langItem[1], nil, nil, nil, btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				System:Load(ConstString:SCP_NAME_TEHAI,0,System:arg2,System:arg3,0)
+			Case 2
+				System:Load(ConstString:SCP_NAME_MENU,0,System:arg2,System:arg3,0)
+			Case "C"
+				System:Load(ConstString:SCP_NAME_LOGIN,0,System:arg2,0,0)
+			End Select
+		Wend
+		
+	End Method
+	
+EndPackage
+
+

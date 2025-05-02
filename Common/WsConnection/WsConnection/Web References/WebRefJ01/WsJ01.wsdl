@@ -1,0 +1,2046 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:element name="GetShime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetShimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShimeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartShime">
+        <s:complexType />
+      </s:element>
+      <s:element name="StartShimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartShimeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="isProcessed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdShime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondJ01">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ShoriFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpBackupPath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NichijiDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="GetsujiDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastestDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lang" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdShimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdShimeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdHontaiNonyusakiKanryo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdHontaiNonyusakiKanryoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdHontaiNonyusakiKanryoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiNonyusakiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiNonyusakiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelHontaiNonyusakiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiNonyusakiDataUncondition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiNonyusakiDataUnconditionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelHontaiNonyusakiDataUnconditionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiBukkenData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiBukkenDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelHontaiBukkenDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiShukkaMeisaiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiShukkaMeisaiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelHontaiShukkaMeisaiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARNonyusakiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARNonyusakiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelARNonyusakiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARNonyusakiDataUncondition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARNonyusakiDataUnconditionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelARNonyusakiDataUnconditionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARBukkenData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARBukkenDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelARBukkenDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelARDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARShukkaMeisaiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARShukkaMeisaiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelARShukkaMeisaiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelBoxlistManageData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelBoxlistManageDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelBoxlistManageDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelPalletlistManageData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelPalletlistManageDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelPalletlistManageDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelKiwakuData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelKiwakuDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelKiwakuDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelKiwakuMeisaiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelKiwakuMeisaiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelKiwakuMeisaiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelShagaiKiwakuMeisaiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelShagaiKiwakuMeisaiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelShagaiKiwakuMeisaiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelSaibanARNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelSaibanARNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelSaibanARNoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelTempworkData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelTempworkDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelTempworkDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiRirekiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHontaiRirekiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelHontaiRirekiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARRirekiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelARRirekiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelARRirekiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelLocationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelLocationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelLocationDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelStockData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelStockDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelStockDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelInventData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelInventDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelInventDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelJissekiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelJissekiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelJissekiDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelBuhinTempworkData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelBuhinTempworkDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelBuhinTempworkDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DBBackup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DBBackupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DBBackupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelMailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailSetting">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMailSettingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailSettingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMail">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdMailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInit">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetInitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSKS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSKSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSKSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartSKS">
+        <s:complexType />
+      </s:element>
+      <s:element name="StartSKSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartSKSResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="isProcessed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdSKS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdSKSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdSKSResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelTehaiSKSWork">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelTehaiSKSWorkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelTehaiSKSWorkResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsTehaiSKSWork">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsTehaiSKSWorkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsTehaiSKSWorkResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdSKSTehaiWorkHacchuZyotai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdSKSTehaiWorkHacchuZyotaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdSKSTehaiWorkHacchuZyotaiResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdSKSTehaiWorkTehaiUnitPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdSKSTehaiWorkTehaiUnitPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdSKSTehaiWorkTehaiUnitPriceResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiSKS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiSKSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiSKSResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsTehaiSKS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsTehaiSKSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsTehaiSKSResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondJ01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiMeisaiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetShimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShime" />
+  </wsdl:message>
+  <wsdl:message name="GetShimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartShimeSoapIn">
+    <wsdl:part name="parameters" element="tns:StartShime" />
+  </wsdl:message>
+  <wsdl:message name="StartShimeSoapOut">
+    <wsdl:part name="parameters" element="tns:StartShimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdShimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdShime" />
+  </wsdl:message>
+  <wsdl:message name="UpdShimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdShimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdHontaiNonyusakiKanryoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdHontaiNonyusakiKanryo" />
+  </wsdl:message>
+  <wsdl:message name="UpdHontaiNonyusakiKanryoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdHontaiNonyusakiKanryoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiNonyusakiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelHontaiNonyusakiData" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiNonyusakiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelHontaiNonyusakiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiNonyusakiDataUnconditionSoapIn">
+    <wsdl:part name="parameters" element="tns:DelHontaiNonyusakiDataUncondition" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiNonyusakiDataUnconditionSoapOut">
+    <wsdl:part name="parameters" element="tns:DelHontaiNonyusakiDataUnconditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiBukkenDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelHontaiBukkenData" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiBukkenDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelHontaiBukkenDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiShukkaMeisaiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelHontaiShukkaMeisaiData" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiShukkaMeisaiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelHontaiShukkaMeisaiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelARNonyusakiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelARNonyusakiData" />
+  </wsdl:message>
+  <wsdl:message name="DelARNonyusakiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelARNonyusakiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelARNonyusakiDataUnconditionSoapIn">
+    <wsdl:part name="parameters" element="tns:DelARNonyusakiDataUncondition" />
+  </wsdl:message>
+  <wsdl:message name="DelARNonyusakiDataUnconditionSoapOut">
+    <wsdl:part name="parameters" element="tns:DelARNonyusakiDataUnconditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelARBukkenDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelARBukkenData" />
+  </wsdl:message>
+  <wsdl:message name="DelARBukkenDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelARBukkenDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelARDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelARData" />
+  </wsdl:message>
+  <wsdl:message name="DelARDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelARDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelARShukkaMeisaiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelARShukkaMeisaiData" />
+  </wsdl:message>
+  <wsdl:message name="DelARShukkaMeisaiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelARShukkaMeisaiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelBoxlistManageDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelBoxlistManageData" />
+  </wsdl:message>
+  <wsdl:message name="DelBoxlistManageDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelBoxlistManageDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelPalletlistManageDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelPalletlistManageData" />
+  </wsdl:message>
+  <wsdl:message name="DelPalletlistManageDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelPalletlistManageDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelKiwakuDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelKiwakuData" />
+  </wsdl:message>
+  <wsdl:message name="DelKiwakuDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelKiwakuDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelKiwakuMeisaiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelKiwakuMeisaiData" />
+  </wsdl:message>
+  <wsdl:message name="DelKiwakuMeisaiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelKiwakuMeisaiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelShagaiKiwakuMeisaiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelShagaiKiwakuMeisaiData" />
+  </wsdl:message>
+  <wsdl:message name="DelShagaiKiwakuMeisaiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelShagaiKiwakuMeisaiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelSaibanARNoSoapIn">
+    <wsdl:part name="parameters" element="tns:DelSaibanARNo" />
+  </wsdl:message>
+  <wsdl:message name="DelSaibanARNoSoapOut">
+    <wsdl:part name="parameters" element="tns:DelSaibanARNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelTempworkDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelTempworkData" />
+  </wsdl:message>
+  <wsdl:message name="DelTempworkDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelTempworkDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiRirekiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelHontaiRirekiData" />
+  </wsdl:message>
+  <wsdl:message name="DelHontaiRirekiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelHontaiRirekiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelARRirekiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelARRirekiData" />
+  </wsdl:message>
+  <wsdl:message name="DelARRirekiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelARRirekiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelLocationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelLocationData" />
+  </wsdl:message>
+  <wsdl:message name="DelLocationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelLocationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelStockDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelStockData" />
+  </wsdl:message>
+  <wsdl:message name="DelStockDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelStockDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelInventDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelInventData" />
+  </wsdl:message>
+  <wsdl:message name="DelInventDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelInventDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelJissekiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelJissekiData" />
+  </wsdl:message>
+  <wsdl:message name="DelJissekiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelJissekiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelBuhinTempworkDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelBuhinTempworkData" />
+  </wsdl:message>
+  <wsdl:message name="DelBuhinTempworkDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelBuhinTempworkDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DBBackupSoapIn">
+    <wsdl:part name="parameters" element="tns:DBBackup" />
+  </wsdl:message>
+  <wsdl:message name="DBBackupSoapOut">
+    <wsdl:part name="parameters" element="tns:DBBackupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelMailSoapIn">
+    <wsdl:part name="parameters" element="tns:DelMail" />
+  </wsdl:message>
+  <wsdl:message name="DelMailSoapOut">
+    <wsdl:part name="parameters" element="tns:DelMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailSettingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailSetting" />
+  </wsdl:message>
+  <wsdl:message name="GetMailSettingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMail" />
+  </wsdl:message>
+  <wsdl:message name="GetMailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdMailSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdMail" />
+  </wsdl:message>
+  <wsdl:message name="UpdMailSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInitSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInit" />
+  </wsdl:message>
+  <wsdl:message name="GetInitSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSKSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSKS" />
+  </wsdl:message>
+  <wsdl:message name="GetSKSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSKSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartSKSSoapIn">
+    <wsdl:part name="parameters" element="tns:StartSKS" />
+  </wsdl:message>
+  <wsdl:message name="StartSKSSoapOut">
+    <wsdl:part name="parameters" element="tns:StartSKSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdSKSSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdSKS" />
+  </wsdl:message>
+  <wsdl:message name="UpdSKSSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdSKSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelTehaiSKSWorkSoapIn">
+    <wsdl:part name="parameters" element="tns:DelTehaiSKSWork" />
+  </wsdl:message>
+  <wsdl:message name="DelTehaiSKSWorkSoapOut">
+    <wsdl:part name="parameters" element="tns:DelTehaiSKSWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsTehaiSKSWorkSoapIn">
+    <wsdl:part name="parameters" element="tns:InsTehaiSKSWork" />
+  </wsdl:message>
+  <wsdl:message name="InsTehaiSKSWorkSoapOut">
+    <wsdl:part name="parameters" element="tns:InsTehaiSKSWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdSKSTehaiWorkHacchuZyotaiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdSKSTehaiWorkHacchuZyotai" />
+  </wsdl:message>
+  <wsdl:message name="UpdSKSTehaiWorkHacchuZyotaiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdSKSTehaiWorkHacchuZyotaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdSKSTehaiWorkTehaiUnitPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdSKSTehaiWorkTehaiUnitPrice" />
+  </wsdl:message>
+  <wsdl:message name="UpdSKSTehaiWorkTehaiUnitPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdSKSTehaiWorkTehaiUnitPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiSKSSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiSKS" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiSKSSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiSKSResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsTehaiSKSSoapIn">
+    <wsdl:part name="parameters" element="tns:InsTehaiSKS" />
+  </wsdl:message>
+  <wsdl:message name="InsTehaiSKSSoapOut">
+    <wsdl:part name="parameters" element="tns:InsTehaiSKSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMeisai" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsJ01Soap">
+    <wsdl:operation name="GetShime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">締めマスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetShimeSoapIn" />
+      <wsdl:output message="tns:GetShimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartShime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">締め開始処理</wsdl:documentation>
+      <wsdl:input message="tns:StartShimeSoapIn" />
+      <wsdl:output message="tns:StartShimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdShime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">締めマスタ更新処理</wsdl:documentation>
+      <wsdl:input message="tns:UpdShimeSoapIn" />
+      <wsdl:output message="tns:UpdShimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdHontaiNonyusakiKanryo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">本体の納入先マスタ完了処理</wsdl:documentation>
+      <wsdl:input message="tns:UpdHontaiNonyusakiKanryoSoapIn" />
+      <wsdl:output message="tns:UpdHontaiNonyusakiKanryoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiNonyusakiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">本体の納入先マスタ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelHontaiNonyusakiDataSoapIn" />
+      <wsdl:output message="tns:DelHontaiNonyusakiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiNonyusakiDataUncondition">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">本体の納入先マスタ削除処理(指定年で無条件)</wsdl:documentation>
+      <wsdl:input message="tns:DelHontaiNonyusakiDataUnconditionSoapIn" />
+      <wsdl:output message="tns:DelHontaiNonyusakiDataUnconditionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiBukkenData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">本体の物件名マスタ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelHontaiBukkenDataSoapIn" />
+      <wsdl:output message="tns:DelHontaiBukkenDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiShukkaMeisaiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">本体の出荷明細データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelHontaiShukkaMeisaiDataSoapIn" />
+      <wsdl:output message="tns:DelHontaiShukkaMeisaiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelARNonyusakiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ARの納入先マスタ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelARNonyusakiDataSoapIn" />
+      <wsdl:output message="tns:DelARNonyusakiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelARNonyusakiDataUncondition">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ARの納入先マスタ削除処理(指定年で無条件)</wsdl:documentation>
+      <wsdl:input message="tns:DelARNonyusakiDataUnconditionSoapIn" />
+      <wsdl:output message="tns:DelARNonyusakiDataUnconditionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelARBukkenData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ARの物件名マスタ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelARBukkenDataSoapIn" />
+      <wsdl:output message="tns:DelARBukkenDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelARData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelARDataSoapIn" />
+      <wsdl:output message="tns:DelARDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelARShukkaMeisaiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ARの出荷明細データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelARShukkaMeisaiDataSoapIn" />
+      <wsdl:output message="tns:DelARShukkaMeisaiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelBoxlistManageData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BOXリスト管理データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelBoxlistManageDataSoapIn" />
+      <wsdl:output message="tns:DelBoxlistManageDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelPalletlistManageData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">パレットリスト管理データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelPalletlistManageDataSoapIn" />
+      <wsdl:output message="tns:DelPalletlistManageDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwakuData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelKiwakuDataSoapIn" />
+      <wsdl:output message="tns:DelKiwakuDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwakuMeisaiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠明細データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelKiwakuMeisaiDataSoapIn" />
+      <wsdl:output message="tns:DelKiwakuMeisaiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelShagaiKiwakuMeisaiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">社外木枠明細データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelShagaiKiwakuMeisaiDataSoapIn" />
+      <wsdl:output message="tns:DelShagaiKiwakuMeisaiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelSaibanARNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">採番マスタ削除処理(ARNo.)</wsdl:documentation>
+      <wsdl:input message="tns:DelSaibanARNoSoapIn" />
+      <wsdl:output message="tns:DelSaibanARNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelTempworkData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">一時作業データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelTempworkDataSoapIn" />
+      <wsdl:output message="tns:DelTempworkDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiRirekiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">本体の履歴データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelHontaiRirekiDataSoapIn" />
+      <wsdl:output message="tns:DelHontaiRirekiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelARRirekiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ARの履歴データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelARRirekiDataSoapIn" />
+      <wsdl:output message="tns:DelARRirekiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelLocationData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ロケーションマスタ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelLocationDataSoapIn" />
+      <wsdl:output message="tns:DelLocationDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelStockData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">在庫データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelStockDataSoapIn" />
+      <wsdl:output message="tns:DelStockDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelInventData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">棚卸データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelInventDataSoapIn" />
+      <wsdl:output message="tns:DelInventDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelJissekiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">実績データ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelJissekiDataSoapIn" />
+      <wsdl:output message="tns:DelJissekiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelBuhinTempworkData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">一時作業データ（現地部品管理）削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelBuhinTempworkDataSoapIn" />
+      <wsdl:output message="tns:DelBuhinTempworkDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DBBackup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DBバックアップ処理</wsdl:documentation>
+      <wsdl:input message="tns:DBBackupSoapIn" />
+      <wsdl:output message="tns:DBBackupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メールデータ削除処理</wsdl:documentation>
+      <wsdl:input message="tns:DelMailSoapIn" />
+      <wsdl:output message="tns:DelMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailSetting">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メール設定マスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMailSettingSoapIn" />
+      <wsdl:output message="tns:GetMailSettingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メールデータ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMailSoapIn" />
+      <wsdl:output message="tns:GetMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メールデータ更新処理</wsdl:documentation>
+      <wsdl:input message="tns:UpdMailSoapIn" />
+      <wsdl:output message="tns:UpdMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">初期化取得</wsdl:documentation>
+      <wsdl:input message="tns:GetInitSoapIn" />
+      <wsdl:output message="tns:GetInitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSKS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS連携データ取得処理</wsdl:documentation>
+      <wsdl:input message="tns:GetSKSSoapIn" />
+      <wsdl:output message="tns:GetSKSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartSKS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS連携開始処理</wsdl:documentation>
+      <wsdl:input message="tns:StartSKSSoapIn" />
+      <wsdl:output message="tns:StartSKSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS連携マスタ更新処理</wsdl:documentation>
+      <wsdl:input message="tns:UpdSKSSoapIn" />
+      <wsdl:output message="tns:UpdSKSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiSKSWork">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細WORK 削除処理(全レコード削除)</wsdl:documentation>
+      <wsdl:input message="tns:DelTehaiSKSWorkSoapIn" />
+      <wsdl:output message="tns:DelTehaiSKSWorkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiSKSWork">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細WORK 登録処理</wsdl:documentation>
+      <wsdl:input message="tns:InsTehaiSKSWorkSoapIn" />
+      <wsdl:output message="tns:InsTehaiSKSWorkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiWorkHacchuZyotai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細WORK 更新処理(回答納期が「11111111」のときは完納とする)</wsdl:documentation>
+      <wsdl:input message="tns:UpdSKSTehaiWorkHacchuZyotaiSoapIn" />
+      <wsdl:output message="tns:UpdSKSTehaiWorkHacchuZyotaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiWorkTehaiUnitPrice">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細WORK 更新処理(見積状態のときは単価を0円にする)</wsdl:documentation>
+      <wsdl:input message="tns:UpdSKSTehaiWorkTehaiUnitPriceSoapIn" />
+      <wsdl:output message="tns:UpdSKSTehaiWorkTehaiUnitPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiSKS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiSKSSoapIn" />
+      <wsdl:output message="tns:UpdTehaiSKSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiSKS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細登録</wsdl:documentation>
+      <wsdl:input message="tns:InsTehaiSKSSoapIn" />
+      <wsdl:output message="tns:InsTehaiSKSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiMeisaiSoapIn" />
+      <wsdl:output message="tns:UpdTehaiMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsJ01Soap" type="tns:WsJ01Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetShime">
+      <soap:operation soapAction="http://smssrv/GetShime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartShime">
+      <soap:operation soapAction="http://smssrv/StartShime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdShime">
+      <soap:operation soapAction="http://smssrv/UpdShime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdHontaiNonyusakiKanryo">
+      <soap:operation soapAction="http://smssrv/UpdHontaiNonyusakiKanryo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiNonyusakiData">
+      <soap:operation soapAction="http://smssrv/DelHontaiNonyusakiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiNonyusakiDataUncondition">
+      <soap:operation soapAction="http://smssrv/DelHontaiNonyusakiDataUncondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiBukkenData">
+      <soap:operation soapAction="http://smssrv/DelHontaiBukkenData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiShukkaMeisaiData">
+      <soap:operation soapAction="http://smssrv/DelHontaiShukkaMeisaiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARNonyusakiData">
+      <soap:operation soapAction="http://smssrv/DelARNonyusakiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARNonyusakiDataUncondition">
+      <soap:operation soapAction="http://smssrv/DelARNonyusakiDataUncondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARBukkenData">
+      <soap:operation soapAction="http://smssrv/DelARBukkenData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARData">
+      <soap:operation soapAction="http://smssrv/DelARData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARShukkaMeisaiData">
+      <soap:operation soapAction="http://smssrv/DelARShukkaMeisaiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelBoxlistManageData">
+      <soap:operation soapAction="http://smssrv/DelBoxlistManageData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelPalletlistManageData">
+      <soap:operation soapAction="http://smssrv/DelPalletlistManageData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwakuData">
+      <soap:operation soapAction="http://smssrv/DelKiwakuData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwakuMeisaiData">
+      <soap:operation soapAction="http://smssrv/DelKiwakuMeisaiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelShagaiKiwakuMeisaiData">
+      <soap:operation soapAction="http://smssrv/DelShagaiKiwakuMeisaiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelSaibanARNo">
+      <soap:operation soapAction="http://smssrv/DelSaibanARNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelTempworkData">
+      <soap:operation soapAction="http://smssrv/DelTempworkData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiRirekiData">
+      <soap:operation soapAction="http://smssrv/DelHontaiRirekiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARRirekiData">
+      <soap:operation soapAction="http://smssrv/DelARRirekiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelLocationData">
+      <soap:operation soapAction="http://smssrv/DelLocationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelStockData">
+      <soap:operation soapAction="http://smssrv/DelStockData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelInventData">
+      <soap:operation soapAction="http://smssrv/DelInventData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelJissekiData">
+      <soap:operation soapAction="http://smssrv/DelJissekiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelBuhinTempworkData">
+      <soap:operation soapAction="http://smssrv/DelBuhinTempworkData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DBBackup">
+      <soap:operation soapAction="http://smssrv/DBBackup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelMail">
+      <soap:operation soapAction="http://smssrv/DelMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailSetting">
+      <soap:operation soapAction="http://smssrv/GetMailSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMail">
+      <soap:operation soapAction="http://smssrv/GetMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdMail">
+      <soap:operation soapAction="http://smssrv/UpdMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInit">
+      <soap:operation soapAction="http://smssrv/GetInit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKS">
+      <soap:operation soapAction="http://smssrv/GetSKS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSKS">
+      <soap:operation soapAction="http://smssrv/StartSKS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKS">
+      <soap:operation soapAction="http://smssrv/UpdSKS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiSKSWork">
+      <soap:operation soapAction="http://smssrv/DelTehaiSKSWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiSKSWork">
+      <soap:operation soapAction="http://smssrv/InsTehaiSKSWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiWorkHacchuZyotai">
+      <soap:operation soapAction="http://smssrv/UpdSKSTehaiWorkHacchuZyotai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiWorkTehaiUnitPrice">
+      <soap:operation soapAction="http://smssrv/UpdSKSTehaiWorkTehaiUnitPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiSKS">
+      <soap:operation soapAction="http://smssrv/UpdTehaiSKS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiSKS">
+      <soap:operation soapAction="http://smssrv/InsTehaiSKS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMeisai">
+      <soap:operation soapAction="http://smssrv/UpdTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsJ01Soap12" type="tns:WsJ01Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetShime">
+      <soap12:operation soapAction="http://smssrv/GetShime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartShime">
+      <soap12:operation soapAction="http://smssrv/StartShime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdShime">
+      <soap12:operation soapAction="http://smssrv/UpdShime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdHontaiNonyusakiKanryo">
+      <soap12:operation soapAction="http://smssrv/UpdHontaiNonyusakiKanryo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiNonyusakiData">
+      <soap12:operation soapAction="http://smssrv/DelHontaiNonyusakiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiNonyusakiDataUncondition">
+      <soap12:operation soapAction="http://smssrv/DelHontaiNonyusakiDataUncondition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiBukkenData">
+      <soap12:operation soapAction="http://smssrv/DelHontaiBukkenData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiShukkaMeisaiData">
+      <soap12:operation soapAction="http://smssrv/DelHontaiShukkaMeisaiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARNonyusakiData">
+      <soap12:operation soapAction="http://smssrv/DelARNonyusakiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARNonyusakiDataUncondition">
+      <soap12:operation soapAction="http://smssrv/DelARNonyusakiDataUncondition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARBukkenData">
+      <soap12:operation soapAction="http://smssrv/DelARBukkenData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARData">
+      <soap12:operation soapAction="http://smssrv/DelARData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARShukkaMeisaiData">
+      <soap12:operation soapAction="http://smssrv/DelARShukkaMeisaiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelBoxlistManageData">
+      <soap12:operation soapAction="http://smssrv/DelBoxlistManageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelPalletlistManageData">
+      <soap12:operation soapAction="http://smssrv/DelPalletlistManageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwakuData">
+      <soap12:operation soapAction="http://smssrv/DelKiwakuData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwakuMeisaiData">
+      <soap12:operation soapAction="http://smssrv/DelKiwakuMeisaiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelShagaiKiwakuMeisaiData">
+      <soap12:operation soapAction="http://smssrv/DelShagaiKiwakuMeisaiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelSaibanARNo">
+      <soap12:operation soapAction="http://smssrv/DelSaibanARNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelTempworkData">
+      <soap12:operation soapAction="http://smssrv/DelTempworkData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelHontaiRirekiData">
+      <soap12:operation soapAction="http://smssrv/DelHontaiRirekiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelARRirekiData">
+      <soap12:operation soapAction="http://smssrv/DelARRirekiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelLocationData">
+      <soap12:operation soapAction="http://smssrv/DelLocationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelStockData">
+      <soap12:operation soapAction="http://smssrv/DelStockData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelInventData">
+      <soap12:operation soapAction="http://smssrv/DelInventData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelJissekiData">
+      <soap12:operation soapAction="http://smssrv/DelJissekiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelBuhinTempworkData">
+      <soap12:operation soapAction="http://smssrv/DelBuhinTempworkData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DBBackup">
+      <soap12:operation soapAction="http://smssrv/DBBackup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelMail">
+      <soap12:operation soapAction="http://smssrv/DelMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailSetting">
+      <soap12:operation soapAction="http://smssrv/GetMailSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMail">
+      <soap12:operation soapAction="http://smssrv/GetMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdMail">
+      <soap12:operation soapAction="http://smssrv/UpdMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInit">
+      <soap12:operation soapAction="http://smssrv/GetInit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKS">
+      <soap12:operation soapAction="http://smssrv/GetSKS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSKS">
+      <soap12:operation soapAction="http://smssrv/StartSKS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKS">
+      <soap12:operation soapAction="http://smssrv/UpdSKS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiSKSWork">
+      <soap12:operation soapAction="http://smssrv/DelTehaiSKSWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiSKSWork">
+      <soap12:operation soapAction="http://smssrv/InsTehaiSKSWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiWorkHacchuZyotai">
+      <soap12:operation soapAction="http://smssrv/UpdSKSTehaiWorkHacchuZyotai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiWorkTehaiUnitPrice">
+      <soap12:operation soapAction="http://smssrv/UpdSKSTehaiWorkTehaiUnitPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiSKS">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiSKS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiSKS">
+      <soap12:operation soapAction="http://smssrv/InsTehaiSKS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMeisai">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsJ01">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsJ01Soap" binding="tns:WsJ01Soap">
+      <soap:address location="http://smssrv/sms/WsJ01.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsJ01Soap12" binding="tns:WsJ01Soap12">
+      <soap12:address location="http://smssrv/sms/WsJ01.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

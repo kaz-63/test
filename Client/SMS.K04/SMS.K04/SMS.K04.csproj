@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F9361D5C-F484-4A56-AB03-99E085613A50}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMS.K04</RootNamespace>
+    <AssemblyName>SMS.K04</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommLib.NET3.5, Version=2.0.3434.30349, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\CommLib.NET3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="DSWControl, Version=1.7.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DSWUtil, Version=0.5.4.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="ElTabelleHelper, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\ElTabelleHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.Excel, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=b0e38629244efa22" />
+    <Reference Include="GrapeCity.Win.BaseGrid.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+    <Reference Include="GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\HandyDataErrorIchiran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorIchiran.Designer.cs">
+      <DependentUpon>HandyDataErrorIchiran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiBox.Designer.cs">
+      <DependentUpon>HandyDataErrorMeisaiBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiMeasure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiMeasure.Designer.cs">
+      <DependentUpon>HandyDataErrorMeisaiMeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiKenpin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiKenpin.Designer.cs">
+      <DependentUpon>HandyDataErrorMeisaiKenpin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiPallet.Designer.cs">
+      <DependentUpon>HandyDataErrorMeisaiPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiShuka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HandyDataErrorMeisaiShuka.Designer.cs">
+      <DependentUpon>HandyDataErrorMeisaiShuka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HandyOpeRirekiShokai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HandyOpeRirekiShokai.Designer.cs">
+      <DependentUpon>HandyOpeRirekiShokai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ImportProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImportProgress.Designer.cs">
+      <DependentUpon>ImportProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HandyBT500.cs" />
+    <Compile Include="HandyFileInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\HandyDataErrorIchiran.en.resx">
+      <DependentUpon>HandyDataErrorIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorIchiran.ja.resx">
+      <DependentUpon>HandyDataErrorIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorIchiran.resx">
+      <DependentUpon>HandyDataErrorIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiBox.en.resx">
+      <DependentUpon>HandyDataErrorMeisaiBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiBox.ja.resx">
+      <DependentUpon>HandyDataErrorMeisaiBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiBox.resx">
+      <DependentUpon>HandyDataErrorMeisaiBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiKenpin.en.resx">
+      <DependentUpon>HandyDataErrorMeisaiKenpin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiMeasure.resx">
+      <DependentUpon>HandyDataErrorMeisaiMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiKenpin.resx">
+      <DependentUpon>HandyDataErrorMeisaiKenpin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiPallet.en.resx">
+      <DependentUpon>HandyDataErrorMeisaiPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiPallet.ja.resx">
+      <DependentUpon>HandyDataErrorMeisaiPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiPallet.resx">
+      <DependentUpon>HandyDataErrorMeisaiPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiShuka.en.resx">
+      <DependentUpon>HandyDataErrorMeisaiShuka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiShuka.ja.resx">
+      <DependentUpon>HandyDataErrorMeisaiShuka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyDataErrorMeisaiShuka.resx">
+      <DependentUpon>HandyDataErrorMeisaiShuka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyOpeRirekiShokai.en.resx">
+      <DependentUpon>HandyOpeRirekiShokai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyOpeRirekiShokai.ja.resx">
+      <DependentUpon>HandyOpeRirekiShokai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HandyOpeRirekiShokai.resx">
+      <DependentUpon>HandyOpeRirekiShokai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportProgress.en.resx">
+      <DependentUpon>ImportProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportProgress.ja.resx">
+      <DependentUpon>ImportProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportProgress.resx">
+      <DependentUpon>ImportProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.en.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Commons\Commons\Commons.csproj">
+      <Project>{7CF83010-9C8F-482B-B0C0-CA10DA669345}</Project>
+      <Name>Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\WsConnection\WsConnection\WsConnection.csproj">
+      <Project>{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}</Project>
+      <Name>WsConnection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMS.E01\SMS.E01\SMS.E01.csproj">
+      <Project>{E1D56A03-5204-4548-9C84-C40C8FA95F6A}</Project>
+      <Name>SMS.E01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SystemBase\SystemBase\SystemBase.csproj">
+      <Project>{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}</Project>
+      <Name>SystemBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BTCommClient.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BTCommCore.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BTCommLibEx.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BTCommServer.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MkSrchFl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(ProjectDir)"
+copy "$(TargetPath)" "..\..\..\Bin\
+if exist "$(TargetDir)en\" xcopy "$(TargetDir)en\*.*" "..\..\..\Bin\en\" /D/E/C/I/H/Y
+if exist "$(TargetDir)ja\" xcopy "$(TargetDir)ja\*.*" "..\..\..\Bin\ja\" /D/E/C/I/H/Y
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

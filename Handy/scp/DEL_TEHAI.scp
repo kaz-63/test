@@ -1,0 +1,187 @@
+/********************************************************************************
+ファイル名	：	DEL_TEHAI.scp
+バージョン	：	Ver.1.00
+作成日付	：	2018/10/19
+動作説明	：	手配メニューデータ削除
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Utility"
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	
+	// 言語設定
+	Language:Initialize(System:arg2, ConstString:SCP_NAME_DEL_TEHAI)
+	// メッセージ設定
+	Message:Initialize(System:arg2, ConstString:SCP_NAME_DEL_TEHAI)
+	
+	LOGDEL_TEHAI:delete_main()
+	System:Load(System:arg1, 0, System:arg2, System:arg3,0)
+	
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+
+
+Package LOGDEL_TEHAI
+	
+	btvEachInput = ""	// 入力された値
+	KENPIN_COUNT
+	
+	Method delete_main()
+		btvRet
+	Begin
+		// 削除できるファイルが無い場合メニューに戻る
+		If Common:dataCount(ConstString:KENPIN_DATA) == 0 Then
+			Handy:ShowMessageBox(Message:MessageItem[15], "ok" )
+			Return ()
+		EndIf
+		
+		disp_normal()
+		
+		While 1
+			// 削除できるファイルが無い場合メニューに戻る
+			If Common:dataCount(ConstString:KENPIN_DATA) == 0 Then
+				Return ()
+			EndIf
+			
+			btvRet = wait_input()
+			If btvRet eq "next" Then 
+				LogDelet()
+			ElseIf btvRet eq "retry" Then 
+				
+			Else
+				Return ()
+			EndIf
+		Wend
+
+	End Method
+	
+	Method LogDelet()
+			error_String = ""
+	Begin
+		Select Case btvEachInput
+			Case 1
+				If Common:dataCount(ConstString:KENPIN_DATA) == 0 Then
+					Handy:ShowMessageBox(Message:MessageItem[15], "ok" )
+				Else
+					FileRecord:file_record(Language:langItem[1], ConstString:KENPIN_DATA)
+				EndIf
+			Case 4
+				If Handy:ShowMessageBox(Message:MessageItem[18],"yesno|no") Then
+						Common:fileDelete(ConstString:KENPIN_DATA)
+						Handy:ShowMessageBox(Message:MessageItem[19],"ok")
+				Else
+					Handy:ShowMessageBox(Message:MessageItem[13], "ok" )
+				EndIf
+		End Select
+		disp_normal()
+		
+		If input_String(btvEachInput) is false Then
+			Common:read_NG()
+			error_String = Message:MessageItem[9]
+		Else
+			error_String = ""
+		EndIf
+		
+		With Screen
+			:update = false
+			:posx = 7 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 :OutputText(error_String)
+			:update = true
+		EndWith
+	End Method
+
+	// 画面表示
+	Method disp_normal()
+	Begin
+		With Screen
+			:status = false
+			:update = false
+			:Clear()
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = true :font = 1 :OutputText(Language:langItem[2])
+			:posx = 1 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[3])
+			:posx = 1 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 :OutputText("")
+			:posx = 1 :posy = 7 :multiColumn = 1 :reverse = false :font = 1 :OutputText("")
+			:posx = 1 :posy = 9 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[4])
+			:posx = 1 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 :OutputText("[   ]")
+			:posx = 1 :posy = 13 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[5])
+			:posx = 17 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& Common:dataCount(ConstString:KENPIN_DATA) &"]")
+			
+			// 右端未使用領域埋め
+			CommonDisp:fillBlack("12", 0, 21)
+			
+			:update = true
+		EndWith
+		
+	End Method
+
+	// 入力判定メソッド
+	Method input_loop(btvKeycode)
+		btvRet
+	Begin
+	Select Case btvKeycode
+		Case "ENT"
+			Return ("next")
+		Case "F1"
+			Return (0)
+		Case "ERR_RANGE_UPPER"
+			Return ("retry")
+		Case "ERR_RANGE_LOWER"
+			Return ("retry")
+		Case Else
+			Return ("retry")
+		End Select
+		
+	End Method
+
+	// 入力文字判定メソッド
+	Method input_String(btvEachInput)
+		btvRet
+	Begin
+	Select Case btvEachInput
+		Case "1"
+			Return ("")
+		Case "4"
+			Return ("")
+		Case Else
+			Return (false)
+		End Select
+		
+	End Method
+
+
+	// 入力設定
+	Method wait_input()
+		btvKeycode
+		btvRet
+		
+	Begin
+		With InputString
+			:posx = 3 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "0" // 初期値設定
+			:inputAreaSize = 2
+			:maxLength = 1
+			:minLength = 0
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = nil
+			
+			btvKeycode = :Exec()
+			btvEachInput=:data
+			
+		EndWith
+		
+		btvRet = input_loop(btvKeycode)
+		
+		Return (btvRet)
+	End Method
+	
+EndPackage
+

@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SystemBase</RootNamespace>
+    <AssemblyName>SystemBase</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSWControl, Version=1.7.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DSWUtil, Version=0.5.4.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="ElTabelleHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\ElTabelleHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.Win.BaseGrid.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\GrapeCity.Win.BaseGrid.v40.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\GrapeCity.Win.WorkBook.v40.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MultiRowTabelle, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MultiRowTabelle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XlsCreatorHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsCreatorHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="XlsxCreatorHelper, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsxCreatorHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseFunc.cs" />
+    <Compile Include="ComEnum.cs" />
+    <Compile Include="Controls\ControlEnum.cs" />
+    <Compile Include="Controls\CustomProfessionalRenderer.cs" />
+    <Compile Include="Controls\CustomSplitContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DateTimeLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DSWRichTextBox\AbstractCheckString.cs" />
+    <Compile Include="Controls\DSWRichTextBox\CheckInputRegulation.cs" />
+    <Compile Include="Controls\DSWRichTextBox\CheckProphitionChar.cs" />
+    <Compile Include="Controls\DSWRichTextBox\Design\DSWRichTextBoxActionList.cs" />
+    <Compile Include="Controls\DSWRichTextBox\Design\DSWRichTextBoxDesigner.cs" />
+    <Compile Include="Controls\DSWRichTextBox\DSWRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DSWRichTextBox\DSWRichTextBox.Designer.cs">
+      <DependentUpon>DSWRichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DSWRichTextBox\DSWRichTextBoxData.cs" />
+    <Compile Include="Controls\DSWRichTextBox\DSWRichTextBoxImageItem.cs" />
+    <Compile Include="Controls\DSWRichTextBox\DSWRichTextBoxPasteEventArgs.cs" />
+    <Compile Include="Controls\DSWRichTextBox\InputRegulationEditor.cs" />
+    <Compile Include="Controls\DSWRichTextBox\InputRegulationSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\DSWRichTextBox\InputRegulationSetting.designer.cs">
+      <DependentUpon>InputRegulationSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DSWRichTextBox\ProhibitionCharEditor.cs" />
+    <Compile Include="Controls\DSWRichTextBox\ProhibitionCharSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\DSWRichTextBox\ProhibitionCharSetting.designer.cs">
+      <DependentUpon>ProhibitionCharSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DSWRichTextBox\RichTextBox5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DSWRichTextBox\RichTextBox5.Designer.cs">
+      <DependentUpon>RichTextBox5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MessageLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageLabel.Designer.cs">
+      <DependentUpon>MessageLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MonthPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolStripDateTimeLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Excel\BaseExport.cs" />
+    <Compile Include="Excel\ExportInfo.cs" />
+    <Compile Include="Excel\ExportInfoCollection.cs" />
+    <Compile Include="Excel\BaseExportXlsx.cs" />
+    <Compile Include="Forms\VersionJoho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VersionJoho.Designer.cs">
+      <DependentUpon>VersionJoho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomOrderForm.Designer.cs">
+      <DependentUpon>CustomOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomOrderSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomOrderSearchDialog.Designer.cs">
+      <DependentUpon>CustomOrderSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomPasswordChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomPasswordChangeForm.Designer.cs">
+      <DependentUpon>CustomPasswordChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PasswordChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PasswordChangeForm.Designer.cs">
+      <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadDllCollection.cs" />
+    <Compile Include="MenuAuthorityCheck.cs" />
+    <Compile Include="MessageSound.cs" />
+    <Compile Include="TypeLoader.cs" />
+    <Compile Include="Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseLogin.Designer.cs">
+      <DependentUpon>BaseLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseSDIMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseSDIMenu.Designer.cs">
+      <DependentUpon>BaseSDIMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseSplash.Designer.cs">
+      <DependentUpon>BaseSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Util\MessageBoxEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\MessageBoxEx.Designer.cs">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\CustomMsgBoxEx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\DSWRichTextBox\DSWRichTextBox.resx">
+      <DependentUpon>DSWRichTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DSWRichTextBox\InputRegulationSetting.resx">
+      <DependentUpon>InputRegulationSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DSWRichTextBox\ProhibitionCharSetting.resx">
+      <DependentUpon>ProhibitionCharSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageLabel.en.resx">
+      <DependentUpon>MessageLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageLabel.ja.resx">
+      <DependentUpon>MessageLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageLabel.resx">
+      <DependentUpon>MessageLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VersionJoho.en.resx">
+      <DependentUpon>VersionJoho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VersionJoho.ja.resx">
+      <DependentUpon>VersionJoho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VersionJoho.resx">
+      <DependentUpon>VersionJoho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm.en.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm.ja.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseLogin.en.resx">
+      <DependentUpon>BaseLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseLogin.ja.resx">
+      <DependentUpon>BaseLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseLogin.resx">
+      <DependentUpon>BaseLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseSDIMenu.en.resx">
+      <DependentUpon>BaseSDIMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseSDIMenu.ja.resx">
+      <DependentUpon>BaseSDIMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseSDIMenu.resx">
+      <DependentUpon>BaseSDIMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseSplash.en.resx">
+      <DependentUpon>BaseSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseSplash.ja.resx">
+      <DependentUpon>BaseSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseSplash.resx">
+      <DependentUpon>BaseSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomOrderForm.en.resx">
+      <DependentUpon>CustomOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomOrderForm.ja.resx">
+      <DependentUpon>CustomOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomOrderForm.resx">
+      <DependentUpon>CustomOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomOrderSearchDialog.en.resx">
+      <DependentUpon>CustomOrderSearchDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomOrderSearchDialog.ja.resx">
+      <DependentUpon>CustomOrderSearchDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomOrderSearchDialog.resx">
+      <DependentUpon>CustomOrderSearchDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomPasswordChangeForm.en.resx">
+      <DependentUpon>CustomPasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomPasswordChangeForm.ja.resx">
+      <DependentUpon>CustomPasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomPasswordChangeForm.resx">
+      <DependentUpon>CustomPasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PasswordChangeForm.en.resx">
+      <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PasswordChangeForm.ja.resx">
+      <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PasswordChangeForm.resx">
+      <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.en.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\MessageBoxEx.en.resx">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\MessageBoxEx.ja.resx">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\MessageBoxEx.resx">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Chord.wav" />
+    <Content Include="Ding.wav" />
+    <None Include="Resources\App.ico" />
+    <None Include="Resources\Warning.ico" />
+    <None Include="Resources\Question.ico" />
+    <None Include="Resources\Infomation.ico" />
+    <None Include="Resources\Error.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Commons\Commons\Commons.csproj">
+      <Project>{7CF83010-9C8F-482B-B0C0-CA10DA669345}</Project>
+      <Name>Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\WsConnection\WsConnection\WsConnection.csproj">
+      <Project>{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}</Project>
+      <Name>WsConnection</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(ProjectDir)"
+copy "$(TargetPath)" "..\..\..\Bin\
+if exist "$(TargetDir)en\" xcopy "$(TargetDir)en\*.*" "..\..\..\Bin\en\" /D/E/C/I/H/Y
+if exist "$(TargetDir)ja\" xcopy "$(TargetDir)ja\*.*" "..\..\..\Bin\ja\" /D/E/C/I/H/Y
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="shift-jis"?>
+<BTApplicationDebuggerSettingsProperties>
+  <BTApplicationDebuggerSettings>
+    <InstallFolder Id="InstallFolder" ActualValue="C:\eclipse">C:\eclipse</InstallFolder>
+    <WorkSpacePath Id="WorkSpacePath" ActualValue="C:\eclipse">C:\eclipse</WorkSpacePath>
+    <ProjectName Id="ProjectName" ActualValue="">app</ProjectName>
+    <OutputLang Id="script" ActualValue="scp">スクリプト</OutputLang>
+    <StartDebugger Id="StartDebugger" ActualValue="0">false</StartDebugger>
+    <HelpDialog Id="HelpDialog" ActualValue="0">false</HelpDialog>
+  </BTApplicationDebuggerSettings>
+</BTApplicationDebuggerSettingsProperties>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ARHelpDownloadResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ARListHelpFileData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ARListHelpFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ARTorokuHelpFileData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ARTorokuHelpFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsExistsARListHelpFile" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsExistsARTorokuHelpFile" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ARHelpDownloadResult" nillable="true" type="tns:ARHelpDownloadResult" />
+  <xs:complexType name="FileDeletePackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ARNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileType" type="tns:FileType" />
+      <xs:element minOccurs="0" name="FolderName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GirenType" type="tns:GirenType" />
+      <xs:element minOccurs="0" name="KojiNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NonyusakiCD" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDeletePackage" nillable="true" type="tns:FileDeletePackage" />
+  <xs:simpleType name="FileType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ARGiren" />
+      <xs:enumeration value="CaseMark" />
+      <xs:enumeration value="Template" />
+      <xs:enumeration value="ARRef" />
+      <xs:enumeration value="TagPictures" />
+      <xs:enumeration value="Attachments" />
+      <xs:enumeration value="ARAttachments" />
+      <xs:enumeration value="Legend" />
+      <xs:enumeration value="MailTemplate" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FileType" nillable="true" type="tns:FileType" />
+  <xs:simpleType name="GirenType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="No1" />
+      <xs:enumeration value="No2" />
+      <xs:enumeration value="No3" />
+      <xs:enumeration value="RefNo1" />
+      <xs:enumeration value="RefNo2" />
+      <xs:enumeration value="No4" />
+      <xs:enumeration value="No5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GirenType" nillable="true" type="tns:GirenType" />
+  <xs:complexType name="FileDeleteResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDeleteResult" nillable="true" type="tns:FileDeleteResult" />
+  <xs:complexType name="FileUploadPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ARNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeleteFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileType" type="tns:FileType" />
+      <xs:element minOccurs="0" name="FolderName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GirenType" type="tns:GirenType" />
+      <xs:element minOccurs="0" name="KojiNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NonyusakiCD" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileUploadPackage" nillable="true" type="tns:FileUploadPackage" />
+  <xs:complexType name="FileUploadResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileUploadResult" nillable="true" type="tns:FileUploadResult" />
+  <xs:complexType name="FileDownloadPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ARNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileType" type="tns:FileType" />
+      <xs:element minOccurs="0" name="FolderName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GirenType" type="tns:GirenType" />
+      <xs:element minOccurs="0" name="KojiNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NonyusakiCD" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDownloadPackage" nillable="true" type="tns:FileDownloadPackage" />
+  <xs:complexType name="FileDownloadResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsExistsFile" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDownloadResult" nillable="true" type="tns:FileDownloadResult" />
+</xs:schema>

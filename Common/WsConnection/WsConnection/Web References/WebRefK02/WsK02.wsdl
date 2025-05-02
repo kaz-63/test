@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:element name="GetNoList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondK02">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SaibanFlag" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsPreview" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="KojiName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ship" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HakkoSelect" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TorokuFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KojiNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CaseID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SagyoFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BoxNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PalletNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TagNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ARNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KiwakuKonpoMoveShipFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KiwakuNonyusakiCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KiwakuInsertType" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNoListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNoListResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="noList">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBoxList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBoxListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBoxListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMeisaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNonyusaki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNonyusakiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNonyusakiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdBoxNoKanri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdBoxNoKanriResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPalletList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPalletListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPalletListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPalletNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPalletNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPalletNoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBoxData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBoxDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBoxDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdPalletNoKanri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdPalletNoKanriResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPackingList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackingListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackingListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackingMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackingMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackingMeisaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuKonpoTorokuData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuKonpoTorokuDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKiwakuKonpoTorokuDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckKiwakuKonpoTorokuEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckKiwakuKonpoTorokuEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckKiwakuKonpoTorokuEditResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdKiwakuKonpoToroku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdKiwakuKonpoTorokuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdKiwakuKonpoTorokuResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuKonpoMeisaiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuKonpoMeisaiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKiwakuKonpoMeisaiDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveShipData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveShipDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMoveShipDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuKonpoShukkaMeisaiFirstRowData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuKonpoShukkaMeisaiFirstRowDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKiwakuKonpoShukkaMeisaiFirstRowDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdKiwakuKonpoMeisaiToroku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdKiwakuKonpoMeisaiTorokuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdKiwakuKonpoMeisaiTorokuResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuMatomeData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuMatomeDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKiwakuMatomeDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatomePackingMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK02" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatomePackingMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMatomePackingMeisaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNoListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNoList" />
+  </wsdl:message>
+  <wsdl:message name="GetNoListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBoxListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBoxList" />
+  </wsdl:message>
+  <wsdl:message name="GetBoxListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBoxListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMeisai" />
+  </wsdl:message>
+  <wsdl:message name="GetMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNonyusakiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNonyusaki" />
+  </wsdl:message>
+  <wsdl:message name="GetNonyusakiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNonyusakiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdBoxNoKanriSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdBoxNoKanri" />
+  </wsdl:message>
+  <wsdl:message name="UpdBoxNoKanriSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdBoxNoKanriResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPalletListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPalletList" />
+  </wsdl:message>
+  <wsdl:message name="GetPalletListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPalletListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPalletNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPalletNo" />
+  </wsdl:message>
+  <wsdl:message name="GetPalletNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPalletNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBoxDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBoxData" />
+  </wsdl:message>
+  <wsdl:message name="GetBoxDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBoxDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdPalletNoKanriSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdPalletNoKanri" />
+  </wsdl:message>
+  <wsdl:message name="UpdPalletNoKanriSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdPalletNoKanriResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackingListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackingList" />
+  </wsdl:message>
+  <wsdl:message name="GetPackingListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackingListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackingMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackingMeisai" />
+  </wsdl:message>
+  <wsdl:message name="GetPackingMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackingMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuKonpoTorokuDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKiwakuKonpoTorokuData" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuKonpoTorokuDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKiwakuKonpoTorokuDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckKiwakuKonpoTorokuEditSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckKiwakuKonpoTorokuEdit" />
+  </wsdl:message>
+  <wsdl:message name="CheckKiwakuKonpoTorokuEditSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckKiwakuKonpoTorokuEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdKiwakuKonpoTorokuSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdKiwakuKonpoToroku" />
+  </wsdl:message>
+  <wsdl:message name="UpdKiwakuKonpoTorokuSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdKiwakuKonpoTorokuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuKonpoMeisaiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKiwakuKonpoMeisaiData" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuKonpoMeisaiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKiwakuKonpoMeisaiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveShipDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoveShipData" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveShipDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoveShipDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuKonpoShukkaMeisaiFirstRowDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKiwakuKonpoShukkaMeisaiFirstRowData" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuKonpoShukkaMeisaiFirstRowDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKiwakuKonpoShukkaMeisaiFirstRowDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdKiwakuKonpoMeisaiTorokuSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdKiwakuKonpoMeisaiToroku" />
+  </wsdl:message>
+  <wsdl:message name="UpdKiwakuKonpoMeisaiTorokuSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdKiwakuKonpoMeisaiTorokuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuMatomeDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKiwakuMatomeData" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuMatomeDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKiwakuMatomeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMatomePackingMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMatomePackingMeisai" />
+  </wsdl:message>
+  <wsdl:message name="GetMatomePackingMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMatomePackingMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsK02Soap">
+    <wsdl:operation name="GetNoList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BOXNO・パレットNoのリストを取得します</wsdl:documentation>
+      <wsdl:input message="tns:GetNoListSoapIn" />
+      <wsdl:output message="tns:GetNoListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ボックスリストを発行していないボックスNoを取得。</wsdl:documentation>
+      <wsdl:input message="tns:GetBoxListSoapIn" />
+      <wsdl:output message="tns:GetBoxListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷明細データを取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMeisaiSoapIn" />
+      <wsdl:output message="tns:GetMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNonyusaki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BOXNoから納入先を取得</wsdl:documentation>
+      <wsdl:input message="tns:GetNonyusakiSoapIn" />
+      <wsdl:output message="tns:GetNonyusakiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdBoxNoKanri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ボックスリストマネージャーをアップデートします</wsdl:documentation>
+      <wsdl:input message="tns:UpdBoxNoKanriSoapIn" />
+      <wsdl:output message="tns:UpdBoxNoKanriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPalletList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">未発行のパレットNoリストを取得</wsdl:documentation>
+      <wsdl:input message="tns:GetPalletListSoapIn" />
+      <wsdl:output message="tns:GetPalletListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPalletNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">パレットNoから納入先・便を取得</wsdl:documentation>
+      <wsdl:input message="tns:GetPalletNoSoapIn" />
+      <wsdl:output message="tns:GetPalletNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">パレットNoリストからそれぞれのBoxNoを取得</wsdl:documentation>
+      <wsdl:input message="tns:GetBoxDataSoapIn" />
+      <wsdl:output message="tns:GetBoxDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdPalletNoKanri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">パレットリストマネージャーをアップデートします</wsdl:documentation>
+      <wsdl:input message="tns:UpdPalletNoKanriSoapIn" />
+      <wsdl:output message="tns:UpdPalletNoKanriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">管理No・作業状況を返却します。</wsdl:documentation>
+      <wsdl:input message="tns:GetPackingListSoapIn" />
+      <wsdl:output message="tns:GetPackingListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">パッキング発行の帳票用データを取得します。</wsdl:documentation>
+      <wsdl:input message="tns:GetPackingMeisaiSoapIn" />
+      <wsdl:output message="tns:GetPackingMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoTorokuData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠梱包登録用データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKiwakuKonpoTorokuDataSoapIn" />
+      <wsdl:output message="tns:GetKiwakuKonpoTorokuDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckKiwakuKonpoTorokuEdit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">編集時チェック</wsdl:documentation>
+      <wsdl:input message="tns:CheckKiwakuKonpoTorokuEditSoapIn" />
+      <wsdl:output message="tns:CheckKiwakuKonpoTorokuEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwakuKonpoToroku">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠梱包登録更新処理</wsdl:documentation>
+      <wsdl:input message="tns:UpdKiwakuKonpoTorokuSoapIn" />
+      <wsdl:output message="tns:UpdKiwakuKonpoTorokuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoMeisaiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠梱包データの取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKiwakuKonpoMeisaiDataSoapIn" />
+      <wsdl:output message="tns:GetKiwakuKonpoMeisaiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveShipData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">便間移動データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMoveShipDataSoapIn" />
+      <wsdl:output message="tns:GetMoveShipDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoShukkaMeisaiFirstRowData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷明細データ1件取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKiwakuKonpoShukkaMeisaiFirstRowDataSoapIn" />
+      <wsdl:output message="tns:GetKiwakuKonpoShukkaMeisaiFirstRowDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwakuKonpoMeisaiToroku">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠梱包明細登録更新処理</wsdl:documentation>
+      <wsdl:input message="tns:UpdKiwakuKonpoMeisaiTorokuSoapIn" />
+      <wsdl:output message="tns:UpdKiwakuKonpoMeisaiTorokuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuMatomeData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠まとめデータの取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKiwakuMatomeDataSoapIn" />
+      <wsdl:output message="tns:GetKiwakuMatomeDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatomePackingMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠まとめ印刷用データの取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMatomePackingMeisaiSoapIn" />
+      <wsdl:output message="tns:GetMatomePackingMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsK02Soap" type="tns:WsK02Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNoList">
+      <soap:operation soapAction="http://smssrv/GetNoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxList">
+      <soap:operation soapAction="http://smssrv/GetBoxList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeisai">
+      <soap:operation soapAction="http://smssrv/GetMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNonyusaki">
+      <soap:operation soapAction="http://smssrv/GetNonyusaki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdBoxNoKanri">
+      <soap:operation soapAction="http://smssrv/UpdBoxNoKanri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPalletList">
+      <soap:operation soapAction="http://smssrv/GetPalletList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPalletNo">
+      <soap:operation soapAction="http://smssrv/GetPalletNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxData">
+      <soap:operation soapAction="http://smssrv/GetBoxData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdPalletNoKanri">
+      <soap:operation soapAction="http://smssrv/UpdPalletNoKanri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingList">
+      <soap:operation soapAction="http://smssrv/GetPackingList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingMeisai">
+      <soap:operation soapAction="http://smssrv/GetPackingMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoTorokuData">
+      <soap:operation soapAction="http://smssrv/GetKiwakuKonpoTorokuData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckKiwakuKonpoTorokuEdit">
+      <soap:operation soapAction="http://smssrv/CheckKiwakuKonpoTorokuEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwakuKonpoToroku">
+      <soap:operation soapAction="http://smssrv/UpdKiwakuKonpoToroku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoMeisaiData">
+      <soap:operation soapAction="http://smssrv/GetKiwakuKonpoMeisaiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveShipData">
+      <soap:operation soapAction="http://smssrv/GetMoveShipData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoShukkaMeisaiFirstRowData">
+      <soap:operation soapAction="http://smssrv/GetKiwakuKonpoShukkaMeisaiFirstRowData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwakuKonpoMeisaiToroku">
+      <soap:operation soapAction="http://smssrv/UpdKiwakuKonpoMeisaiToroku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuMatomeData">
+      <soap:operation soapAction="http://smssrv/GetKiwakuMatomeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatomePackingMeisai">
+      <soap:operation soapAction="http://smssrv/GetMatomePackingMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsK02Soap12" type="tns:WsK02Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNoList">
+      <soap12:operation soapAction="http://smssrv/GetNoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxList">
+      <soap12:operation soapAction="http://smssrv/GetBoxList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeisai">
+      <soap12:operation soapAction="http://smssrv/GetMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNonyusaki">
+      <soap12:operation soapAction="http://smssrv/GetNonyusaki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdBoxNoKanri">
+      <soap12:operation soapAction="http://smssrv/UpdBoxNoKanri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPalletList">
+      <soap12:operation soapAction="http://smssrv/GetPalletList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPalletNo">
+      <soap12:operation soapAction="http://smssrv/GetPalletNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxData">
+      <soap12:operation soapAction="http://smssrv/GetBoxData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdPalletNoKanri">
+      <soap12:operation soapAction="http://smssrv/UpdPalletNoKanri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingList">
+      <soap12:operation soapAction="http://smssrv/GetPackingList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingMeisai">
+      <soap12:operation soapAction="http://smssrv/GetPackingMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoTorokuData">
+      <soap12:operation soapAction="http://smssrv/GetKiwakuKonpoTorokuData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckKiwakuKonpoTorokuEdit">
+      <soap12:operation soapAction="http://smssrv/CheckKiwakuKonpoTorokuEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwakuKonpoToroku">
+      <soap12:operation soapAction="http://smssrv/UpdKiwakuKonpoToroku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoMeisaiData">
+      <soap12:operation soapAction="http://smssrv/GetKiwakuKonpoMeisaiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveShipData">
+      <soap12:operation soapAction="http://smssrv/GetMoveShipData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuKonpoShukkaMeisaiFirstRowData">
+      <soap12:operation soapAction="http://smssrv/GetKiwakuKonpoShukkaMeisaiFirstRowData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwakuKonpoMeisaiToroku">
+      <soap12:operation soapAction="http://smssrv/UpdKiwakuKonpoMeisaiToroku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwakuMatomeData">
+      <soap12:operation soapAction="http://smssrv/GetKiwakuMatomeData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatomePackingMeisai">
+      <soap12:operation soapAction="http://smssrv/GetMatomePackingMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsK02">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsK02Soap" binding="tns:WsK02Soap">
+      <soap:address location="http://smssrv/sms/WsK02.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsK02Soap12" binding="tns:WsK02Soap12">
+      <soap12:address location="http://smssrv/sms/WsK02.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

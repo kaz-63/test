@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:element name="GetNonyusakiIchiran">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondNonyusaki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondNonyusaki">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ship" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KanriFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName0" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName5" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName6" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName7" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RemoveFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BukkenNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GamenFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransportFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EstimateFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipFrom" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipTo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipSeiban" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipFromCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TagShip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SyoriFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Seiban" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Kishu" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Naiyo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TouchakuyoteiDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KikaiParts" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SeigyoParts" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Biko" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConsignName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNonyusakiIchiranResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNonyusakiIchiranResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRirekiBukkenIchiran">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondNonyusaki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRirekiBukkenIchiranResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRirekiBukkenIchiranResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKojiShikibetsuIchiran">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondKiwaku" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondKiwaku">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="KojiNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KojiName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ship" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TorokuFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CaseMarkFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DeliveryNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PortOfDestination" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AirBoat" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DeliveryDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DelivertyPoint" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Factory" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SagyoFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaUserID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaUserName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnsokaishaName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="InvoiceNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OkurijyoNo" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="KiwakuKonpo" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetKojiShikibetsuIchiranResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKojiShikibetsuIchiranResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBukkenNameIchiran">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBukken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondBukken">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BukkenName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetBukkenNameIchiranResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBukkenNameIchiranResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperationFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondP02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondP02">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Value2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GamenFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiCd" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ARNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OperationFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UpdateDateFrom" />
+              <s:element minOccurs="0" maxOccurs="1" name="UpdateDateTo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetOperationFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOperationFlagResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRireki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondP02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRirekiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRirekiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetShimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShimeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondP02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSendUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNonyusakiIchiranSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNonyusakiIchiran" />
+  </wsdl:message>
+  <wsdl:message name="GetNonyusakiIchiranSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNonyusakiIchiranResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRirekiBukkenIchiranSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRirekiBukkenIchiran" />
+  </wsdl:message>
+  <wsdl:message name="GetRirekiBukkenIchiranSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRirekiBukkenIchiranResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKojiShikibetsuIchiranSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKojiShikibetsuIchiran" />
+  </wsdl:message>
+  <wsdl:message name="GetKojiShikibetsuIchiranSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKojiShikibetsuIchiranResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBukkenNameIchiranSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBukkenNameIchiran" />
+  </wsdl:message>
+  <wsdl:message name="GetBukkenNameIchiranSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBukkenNameIchiranResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOperationFlag" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOperationFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRirekiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRireki" />
+  </wsdl:message>
+  <wsdl:message name="GetRirekiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRirekiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShime" />
+  </wsdl:message>
+  <wsdl:message name="GetShimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSendUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSendUser" />
+  </wsdl:message>
+  <wsdl:message name="GetSendUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSendUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsP02Soap">
+    <wsdl:operation name="GetNonyusakiIchiran">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">納入先一覧取得</wsdl:documentation>
+      <wsdl:input message="tns:GetNonyusakiIchiranSoapIn" />
+      <wsdl:output message="tns:GetNonyusakiIchiranSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRirekiBukkenIchiran">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">履歴データに紐付く物件名一覧取得</wsdl:documentation>
+      <wsdl:input message="tns:GetRirekiBukkenIchiranSoapIn" />
+      <wsdl:output message="tns:GetRirekiBukkenIchiranSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKojiShikibetsuIchiran">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">納入先一覧取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKojiShikibetsuIchiranSoapIn" />
+      <wsdl:output message="tns:GetKojiShikibetsuIchiranSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBukkenNameIchiran">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">物件名一覧取得</wsdl:documentation>
+      <wsdl:input message="tns:GetBukkenNameIchiranSoapIn" />
+      <wsdl:output message="tns:GetBukkenNameIchiranSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationFlag">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">処理名コンボボックスデータ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetOperationFlagSoapIn" />
+      <wsdl:output message="tns:GetOperationFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRireki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">履歴一覧取得</wsdl:documentation>
+      <wsdl:input message="tns:GetRirekiSoapIn" />
+      <wsdl:output message="tns:GetRirekiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">締めマスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetShimeSoapIn" />
+      <wsdl:output message="tns:GetShimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">送信先設定</wsdl:documentation>
+      <wsdl:input message="tns:GetSendUserSoapIn" />
+      <wsdl:output message="tns:GetSendUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsP02Soap" type="tns:WsP02Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNonyusakiIchiran">
+      <soap:operation soapAction="http://smssrv/GetNonyusakiIchiran" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRirekiBukkenIchiran">
+      <soap:operation soapAction="http://smssrv/GetRirekiBukkenIchiran" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKojiShikibetsuIchiran">
+      <soap:operation soapAction="http://smssrv/GetKojiShikibetsuIchiran" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBukkenNameIchiran">
+      <soap:operation soapAction="http://smssrv/GetBukkenNameIchiran" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationFlag">
+      <soap:operation soapAction="http://smssrv/GetOperationFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRireki">
+      <soap:operation soapAction="http://smssrv/GetRireki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShime">
+      <soap:operation soapAction="http://smssrv/GetShime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendUser">
+      <soap:operation soapAction="http://smssrv/GetSendUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsP02Soap12" type="tns:WsP02Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNonyusakiIchiran">
+      <soap12:operation soapAction="http://smssrv/GetNonyusakiIchiran" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRirekiBukkenIchiran">
+      <soap12:operation soapAction="http://smssrv/GetRirekiBukkenIchiran" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKojiShikibetsuIchiran">
+      <soap12:operation soapAction="http://smssrv/GetKojiShikibetsuIchiran" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBukkenNameIchiran">
+      <soap12:operation soapAction="http://smssrv/GetBukkenNameIchiran" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationFlag">
+      <soap12:operation soapAction="http://smssrv/GetOperationFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRireki">
+      <soap12:operation soapAction="http://smssrv/GetRireki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShime">
+      <soap12:operation soapAction="http://smssrv/GetShime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendUser">
+      <soap12:operation soapAction="http://smssrv/GetSendUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsP02">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsP02Soap" binding="tns:WsP02Soap">
+      <soap:address location="http://smssrv/sms/WsP02.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsP02Soap12" binding="tns:WsP02Soap12">
+      <soap12:address location="http://smssrv/sms/WsP02.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

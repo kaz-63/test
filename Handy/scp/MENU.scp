@@ -1,0 +1,71 @@
+/********************************************************************************
+ファイル名	：	MENU.scp
+バージョン	：	Ver.1.00
+作成日付	：	2018/10/10
+動作説明	：	メニュー
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	// 言語設定
+	Language:Initialize(System:arg2, ConstString:SCP_NAME_MENU)
+	// メッセージ設定
+	Message:Initialize(System:arg2, ConstString:SCP_NAME_MENU)
+	
+	MENU:menu_main()
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+Package MENU
+	
+	MENU_ITEM_TITLE
+	MENU_ITEM_LIST
+	
+	//---------------------------------------------------
+	// メニュメソッド
+	Method menu_main()
+		btvMenupos = 1
+	Begin
+		
+		With Screen
+			:update = false
+			:status = true
+			:fontSize = 12
+			:update = true
+		EndWith
+		
+		While 1
+			btvMenupos = Handy:ShowMenu( Language:langItem[0], Language:langItem[1], Language:langItem[2], nil, nil, btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				System:Load(ConstString:SCP_NAME_HIKIWATASHI,ConstString:SCP_NAME_MENU,System:arg2,System:arg3,0)
+			Case 2
+				System:Load(ConstString:SCP_NAME_SHUKA,ConstString:SCP_NAME_MENU,System:arg2,System:arg3,0)
+			Case 3
+				System:Load(ConstString:SCP_NAME_BOX,ConstString:SCP_NAME_MENU,System:arg2,System:arg3,0)
+			Case 4
+				System:Load(ConstString:SCP_NAME_PALLET,ConstString:SCP_NAME_MENU,System:arg2,System:arg3,0)
+			Case 5
+				System:Load(ConstString:SCP_NAME_MEASURE,ConstString:SCP_NAME_MENU,System:arg2,System:arg3,0)
+			Case 6
+				System:Load(ConstString:SCP_NAME_DELETE,ConstString:SCP_NAME_MENU,System:arg2,System:arg3,0)
+			Case "C"
+				System:Load(ConstString:SCP_NAME_GYOMU, 0, System:arg2, System:arg3,0)
+			End Select
+		Wend
+		
+	End Method
+	
+EndPackage
+
+

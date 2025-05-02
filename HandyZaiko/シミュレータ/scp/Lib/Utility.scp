@@ -1,0 +1,340 @@
+/////////////////////////////////////////////////////////
+// ファイル一覧表示
+// 作業者ID＆処理拡張子ファイルを検索し、削除します。
+/////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+//							FileListパッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package FileList
+	dataNum			// データ数
+	data[500]		// データ
+	rowSize			// 行のバイトサイズ
+	
+	//---------------------------------------------------
+	// ファイルリスト表示
+	//  引数
+	//   title   : (文字列型)タイトル
+	//   filename   : (文字列型)ファイル名
+	//  戻り値
+	//   なし
+	//---------------------------------------------------
+	Method file_list( title, filename )
+		ret
+		rowsPerPage = 4	// １ページごとの行数
+		lastPage		// 最終表示ページ数
+		curPage			// 現在ページ
+		curPage_Pos		// 現在ページの先頭インデックス
+		curPos			// カーソル現在位置
+		refresh = true	// 再表示フラグ
+		tmpStr
+		dustStr
+		tmpNum
+		outstr
+		curPageFirst
+		curPageLast
+		i
+	Begin
+
+		TEMP_MEMORY:push_Screen()
+		Screen:status = false
+		Screen:fontSize = "small"
+		Screen:fontGapx = 0
+		Screen:fontGapy = 1
+		While 1
+			Common:Initialize()	
+		
+			// 画面再表示
+			If ( refresh is true ) Then
+				refresh = false
+				// タイトル表示
+				With Screen
+					:update = false
+					:Clear()
+					:foreColor = "255|255|255" :backColor = "0|0|128" :fontSize = "middle"
+					filelist_printpos(title & " Data一覧              ", 1, 1)
+					:foreColor = "0|0|0" :backColor = "255|255|255" :fontSize = "small"
+				EndWith
+				// 破線表示
+				filelist_drawline(16)
+				Screen:update = true
+
+				curPos = 0
+				curPage_Pos = 0
+				curPage = 0
+				
+				dataNum = Common:data_count(filename)
+				If (dataNum == 0) Then
+					Return ()
+				EndIf
+				
+				If filename eq ConstString:FILE_LOCATION or
+				  filename eq ConstString:FILE_TANAOROSHI Then
+					rowSize = ConstString:L_SIZE
+				Else
+					rowSize = ConstString:K_SIZE
+				EndIf
+				
+			EndIf
+
+			File:Initialize()
+			File:name = filename
+			
+			curPageFirst = rowsPerPage * (curPos / rowsPerPage).toInt
+			curPageLast = curPageFirst + rowsPerPage - 1
+			If curPageLast >= dataNum Then
+				curPageLast = dataNum - 1
+			EndIf
+			
+			//Handy:DebugOut("" & curPageFirst)
+			If curPageFirst > 0 Then
+				File:currentPos = curPageFirst * rowSize 
+				//For i = 0 to curPageFirst - 1 step 1
+				//	dustStr = File:Gets(rowSize)
+				//Next
+			EndIf
+			For i = curPageFirst to curPageLast step 1
+				data[i - curPageFirst] = File:Gets(rowSize)
+			Next
+			File:Close()
+
+			// ページ計算
+			curPage = (curPos / rowsPerPage).toInt
+			//Handy:DebugOut("" & curPage)
+			curPage_Pos = curPos % rowsPerPage
+			//Handy:DebugOut("" & curPage_Pos)
+			lastPage = ((dataNum + 3) / rowsPerPage).toInt - 1
+			//Handy:DebugOut("" & lastPage)
+			If (rowSize == ConstString:K_SIZE) Then
+				outstr = data[curPage_Pos].Right(11).Remove(" ")
+			Else
+				outstr = data[curPage_Pos].Right(24).Remove(" ")
+			//Handy:DebugOut("" & data[curPage_Pos])
+			EndIf
+
+			// ファイル表示
+			For i = 0 to rowsPerPage - 1
+				If ((curPage) * rowsPerPage + i + 1 > dataNum) Then
+					Screen:reverse = false
+					If (rowSize == ConstString:K_SIZE) Then
+						filelist_printpos((" ").Repeat(21), 1, (4 + i * 2))
+					Else
+						filelist_printpos((" ").Repeat(21), 1, (4 + i * 4))
+						filelist_printpos((" ").Repeat(21), 1, (6 + i * 4))
+					EndIf
+				Else
+					If (i == curPage_Pos) Then
+						Screen:reverse = true
+					Else
+						Screen:reverse = false
+					EndIf
+					tmpStr = data[i]
+					If (rowSize == ConstString:K_SIZE) Then
+						filelist_printpos(tmpStr.Right(11).Left(10) & (" ").Repeat(21), 1, (4 + i * 2))
+					Else
+						filelist_printpos(tmpStr.Right(24).Left(12) & (" ").Repeat(9), 1, (4 + i * 4))
+						filelist_printpos((" ").Repeat(6) & tmpStr.Right(11).Left(10) & (" ").Repeat(5), 1, (6 + i * 4))
+					EndIf
+				EndIf
+			Next
+			
+			With Screen
+			:update = false
+			:posx = 1 :posy = 21 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" F1:戻る   ENT:削除")
+			:update = true
+			EndWith
+			
+			// キー操作
+			ret = Handy:KeyWait()
+			If ( ret eq "UP" ) Then
+				If ( curPos == 0 ) Then
+					curPos = dataNum - 1
+				Else
+					curPos = curPos - 1
+				EndIf
+			ElseIf ( ret eq "DOWN" ) Then
+				If ( curPos == dataNum - 1 ) Then
+					curPos = 0
+				Else
+					curPos = curPos + 1
+				EndIf
+			ElseIf ( ret eq "LEFT" ) Then
+				If ( curPos < rowsPerPage ) Then
+					tmpNum = (lastPage * rowsPerPage) + (curPage_Pos)
+					If ( tmpNum > dataNum - 1 ) Then curPos = dataNum - 1
+					Else curPos = tmpNum EndIf
+				Else
+					curPos = curPos - rowsPerPage
+				EndIf
+			ElseIf ( ret eq "RIGHT" ) Then
+				If ( curPage == lastPage ) Then
+					curPos = curPage_Pos
+				Else
+					If ( curPos + rowsPerPage > dataNum - 1 ) Then curPos = dataNum - 1
+					Else curPos = curPos + rowsPerPage EndIf
+				EndIf
+			ElseIf ( ret eq "F1" or ret eq "C" ) Then
+				outstr = ""
+				Wbreak
+			ElseIf ( ret eq "ENT" ) Then
+				If ( dataNum > 0 ) Then
+					If Handy:ShowMessageBox(" "& outstr &"を削除します。よろしいですか？","yesno|no") Then
+						Handy:ShowMessageBox("削除しました ","ok")
+						item_delete(filename, curPos)
+						refresh = true
+					Else
+						Handy:ShowMessageBox("Cancelされました","ok")
+					EndIf
+					
+				EndIf
+				
+			EndIf
+		Wend
+
+		Screen:Clear()
+		TEMP_MEMORY:pop_Screen()
+
+		Return ()
+	EndMethod
+
+	//---------------------------------------------------
+	// ファイルリスト表示
+	//  引数
+	//   filename   : (文字列型)ファイル名
+	//   curPos		: カーソル現在位置
+	//  戻り値
+	//   なし
+	//---------------------------------------------------
+	Method item_delete( filename, curPos )
+		i
+		tempfile
+		first = true
+		tempStr
+	Begin
+		filename = ConstString:DRIVE_NAME & filename
+		// 最後の１行を削除するときはファイル削除
+		If (dataNum == 1) Then
+			If FileSystem:FindFirst(filename) is true Then
+				FileSystem:Delete(filename)
+			EndIf
+		Else
+			tempfile = filename & ".tmp"
+
+			FileStream<filename>:Open("r")
+			FileStream<tempfile>:Open("w")
+			//Handy:DebugOut(filename)
+			//Handy:DebugOut(tempfile)
+			
+			For i = 0 to dataNum - 1
+				If (i == curPos) Then
+					FileStream<filename>:Read(rowSize)
+					Fcontinue
+				EndIf
+				If (first) Then
+					tempStr = FileStream<filename>:Read(rowSize)
+					FileStream<tempfile>:Write(tempStr)
+					first = false
+					Fcontinue
+				EndIf
+				tempStr = FileStream<filename>:Read(rowSize)
+				FileStream<tempfile>:Write(tempStr)
+			Next
+			FileStream<filename>:Close()
+			FileStream<tempfile>:Close()
+			FileSystem:Copy(tempfile, filename, true)
+			FileSystem:Delete(tempfile)
+		EndIf
+	Catch
+		Handy:ShowMessageBox("Applicationに問題が発生しました("&System:errorInf2&")", "ok" )
+	EndMethod
+
+	//---------------------------------------------------
+	// 位置指定文字列表示
+	Method filelist_printpos(strmsg, x, y)
+	Begin
+		Screen:posx = x		Screen:posy = y
+		Screen:OutputText(strmsg)
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 破線描画
+	Method filelist_drawline(y)
+		x1
+		x2
+		i
+	Begin
+		For i = 0 to 127 Step 4
+			Screen:DrawLine(i, y, i+1, y, "black")
+		Next
+	EndMethod
+
+	//検索条件返却
+	Method fileSearch(title)
+	Begin
+		Return ("")
+	EndMethod
+	
+EndPackage
+
+
+//////////////////////////////////////////////////////////////////////////
+//						情報一時保存パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package	TEMP_MEMORY
+
+	// 一時保存情報
+	tempUpdate
+	tempReverse
+	tempFont
+	tempFontSize
+	tempFontGapx
+	tempFontGapy
+	tempPosx
+	tempPosy
+	tempStatus
+
+	//---------------------------------------------------
+	// 退避
+	Method push_Screen()
+	Begin
+		//退避
+		With Screen
+			
+			tempUpdate	= :update
+			tempReverse	= :reverse
+			tempFont	= :font
+			tempFontSize= :fontSize
+			tempFontGapx= :fontGapx
+			tempFontGapy= :fontGapy
+			tempPosx	= :posx
+			tempPosy	= :posy
+			tempStatus	= :status
+		EndWith
+		
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 復帰
+	Method pop_Screen()
+	Begin
+		
+		//復帰
+		With Screen
+			:update 	= tempUpdate
+			:reverse	= tempReverse
+			:font		= tempFont
+			:fontSize	= tempFontSize
+			:fontGapx	= tempFontGapx
+			:fontGapy	= tempFontGapy
+			:posx 		= tempPosx
+			:posy 		= tempPosy
+			If ( :status is false or tempStatus is false ) Then
+				:status		= tempStatus
+			EndIf
+		EndWith
+		
+	EndMethod
+	
+EndPackage

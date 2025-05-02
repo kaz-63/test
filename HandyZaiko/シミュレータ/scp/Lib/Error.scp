@@ -1,0 +1,246 @@
+/////////////////////////////////////////////////////////
+// エラー表示・コード整合性チェック
+// コード整合性チェックでは入力桁数過多のチェックと、読み取りタイムアウトの検出が行えません。
+/////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////
+//						エラーコードパッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package ErrorCode
+	
+	error_code = 0
+	
+	Method ErrorString(no)
+		ret = ""
+	Begin
+		Select Case no
+			Case 1
+				// 同じコードが発見された場合
+				ret = "二重登録"
+			Case 2 
+				// Box梱包時現品タグの前4桁が前回タグと一致しなかった
+				ret = "納入先不一致"
+			Case 3 
+				// 入力桁数が不足している
+				ret = "桁数不足"
+			Case 4 
+				// 入力桁数が多すぎる
+				ret = "桁数過多"
+			Case 5
+				// 想定される頭文字ではなかった
+				ret = "頭文字不一致"
+			Case 6
+				// カウント部に数字以外が出現した
+				ret = "BoxNo不正"
+			Case 7
+				// カウント部に数字以外が出現した
+				ret = "PalletNo不正"
+			Case 8
+				// ファイル数が既定値を超えた
+				ret = "File数Over"
+			Case 9
+				// 読み取りエラー
+				ret = "読取Error"
+			Case 10
+				// 入力文字が不正
+				ret = "入力文字不正"
+			Case 11
+				// 現品タグの前1桁が不正(0:本体　1:AR)
+				ret = "出荷区分Error"
+			Case 12
+				// PalletNo不可
+				ret = "PalletNo不可"
+			Case 13
+				// TagCode不正
+				ret = "TagCode不正"
+			Case 14
+				// Location不正
+				ret = "Location不正"
+		End Select
+		
+		Return (ret)
+		
+	EndMethod
+	
+	// エラーコードを画面に反映させる
+	Method dispUpdate()
+	Begin
+		
+		With Screen
+			:update = false
+			:posx = 1 :posy = 16 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" "&ErrorString(error_code))
+			:update = true
+		EndWith
+		
+	EndMethod
+	
+	// エラー表示の消去
+	Method dispDelete()
+	Begin
+		error_code = 0
+		dispUpdate()
+	EndMethod
+
+EndPackage
+
+//////////////////////////////////////////////////////////////////////////
+//						照会パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package MatchCode
+	
+	// 入力されたロケーションが正しいかチェック
+	Method location_match(location)
+	i
+	s
+	Begin
+		If location.length == 0 Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf location.length > 12 Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		Else
+			For i=0 to location.length - 1
+				s = location.Left(i + 1).Right(1)
+				If s weq "[0-9]" is false AND s weq "[A-Z]" is false AND s eq "-" is false Then
+					// Location不正
+					ErrorCode:error_code = 14
+					Return (false)
+				EndIf
+			Next
+		EndIf
+
+		Return (true)
+	EndMethod
+	
+	// 入力された在庫Noが正しいかチェック
+	Method stockNo_match(code)
+	Begin
+		If code.Left(1) eq ConstString:PALLET_INITIAL Then
+			// PalletNoチェック
+			Return (box_pallet_match(code))
+		ElseIf code.Left(1) eq ConstString:BOX_INITIAL Then
+			// BoxNoチェック
+			Return (box_pallet_match(code))
+		Else
+			// TagNoチェック
+			Return (tag_match(code))
+		EndIf
+	EndMethod
+	
+	// 入力された在庫NoがPalletNoでなくて正しいかチェック
+	Method stockNo_match_NotP(code)
+	Begin
+		If code.Left(1) eq ConstString:PALLET_INITIAL Then
+			// PalletNoは不可
+			ErrorCode:error_code = 12
+			Return (false)
+		ElseIf code.Left(1) eq ConstString:BOX_INITIAL Then
+			// BoxNoチェック
+			Return (box_pallet_match(code))
+		Else
+			// TagNoチェック
+			Return (tag_match(code))
+		EndIf
+	EndMethod
+	
+	// 入力された在庫Noが正しいかチェック
+	Method box_pallet_match(code)
+	Begin
+		If code.length < 6 Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf code.length > 6 Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		ElseIf code.Right(3) weq "[0-9][0-9][0-9]" is false Then
+			// カウントNo不正
+			If code.Left(1) eq ConstString:BOX_INITIAL Then
+				ErrorCode:error_code = 6
+			Else
+				ErrorCode:error_code = 7
+			EndIf
+			
+			Return (false)
+		EndIf
+
+		Return (true)
+	EndMethod
+
+	// 入力された現品タグNoが正しいかどうか
+	Method tag_match(code)
+	Begin
+		
+		If code.length < 10 Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf code.length > 10 Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		EndIf
+		
+		If code.Left(1) ne "0" AND
+			code.Left(1) ne "1" Then
+			// 現品タグの前1桁が不正(0:本体　1:AR)
+			ErrorCode:error_code = 11
+			Return (false)
+		EndIf
+		
+		// ???
+		If code.Find("$",0) is nil AND
+			code.Find("%",0) is nil AND
+			code.Find("/",0) is nil AND
+			code.Find("+",0) is nil AND
+			code.Find("*",0) is nil AND
+			code.Find("#",0) is nil Then
+		Else
+			// 入力文字が不正
+			ErrorCode:error_code = 10
+			Return (false)
+		EndIf
+		
+		
+		Return (true)
+		
+	EndMethod
+
+	// 入力されたユーザーIDが正しいかどうか
+	Method user_match(code)
+	Begin
+		
+		If code.length == 0 Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf code.length > 10 Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		EndIf
+		
+		If code.Find("$",0) is nil AND
+			code.Find("%",0) is nil AND
+			code.Find("/",0) is nil AND
+			code.Find("+",0) is nil AND
+			code.Find("*",0) is nil AND
+			code.Find("#",0) is nil Then
+		Else
+			// 入力文字が不正
+			ErrorCode:error_code = 10
+			Return (false)
+		EndIf
+		
+		
+		Return (true)
+		
+	EndMethod
+
+EndPackage
+

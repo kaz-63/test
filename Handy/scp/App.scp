@@ -1,0 +1,121 @@
+/********************************************************************************
+ファイル名	：	App.scp
+バージョン	：	Ver.1.00
+作成日付	：	2010/04/22
+更新日付	：	2019/08/07
+動作説明	：	言語選択・初期設定
+
+********************************************************************************/
+
+Include "Lib\Const"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	APP:clear_lang_file()
+	APP:make_file_list()
+	With Handy
+		:backLight = 4
+		:backLightTimer = 120
+		:autoPowerOff = 5
+		:resumeOn = true
+		:wakeupOn = true
+	EndWith
+	
+	Handy:rightKey = "TRG"
+	Handy:leftKey = ""
+	
+	With Screen
+			:fontSize = 12 :fontGapx = 0 :fontGapy = 2 
+	EndWith
+	
+	While (1)
+		APP:app_main()
+	Wend
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+
+Package APP
+	//---------------------------------------------------
+	// メインメソッド
+	Method app_main()
+	Begin
+		APP_LANG:lang_main()
+	End Method
+
+	
+	//---------------------------------------------------
+	// ファイルリスト作成メソッド
+	Method make_file_list()
+		
+	Begin
+		
+		With File
+			:name = "2:_FILE.LST"
+			:Puts( "<used_file_list>", "create" )
+			:Puts( "\n", "append" )
+			:Puts( "1:K_APL.SCB\n", "append" )
+			:Puts( "1:K_APL.SCP\n", "append" )
+			:Puts( "2:_FILE.LST\n", "append" )
+			:Initialize()
+		EndWith
+	End Method
+	
+	//---------------------------------------------------
+	// ドライブ2のMTPファイルを削除する
+	// ※照合エラーを防ぐため、読み込みを行わないこの画面で削除する
+	Method clear_lang_file()
+		Const FILE_EXT = ".MTP"
+		ret
+		mtpList[4]
+		mtpCnt = 0
+		i = 0
+	Begin
+		ret = FileSystem:FindFirst(ConstString:DRIVE_NAME)
+		While (ret is true)
+			If (FileSystem:findFileName.Right(FILE_EXT.length) eq FILE_EXT) Then
+				mtpList[mtpCnt] = FileSystem:findFileName
+				mtpCnt = mtpCnt + 1
+			EndIf
+			ret = FileSystem:FindNext()
+		Wend
+		
+		For i = 0 to mtpCnt - 1
+			FileSystem:Delete(mtpList[i])
+		Next
+	End Method
+	
+EndPackage
+
+Package APP_LANG
+	
+	//---------------------------------------------------
+	// 言語選択メソッド
+	Method lang_main()
+		menuTitle = "   ■ Language ■"
+		btvItem1 = " １. Japanese| ２. English"
+		btvMenupos = 1
+	Begin
+		// ステータス表示設定
+		Screen:status = true
+		
+		While 1
+			btvMenupos = Handy:ShowMenu(menuTitle, btvItem1, nil, nil, nil, btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				System:Load(ConstString:SCP_NAME_LOGIN, 0, "japanese",0,0)
+			Case 2
+				System:Load(ConstString:SCP_NAME_LOGIN, 0, "english",0,0)
+			Case "C"
+				APP_LANG:lang_main()
+			End Select
+		Wend
+	End Method
+EndPackage
+
+

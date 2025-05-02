@@ -1,0 +1,2505 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DSWUtil.DbUtil</name>
+    </assembly>
+    <members>
+        <member name="T:DSWUtil.DbUtil.INewDbParameterBasic">
+            --------------------------------------------------
+            <summary>
+            valueを含むNewDbParameter用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterBasic.NewDbParameter">
+            --------------------------------------------------
+            <summary>
+            DbParameterの取得
+            </summary>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterBasic.NewDbParameter(System.String,System.Object)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="value">パラメータの値</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterBasic.NewDbParameter(System.String,System.Int32,System.Object)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="value">パラメータの値</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterBasic.NewDbParameter(System.String,System.Int32,System.Object,System.Data.ParameterDirection)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="value">パラメータの値</param>
+            <param name="direction">クエリ内パラメータの型</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterBasic.NewDbParameter(System.String,System.Int32,System.Int32,System.Object,System.Data.ParameterDirection)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="size">サイズ</param>
+            <param name="value">パラメータの値</param>
+            <param name="direction">クエリ内パラメータの型</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.INewDbParameterNoValue">
+            --------------------------------------------------
+            <summary>
+            value,DataRowVersionを含まないNewDbParameter用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterNoValue.NewDbParameter(System.String,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <returns></returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterNoValue.NewDbParameter(System.String,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="size">サイズ</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterNoValue.NewDbParameter(System.String,System.Int32,System.Data.ParameterDirection)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="direction">クエリ内パラメータの型</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterNoValue.NewDbParameter(System.String,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="size">サイズ</param>
+            <param name="sourceColumn">ソース列名</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.INewDbParameterDataRowVersion">
+            --------------------------------------------------
+            <summary>
+            DataRowVersionを含むNewDbParameter用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterDataRowVersion.NewDbParameter(System.String,System.Data.DataRowVersion,System.String)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="sourceVersion">DataRowVersionの値</param>
+            <param name="sourceColumn">ソース列名</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.INewDbParameterDataRowVersion.NewDbParameter(System.String,System.Data.DataRowVersion,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="sourceVersion">DataRowVersionの値</param>
+            <param name="sourceColumn">ソース列名</param>
+            <param name="sourceColumnNullMapping">Nullを許容できるかどうか(true:許容できる,false:許容できない)</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.INewDbParameter">
+            --------------------------------------------------
+            <summary>
+            INewDbParameterValue, INewDbParameterNoValue, INewDbParameterDataRowVersionの各インターフェイスを継承したNewDbParameter用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.IDbUtilFillGetDataSet">
+            --------------------------------------------------
+            <summary>
+            Fill(DataSet dataSet)のラッパー用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataSet.Fill(System.String,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataSet.Fill(System.String,System.Data.CommandType,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataSet.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコードおよび必要に応じて</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataSet.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.IDbUtilFillGetDataTable">
+            --------------------------------------------------
+            <summary>
+            Fill(DataTable dataTable)のラッパー用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTable.Fill(System.String,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="dataTable">データマップに使用するDataTable</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTable.Fill(System.String,System.Data.CommandType,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="dataTable">データマップに使用するDataTable</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTable.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataTable">データマップに使用するDataTable</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTable.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataTable">データマップに使用するDataTablet</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.IDbUtilFillGetDataSetSpecifyTable">
+            --------------------------------------------------
+            <summary>
+            Fill(DataSet dataSet, string srcTable)のラッパー用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataSetSpecifyTable.Fill(System.String,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名称</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataSetSpecifyTable.Fill(System.String,System.Data.CommandType,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名称</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataSetSpecifyTable.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名称</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataSetSpecifyTable.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名称</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.IDbUtilFillGetDataTableArrayRangeRows">
+            --------------------------------------------------
+            <summary>
+            Fill(int startRecord, int maxRecord, params DataTable[] dataTables)のラッパー用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTableArrayRangeRows.Fill(System.String,System.Int32,System.Int32,System.Data.DataTable[])">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="dataTables">レコードの格納先のDataTableのコレクション</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTableArrayRangeRows.Fill(System.String,System.Data.CommandType,System.Int32,System.Int32,System.Data.DataTable[])">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="dataTables">レコードの格納先のDataTableのコレクション</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTableArrayRangeRows.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Int32,System.Int32,System.Data.DataTable[])">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="dataTables">レコードの格納先のDataTableのコレクション</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTableArrayRangeRows.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Int32,System.Int32,System.Data.DataTable[])">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="dataTables">レコードの格納先のDataTableのコレクション</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.IDbUtilFillGetDataTableRangeRows">
+            --------------------------------------------------
+            <summary>
+            Fill(DataSet dataSet,int startRecord,int maxRecords,string srcTable)のラッパー用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTableRangeRows.Fill(System.String,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="dataSet">レコードおよび必要に応じてスキーマを格納するためのDataSet</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名前</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTableRangeRows.Fill(System.String,System.Data.CommandType,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="dataSet">レコードおよび必要に応じてスキーマを格納するためのDataSet</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名前</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTableRangeRows.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコードおよび必要に応じてスキーマを格納するためのDataSet</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名前</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilFillGetDataTableRangeRows.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコードおよび必要に応じてスキーマを格納するためのDataSet</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名前</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.IDbUtilFill">
+            --------------------------------------------------
+            <summary>
+            IDbUtilFillGetDataSet, IDbUtilFillGetDataTable, 
+            IDbUtilFillGetDataSetSpecifyTable, IDbUtilFillGetDataTableArrayRangeRows, 
+            IDbUtilFillGetDataTableRangeRowsの各インターフェイスを継承したFill用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.DbUtilException">
+            --------------------------------------------------
+            <summary>
+            DbUtil用の例外クラス
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilException.#ctor(System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="errorCode">エラーコード</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilException.#ctor(System.String,System.Object[])">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="errorCode">エラーコード</param>
+            <param name="values">string.format()のパラメータ</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilException.#ctor(System.Exception,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="innerException">内部例外</param>
+            <param name="errorCode">エラーコード</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilException.#ctor(System.Exception,System.String,System.Object[])">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="innerException">内部例外</param>
+            <param name="errorCode">エラーコード</param>
+            <param name="values">string.format()のパラメータ</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilException.Finalize">
+            --------------------------------------------------
+            <summary>
+            デストラクタ
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DbUtilException.ErrorCode">
+            --------------------------------------------------
+            <summary>
+            例外のエラーコードを取得します。
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.DbUtilOraDbType">
+            --------------------------------------------------
+            <summary>
+            OracleDbTypeの内容
+            (Oracle.DataAccessを参照しない様にする為)
+            </summary>
+            <create>Y.Higuchi 2008/05/20</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.BFile">
+            --------------------------------------------------
+            <summary>
+            OracleのBFile(Value:101)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Blob">
+            --------------------------------------------------
+            <summary>
+            OracleのBlob(Value:102)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Byte">
+            --------------------------------------------------
+            <summary>
+            OracleのByte(Value:103)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Char">
+            --------------------------------------------------
+            <summary>
+            OracleのChar(Value:104)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Clob">
+            --------------------------------------------------
+            <summary>
+            OracleのClob(Value:105)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Date">
+            --------------------------------------------------
+            <summary>
+            OracleのDate(Value:106)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Decimal">
+            --------------------------------------------------
+            <summary>
+            OracleのDecimal(Value:107)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Double">
+            --------------------------------------------------
+            <summary>
+            OracleのDouble(Value:108)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Long">
+            --------------------------------------------------
+            <summary>
+            OracleのLong(Value:109)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.LongRaw">
+            --------------------------------------------------
+            <summary>
+            OracleのLongRaw(Value:110)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Int16">
+            --------------------------------------------------
+            <summary>
+            OracleのInt16(Value:111)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Int32">
+            --------------------------------------------------
+            <summary>
+            OracleのInt32(Value:112)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Int64">
+            --------------------------------------------------
+            <summary>
+            OracleのInt64(Value:113)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.IntervalDS">
+            --------------------------------------------------
+            <summary>
+            OracleのIntervalDS(Value:114)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.IntervalYM">
+            --------------------------------------------------
+            <summary>
+            OracleのIntervalYM(Value:115)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.NClob">
+            --------------------------------------------------
+            <summary>
+            OracleのNClob(Value:116)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.NChar">
+            --------------------------------------------------
+            <summary>
+            OracleのNChar(Value:117)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.NVarchar2">
+            --------------------------------------------------
+            <summary>
+            OracleのNVarchar2(Value:119)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Raw">
+            --------------------------------------------------
+            <summary>
+            OracleのRaw(Value:120)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.RefCursor">
+            --------------------------------------------------
+            <summary>
+            OracleのRefCursor(Value:121)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Single">
+            --------------------------------------------------
+            <summary>
+            OracleのSingle(Value:122)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.TimeStamp">
+            --------------------------------------------------
+            <summary>
+            OracleのTimeStamp(Value:123)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.TimeStampLTZ">
+            --------------------------------------------------
+            <summary>
+            OracleのTimeStampLTZ(Value:124)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.TimeStampTZ">
+            --------------------------------------------------
+            <summary>
+            OracleのTimeStampTZ(Value:125)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.Varchar2">
+            --------------------------------------------------
+            <summary>
+            OracleのVarchar2(Value:126)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.XmlType">
+            --------------------------------------------------
+            <summary>
+            OracleのXmlType(Value:127)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.BinaryDouble">
+            --------------------------------------------------
+            <summary>
+            OracleのBinaryDouble(Value:132)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbUtilOraDbType.BinaryFloat">
+            --------------------------------------------------
+            <summary>
+            OracleのBinaryFloat(Value:133)
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.IDbUtilTransaction">
+            --------------------------------------------------
+            <summary>
+            Transaction用インターフェイス
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilTransaction.BeginTransaction">
+            --------------------------------------------------
+            <summary>
+            トランザクション開始
+            </summary>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilTransaction.BeginTransaction(System.Data.IsolationLevel)">
+            --------------------------------------------------
+            <summary>
+            トランザクション開始
+            </summary>
+            <param name="isolationLevel">トランザクションの分離レベルを指定します</param>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilTransaction.Commit">
+            --------------------------------------------------
+            <summary>
+            コミット(更新データ確定)
+            </summary>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilTransaction.CommitAndBeginTransaction">
+            --------------------------------------------------
+            <summary>
+            コミットを行い再度トランザクションを開始
+            </summary>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilTransaction.CommitAndBeginTransaction(System.Data.IsolationLevel)">
+            --------------------------------------------------
+            <summary>
+            コミットを行い再度トランザクションを開始
+            </summary>
+            <param name="isolationLevel">トランザクションの分離レベルを指定します</param>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilTransaction.Rollback">
+            --------------------------------------------------
+            <summary>
+            ロールバック(更新データ破棄)
+            </summary>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilTransaction.RollbackAndBeginTransaction">
+            --------------------------------------------------
+            <summary>
+            ロールバックを行い再度トランザクションを開始
+            </summary>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.IDbUtilTransaction.RollbackAndBeginTransaction(System.Data.IsolationLevel)">
+            --------------------------------------------------
+            <summary>
+            ロールバックを行い再度トランザクションを開始
+            </summary>
+            <param name="isolationLevel">トランザクションの分離レベルを指定します</param>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.DbUtilMessageManager">
+            --------------------------------------------------
+            <summary>
+            メッセージ管理クラス
+            </summary>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilMessageManager.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create>Y.Higuchi 2008/06/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilMessageManager.GetInstance">
+            --------------------------------------------------
+            <summary>
+            ResourceManagerインスタンス生成
+            </summary>
+            <returns>インスタンス(ResourceManager)</returns>
+            <create>Y.Higuchi 2010/11/19</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilMessageManager.GetCulture">
+            --------------------------------------------------
+            <summary>
+            カルチャの取得
+            </summary>
+            <returns>現在のカルチャ</returns>
+            <create>Y.Higuchi 2010/11/19</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilMessageManager.GetMessage(System.String)">
+            --------------------------------------------------
+            <summary>
+            メッセージの取得
+            </summary>
+            <param name="messageID">メッセージID</param>
+            <returns>メッセージ</returns>
+            <create>Y.Higuchi 2008/06/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilMessageManager.GetMessage(System.String,System.Object[])">
+            --------------------------------------------------
+            <summary>
+            メッセージの取得
+            </summary>
+            <param name="messageID">メッセージID</param>
+            <param name="values">string.format()のパラメータ</param>
+            <returns>メッセージ</returns>
+            <create>Y.Higuchi 2008/06/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbUtilMessageManager.InnerGetMessage(System.String,System.Globalization.CultureInfo,System.Object[])">
+            --------------------------------------------------
+            <summary>
+            メッセージの取得
+            </summary>
+            <param name="messageID">メッセージID</param>
+            <param name="culture">カルチャ</param>
+            <param name="values">string.format()のパラメータ</param>
+            <returns></returns>
+            <create>Y.Higuchi 2010/11/19</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DbUtilMessageManager.ResourceMan">
+            --------------------------------------------------
+            <summary>
+            ResourceManager
+            </summary>
+            <create>Y.Higuchi 2010/11/19</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.DatabaseHelper">
+            --------------------------------------------------
+            <summary>
+            データベースのHelperクラス
+            データベースのプロバイダ名によりDBオブジェクトを変更する。
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DatabaseHelper.DbTypePropertyName">
+            --------------------------------------------------
+            <summary>
+            DbTypeのプロパティ名
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DatabaseHelper.BindByNamePropertyName">
+            --------------------------------------------------
+            <summary>
+            BindByNameのプロパティ名
+            </summary>
+            <create>Y.Higuchi 2008/06/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DatabaseHelper.LOGPUTFORMAT">
+            --------------------------------------------------
+            <summary>
+            ログ出力フォーマット
+            </summary>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update>Y.Higuchi 2010/11/19</update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DatabaseHelper.LOGPUTMESSAGE">
+            --------------------------------------------------
+            <summary>
+            ログ出力メッセージフォーマット
+            </summary>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.#ctor(System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="providerName">プロバイダ名</param>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.#ctor(System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="providerName">プロバイダ名</param>
+            <param name="connString">接続文字列</param>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Finalize">
+            --------------------------------------------------
+            <summary>
+            デストラクタ
+            </summary>
+            <create>Y.Higuchi 2008/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.InitializeSetting">
+            --------------------------------------------------
+            <summary>
+            初期化処理
+            </summary>
+            <create>Y.Higuchi 2008/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.InitializeParameterDbType">
+            --------------------------------------------------
+            <summary>
+            Parameterのプロバイダに特化したDbTypeを探しセットする。
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.InitializeLog">
+            --------------------------------------------------
+            <summary>
+            ログの初期化
+            </summary>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Dispose">
+            --------------------------------------------------
+            <summary>
+            終了処理
+            </summary>
+            <create>Y.Higuchi 2008/04/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Dispose(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            終了処理
+            </summary>
+            <param name="disposing">
+            trueであればマネージ オブジェクトが保持しているリソースをすべて解放します。
+            </param>
+            <create>Y.Higuchi 2008/04/14</create>
+            <update>Y.Higuchi 2010/11/19</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Open">
+            --------------------------------------------------
+            <summary>
+            データベースとの接続
+            </summary>
+            <create>Y.Higuchi 2008/04/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Open(System.String)">
+            --------------------------------------------------
+            <summary>
+            データベースとの接続
+            </summary>
+            <param name="connString">接続文字列</param>
+            <create>Y.Higuchi 2008/04/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Close">
+            --------------------------------------------------
+            <summary>
+            データベースの切断
+            </summary>
+            <create>Y.Higuchi 2008/04/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.BeginTransaction">
+            --------------------------------------------------
+            <summary>
+            トランザクション開始
+            </summary>
+            <create>Y.Higuchi 2008/04/15</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.BeginTransaction(System.Data.IsolationLevel)">
+            --------------------------------------------------
+            <summary>
+            トランザクション開始
+            </summary>
+            <param name="isolationLevel">トランザクションの分離レベルを指定します</param>
+            <create>Y.Higuchi 2008/04/15</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Commit">
+            --------------------------------------------------
+            <summary>
+            コミット(更新データ確定)
+            </summary>
+            <create>Y.Higuchi 2008/04/15</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.CommitAndBeginTransaction">
+            --------------------------------------------------
+            <summary>
+            コミットを行い再度トランザクションを開始
+            </summary>
+            <create>Y.Higuchi 2008/05/13</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.CommitAndBeginTransaction(System.Data.IsolationLevel)">
+            --------------------------------------------------
+            <summary>
+            コミットを行い再度トランザクションを開始
+            </summary>
+            <param name="isolationLevel">トランザクションの分離レベルを指定します</param>
+            <create>Y.Higuchi 2008/05/13</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Rollback">
+            --------------------------------------------------
+            <summary>
+            ロールバック(更新データ破棄)
+            </summary>
+            <create>Y.Higuchi 2008/04/15</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.RollbackAndBeginTransaction">
+            --------------------------------------------------
+            <summary>
+            ロールバックを行い再度トランザクションを開始
+            </summary>
+            <create>Y.Higuchi 2008/05/13</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.RollbackAndBeginTransaction(System.Data.IsolationLevel)">
+            --------------------------------------------------
+            <summary>
+            ロールバックを行い再度トランザクションを開始
+            </summary>
+            <param name="isolationLevel">トランザクションの分離レベルを指定します</param>
+            <create>Y.Higuchi 2008/05/13</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbCommand">
+            --------------------------------------------------
+            <summary>
+            DbCommandのインスタンス生成
+            </summary>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbCommand(System.String,System.Data.CommandType)">
+            --------------------------------------------------
+            <summary>
+            DbCommandのインスタンス生成
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.SetDbCommandParameters(System.Data.Common.DbCommand,DSWUtil.DbUtil.DbParamCollection)">
+            --------------------------------------------------
+            <summary>
+            DbCommandにパラメータを設定する時の共通設定
+            </summary>
+            <param name="cmd">DbCommand</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <create>Y.Higuchi 2008/04/18</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.SetBindByName(System.Data.Common.DbCommand,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            BindByNameプロパティがある場合プロパティの設定を行う。
+            </summary>
+            <param name="cmd">DbCommand</param>
+            <param name="value">プロパティの設定値</param>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteNonQuery(System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメント実行
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <returns>影響を受けた行数</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteNonQuery(System.String,System.Data.CommandType)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメント実行
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <returns>影響を受けた行数</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteNonQuery(System.String,DSWUtil.DbUtil.DbParamCollection)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメント実行
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <returns>影響を受けた行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteNonQuery(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメント実行
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <returns>影響を受けた行数</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteReader(System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行しDataReaderを構築する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <returns>DataReader</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteReader(System.String,System.Data.CommandType)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行しDataReaderを構築する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <returns>DataReader</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteReader(System.String,DSWUtil.DbUtil.DbParamCollection)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行しDataReaderを構築する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <returns>DataReader</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteReader(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行しDataReaderを構築する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <returns>DataReader</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteReader(System.String,System.Data.CommandBehavior)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行しDataReaderを構築する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="behavior">クエリの結果とデータベースに与える影響</param>
+            <returns>DataReader</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteReader(System.String,System.Data.CommandType,System.Data.CommandBehavior)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行しDataReaderを構築する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="behavior">クエリの結果とデータベースに与える影響</param>
+            <returns>DataReader</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteReader(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.CommandBehavior)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行しDataReaderを構築する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="behavior">クエリの結果とデータベースに与える影響</param>
+            <returns>DataReader</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.ExecuteReader(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.CommandBehavior)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行しDataReaderを構築する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="behavior">クエリの結果とデータベースに与える影響</param>
+            <returns>DataReader</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDataAdapter">
+            --------------------------------------------------
+            <summary>
+            DbDataAdapterの取得
+            </summary>
+            <returns>DbDataAdapter</returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDataAdapter(System.Data.Common.DbCommand)">
+            --------------------------------------------------
+            <summary>
+            DbDataAdapterの取得
+            </summary>
+            <param name="cmd">DbCommand</param>
+            <returns>DbDataAdapter</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコードおよび必要に応じて</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/18</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="dataTable">データマップに使用するDataTable</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/18</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="dataTable">データマップに使用するDataTable</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/18</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataTable">データマップに使用するDataTable</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataTable">データマップに使用するDataTablet</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名称</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名称</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名称</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコード及び必要に応じてスキーマを格納する為のDataSet</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名称</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Int32,System.Int32,System.Data.DataTable[])">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="dataTables">レコードの格納先のDataTableのコレクション</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,System.Int32,System.Int32,System.Data.DataTable[])">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="dataTables">レコードの格納先のDataTableのコレクション</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Int32,System.Int32,System.Data.DataTable[])">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="dataTables">レコードの格納先のDataTableのコレクション</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Int32,System.Int32,System.Data.DataTable[])">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataTableに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="dataTables">レコードの格納先のDataTableのコレクション</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/04/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="dataSet">レコードおよび必要に応じてスキーマを格納するためのDataSet</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名前</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/05/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="dataSet">レコードおよび必要に応じてスキーマを格納するためのDataSet</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名前</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/05/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコードおよび必要に応じてスキーマを格納するためのDataSet</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名前</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Fill(System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            SQLステートメントを実行し、DataSetに結果を取得する。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">レコードおよび必要に応じてスキーマを格納するためのDataSet</param>
+            <param name="startRecord">取得を開始する、0から始まるレコード番号</param>
+            <param name="maxRecords">取得するレコードの最大数</param>
+            <param name="srcTable">テーブルマップに使用するソーステーブルの名前</param>
+            <returns>正常に追加または更新された行数</returns>
+            <create>Y.Higuchi 2008/05/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Insert(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataRow[])">
+            --------------------------------------------------
+            <summary>
+            指定した DataRow オブジェクト配列内の挿入行に対して、INSERT ステートメントを個別に呼び出します。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataRows">データソースの更新に使用する DataRow オブジェクトの配列</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Update(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataRow[])">
+            --------------------------------------------------
+            <summary>
+            指定した DataRow オブジェクト配列内の更新行に対して、UPDATE ステートメントを個別に呼び出します。 
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataRows">データソースの更新に使用する DataRow オブジェクトの配列</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Delete(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataRow[])">
+            --------------------------------------------------
+            <summary>
+            指定した DataRow オブジェクト配列内の削除行に対して、DELETE ステートメントを個別に呼び出します。 
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataRows">データソースの更新に使用する DataRow オブジェクトの配列</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Insert(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            指定した DataSet 内の挿入行に対して、INSERT ステートメントを個別に呼び出します。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">データ ソースの更新に使用した DataSet</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Update(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            指定した DataSet 内の更新行に対して、UPDATE ステートメントを個別に呼び出します。 
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">データ ソースの更新に使用した DataSet</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Delete(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet)">
+            --------------------------------------------------
+            <summary>
+            指定した DataSet 内の削除行に対して、DELETE ステートメントを個別に呼び出します。 
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">データ ソースの更新に使用した DataSet</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Insert(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            指定した DataTable 内の挿入行に対して、INSERT ステートメントを個別に呼び出します。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataTable">データ ソースの更新に使用した DataTable</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Update(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            指定した DataTable 内の更新行に対して、UPDATE ステートメントを個別に呼び出します。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataTable">データ ソースの更新に使用した DataTable</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Delete(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            指定した DataTable 内の削除行に対して、DELETE ステートメントを個別に呼び出します。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataTable">データ ソースの更新に使用した DataTable</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Insert(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            指定した DataTable 名を使用して、DataSet 内の挿入行に対して、INSERT ステートメントを個別に呼び出します。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">データ ソースの更新に使用する DataSet</param>
+            <param name="srcTable">テーブル マップに使用するソース テーブルの名前</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Update(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            指定した DataTable 名を使用して、DataSet 内の更新行に対して、UPDATE ステートメントを個別に呼び出します。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">データ ソースの更新に使用する DataSet</param>
+            <param name="srcTable">テーブル マップに使用するソース テーブルの名前</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.Delete(System.String,DSWUtil.DbUtil.DbParamCollection,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            指定した DataTable 名を使用して、DataSet 内の削除行に対して、DELETE ステートメントを個別に呼び出します。
+            </summary>
+            <param name="commandText">SQLステートメント</param>
+            <param name="parameterCollection">Parameterのコレクション</param>
+            <param name="dataSet">データ ソースの更新に使用する DataSet</param>
+            <param name="srcTable">テーブル マップに使用するソース テーブルの名前</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/10/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.SetParameterDbType(System.Data.Common.DbParameter,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            プロバイダに特化したもしくは、標準のDbTypeに値をセットする。
+            </summary>
+            <param name="param">Parameter</param>
+            <param name="dbType">DbType</param>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter">
+            --------------------------------------------------
+            <summary>
+            DbParameterの取得
+            </summary>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Object)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="value">パラメータの値</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/05/21</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/05/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="size">サイズ</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/05/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Int32,System.Object)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="value">パラメータの値</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Int32,System.Data.ParameterDirection)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="direction">クエリ内パラメータの型</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/05/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Data.DataRowVersion,System.String)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="sourceVersion">DataRowVersionの値</param>
+            <param name="sourceColumn">ソース列名</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Data.DataRowVersion,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="sourceVersion">DataRowVersionの値</param>
+            <param name="sourceColumn">ソース列名</param>
+            <param name="sourceColumnNullMapping">Nullを許容できるかどうか(true:許容できる,false:許容できない)</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Int32,System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="size">サイズ</param>
+            <param name="sourceColumn">ソース列名</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/05/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Int32,System.Object,System.Data.ParameterDirection)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="value">パラメータの値</param>
+            <param name="direction">クエリ内パラメータの型</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/05/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.NewDbParameter(System.String,System.Int32,System.Int32,System.Object,System.Data.ParameterDirection)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの新しいインスタンスの初期化する
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="dbType">データ型</param>
+            <param name="size">サイズ</param>
+            <param name="value">パラメータの値</param>
+            <param name="direction">クエリ内パラメータの型</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/05/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.GetLogExclusionClassNames">
+            --------------------------------------------------
+            <summary>
+            ログ出力時の呼び出し元として除外するクラス名取得
+            </summary>
+            <returns></returns>
+            <create>Y.Higuchi 2010/11/19</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DatabaseHelper.DbLogWrite(System.String,System.String,System.Data.CommandType,DSWUtil.DbUtil.DbParamCollection)">
+            --------------------------------------------------
+            <summary>
+            DBログ出力処理
+            </summary>
+            <param name="methodName">メソッド名</param>
+            <param name="commandText">SQLステートメント</param>
+            <param name="commandType">コマンド文字列の解釈方法</param>
+            <param name="paramCollection">Parameterのコレクション</param>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.ConnectionString">
+            --------------------------------------------------
+            <summary>
+            接続文字列
+            </summary>
+            <create>Y.Higuchi 2008/04/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.State">
+            --------------------------------------------------
+            <summary>
+            データベースの接続状態(取得専用)
+            </summary>
+            <create>Y.Higuchi 2008/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.DbConnection">
+            --------------------------------------------------
+            <summary>
+            DbConnectionクラス(取得専用)
+            </summary>
+            <create>Y.Higuchi 2008/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.ProviderName">
+            --------------------------------------------------
+            <summary>
+            プロバイダ名(取得専用)
+            </summary>
+            <create>Y.Higuchi 2008/06/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.ProviderFactory">
+            --------------------------------------------------
+            <summary>
+            プロバイダのデータ ソース クラスの実装のインスタンスを作成するためのメソッドのセットを表します。(取得専用)
+            </summary>
+            <create>Y.Higuchi 2008/07/04</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.LogPutMode">
+            --------------------------------------------------
+            <summary>
+            ログ出力モード
+            </summary>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.LogSetting">
+            --------------------------------------------------
+            <summary>
+            ログ設定
+            </summary>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.BindByName">
+            --------------------------------------------------
+            <summary>
+            OracleのBindByNameを設定します。
+            </summary>
+            <create>Y.Higuchi 2010/05/11</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.DbTransaction">
+            --------------------------------------------------
+            <summary>
+            DbTransactionクラス
+            </summary>
+            <create>Y.Higuchi 2008/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DatabaseHelper.DbTypePropertyInfo">
+            --------------------------------------------------
+            <summary>
+            Parameterのプロバイダに特化したDbType
+            </summary>
+            <create>Y.Higuchi 2008/06/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.DbProviderNames">
+            --------------------------------------------------
+            <summary>
+            DatabaseのProvider
+            </summary>
+            <create>Y.Higuchi 2008/07/02</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbProviderNames.DbProviderName_SQLServer">
+            --------------------------------------------------
+            <summary>
+            SQLServerのプロバイダ名
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbProviderNames.DbProviderName_Oracle">
+            --------------------------------------------------
+            <summary>
+            Oracleのプロバイダ名
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbProviderNames.DbProviderName_DB2">
+            --------------------------------------------------
+            <summary>
+            DB2のプロバイダ名
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbProviderNames.DbProviderName_PostgreSQL">
+            --------------------------------------------------
+            <summary>
+            PostgreSQLのプロバイダ名
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbProviderNames.DbProviderName_MySQL">
+            --------------------------------------------------
+            <summary>
+            MySQLのプロバイダ名
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbProviderNames.DbProviderName_SQLite">
+            --------------------------------------------------
+            <summary>
+            SQLiteのプロバイダ名
+            </summary>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:DSWUtil.DbUtil.DbProviderNames.DbProviderName_OleDb">
+            --------------------------------------------------
+            <summary>
+            OleDbのプロバイダ名
+            </summary>
+            <create>Y.Higuchi 2009/06/10</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbProviderNames.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:DSWUtil.DbUtil.DbParamCollection">
+            --------------------------------------------------
+            <summary>
+            DbCommandからDbParameterを切り離して管理するためのコレクション
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.Finalize">
+            --------------------------------------------------
+            <summary>
+            デストラクタ
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.Dispose">
+            --------------------------------------------------
+            <summary>
+            終了処理
+            </summary>
+            <create>Y.Higuchi 2008/05/20</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.Dispose(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            終了処理
+            </summary>
+            <param name="disposing">
+            trueであればマネージ オブジェクトが保持しているリソースをすべて解放します。
+            </param>
+            <create>Y.Higuchi 2008/05/20</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.IndexOf(System.String)">
+            --------------------------------------------------
+            <summary>
+            指定した名前の DbParameter オブジェクトのインデックスを返します。
+            </summary>
+            <param name="parameterName"></param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.IndexOf(System.Data.Common.DbParameter)">
+            --------------------------------------------------
+            <summary>
+            指定した DbParameter オブジェクトのインデックスを返します。
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.CheckRange(System.Int32)">
+            --------------------------------------------------
+            <summary>
+            インデックス番号の範囲チェック
+            </summary>
+            <param name="index">チェック対象インデックス番号</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.CheckDuplicateParameterName(System.Int32,System.String)">
+            --------------------------------------------------
+            <summary>
+            パラメータ名重複チェック
+            </summary>
+            <param name="index">対象外インデックス番号</param>
+            <param name="parameterName">パラメータ名</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.Validate(System.Int32,System.Data.Common.DbParameter)">
+            --------------------------------------------------
+            <summary>
+            DbParameterの検証
+            </summary>
+            <param name="index">対象外インデックス番号</param>
+            <param name="value">対象DbParameter</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.SetParameter(System.Int32,System.Data.Common.DbParameter)">
+            --------------------------------------------------
+            <summary>
+            指定したインデックス位置にある DbParameter オブジェクトを新しい値に設定します。
+            </summary>
+            <param name="index">インデックス番号</param>
+            <param name="value">新しいDbParameter</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.SetParameter(System.String,System.Data.Common.DbParameter)">
+            --------------------------------------------------
+            <summary>
+            指定した名前の DbParameter オブジェクトを新しい値に設定します。
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <param name="value">新しいDbParameter</param>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.GetParameter(System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コレクション内の指定したインデックス位置の System.Data.Common.DbParameter オブジェクトを返します。
+            </summary>
+            <param name="index">インデックス番号</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.GetParameter(System.String)">
+            --------------------------------------------------
+            <summary>
+            指定した名前の System.Data.Common.DbParameter オブジェクトを返します。
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.Add(System.Data.Common.DbParameter)">
+            --------------------------------------------------
+            <summary>
+            コレクション内の末尾にDbParameterを追加します。
+            </summary>
+            <param name="value">追加するDbParameter</param>
+            <returns>追加されたIndex番号</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.Remove(System.Data.Common.DbParameter)">
+            --------------------------------------------------
+            <summary>
+            コレクション内で最初に見つかった特定のDbParameterを削除します。
+            </summary>
+            <param name="value">削除するDbParameter</param>
+            <returns>正常に削除された場合は true。それ以外の場合は false</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.RemoveAt(System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コレクション内の指定したインデックスにある要素を削除する。
+            </summary>
+            <param name="index">除する要素の、0 から始まるインデックス番号</param>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.RemoveRange(System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コレクション内から要素の範囲を削除します。
+            </summary>
+            <param name="index">削除する要素の範囲の開始位置を示す 0 から始まるインデックス</param>
+            <param name="count">削除する要素の数</param>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.GetEnumerator">
+            --------------------------------------------------
+            <summary>
+            コレクション内の列挙子を返します。
+            </summary>
+            <returns>コレクション内の列挙子</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:DSWUtil.DbUtil.DbParamCollection.System#Collections#IEnumerable#GetEnumerator">
+            --------------------------------------------------
+            <summary>
+            コレクション内の列挙子を返します。
+            </summary>
+            <returns>コレクション内の列挙子</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DbParamCollection.InnerParamList">
+            --------------------------------------------------
+            <summary>
+            内部で保持しているDbParameterのList
+            </summary>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DbParamCollection.Count">
+            --------------------------------------------------
+            <summary>
+            コレクション内に実際に格納されている要素の数を取得します。
+            </summary>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DbParamCollection.Item(System.Int32)">
+            --------------------------------------------------
+            <summary>
+            指定したインデックス位置にある DbParameter を取得および設定します。
+            </summary>
+            <param name="index">インデックス番号</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:DSWUtil.DbUtil.DbParamCollection.Item(System.String)">
+            --------------------------------------------------
+            <summary>
+            指定した名前の DbParameter を取得および設定します。
+            </summary>
+            <param name="parameterName">パラメータ名</param>
+            <returns>DbParameter</returns>
+            <create>Y.Higuchi 2008/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+    </members>
+</doc>

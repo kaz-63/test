@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:tns="http://smssrv" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="http://smssrv" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://smssrv/Imports">
+      <xsd:import schemaLocation="http://adv1908v001/sms/WsAttachFile.svc?xsd=xsd0" namespace="http://smssrv" />
+      <xsd:import schemaLocation="http://adv1908v001/sms/WsAttachFile.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://adv1908v001/sms/WsAttachFile.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWsAttachFile_ARHelpDownload_InputMessage">
+    <wsdl:part name="parameters" element="tns:ARHelpDownload" />
+  </wsdl:message>
+  <wsdl:message name="IWsAttachFile_ARHelpDownload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ARHelpDownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWsAttachFile_FileDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:FileDelete" />
+  </wsdl:message>
+  <wsdl:message name="IWsAttachFile_FileDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FileDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWsAttachFile_FileUpload_InputMessage">
+    <wsdl:part name="parameters" element="tns:FileUpload" />
+  </wsdl:message>
+  <wsdl:message name="IWsAttachFile_FileUpload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FileUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWsAttachFile_FileDownload_InputMessage">
+    <wsdl:part name="parameters" element="tns:FileDownload" />
+  </wsdl:message>
+  <wsdl:message name="IWsAttachFile_FileDownload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FileDownloadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWsAttachFile">
+    <wsdl:operation name="ARHelpDownload">
+      <wsdl:input wsaw:Action="http://smssrv/IWsAttachFile/ARHelpDownload" message="tns:IWsAttachFile_ARHelpDownload_InputMessage" />
+      <wsdl:output wsaw:Action="http://smssrv/IWsAttachFile/ARHelpDownloadResponse" message="tns:IWsAttachFile_ARHelpDownload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FileDelete">
+      <wsdl:input wsaw:Action="http://smssrv/IWsAttachFile/FileDelete" message="tns:IWsAttachFile_FileDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://smssrv/IWsAttachFile/FileDeleteResponse" message="tns:IWsAttachFile_FileDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FileUpload">
+      <wsdl:input wsaw:Action="http://smssrv/IWsAttachFile/FileUpload" message="tns:IWsAttachFile_FileUpload_InputMessage" />
+      <wsdl:output wsaw:Action="http://smssrv/IWsAttachFile/FileUploadResponse" message="tns:IWsAttachFile_FileUpload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FileDownload">
+      <wsdl:input wsaw:Action="http://smssrv/IWsAttachFile/FileDownload" message="tns:IWsAttachFile_FileDownload_InputMessage" />
+      <wsdl:output wsaw:Action="http://smssrv/IWsAttachFile/FileDownloadResponse" message="tns:IWsAttachFile_FileDownload_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

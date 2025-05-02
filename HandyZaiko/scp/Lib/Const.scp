@@ -1,0 +1,35 @@
+//////////////////////////////////////////////////////////////////////////
+//						定数パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package ConstString
+	
+	Const DRIVE_NAME = "2:"					// 保存ドライブ名
+	
+	// 在庫No.頭文字
+	Const TAG0_INITIAL = "0"				// TagNo頭文字0
+	Const TAG1_INITIAL = "1"				// TagNo頭文字1
+	Const BOX_INITIAL = "B"					// BoxNo頭文字
+	Const PALLET_INITIAL = "P"				// パレットNo頭文字
+	
+	// ログ保存ファイル名
+	Const FILE_LOCATION = "GENPIN.LOC"		// Location登録保存ファイル名
+	Const FILE_KANRYO = "GENPIN.CMP"		// 完了登録保存ファイル名
+	Const FILE_TANAOROSHI = "GENPIN.IVT"	// 棚卸登録保存ファイル名
+	
+	Const LOCATION_SIZE = 12				// Locationの桁数
+	Const TAG_SIZE = 10						// 現品タグの桁数
+	Const NO_SIZE = 6						// ボックスタグ・パレットタグの桁数
+	
+	Const K_SIZE = 52						// Location登録・完了登録・棚卸登録の1レコードバイト数
+	Const L_SIZE = 65						// Location登録・完了登録・棚卸登録の1レコードバイト数
+	
+	// スクリプト名称
+	Const SCP_NAME_APP = "App"
+	Const SCP_NAME_LOGIN = "Login"
+	Const SCP_NAME_MENU = "Menu"
+	Const SCP_NAME_LOCATION = "Location"
+	Const SCP_NAME_TANAOROSHI = "Tanaoroshi"
+	Const SCP_NAME_DELETE = "Delete"
+	Const SCP_NAME_KANRYO = "Kanryo"
+	
+EndPackage

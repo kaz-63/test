@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemBase", "SystemBase\SystemBase.csproj", "{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "..\..\Common\Commons\Commons\Commons.csproj", "{7CF83010-9C8F-482B-B0C0-CA10DA669345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WsConnection", "..\..\Common\WsConnection\WsConnection\WsConnection.csproj", "{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Condition", "..\..\Common\Condition\Condition\Condition.csproj", "{44F553AA-7F15-4878-9F78-74D47392952D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinApp", "WinApp\WinApp.csproj", "{457D14A4-4E11-4AF1-A10B-389624EDE82B}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 6
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SystemBase\\SystemBase.csproj
+		SccProjectName1 = \u0022$/F工場/出荷管理システム/Src/Client/SystemBase/SystemBase\u0022,\u0020REAAAAAA
+		SccLocalPath1 = SystemBase
+		SccProjectUniqueName2 = ..\\..\\Common\\Commons\\Commons\\Commons.csproj
+		SccProjectName2 = \u0022$/F工場/出荷管理システム/Src/Common/Commons/Commons\u0022,\u0020GIAAAAAA
+		SccLocalPath2 = ..\\..\\Common\\Commons\\Commons
+		SccProjectUniqueName3 = ..\\..\\Common\\WsConnection\\WsConnection\\WsConnection.csproj
+		SccProjectName3 = \u0022$/F工場/出荷管理システム/Src/Common/WsConnection/WsConnection\u0022,\u0020TKAAAAAA
+		SccLocalPath3 = ..\\..\\Common\\WsConnection\\WsConnection
+		SccProjectUniqueName4 = ..\\..\\Common\\Condition\\Condition\\Condition.csproj
+		SccProjectName4 = \u0022$/F工場/出荷管理システム/Src/Common/Condition/Condition\u0022,\u0020SCBAAAAA
+		SccLocalPath4 = ..\\..\\Common\\Condition\\Condition
+		SccProjectUniqueName5 = WinApp\\WinApp.csproj
+		SccProjectName5 = \u0022$/F工場/出荷管理システム/Src/Client/SystemBase/WinApp\u0022,\u0020LTBAAAAA
+		SccLocalPath5 = WinApp
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF83010-9C8F-482B-B0C0-CA10DA669345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF83010-9C8F-482B-B0C0-CA10DA669345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF83010-9C8F-482B-B0C0-CA10DA669345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF83010-9C8F-482B-B0C0-CA10DA669345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F553AA-7F15-4878-9F78-74D47392952D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F553AA-7F15-4878-9F78-74D47392952D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F553AA-7F15-4878-9F78-74D47392952D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F553AA-7F15-4878-9F78-74D47392952D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{457D14A4-4E11-4AF1-A10B-389624EDE82B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457D14A4-4E11-4AF1-A10B-389624EDE82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457D14A4-4E11-4AF1-A10B-389624EDE82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457D14A4-4E11-4AF1-A10B-389624EDE82B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

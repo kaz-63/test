@@ -1,0 +1,255 @@
+/********************************************************************************
+ファイル名	：	DELETE.scp
+バージョン	：	Ver.1.00
+作成日付	：	2010/04/22
+動作説明	：	データ削除
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Utility"
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	
+	// 言語設定
+	Language:Initialize(System:arg2, ConstString:SCP_NAME_DELETE)
+	// メッセージ設定
+	Message:Initialize(System:arg2, ConstString:SCP_NAME_DELETE)
+	
+	LOGDELETE:delete_main()
+	System:Load(System:arg1, 0, System:arg2, System:arg3,0)
+	
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+
+
+Package LOGDELETE
+	
+	btvEachInput = ""	// 入力された値
+	box_Count			// BOX梱包のファイル数
+	paret_Count			// ﾊﾟﾚｯﾄ梱包のファイル数
+	measure_Count		// 計測画面のファイル数
+	
+	Method delete_main()
+		btvRet
+	Begin
+	// 削除できるファイルが無い場合メニューに戻る
+		If Common:dataCount(ConstString:SHUKA_DATA) == 0 AND
+			Common:dataCount(ConstString:MEASURE_DATA) == 0 AND
+			Common:fileCount(ConstString:SAVE_BOX) == 0 AND
+			Common:fileCount(ConstString:SAVE_PARET) == 0 AND
+			Common:dataCount(ConstString:HIKIWATASHI_DATA) == 0 Then
+			Handy:ShowMessageBox(Message:MessageItem[15], "ok" )
+			Return ()
+		EndIf
+		
+		disp_normal()
+		
+		While 1
+			// 削除できるファイルが無い場合メニューに戻る
+			If Common:dataCount(ConstString:SHUKA_DATA) == 0 AND
+				Common:dataCount(ConstString:MEASURE_DATA) == 0 AND
+				Common:fileCount(ConstString:SAVE_BOX) == 0 AND
+				Common:fileCount(ConstString:SAVE_PARET) == 0 AND
+				Common:dataCount(ConstString:HIKIWATASHI_DATA) == 0 Then
+				Return ()
+			EndIf
+			
+			btvRet = wait_input()
+			If btvRet eq "next" Then 
+				LogDelet()
+			ElseIf btvRet eq "retry" Then 
+				
+			Else
+				Return ()
+			EndIf
+		Wend
+
+	End Method
+	
+	Method LogDelet()
+			error_String = ""
+	Begin
+		Select Case btvEachInput
+			Case 1
+				If FileSystem:FindFirst(ConstString:HIKIWATASHI_DATA) is false Then
+					Handy:ShowMessageBox(Message:MessageItem[15], "ok" )
+				Else
+					If Handy:ShowMessageBox(Message:MessageItem[25],"yesno|no") Then
+						File:Initialize()
+						FileSystem:Delete(ConstString:HIKIWATASHI_DATA)
+						Handy:ShowMessageBox(Message:MessageItem[17], "ok" )
+					Else
+						Handy:ShowMessageBox(Message:MessageItem[13], "ok" )
+					EndIf
+				EndIf
+			Case 2
+				If FileSystem:FindFirst(ConstString:SHUKA_DATA) is false Then
+					Handy:ShowMessageBox(Message:MessageItem[15], "ok" )
+				Else
+					If Handy:ShowMessageBox(Message:MessageItem[16],"yesno|no") Then
+						File:Initialize()
+						FileSystem:Delete(ConstString:SHUKA_DATA)
+						Handy:ShowMessageBox(Message:MessageItem[17], "ok" )
+					Else
+						Handy:ShowMessageBox(Message:MessageItem[13], "ok" )
+					EndIf
+				EndIf
+			Case 3
+				If box_Count == 0 Then
+					Handy:ShowMessageBox(Message:MessageItem[15], "ok" )
+				Else
+					FileList:filelist(Language:langItem[1], ConstString:SAVE_BOX)
+				EndIf
+				
+			Case 4
+				If paret_Count == 0 Then
+					Handy:ShowMessageBox(Message:MessageItem[15], "ok" )
+				Else
+					FileList:filelist(Language:langItem[2], ConstString:SAVE_PARET)
+				EndIf
+			Case 5
+				If measure_Count == 0 Then
+					Handy:ShowMessageBox(Message:MessageItem[15], "ok" )
+				Else
+					FileRecord:file_record(Language:langItem[3], ConstString:MEASURE_DATA)
+				EndIf
+			Case 6
+				If Handy:ShowMessageBox(Message:MessageItem[18],"yesno|no") Then
+						Common:fileDelete(ConstString:SHUKA_DATA)
+						Common:fileDelete(ConstString:MEASURE_DATA)
+						Common:fileDeleteExt(ConstString:DRIVE_NAME, ConstString:SAVE_BOX)
+						Common:fileDeleteExt(ConstString:DRIVE_NAME, ConstString:SAVE_PARET)
+						Handy:ShowMessageBox(Message:MessageItem[19],"ok")
+				Else
+					Handy:ShowMessageBox(Message:MessageItem[13], "ok" )
+				EndIf
+		End Select
+		disp_normal()
+		
+		If input_String(btvEachInput) is false Then
+			Common:read_NG()
+			error_String = Message:MessageItem[9]
+		Else
+			error_String = ""
+		EndIf
+		
+		With Screen
+			:update = false
+			:posx = 1 :posy = 19 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" " & error_String)
+			:update = true
+		EndWith
+	End Method
+
+	// 画面表示
+	Method disp_normal()
+	Begin
+		
+		box_Count = Common:fileCount(ConstString:SAVE_BOX)
+		paret_Count = Common:fileCount(ConstString:SAVE_PARET)
+		measure_Count = Common:dataCount(ConstString:MEASURE_DATA)
+		
+		With Screen
+			:status = false
+			:update = false
+			:Clear()
+			:fontSize = 12
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = true :font = 1 :OutputText(Language:langItem[4])
+			:fontSize = "small"
+			:posx = 1 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[11])
+			:posx = 1 :posy = 7 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[5])
+			:posx = 1 :posy = 9 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[6])
+			:posx = 1 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[7])
+			:posx = 1 :posy = 13 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[8])
+			:posx = 1 :posy = 15 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[9])
+			:posx = 1 :posy = 17 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" [   ]")
+			:posx = 1 :posy = 21 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[10])
+			:posx = 17 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& Common:dataCount(ConstString:HIKIWATASHI_DATA) &"]")
+			:posx = 17 :posy = 7 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& Common:dataCount(ConstString:SHUKA_DATA) &"]")
+			:posx = 17 :posy = 9 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& box_Count &"]")
+			:posx = 17 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& paret_Count &"]")
+			:posx = 17 :posy = 13 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& measure_Count &"]")
+			CommonDisp:fillBlack("12", 0, 21)
+			:update = true
+		EndWith
+		
+	End Method
+
+	// 入力判定メソッド
+	Method input_loop(btvKeycode)
+		btvRet
+	Begin
+	Select Case btvKeycode
+		Case "ENT"
+			Return ("next")
+		Case "F1"
+			Return (0)
+		Case "ERR_RANGE_UPPER"
+			Return ("retry")
+		Case "ERR_RANGE_LOWER"
+			Return ("retry")
+		Case Else
+			Return ("retry")
+		End Select
+		
+	End Method
+
+	// 入力文字判定メソッド
+	Method input_String(btvEachInput)
+		btvRet
+	Begin
+	Select Case btvEachInput
+		Case "1"
+			Return ("")
+		Case "2"
+			Return ("")
+		Case "3"
+			Return ("")
+		Case "4"
+			Return ("")
+		Case "5"
+			Return ("")
+		Case "6"
+			Return ("")
+		Case Else
+			Return (false)
+		End Select
+		
+	End Method
+
+
+	// 入力設定
+	Method wait_input()
+		btvKeycode
+		btvRet
+		
+	Begin
+		With InputString
+			:posx = 4 :posy = 17 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "0" // 初期値設定
+			:inputAreaSize = 2
+			:maxLength = 1
+			:minLength = 0
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = nil
+			
+			btvKeycode = :Exec()
+			btvEachInput=:data
+			
+		EndWith
+		
+		btvRet = input_loop(btvKeycode)
+		
+		Return (btvRet)
+	End Method
+	
+EndPackage
+

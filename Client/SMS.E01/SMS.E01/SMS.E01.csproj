@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1D56A03-5204-4548-9C84-C40C8FA95F6A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMS.E01</RootNamespace>
+    <AssemblyName>SMS.E01</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSWUtil, Version=0.5.4.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XlsCreatorHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsCreatorHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="XlsxCreatorHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsxCreatorHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExportAllARCost.cs" />
+    <Compile Include="ExportAllARJoho.cs" />
+    <Compile Include="ExportARCost.cs" />
+    <Compile Include="ExportARJoho.cs" />
+    <Compile Include="ExportEstimatePartsList.cs" />
+    <Compile Include="ExportHandyDataErrorMeisaiKenpin.cs" />
+    <Compile Include="ExportKiwakuMeisai.cs" />
+    <Compile Include="ExportMitsumoriMeisai.cs" />
+    <Compile Include="ExportPacking.cs" />
+    <Compile Include="ExportPackingList.cs" />
+    <Compile Include="ExportPartsName.cs" />
+    <Compile Include="ExportQuotation.cs" />
+    <Compile Include="ExportShukkaMeisai.cs" />
+    <Compile Include="ExportUserMaster.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExportZaikoList.cs" />
+    <Compile Include="ExportTanaoroshiList.cs" />
+    <Compile Include="ExportOpeRirekiList.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ExportShippingDocument.cs" />
+    <Compile Include="ExportPartsMatomeList.cs" />
+    <Compile Include="ExportPartsJissekiList.cs" />
+    <Compile Include="ExportTehaiMeisai.cs" />
+    <Compile Include="ExportShinchokuKanri.cs" />
+    <Compile Include="ExportShukkaKeikakuShokai.cs" />
+    <Compile Include="ExportHaisosakiHoshu.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Commons\Commons\Commons.csproj">
+      <Project>{7CF83010-9C8F-482B-B0C0-CA10DA669345}</Project>
+      <Name>Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\WsConnection\WsConnection\WsConnection.csproj">
+      <Project>{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}</Project>
+      <Name>WsConnection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SystemBase\SystemBase\SystemBase.csproj">
+      <Project>{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}</Project>
+      <Name>SystemBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.en.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(ProjectDir)"
+copy "$(TargetPath)" "..\..\..\Bin\
+if exist "$(TargetDir)en\" xcopy "$(TargetDir)en\*.*" "..\..\..\Bin\en\" /D/E/C/I/H/Y
+if exist "$(TargetDir)ja\" xcopy "$(TargetDir)ja\*.*" "..\..\..\Bin\ja\" /D/E/C/I/H/Y
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

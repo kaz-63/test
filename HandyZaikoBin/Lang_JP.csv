@@ -1,0 +1,38 @@
+Login,0,  ¡ Login ¡    
+Login,1, ì‹ÆÒ
+Login,2,    [            ]
+Login,3, F1:–ß‚é   ENT:“o˜^
+Menu,0, ‚P. Location“o˜^| ‚Q. Š®—¹“o˜^| ‚R. ’I‰µ“o˜^| ‚S. Dataíœ
+Menu,1, ‚T. LogOut
+Menu,2,UserID: 
+Location,0,  Location“o˜^  
+Location,1, Location
+Location,2,    [              ]
+Location,3, F1:–ß‚é   ENT:“o˜^
+Location,4,          Œ”:
+Location,5, Pallet/Box/Tag
+Location,6, ‘O‰ñ
+Kanryo,0,    Š®—¹“o˜^    
+Kanryo,1,          Œ”:
+Kanryo,2, Box/Tag
+Kanryo,3,    [            ]
+Kanryo,4, ‘O‰ñ
+Kanryo,5, F1:–ß‚é   ENT:“o˜^
+Tanaoroshi,0,    ’I‰µ“o˜^    
+Tanaoroshi,1, Location
+Tanaoroshi,2,    [              ]
+Tanaoroshi,3, F1:–ß‚é   ENT:“o˜^
+Tanaoroshi,4,          Œ”:
+Tanaoroshi,5, Box/Tag
+Tanaoroshi,6,    [            ]
+Tanaoroshi,7, ‘O‰ñ
+Delete,0,Location Dataˆê——              
+Delete,1,Š®—¹ Dataˆê——              
+Delete,2,’I‰µ Dataˆê——              
+Delete,3,    Dataíœ    
+Delete,4, 1.Location
+Delete,5, 2.Š®—¹
+Delete,6, 3.’I‰µ
+Delete,7, 4.‘S‚Ä
+Delete,8, F1:–ß‚é   ENT:Às
+Delete,9, F1:–ß‚é   ENT:íœ

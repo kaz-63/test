@@ -1,0 +1,148 @@
+/********************************************************************************
+ファイル名	：	Login.scp
+バージョン	：	Ver.1.00
+作成日付	：	2013/08/07
+動作説明	：	アプリケーション初期設定
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+
+Begin
+	
+	// 言語設定
+	Language:Initialize(System:arg3, ConstString:SCP_NAME_LOGIN)
+	// メッセージ設定
+	Message:Initialize(System:arg3, ConstString:SCP_NAME_LOGIN)
+	
+	While 1
+		LOGIN:login_main()
+	Wend
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+
+Package LOGIN
+	m_btvCurrent = "sagyou1"	// カレント作業番号
+	//---------------------------------------------------
+	// メインメソッド
+	Method login_main()
+		btvRet = ""
+	Begin
+		
+		While 1
+		
+			btvRet = SAGYOU1:sagyou_main()
+
+			//ループ判定処理 (次ループ準備)
+			If btvRet eq "returntop" Then 
+				Wbreak
+			EndIf
+		Wend
+
+		System:Load(ConstString:SCP_NAME_APP, 0, 0, 0, 0)
+		Return (0)
+
+	End Method
+	
+	// ログイン処理
+	Method LogIn(InputData)
+	Begin
+	
+		If MatchCode:user_match(InputData) is false Then
+			Common:read_NG()
+			Return () // 作業のリトライ
+		EndIf
+		System:Load(ConstString:SCP_NAME_MENU, ConstString:SCP_NAME_LOGIN, InputData, System:arg3, 0)
+		
+	End Method
+	
+EndPackage
+
+
+/////////////////////////////////////////////////////////
+//作業者ID入力に関連するPackage
+/////////////////////////////////////////////////////////
+Package SAGYOU1
+
+	btvEachInput = ""
+
+	Method sagyou_main()
+		btvRet
+	Begin
+		
+		disp_normal()
+		While 1
+			btvRet = wait_input()
+			If btvRet eq "next" Then 
+				LOGIN:LogIn(btvEachInput)
+				Wbreak // 入力ループから抜ける
+			Else
+				Return (btvRet) // 作業 n へとぶ場合
+			EndIf
+		Wend
+		
+		Return (0)
+		
+	End Method
+	
+	//---------------------------------------------------
+	// 入力メソッド
+	Method wait_input()
+		btvKeycode
+		btvRet
+	Begin
+		Common:BarcodeRead()
+		
+		With InputString
+			:posx = 7 :posy = 8 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "" // 初期値設定
+			:inputAreaSize = 11
+			:maxLength = 10
+			:minLength = 0
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = 1
+			:shiftPattern = "BT500"
+			
+			btvKeycode = :Exec()
+			btvEachInput=:data
+			
+		EndWith
+
+		// 遷移先返却メソッド呼び出し
+		btvRet = InputLoop:input_loop(btvKeycode, LOGIN:m_btvCurrent)
+		
+		Return (btvRet)
+	End Method
+	
+	//---------------------------------------------------
+	// 通常入力画面 表示メソッド
+	Method disp_normal()
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:foreColor = "255|255|255" :backColor = "0|0|128" :fontSize = "large"
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = false :font = 1 :fontGapx = 0 :fontGapy = 1 :OutputText(Language:langItem[0])
+			:foreColor = "0|0|0" :backColor = "255|255|255" :fontSize = "small"
+			:posx = 1 :posy = 6 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[1])
+			:posx = 1 :posy = 8 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[2])
+			:posx = 1 :posy = 18 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[3])
+			:update = true
+		EndWith
+		ErrorCode:dispUpdate()
+	End Method
+	
+EndPackage
+
+

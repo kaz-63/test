@@ -1,0 +1,621 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ActiveReportsHelper</name>
+    </assembly>
+    <members>
+        <member name="T:ActiveReportsHelper.ReportPreview">
+            --------------------------------------------------
+            <summary>
+            プレビューフォーム
+            </summary>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:ActiveReportsHelper.ReportPreview.CUSTOM_PRINT_BUTTON">
+            --------------------------------------------------
+            <summary>
+            カスタムの印刷ボタン
+            </summary>
+            <create>H.Tsunamura 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:ActiveReportsHelper.ReportPreview._isPrint">
+            --------------------------------------------------
+            <summary>
+            印刷したかどうか
+            </summary>
+            <create>H.Tsunamura 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:ActiveReportsHelper.ReportPreview._showPrintButton">
+            --------------------------------------------------
+            <summary>
+            印刷ボタンを表示するかどうか
+            </summary>
+            <create>H.Tsunamura 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportPreview.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportPreview.OnLoad(System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            ロード時のイベント
+            </summary>
+            <param name="e"></param>
+            <create>H.Tsunamura 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportPreview.vwrView_ToolClick(System.Object,DataDynamics.ActiveReports.Toolbar.ToolClickEventArgs)">
+            --------------------------------------------------
+            <summary>
+            ツールバーのアイコンがクリックされた
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>H.Tsunamura 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportPreview.PrintReport">
+            --------------------------------------------------
+            <summary>
+            印刷処理
+            </summary>
+            <create>H.Tsunamura 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:ActiveReportsHelper.ReportPreview.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ActiveReportsHelper.ReportPreview.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ActiveReportsHelper.ReportPreview.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:ActiveReportsHelper.ReportPreview.Document">
+            --------------------------------------------------
+            <summary>
+            ビューワコントロールで表示するActiveReportsドキュメント
+            </summary>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:ActiveReportsHelper.ReportPreview.IsPrint">
+            --------------------------------------------------
+            <summary>
+            印刷したかどうか
+            </summary>
+            <create>H.Tsunamura 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:ActiveReportsHelper.ReportPreview.ShowPrintButton">
+            --------------------------------------------------
+            <summary>
+            印刷ボタンを表示するかどうか
+            </summary>
+            <create>H.Tsunamura 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:ActiveReportsHelper.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:ActiveReportsHelper.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:ActiveReportsHelper.Properties.Resources.Culture">
+            <summary>
+              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:ActiveReportsHelper.Properties.Resources.ReportPreview_DocumentName">
+            <summary>
+              ARNet Document に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:ActiveReportsHelper.Properties.Resources.ReportPreview_Print">
+            <summary>
+              印刷 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:ActiveReportsHelper.Properties.Resources.ReportPreview_TableOfContentsText">
+            <summary>
+              見出し一覧 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="T:ActiveReportsHelper.ReportHelper">
+            --------------------------------------------------
+            <summary>
+            レポートの作成、印刷、プレビューを行うためのクラス
+            </summary>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.GetReport(System.String)">
+            --------------------------------------------------
+            <summary>
+            帳票クラス名よりインスタンスを作成
+            ※実行階層のDLLを全て読み込むのでクラス名(フル)は一意でなければ駄目です。
+            </summary>
+            <param name="reportClassName">帳票クラス名(フルで指定すること。)</param>
+            <returns>ActiveReportsインスタンス</returns>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.GetReport(System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            帳票クラス名よりインスタンスを作成
+            ※実行階層のDLLを全て読み込むのでクラス名(フル)は一意でなければ駄目です。
+            </summary>
+            <param name="reportClassName">帳票クラス名(フルで指定すること。)</param>
+            <param name="documentName">ドキュメント名</param>
+            <returns>ActiveReportsインスタンス</returns>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.GetReport(System.String,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            帳票クラス名よりインスタンスを作成
+            ※実行階層のDLLを全て読み込むのでクラス名(フル)は一意でなければ駄目です。
+            </summary>
+            <param name="reportClassName">帳票クラス名(フルで指定すること。)</param>
+            <param name="dt">DataSourceに使用するDataTable</param>
+            <returns>ActiveReportsインスタンス</returns>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.GetReport(System.String,System.String,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            帳票クラス名よりインスタンスを作成
+            ※実行階層のDLLを全て読み込むのでクラス名(フル)は一意でなければ駄目です。
+            </summary>
+            <param name="reportClassName">帳票クラス名(フルで指定すること。)</param>
+            <param name="documentName">ドキュメント名</param>
+            <param name="dt">DataSourceに使用するDataTable</param>
+            <returns>ActiveReportsインスタンス</returns>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.GetReport(System.String,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            帳票クラス名よりインスタンスを作成
+            ※実行階層のDLLを全て読み込むのでクラス名(フル)は一意でなければ駄目です。
+            </summary>
+            <param name="reportClassName">帳票クラス名(フルで指定すること。)</param>
+            <param name="ds">DataSourceに使用するDataSet</param>
+            <param name="dataMember">DataMemberに設定する値</param>
+            <returns>ActiveReportsインスタンス</returns>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.GetReport(System.String,System.String,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            帳票クラス名よりインスタンスを作成
+            ※実行階層のDLLを全て読み込むのでクラス名(フル)は一意でなければ駄目です。
+            </summary>
+            <param name="reportClassName">帳票クラス名(フルで指定すること。)</param>
+            <param name="documentName">ドキュメント名</param>
+            <param name="ds">DataSourceに使用するDataSet</param>
+            <param name="dataMember">DataMemberに設定する値</param>
+            <returns>ActiveReportsインスタンス</returns>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.SetDocumentName(System.Object@,System.String)">
+            --------------------------------------------------
+            <summary>
+            ドキュメント名の設定
+            </summary>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="documentName">ドキュメント名</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.SetDataSource(System.Object@,System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            DataSourceの設定
+            </summary>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="dt">DataSourceに使用するDataTable</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.SetDataSource(System.Object@,System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            DataSourceの設定
+            </summary>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="ds">DataSourceに使用するDataSet</param>
+            <param name="dataMember">DataMemberに設定する値</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Print(System.Object)">
+            --------------------------------------------------
+            <summary>
+            印刷
+            </summary>
+            <param name="report">ActiveReportsインスタンス</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Print(System.Object[])">
+            --------------------------------------------------
+            <summary>
+            印刷
+            </summary>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Print(System.Object,System.Boolean,System.Boolean,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            印刷
+            </summary>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="showPrintDialog">Trueに設定すると、ドキュメントをプリンタに送信する前に、ユーザーがプリンタオプションを設定できる、印刷ダイアログを表示します。プリンタダイアログは、現在のDocument.Printerの設定で初期化されます。Falseに設定すると、指定したDocument.Printerの設定でプリンタにドキュメントが送信されます。</param>
+            <param name="showPrintProgressDialog">Trueに設定すると、ユーザーが印刷ジョブを停止できる進行状況ダイアログが表示されます。</param>
+            <param name="usePrintingThread">印刷が個別のスレッドにおいて行われるかどうかを指定します。</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Print(System.Object[],System.Boolean,System.Boolean,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            印刷
+            </summary>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <param name="showPrintDialog">Trueに設定すると、ドキュメントをプリンタに送信する前に、ユーザーがプリンタオプションを設定できる、印刷ダイアログを表示します。プリンタダイアログは、現在のDocument.Printerの設定で初期化されます。Falseに設定すると、指定したDocument.Printerの設定でプリンタにドキュメントが送信されます。</param>
+            <param name="showPrintProgressDialog">Trueに設定すると、ユーザーが印刷ジョブを停止できる進行状況ダイアログが表示されます。</param>
+            <param name="usePrintingThread">印刷が個別のスレッドにおいて行われるかどうかを指定します。</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Print(System.String,System.Object)">
+            --------------------------------------------------
+            <summary>
+            印刷
+            </summary>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Print(System.String,System.Object[])">
+            --------------------------------------------------
+            <summary>
+            印刷
+            </summary>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Print(System.String,System.Object,System.Boolean,System.Boolean,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            印刷
+            </summary>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="showPrintDialog">Trueに設定すると、ドキュメントをプリンタに送信する前に、ユーザーがプリンタオプションを設定できる、印刷ダイアログを表示します。プリンタダイアログは、現在のDocument.Printerの設定で初期化されます。Falseに設定すると、指定したDocument.Printerの設定でプリンタにドキュメントが送信されます。</param>
+            <param name="showPrintProgressDialog">Trueに設定すると、ユーザーが印刷ジョブを停止できる進行状況ダイアログが表示されます。</param>
+            <param name="usePrintingThread">印刷が個別のスレッドにおいて行われるかどうかを指定します。</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Print(System.String,System.Object[],System.Boolean,System.Boolean,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            印刷
+            </summary>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <param name="showPrintDialog">Trueに設定すると、ドキュメントをプリンタに送信する前に、ユーザーがプリンタオプションを設定できる、印刷ダイアログを表示します。プリンタダイアログは、現在のDocument.Printerの設定で初期化されます。Falseに設定すると、指定したDocument.Printerの設定でプリンタにドキュメントが送信されます。</param>
+            <param name="showPrintProgressDialog">Trueに設定すると、ユーザーが印刷ジョブを停止できる進行状況ダイアログが表示されます。</param>
+            <param name="usePrintingThread">印刷が個別のスレッドにおいて行われるかどうかを指定します。</param>
+            <create> 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.Object)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.Object,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="showPrintButton">印刷ボタンを表示するかどうか</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.Object,ActiveReportsHelper.PreviewPrinterSetting)">
+            --------------------------------------------------
+            <summary>
+            プレビュー(印刷ボタンなし)
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="prinSetting">プレビュー用プリンタ設定</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.Object,System.Boolean,ActiveReportsHelper.PreviewPrinterSetting)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="showPrintButton">印刷ボタンを表示するかどうか</param>
+            <param name="prinSetting">プレビュー用プリンタ設定</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.Object[])">
+            --------------------------------------------------
+            <summary>
+            プレビュー(印刷ボタンなし)
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.Object[],System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <param name="showPrintButton">印刷ボタンを表示するかどうか</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.Object[],ActiveReportsHelper.PreviewPrinterSetting)">
+            --------------------------------------------------
+            <summary>
+            プレビュー(印刷ボタンなし)
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <param name="prinSetting">プレビュー用プリンタ設定</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.Object[],System.Boolean,ActiveReportsHelper.PreviewPrinterSetting)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <param name="showPrintButton">印刷ボタンを表示するかどうか</param>
+            <param name="prinSetting">プレビュー用プリンタ設定</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.String,System.Object)">
+            --------------------------------------------------
+            <summary>
+            プレビュー(印刷ボタンなし)
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/06/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.String,System.Object,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="showPrintButton">印刷ボタンを表示するかどうか</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.String,System.Object,ActiveReportsHelper.PreviewPrinterSetting)">
+            --------------------------------------------------
+            <summary>
+            プレビュー(印刷ボタンなし)
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="prinSetting">プレビュー用プリンタ設定</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.String,System.Object,System.Boolean,ActiveReportsHelper.PreviewPrinterSetting)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="report">ActiveReportsインスタンス</param>
+            <param name="showPrintButton">印刷ボタンを表示するかどうか</param>
+            <param name="prinSetting">プレビュー用プリンタ設定</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.String,System.Object[])">
+            --------------------------------------------------
+            <summary>
+            プレビュー(印刷ボタンなし)
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.String,System.Object[],System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <param name="showPrintButton">印刷ボタンを表示するかどうか</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/09</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.String,System.Object[],ActiveReportsHelper.PreviewPrinterSetting)">
+            --------------------------------------------------
+            <summary>
+            プレビュー(印刷ボタンなし)
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <param name="prinSetting">プレビュー用プリンタ設定</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/09</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ActiveReportsHelper.ReportHelper.Preview(System.Windows.Forms.IWin32Window,System.String,System.Object[],System.Boolean,ActiveReportsHelper.PreviewPrinterSetting)">
+            --------------------------------------------------
+            <summary>
+            プレビュー
+            </summary>
+            <param name="owner">親ウィンドウ</param>
+            <param name="printerName">使用するプリンタ名</param>
+            <param name="reports">ActiveReportsインスタンスの配列</param>
+            <param name="showPrintButton">印刷ボタンを表示するかどうか</param>
+            <param name="prinSetting">プレビュー用プリンタ設定</param>
+            <returns>true:印刷した/false:印刷していない</returns>
+            <create>Y.Higuchi 2010/07/07</create>
+            <update>Y.Higuchi 2010/07/09</update>
+            --------------------------------------------------
+        </member>
+        <member name="T:ActiveReportsHelper.PreviewPrinterSetting">
+            --------------------------------------------------
+            <summary>
+            プレビュー用プリンタ設定
+            </summary>
+            <create>Y.Higuchi 2010/07/09</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:ActiveReportsHelper.PreviewPrinterSetting.PaperKind">
+            --------------------------------------------------
+            <summary>
+            用紙サイズ
+            </summary>
+            <create>Y.Higuchi 2010/07/09</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:ActiveReportsHelper.PreviewPrinterSetting.Landscape">
+            --------------------------------------------------
+            <summary>
+            印刷方向-横(true:横/false:縦)
+            </summary>
+            <create>Y.Higuchi 2010/07/09</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,2942 @@
+// Copyright (c) 2005-2010 KEYENCE CORPORATION. All rights reserved.
+/*!
+ * @file utility.c
+ * @brief ユーティリティ
+ *
+ * ユーティリティ関数が記述されています。
+ */
+
+/*!
+ * @class Fメニュー関連のパッケージ
+ */
+Package FuncMenu
+
+    /*!
+     * @brief Fメニューのファイル一覧の表示
+     * 
+     * Fメニューのファイル一覧を表示します。
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method Show()
+		btvItem1	/**< メニュー項目1 */
+		btvItem2	/**< メニュー項目2 */
+		btvItem3	/**< メニュー項目3 */
+		btvItem4	/**< メニュー項目4 */
+		btvMenupos	/**< メニュー選択位置 */
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FuncMenu:Show()\n")
+		EndIf
+
+		btvItem1 = "1.端末設定|2.ファイル|3.履歴表示･編集|4.トップ画面に戻る"
+		btvItem2 = "5.通信確認|6.二度読みクリア"
+		btvItem3 = nil
+		btvItem4 = nil
+		btvMenupos = 1
+		While 1
+			//Fmenuは12ドット固定とする
+			Screen:fontSize="middle"
+			btvMenupos = Handy:ShowMenu("Fメニュー",btvItem1,btvItem2,btvItem3,btvItem4,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				SetTerm()
+			Case 2
+				If ShowFileMenu() is true Then
+					Screen:Clear()
+					return( "returntop" )
+				EndIf
+			Case 3
+				If LogAccess:ShowHistory() is true Then
+					return( "returntop" )
+				EndIf
+			Case 4
+				return( "returntop" )
+			Case 5
+				RFMenu:Show()
+			Case 6
+				Screen:Clear()
+				If JOB:checkOverLap is true Then
+					If Dialog:Message(nil, "二度読みデータをクリアしますか？","yesno|no", "", "", "middle") Then
+						MasterAccess:Reset()
+					EndIf
+				Else
+					Dialog:Message(nil, "二度読み防止機能は設定されていません。","confirm", "", "", "middle")
+				EndIf
+			Case "C"
+				Wbreak
+			End Select
+		Wend
+		return( "retry" )
+	EndMethod
+
+
+    /*!
+     * @brief Fメニューのファイルメニューの表示
+     * 
+     * Fメニューのファイルメニューを表示します。
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method ShowFileMenu()
+		btvItem1	/** メニュー項目1 */
+		btvItem2	/** メニュー項目2 */
+		btvItem3	/** メニュー項目3 */
+		btvItem4	/** メニュー項目4 */
+		btvMenupos	/** メニュー選択位置 */
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FuncMenu:ShowFileMenu()\n")
+		EndIf
+
+		btvItem1 = "1.ファイル一覧表示|2.不要ファイル削除|3.全ログ送信|4.マスタ受信"
+		btvItem2 = "5.個別ログ送信"
+		btvItem3 = nil
+		btvItem4 = nil
+		btvMenupos = 1
+		While 1
+			btvMenupos = Handy:ShowMenu("ファイル",btvItem1,btvItem2,btvItem3,btvItem4,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				FileList:Show("ファイル一覧", 1)
+			Case 2
+				DeleteNonUsedFile()
+			Case 3
+				If FileTrans:PutLogFiles() is true Then
+					return( true )	// 成功の意味ではなく、TOP画面まで戻るという意味
+				Else
+					If JOB:checkOverLap is true Then MasterAccess:AllReset() EndIf
+				EndIf
+			Case 4
+				If FileTrans:GetMasterFiles() is true Then
+					return( true )	// 成功の意味ではなく、TOP画面まで戻るという意味
+				EndIf
+			Case 5
+				If LogAccess:GetLogType() eq "" Then
+					Dialog:Message(nil, "ログファイルが\nありません","confirm", "", "", "middle")
+				Else
+					If FileTrans:PutFile( LogAccess:name, nil ) is true Then
+						return( true )	// 成功の意味ではなく、TOP画面まで戻るという意味
+					Else
+						If JOB:checkOverLap is true Then MasterAccess:Reset() EndIf
+					EndIf
+				EndIf
+			Case "C"
+				Wbreak
+			End Select
+		Wend
+		return ( false )
+	EndMethod
+
+    /*!
+     * @brief Fメニューの不要ファイルの削除
+     * 
+     * Fメニューの不要ファイル削除画面を表示します。<br>
+     * ファイル名リストに記載がないファイルを削除します。
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method DeleteNonUsedFile()
+		i
+		j
+		findflg = false		/**< ファイル検索フラグ */
+		ret
+		delcnt = 0
+		filename
+		delfalselist[50]
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FuncMenu:DeleteNonUsedFile()\n")
+		EndIf
+
+		If FileSystem:FindFirst("2:_FILE.LST") is false Then return() EndIf
+		File2:Initialize()
+		File2:name = "2:_FILE.LST"
+
+		If ( Dialog:Message(nil, "不要なファイルを削除します。よろしいですか？","yesno|no", "", "", "middle") is false ) Then
+			return()
+		EndIf
+
+		For  i = 0 to 49
+			delfalselist[i] = ""
+		Next
+
+		For  i = 0 to 1
+			If i == 0 Then ret = FileSystem:FindFirst("1:")
+			Else ret = FileSystem:FindFirst("2:")
+			EndIf
+			While ret is true
+				File2:currentPos = 0
+
+				findflg = false
+
+				// ".app","sb3"ファイルは削除対象外とする
+				filename = FileSystem:findFileName.Right(4).toUpper
+				If filename eq ".APP" or filename eq ".SB3" Then
+					findflg = true
+				EndIf
+
+				If findflg is false Then
+					For  j = 0 to 49
+						If delfalselist[j] eq FileSystem:findFileName Then
+							findflg = true
+							Fbreak
+						ElseIf delfalselist[j] eq "" Then
+							Fbreak
+						EndIf
+					Next
+				EndIf
+
+				If findflg is false Then
+					// ファイルリストループ
+					While 1
+						filename = File2:Gets(126)
+						If filename is nil Then Wbreak EndIf
+						If filename.length < 3 Then Wbreak EndIf
+						If filename.left(1) ne "<" Then
+							filename = filename.remove("\r")
+							filename = filename.remove("\n")
+
+							If filename.toUpper eq FileSystem:findFileName.toUpper Then
+								// 大文字であることを期待
+								findflg = true
+								Wbreak
+							EndIf
+						EndIf
+					Wend
+				EndIf
+
+				If findflg is false Then
+					If FileSystem:Delete(FileSystem:findFileName) is false Then
+						delfalselist[delcnt] = FileSystem:findFileName
+						delcnt = delcnt + 1
+						If delcnt > 49 Then delcnt = 0 EndIf
+					EndIf
+					If i == 0 Then
+						ret = FileSystem:FindFirst("1:")
+					Else
+						ret = FileSystem:FindFirst("2:")
+					EndIf
+				Else
+					ret = FileSystem:FindNext()
+				EndIf
+
+			Wend
+		Next
+		File2:Initialize()
+
+		Dialog:Message(nil, "ファイル削除が完了しました","confirm", "", "", "middle")
+
+	EndMethod
+
+    /*!
+     * @brief Fメニューの端末設定画面の表示
+     * 
+     * Fメニューの端末設定画面を表示します。
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method SetTerm()
+		btvItem1	/**< メニュー項目1 */
+		btvItem2	/**< メニュー項目2 */
+		btvItem3	/**< メニュー項目3 */
+		btvItem4	/**< メニュー項目4 */
+		btvMenupos	/**< メニュー選択位置 */
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FuncMenu:SetTerm()\n")
+		EndIf
+
+		btvItem1 = "1.ブザー音量|2.コントラスト|3.キークリック音"
+		btvItem2 = nil
+		btvItem3 = nil
+		btvItem4 = nil
+		btvMenupos = 1
+		While 1
+			btvMenupos = Handy:ShowMenu("端末設定",btvItem1,btvItem2,btvItem3,btvItem4,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				//ShowBuzzerWindow("ブザー音量")
+				Handy:ShowVolumeDialog("ブザー音量")
+			Case 2
+				//Handy:ShowContrastDialog("コントラスト")
+				Dialog:Message(nil, "この端末では、コントラストの設定はできません","confirm", "", "", "middle")
+			Case 3
+				Handy:ShowClickVolumeDialog("キークリック音")
+			Case "C"
+				Wbreak
+			End Select
+		Wend
+	EndMethod
+
+    /*!
+     * @brief ブザー音量の設定
+     * 
+     * Handy:ShowVolumeDialogを使用して下さい。
+     * 
+     * @param[in] title タイトル
+     * @return なし
+     * @attention なし
+     */
+	Method ShowBuzzerWindow(title)
+		btvRet
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FuncMenu:ShowBuzzerWindow()\n")
+		EndIf
+
+		// 退避
+		TempScreenInfo:Push()
+		
+		With Screen
+			:update = false
+			:Clear()
+			:reverse = false
+			:font = 1	:fontSize = "middle"	:fontGapy = 1	:fontGapx = 0
+			:posx = 1	:posy = 1	:OutputText(title)
+			:posx = 1	:posy = 3	:OutputText("ブザー音量を")
+			:posx = 1	:posy = 5	:OutputText("入力してください")
+			:posx = 1	:posy = 7	:OutputText("0:消 1:小 2:中 3:大")
+			:posx = 1	:posy = 9	:OutputText("音量:")
+			:DrawLine(0,25,127,25,"black")
+			:update = true
+		EndWith
+		
+		While 1
+			With InputDecimal
+				:reverse = false
+				:font = 1
+				:posx = 6 :posy = 9
+				:maxValue = 3 :minValue = 0
+				:decimal = 0
+				If Buzzer:volume is nil Then
+					:data = 0
+				Else
+					:data = Buzzer:volume
+				EndIf
+				btvRet = :Exec()
+				If btvRet eq "ENT" Then
+					If :data == 0 Then
+						Buzzer:volume = nil
+					Else 
+						Buzzer:volume = :data
+					EndIf
+					Dialog:Message(nil, "設定しました","confirm", "", "", "middle")
+					Wbreak
+				ElseIf btvRet eq "C" Then
+					Wbreak
+				EndIf
+				
+			EndWith
+		Wend
+		
+		// 復帰
+		TempScreenInfo:Pop()
+		
+	EndMethod
+EndPackage
+
+
+/*!
+ * @class ファイルリスト表示関連のパッケージ
+ */
+Package FileList
+
+    /*!
+     * @brief ファイルリスト表示
+     * 
+     * ファイルリストを表示します。
+     * 
+     * @param[in] title (文字列型)タイトル文字列(右端2バイトはドライブ名称で使用します "1:")
+     * @param[in] driveno (整数型)初期表示ドライブ(1-4)
+     * @return 選択ファイル名(ENT押下時) C押下では""が戻ります
+     * @attention なし
+     */
+	Method Show( title, driveno )
+		ret
+		fileNumMax = 128	/**< 最大ファイル数 */
+		fileName[128]	/**< ファイル名(1-fileNumMaxまで) */
+		fileNum			/**< 処理ファイル数 */
+		lastPage		/**< 最終表示ページ数 */
+		curPage			/**< 現在のページ */
+		curPage_Pos		/**< 現在のページの先頭ファイルインデックス */
+		curPos			/**< 現在のファイルインデックス */
+		curDrv = 1		/**< 現在のドライブ番号 */
+		curPath = ""		/**< 現在のパス */
+		chgDrv = true	/**< ドライブ、フォルダ変更判定フラグ */
+		tmpnum
+		tmpstr
+		outstr
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FileList:Show()\n")
+		EndIf
+
+		If ( driveno < 1 or 5 < driveno ) Then return ("") EndIf
+
+		TempScreenInfo:Push()
+		Screen:status = false
+		Screen:fontSize = "middle"
+		Screen:fontGapx = 0
+		Screen:fontGapy = 1
+		Screen:font = 1
+		Screen:reverse = false
+		Screen:multiColumn = 1
+		Handy:leftKey = "L"	// TempScreenInfo:Pop()で元に戻る
+		Handy:rightKey = "R"
+
+		curDrv = driveno
+		While 1
+			If ( chgDrv is true ) Then
+				//  タイトル表示
+				Screen:update = false
+				Screen:Clear()
+				_Print(title, 1, 1)
+				_Print(curDrv & ":", 17, 1)
+                Screen:fontSize = "middle"
+				_Print("F1:INF F2:DRV", 1, 20)
+				// 破線表示
+				_DrawLine(17)
+
+				// ドライブからファイル取得
+				chgDrv = false
+                fileNum = 0
+				curPos = 0
+                curPage_Pos = 0
+                curPage = 0
+				fileName[0] = ""
+				ret = FileSystem:FindFirst( curDrv & ":" & curPath )
+				While (ret is true)
+					If FileSystem:findFileName ne curDrv & ":" & curPath Then
+						If curPath eq "" Then
+							tmpstr = FileSystem:findFileName.Right(FileSystem:findFileName.length-2)
+						Else
+							tmpstr = FileSystem:findFileName.Right(FileSystem:findFileName.length-(2+curPath.length+1))
+						EndIf
+						If FileSystem:isDirectory Then tmpstr = tmpstr & "\\" EndIf
+						If ( fileNum >= fileNumMax ) Then Wbreak
+						Else fileName[fileNum] = tmpstr EndIf
+
+						fileNum = fileNum + 1
+					EndIf
+					ret = FileSystem:FindNext()
+				Wend
+				Screen:update = true
+			EndIf
+
+			// ページ計算
+			tmpnum = curPos / 8
+            curPage = tmpnum.toInt
+			curPage_Pos = curPos % 8
+			tmpnum = ((fileNum-1) / 8)
+            lastPage = tmpnum.toInt
+			If ( fileNum > 0 ) Then
+				If ( curPath eq "" ) Then
+					outstr = curDrv & ":" & fileName[curPos]
+				Else
+					outstr = curDrv & ":" & curPath & "\\" & fileName[curPos]
+				EndIf
+			Else
+				outstr = curDrv & ":"
+			EndIf
+
+            Screen:coordinate = "graphic"
+			// ファイル表示
+			For i = 0 to 7
+				If (curPage*8 + i + 1 > fileNum) Then
+					_Print("                  ", 1, (18 + i*14))
+				Else
+					If (i == curPage_Pos) Then Screen:reverse = true
+					Else Screen:reverse = false EndIf
+					tmpstr = fileName[curPage*8 + i]
+					_Print(tmpstr & "                  ", 1, (18 + i*14))
+					Screen:reverse = false
+				EndIf
+			Next
+            Screen:coordinate = "text"
+
+			// キー操作
+			ret = Handy:KeyWait()
+			If ( ret eq "UP" ) Then
+				If ( curPos == 0 ) Then
+					curPos = fileNum - 1
+				Else
+					curPos = curPos - 1
+				EndIf
+			ElseIf ( ret eq "DOWN" ) Then
+				If ( curPos == fileNum - 1 ) Then
+					curPos = 0
+				Else
+					curPos = curPos + 1
+				EndIf
+			ElseIf ( ret eq "LEFT" ) Then
+				If ( curPos < 8 ) Then
+					tmpnum = (lastPage * 8) + (curPage_Pos)
+					If ( tmpnum > fileNum - 1 ) Then curPos = fileNum - 1
+					Else curPos = tmpnum EndIf
+				Else
+					curPos = curPos - 8
+				EndIf
+			ElseIf ( ret eq "RIGHT" ) Then
+				If ( curPage == lastPage ) Then
+					curPos = curPage_Pos
+				Else
+					If ( curPos + 8 > fileNum - 1 ) Then curPos = fileNum - 1
+					Else curPos = curPos + 8 EndIf
+				EndIf
+			ElseIf ( ret eq "L" ) Then
+				If curPath ne "" Then
+					i = curPath.Rfind("\\", curPath.length)
+					If i is Nil Then curPath = ""
+					Else curPath = curPath.Left(i)
+					EndIf
+					chgDrv = true
+				EndIf
+			ElseIf ( ret eq "R" ) Then
+				If fileName[curPos].Right(1) eq "\\" Then
+					If curPath ne "" Then
+						curPath = curPath & "\\" & fileName[curPos].Left(fileName[curPos].length-1)
+					Else 
+						curPath = fileName[curPos].Left(fileName[curPos].length-1)
+					EndIf
+					chgDrv = true
+				EndIf
+			ElseIf ( ret eq "F1" ) Then
+				// ドライブ情報
+				If ( fileNum > 0 ) Then
+					_ShowInfo(outstr, curDrv)
+					chgDrv = true
+				EndIf
+			ElseIf ( ret eq "F2" ) Then
+				If ( curDrv == 3 ) Then curDrv = 4
+				ElseIf ( curDrv == 4 ) Then curDrv = 1
+				Else curDrv = curDrv + 1 EndIf
+				chgDrv = true
+				curPath = ""
+			ElseIf ( ret eq "BS" or ret eq "C" ) Then
+				outstr = ""
+				Wbreak
+			ElseIf ( ret eq "ENT" ) Then
+				Wbreak
+			EndIf
+		Wend
+
+		Screen:Clear()
+		TempScreenInfo:Pop()
+
+		return (outstr)
+	EndMethod
+
+    /*!
+     * @brief ファイル情報表示
+     * 
+     * 指定したファイル情報を表示します。
+     * 
+     * @param[in] filename (文字列型)ファイル名
+     * @param[in] driveno (整数型)ドライブ(1-4)
+     * @return なし
+     * @attention なし
+     */
+	Method _ShowInfo(filename, driveno)
+		tmpstr
+		tmpfilename
+		ret
+        i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FileList:_ShowInfo()\n")
+		EndIf
+
+		Screen:update = false
+
+        Screen:coordinate = "graphic"
+		// ファイル表示
+		For i = 0 to 7
+            _Print("                  ", 1, (18 + i*14))
+        Next
+        Screen:coordinate = "text"
+
+		_Print("   ファイル情報   ", 1, 4)
+		_Print("C:戻る            ", 1, 20)
+
+		If filename.mid(1,1) eq ":" Then
+			tmpfilename = filename.mid(2,filename.length-2)
+		Else
+			tmpfilename = filename
+		EndIf
+		If tmpfilename.length < 18 Then
+			_Print(tmpfilename, (18 - tmpfilename.length)/2+1, 6)
+		Else
+			Screen:multiColumn = 2
+			_Print(tmpfilename, 1, 6)
+			Screen:multiColumn = 1
+		EndIf
+		ret = FileSystem:FindFirst( filename )
+		If ( ret is not false ) Then
+			tmpstr = FileSystem:findFileSize & " byte"
+			_Print(tmpstr, (18 - tmpstr.length)/2+1, 16)
+
+			tmpstr = FileSystem:findDate.Right(FileSystem:findDate.length-2) & " " & FileSystem:findTime
+			_Print(tmpstr, (18 - tmpstr.length)/2+1, 18)
+		EndIf
+
+		Screen:update = true
+		While 1
+			ret = Handy:KeyWait()
+			If ( ret eq "C" or ret eq "BS" or ret eq "ENT" ) Then
+				Wbreak
+			EndIf
+		Wend
+
+	EndMethod
+
+    /*!
+     * @brief 位置指定文字列表示
+     * 
+     * 指定した位置に文字列を表示します。
+     * 
+     * @param[in] strmsg (文字列型)表示する文字
+     * @param[in] x (整数型)X座標
+     * @param[in] y (整数型)Y座標
+     * @return なし
+     * @attention なし
+     */
+	Method _Print(strmsg, x, y)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FileList:_Print()\n")
+		EndIf
+
+		With Screen
+			:posx = x :posy = y :OutputText(strmsg)
+		End With
+	EndMethod
+
+    /*!
+     * @brief 破線描画
+     * 
+     * 指定したY座標に破線を表示します。
+     * 
+     * @param[in] y (整数型)Y座標
+     * @return なし
+     * @attention なし
+     */
+	Method _DrawLine(y)
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FileList:_DrawLine()\n")
+		EndIf
+
+		For i = 0 to 127 Step 8
+			Screen:DrawLine(i, y, i+3, y, "black")
+		Next
+	EndMethod
+
+EndPackage
+
+/*!
+ * @class 文字列操作などの純粋なユーティリティ関連のパッケージ
+ */
+Package	UTL
+
+    /*!
+     * @brief 文字数制限つきの文字連結
+     * 
+     * data1とdata2の文字列を連結します。<br>
+     * MAXLENをオーバーする場合はdata2の文字列を切り捨てます。
+     * 
+     * @param[in] data1 文字列1
+     * @param[in] data2 文字列2
+     * @return 連結文字列
+     * @attention なし
+     */
+	Method utlStrCatEx( data1, data2 )
+		len1			/**< 先文字列長 */
+		len2			/**< 後文字列長 */
+		ret = ""
+		MAXLEN = 8192
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlStrCatEx()\n")
+		EndIf
+
+		len1 = data1.length
+		len2 = data2.length
+
+		If ( len1 >= MAXLEN ) Then 
+			ret = data1.mid( 0, MAXLEN )
+			return ( ret )
+		EndIf
+
+		If ( len1 + len2 <= MAXLEN ) Then
+			ret = data1 & data2
+		Else
+			ret = data1 & data2.mid( 0, MAXLEN - len1 )
+		EndIf
+
+		return ( ret )
+
+	EndMethod
+
+    /*!
+     * @brief 数値チェック
+     * 
+     * 数値でない場合0に変換する。InputDecimal初期値用。
+     *
+     * @param[in] checkdata 対象データ
+     * @return 文字列
+     * @attention なし
+     */
+	Method utlDigitCheck(checkdata)
+		
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlDigitCheck()\n")
+		EndIf
+
+		If (checkdata.isDigit) Then 
+			return (checkdata)
+		Else
+			return ("000")
+		EndIf
+		
+	EndMethod
+
+
+    /**
+     * @brief 桁数限定の照合
+     * 
+     * 桁数限定の照合を行います。
+     * 
+     * @param[in] cfdata 照合対象データ
+     * @param[in] indata 入力データ
+     * @param[in] cfSpos 照合対象開始位置
+     * @param[in] inSpos 入力データ開始位置
+     * @param[in] len 照合文字数
+     * @retval true 一致
+     * @retval false 不一致
+     * @attention なし
+     */
+	Method utlCompareLimitedRange(cfdata,indata,cfSpos,inSpos,len)
+		Ret
+		cf_ret		/**< 照合文字列１*/
+		in_ret		/**< 照合文字列２*/
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlCompareLimitedRange()\n")
+		EndIf
+
+		cf_ret = cfdata.mid(cfSpos-1,len)
+		in_ret = indata.mid(inSpos-1,len)
+
+		If cf_ret eq in_ret Then
+			return (true)
+		Else
+			return (false)
+		EndIf
+
+	EndMethod
+
+    /**
+     * @brief 端末IDの文字列整形
+     *
+     * ログファイルフォーマットを限定して端末IDの文字列を整形します。
+     *
+     * @see UTL:utlTermIDStyle2
+     * @param[in] data ヘッダデータ全体
+     * @param[in] style スタイル
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlTermIDStyle(data,style)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlTermIDStyle()\n")
+		EndIf
+
+		return ( utlTermIDStyle2(data.mid(14,5),style) )
+	EndMethod
+
+    /**
+     * @brief 端末IDの文字列整形
+     *
+     * ログファイルフォーマットを限定して端末IDの文字列を整形します。
+     *
+     * @param[in] data ヘッダデータ全体
+     * @param[in] style スタイル
+     * @arg 00001
+     * @arg No.00001
+     * @arg #00001
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlTermIDStyle2(data,style)
+		Ret
+		strtmp
+		strId
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlTermIDStyle2()\n")
+		EndIf
+
+		strtmp = "00000" & data
+		strId = strtmp.right(5)
+
+		Select Case style
+				Case "00001"
+					Ret = strId
+				Case "#00001"
+					Ret = "#" & strId
+				Case "No.00001"
+					Ret = "No." & strId
+				Case Else
+					Ret = strId
+		End Select
+		return (Ret)
+	EndMethod
+
+    /**
+     * @brief 端末IPの文字列整形
+     *
+     * ログファイルフォーマットを限定して端末IPの文字列を整形します。
+     *
+     * @see UTL:utlTermIPStyle2
+     * @param[in] data ヘッダデータ全体
+     * @param[in] style スタイル
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlTermIPStyle(data,style)
+		strID
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlTermIPStyle()\n")
+		EndIf
+
+		strID = data.mid(14,3) & "." & data.mid(17,3) & "." & data.mid(20,3) & "." & data.mid(23,3)
+		return ( utlTermIPStyle2( strID, style ) )
+	EndMethod
+
+    /**
+     * @brief 端末IPの文字列整形
+     *
+     * ログファイルフォーマットを限定して端末IPの文字列を整形します。
+     *
+     * @param[in] data ヘッダデータ全体
+     * @param[in] style スタイル
+     * @arg 127.0.0.1
+     * @arg 127.000.000.001
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlTermIPStyle2(data,style)
+		Ret
+		strtmp
+		strByte
+		strId
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlTermIPStyle2()\n")
+		EndIf
+
+		strtmp = data
+		
+		Select Case style
+				Case "127.0.0.1"
+					strId = ""
+					For i=0 to 3 
+						strByte = strtmp.mid( i*4,3)
+						If (    strByte.mid(0,2) eq "00" ) Then strByte = strByte.mid(2,1)
+						ElseIf( strByte.mid(0,1) eq "0"  ) Then strByte = strByte.mid(1,2)
+						Else  strByte = strByte   EndIf
+						
+						strId = strId & strByte 
+						If ( i < 3 ) Then strId = strId & "." EndIf
+					Next
+					Ret = strId
+					
+				Case "127.000.000.001"
+					Ret = strtmp
+				Case Else
+					Ret = strtmp
+		End Select
+		return (Ret)
+	EndMethod
+
+    /*!
+     * @brief 日付文字列の整形
+     * 
+     * 指定したフォーマットで日付文字列に整形します。
+     * 
+     * @param[in] DATE 日付文字列
+     * @param[in] style フォーマット
+     * @arg yyyy/mm/dd
+     * @arg yy/mm/dd
+     * @arg yyyy/mm
+     * @arg yy/mm
+     * @arg mm/dd
+     * @arg yy年mm月
+     * @arg mm月dd日
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlDateStyle(DATE,style)
+		tmpRet = ""		/**< 日付文字列 */
+	Begin		
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlDateStyle()\n")
+		EndIf
+
+		If DATE is nil Then
+			return (tmpRet)
+		EndIf
+
+		Select Case style
+				Case "yyyy/mm/dd"
+					tmpRet = DATE.mid(0,4) & "/" & DATE.mid(4,2) & "/" & DATE.mid(6,2)
+				Case "yy/mm/dd"
+					tmpRet = DATE.mid(2,2) & "/" & DATE.mid(4,2) & "/" & DATE.mid(6,2)
+				Case "yyyy/mm"
+					tmpRet = DATE.mid(0,4) & "/" & DATE.mid(4,2)
+				Case "yy/mm" 
+					tmpRet = DATE.mid(2,2) & "/" & DATE.mid(4,2)
+				Case "mm/dd"
+					tmpRet = DATE.mid(4,2) & "/" & DATE.mid(6,2)
+				Case "yy年mm月"
+					tmpRet = DATE.mid(2,2) & "年" & DATE.mid(4,2) & "月"
+				Case "mm月dd日" 
+					tmpRet = DATE.mid(4,2) & "月" & DATE.mid(6,2) & "日" 
+				Case Else
+					tmpRet = DATE
+		End Select
+		return (tmpRet)
+	EndMethod
+
+    /*!
+     * @brief 時刻文字列の整形
+     * 
+     * dataで指定した文字列の時刻部分を抽出して、<br>
+     * 指定したフォーマットで時刻文字列に整形します。
+     * 
+     * @see utlTimeStyle2
+     * @param[in] data 日付文字列
+     * @param[in] style フォーマット
+     * @arg hh:mm:ss
+     * @arg hh:mm
+     * @arg mm:ss
+     * @arg hh時mm分ss秒
+     * @arg hh時mm分
+     * @arg mm分ss秒
+     * @return なし
+     * @attention なし
+     */
+	Method utlTimeStyle(data,style)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlTimeStyle()\n")
+		EndIf
+
+		return ( utlTimeStyle2(data.mid(8,6),style) )
+	EndMethod
+	
+    /*!
+     * @brief 時刻文字列の整形
+     * 
+     * 指定したフォーマットで時刻文字列に整形します。
+     * 
+     * @param[in] data 時刻文字列
+     * @param[in] style フォーマット
+     * @arg hh:mm:ss
+     * @arg hh:mm
+     * @arg mm:ss
+     * @arg hh時mm分ss秒
+     * @arg hh時mm分
+     * @arg mm分ss秒
+     * @return なし
+     * @attention なし
+     */
+	Method utlTimeStyle2(data,style)
+		Ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlTimeStyle2()\n")
+		EndIf
+
+		Select Case style 
+				Case "hh:mm:ss"
+					Ret = data.mid(0,2) & ":" & data.mid(2,2) & ":" & data.mid(4,2)
+				Case "hh:mm"
+					Ret = data.mid(0,2) & ":" & data.mid(2,2)
+				Case "mm:ss"
+					Ret = data.mid(2,2) & ":" & data.mid(4,2)
+				Case "hh時mm分ss秒" 
+					Ret = data.mid(0,2) & "時" & data.mid(2,2) & "分" & data.mid(4,2) & "秒"
+				Case "hh時mm分"
+					Ret = data.mid(0,2) & "時" & data.mid(2,2) & "分"
+				Case "mm分ss秒"
+					Ret = data.mid(2,2) & "分" & data.mid(4,2) & "秒"
+				Case Else
+					Ret = data
+		End Select
+		return (Ret)
+	EndMethod
+
+    /*!
+     * @brief 文字列変換
+     * 
+     * n桁以下の数値の前に空白を足して桁数をそろえます。
+     * 
+     * @see utlMakeFixedNumEx
+     * @param[in] data 変換する値
+     * @param[in] n 桁数
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlMakeFixedNum(data,n)
+		i
+		strData
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlMakeFixedNum()\n")
+		EndIf
+
+		strData = data
+		If data.length < n Then
+			For i = 1 to n - data.length 
+				strData = " " & strData
+			Next
+		EndIf
+		return (strData)
+		
+	EndMethod
+
+    /*!
+     * @brief 文字列変換
+     * 
+     * n桁以下の数値の前に0を足して桁数をそろえます。
+     * 
+     * @param[in] data 変換する値
+     * @param[in] n 桁数
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlMakeFixedNumZero(data,n)
+		i
+		strData
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlMakeFixedNumZero()\n")
+		EndIf
+
+		strData = data
+		If data.length < n Then
+			For i = 1 to n - data.length 
+				strData = "0" & strData
+			Next
+		ElseIf data.length > n Then
+				strData = strData.Right(n)
+		EndIf
+		
+		return (strData)
+		
+	EndMethod
+	
+    /*!
+     * @brief 文字列変換
+     * 
+     * n桁以下の数値の前に空白を足して桁数をそろえます。<br>
+     * n桁以上の数値は下ｎ桁の文字列にします。
+     * 
+     * @param[in] data 変換する数値
+     * @param[in] n 桁数
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlMakeFixedNumEx(data,n)
+		i
+		strData
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlMakeFixedNumEx()\n")
+		EndIf
+
+		strData = data
+		If data.length < n Then
+			For i = 1 to n - data.length 
+				strData = " " & strData
+			Next
+		ElseIf data.length > n Then
+				strData = strData.Right(n)
+		EndIf
+		
+		return (strData)
+		
+	EndMethod
+
+    /*!
+     * @brief 文字列変換
+     * 
+     * len文字以下の文字列の後ろに空白を足して文字数をそろえます。<br>
+     * len桁以上の数値は下len桁の文字列にします。
+     * 
+     * @param[in] n 桁数
+     * @param[in] data 変換する値
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlFixLength(len,data)
+		i
+		strdata
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlFixLength()\n")
+		EndIf
+
+		strdata = data
+		If data.length < len Then
+			For i = 1 to len - data.length
+				strdata = strdata & " "
+			Next
+		ElseIf	data.length > len Then
+			ret = UTL:UtlMbCheck(data, len-1)
+			If ret is not false Then
+				If ret == 2 Then
+					len = len - 1
+				EndIf
+			EndIf
+			strdata = data.Left(len)
+		EndIf
+		
+		return (strdata)
+		
+	EndMethod
+
+    /*!
+     * @brief 指定範囲の文字列の抽出
+     * 
+     * 指定範囲の文字列を抽出します。
+     * 
+     * @param[in] data 抽出元データ
+     * @param[in] startPos 抽出開始位置
+     * @param[in] len 抽出する文字数
+     * @return 抽出したデータ
+     * @attention なし
+     */
+	Method ExtractDataTypePosition(data,startPos,len)
+		endPos
+		strdata
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:ExtractDataTypePosition()\n")
+		EndIf
+
+		// データが空の場合
+		If data.length == 0 Then
+			return ("")
+		EndIf
+
+		// データ長が開始位置に満たない場合
+		If data.length < startPos Then
+			return ("")
+		EndIf
+
+		endPos = startPos + len - 1
+		// 終了位置がデータ長を超える場合
+		If data.length < endPos Then
+			endPos = data.length - 1
+			len = endPos - startPos + 1
+		EndIf
+
+		// 先頭文字がマルチバイト文字の2バイト目の場合
+		ret = UTL:UtlMbCheck(data, startPos)
+		If ret is not false Then
+			If ret == 3 Then
+				startPos = startPos + 1
+				len = len - 1
+			EndIf
+		EndIf
+
+		// 最終文字がマルチバイト文字の先頭の場合
+		ret = UTL:UtlMbCheck(data, endPos)
+		If ret is not false Then
+			If ret == 2 Then
+				len = len - 1
+			EndIf
+		EndIf
+		strdata = data.Mid(startPos, len)
+		
+		return (strdata)
+		
+	EndMethod
+
+    /*!
+     * @brief セパレータ区切り文字列の抽出
+     * 
+     * セパレータ区切りの文字列を抽出します。
+     * 
+     * @param[in] data 抽出元データ
+     * @param[in] separatorType セパレータ種別
+     * @arg 0 区切り文字
+     * @arg !=0 区切り文字コード
+     * @param[in] separator 区切り文字
+     * @param[in] code 区切り文字コード
+     * @param[in] columnNo 抽出データ列番号
+     * @return 抽出したデータ
+     * @attention なし
+     */
+	Method ExtractDataTypeSeparator(data,separatorType,separator,code,columnNo)
+		basePos = 0
+		endPos = 0
+		findPos = 0
+		columnCnt = 0
+		charCnt = 0
+		dataCodeArray[8192]
+		strdata
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:ExtractDataTypeSeparator()\n")
+		EndIf
+
+		// 文字指定時
+		If 0==separatorType Then
+			For columnCnt = 1 to columnNo
+				// セパレータ文字の検索
+				findPos = data.Find(separator,basePos)
+				// 見つからなかった場合
+				If findPos is nil Then
+					findPos = data.Length
+					If columnCnt == columnNo Then
+						strdata = data.Mid(basePos,findPos-basePos)
+						return (strdata)
+					Else
+						return ("")
+					EndIf
+				// 見つかった場合
+				Else
+					If columnCnt == columnNo Then
+						strdata = data.Mid(basePos,findPos-basePos)
+						return (strdata)
+					EndIf
+				EndIf
+				basePos = findPos + 1
+			Next
+		// コード指定時
+		Else
+			For columnCnt = 1 to columnNo
+				// 文字列を文字コードの数値に分解
+				dataCodeArray = data.Unpack
+				For charCnt = basePos to 8192-1
+					// 文字列がなくなった場合
+					If dataCodeArray[charCnt] is nil Then
+						Fbreak
+					EndIf
+					// 指定コードが見つかった場合
+					If dataCodeArray[charCnt] == code Then
+						Fbreak
+					EndIf
+				Next
+				endPos = charCnt
+				If columnCnt == columnNo Then
+					strdata = data.Mid(basePos,endPos-basePos)
+					return (strdata)
+				EndIf
+				basePos = endPos + 1
+			Next
+		EndIf
+		
+		return ("")
+		
+	EndMethod
+
+    /*!
+     * @brief AI対応文字列の抽出
+     * 
+     * セパレータ、又はアプリケーション識別子で分割して、文字列を抽出します。<br>
+     * アプリケーション識別子の情報はpXXXParam変数で指定します。<br>
+     * (アプリケーション識別子が複数ある場合は",(カンマ)"で区切って指定します)
+     * 
+     * @param data 抽出元データ
+     * @param separator AIセパレータ
+     * @param codesParam AIコードリスト
+     * @param maxDigitsParam AI桁数リスト
+     * @param digitModesParam AI桁数モードリスト
+     * @arg !=1 固定長
+     * @arg 1 可変長
+     * @param targetsParam AI取得対象フラグリスト
+     * @return 抽出したデータ
+     * @attention なし
+     */
+	Method ExtractDataTypeAI(data, separator, codesParam, maxDigitsParam, digitModesParam, targetsParam)
+		basePos = 0
+		findPos = 0
+		endPos = 0
+		codeCnt = 0
+		strdata
+		ret
+		charCnt = 0
+		dataCodeArray[8192]
+		codes[32]
+		maxDigits[32]
+		digitModes[32]
+		targets[32]
+		separatorLength = 0
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:ExtractDataTypeAI()\n")
+		EndIf
+
+		codes = codesParam.split(",")
+		maxDigits = maxDigitsParam.split(",")
+		digitModes = digitModesParam.split(",")
+		targets = targetsParam.split(",")
+
+		If 0==codes.Size Then
+			return ("")
+		EndIf
+
+		While true
+			// 全コードについて探索
+			For codeCnt = 0 to codes.Size
+				If codes[codeCnt] is nil Then
+					findPos = nil
+					Fbreak
+				Else
+					If 0==codes[codeCnt].Length Then
+						findPos = nil
+						Fbreak
+					EndIf
+				EndIf
+				findPos = data.Find(codes[codeCnt],basePos)
+				If findPos is nil Then
+					Fcontinue
+				EndIf
+				If findPos == basePos Then
+					Fbreak
+				Else
+					findPos = nil
+				EndIf
+			Next
+			If findPos is nil Then
+				return ("")
+			EndIf
+
+			separatorLength = 0
+			findPos = findPos + codes[codeCnt].length
+			// 可変長の場合
+			If 1==digitModes[codeCnt] Then
+				// 文字列を文字コードの数値に分解
+				dataCodeArray = data.Unpack
+				For charCnt = findPos to 8192-1
+					// 文字列がなくなった場合
+					If dataCodeArray[charCnt] is nil Then
+						Fbreak
+					EndIf
+					// FNC1コードが見つかった場合
+					If dataCodeArray[charCnt] == separator Then
+						separatorLength = 1
+						Fbreak
+					EndIf
+				Next
+				endPos = charCnt
+			// 固定長の場合
+			Else
+				endPos = findPos + maxDigits[codeCnt] - 1
+				// 桁数を超える場合
+				If endPos > data.Length Then
+					endPos = data.Length - 1
+				EndIf
+			EndIf
+
+			If 0==targets[codeCnt] Then
+				basePos = endPos + 1
+			Else
+				// 可変長の場合
+				If 1==digitModes[codeCnt] Then
+					// 桁数を超える場合
+					If endPos - findPos + 1 - separatorLength >  maxDigits[codeCnt] Then
+						separatorLength = 0
+						endPos = findPos + maxDigits[codeCnt] - 1
+					EndIf
+					strdata = data.Mid(findPos,endPos-findPos+1-separatorLength)
+					return (strdata)
+				Else
+					strdata = data.Mid(findPos,endPos-findPos+1-separatorLength)
+					return (strdata)
+				EndIf
+			EndIf
+		Wend
+		
+		return ("")
+		
+	EndMethod
+
+    /*!
+     * @brief マルチバイト判定（制御コードで例外対策版）
+     * 
+     * Utility:MbCheckを実行してマルチバイト判定を行います。<br>
+     * 制御コードで例外が発生した場合、制御コードを省いてUtility:MbCheckを実行します。
+     * 
+     * @param str 文字列
+     * @param pos 終了位置
+     * @return 判定結果
+     * @attention なし
+     */
+	Method UtlMbCheck( str, pos )
+		ret
+		curPos
+		endPos
+		checkData = ""
+		checkDataPos = 0
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:UtlMbCheck()\n")
+		EndIf
+
+		ret = Utility:MbCheck( str, pos )
+		return( ret )
+	Catch
+		endPos = pos
+		For curPos = 0 to pos
+			checkData = checkData & str.Mid(curPos, 1)
+			ret = IsMbCheckSuccess(checkData.Left(checkDataPos+1), checkDataPos)
+			If ret is false Then
+				endPos = endPos - 1
+				checkData = checkData.Left(curPos)
+			Else
+				checkDataPos = checkDataPos + 1
+			EndIf
+		Next
+		ret = Utility:MbCheck( checkData, endPos )
+		return( ret )
+	EndMethod
+
+    /*!
+     * @brief 制御文字チェック
+     * 
+     * Utility:MbCheckを実行して制御文字を含んでいるか判定します。
+     * 
+     * @param str 文字列
+     * @param pos 終了位置
+     * @return 判定結果
+     * @attention なし
+     */
+	Method IsMbCheckSuccess( str, pos )
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:IsMbCheckSuccess()\n")
+		EndIf
+
+		ret = Utility:MbCheck( str, pos )
+		return( true )
+	Catch
+		return( false)
+	EndMethod
+
+    /*!
+     * @brief 固定長ログデータ用整形
+     * 
+     * @param strdata 整形前文字列
+     * @param len 文字列長
+     * @param treatment スタイル("number"/"string")
+     * @return 整形後の文字列
+     * @attention なし
+     */
+	Method utlFixedFormat( strdata, len, treatment )
+		strRet = ""
+		strADD = ""
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlFixedFormat()\n")
+		EndIf
+
+		If len == 0 Then
+			return ("")
+		EndIf
+		strRet = strdata
+		
+		If ( strdata.length < len ) Then //指定よりも短い
+			
+			If ( treatment eq "number" ) then 
+				//符号
+				strADD = "0"
+				If strdata.mid(0,1) eq "-" Then
+					strADD = "-"
+					strdata = strdata.mid(1,len) 
+				EndIf
+				//0付加
+				For i = 1 to len - strdata.length - 1
+					strADD = strADD & "0"//ゼロ
+				Next				
+				strRet = strADD & strdata
+			ElseIf ( treatment eq "string" ) then
+				For i = 1 to len - strdata.length
+					strADD = strADD & " "//スペース
+				Next
+				strRet = strdata & strADD
+			EndIf
+			
+		ElseIf ( strdata.length > len ) Then
+			
+			If UTL:UtlMbCheck(strdata, len-1) == 2 Then
+				If ( treatment eq "number" ) then 
+					strRet = strdata.left( len-1 ) & " "
+				ElseIf ( treatment eq "string" ) then
+					strRet = strdata.left( len-1 ) & " "
+				EndIf			
+			Else
+				If ( treatment eq "number" ) then 
+					strRet = strdata.left( len )
+				ElseIf ( treatment eq "string" ) then
+					strRet = strdata.left( len )
+				EndIf			
+			EndIf
+
+		EndIf
+				
+		return (strRet)
+	EndMethod
+
+	/**
+	 * コンボボックスの該当表示データをファイルから取得する
+	 * ファイルは1レコードは改行の区切りとします
+	 * @param row				コンボ選択行インデックス
+	 * @param filename			ファイル名
+	 * @param sep				セパレータ
+	 * @return					成功時:列データ(セパレータよりも前のデータだけ）
+	 *							失敗時:""
+	 */
+	Method utlGetDispDataByComboFile(row, filename, sep)
+		dat=""
+		itemData=""
+		lineCount=1
+		i
+		tmpFileName
+		tmpFileCurPos
+	Begin
+		With File
+			tmpFileName   = :name
+			tmpFileCurPos = :currentPos
+			:Initialize()
+			:name = filename
+			While True
+				dat = :Gets(8192)
+				If dat is Nil Then
+					Wbreak
+				EndIf
+				If dat.Right(2) eq "\r\n" Then dat = dat.Left(dat.length -2) EndIf
+				itemData = dat.Left(dat.Find(sep,0))
+				If itemData eq "" Then
+					Wcontinue
+				EndIf
+
+				If row==lineCount Then
+					Wbreak
+				EndIf
+				lineCount = lineCount + 1
+			Wend
+			:Initialize()
+			:name = tmpFileName
+			:currentPos = tmpFileCurPos
+		End With
+		Return(dat.Left(dat.Find(sep,0)))
+	Catch
+		Dialog:Message(nil, "データのフォーマットが不正です","confirm", "", "", "middle")
+		With File
+			:Initialize()
+			:name = tmpFileName
+			:currentPos = tmpFileCurPos
+		End With
+		Return("")
+	End Method
+
+
+    /*!
+     * @brief １ラインメッセージボックス
+     * 
+     * @param pos_y 表示Y座標
+     * @return true:"Yes"が選択された / false:"No"が選択された
+     * @attention なし
+     */
+	Method OneLineMessageBox(pos_y)
+		key
+		yesreverse = true	/**< メッセージボックス戻り値 */
+		ret
+		
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:OneLineMessageBox()\n")
+		EndIf
+		
+		TempScreenInfo:Push()
+		
+		With Screen
+			:update = false
+			:reverse = false
+			:font = 1	:fontSize = "middle"	:fontGapx = 0	:fontGapy = 1
+			:posx = 1	:posy = pos_y	:OutputText("ＯＫ?(      /    )")
+			:update = true
+		EndWith
+		
+		While 1 
+			With Screen
+				:update = false
+				:reverse = yesreverse
+				:posx = 7 	:posy = pos_y	:OutputText("ＹＥＳ")
+				:reverse = not yesreverse
+				:posx = 14	:posy = pos_y	:OutputText("ＮＯ")
+				:update = true
+			EndWith
+			
+			key = Handy:KeyWait()
+			Select Case key
+				Case "ENT"
+					ret = yesreverse
+					Wbreak
+				Case "C","BS" 
+					ret = false
+					Wbreak
+				Case "RIGHT"
+					yesreverse = false
+				Case "LEFT"
+					yesreverse = true
+				Case Else
+					Wcontinue
+			End Select
+		Wend
+		
+		TempScreenInfo:Pop()
+		
+		return ( ret )
+		
+	EndMethod
+
+
+    /*!
+     * @brief ログデータ取得（未使用）
+     * 
+     * @param recidx 
+     * @param fldidx 
+     * @return 
+     * @attention なし
+     */
+	Method utlGetLogData(recidx,fldidx)
+		i
+		res
+		strdata		/**< 戻り値 */
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlGetLogData()\n")
+		EndIf
+
+		res = LogRecord:Read(recidx)
+		
+		if ( res is false ) then
+			recidx = 0
+		endif
+		
+		strdata = LogRecord:GetData(fldidx)
+		
+		return (strdata)
+		
+	EndMethod
+
+
+    /*!
+     * @brief ログレコード取得（未使用）
+     * 
+     * @param recidx 
+     * @return 
+     * @attention なし
+     */
+	Method utlGetLogRecord(recidx)
+		i
+		res
+		sepa		/**< セパレータ */
+		flddata		/**< 項目データ */
+		strdata
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlGetLogRecord()\n")
+		EndIf
+
+		res = LogRecord:Read(recidx)
+		
+		if ( recidx is false ) then
+			recidx = 0
+		endif
+		
+		sepa = LogRecord:separator
+		
+		strdata = LogRecord:GetData(0)
+		
+		For i = 1 to LogAccess:fieldNum-1
+			flddata = LogRecord:GetData(i)
+			strdata = strdata & sepa & flddata
+		Next
+		
+		return (strdata)
+		
+	EndMethod
+
+
+    /*!
+     * @brief 日付フォーマット整形(ログデータ)
+     * 
+     * @param YMD "/"無しの日付文字列
+     * @return "/"付の日付文字列
+     * @attention なし
+     */
+	Method utlFormatYYYYMMDD(YMD)
+		strResult
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlFormatYYYYMMDD()\n")
+		EndIf
+
+		strResult = YMD.Left(4) & "/" 
+		strResult = strResult & YMD.Mid(4,2) & "/"
+		strResult = strResult & YMD.Right(2) 
+		return(strResult)
+	EndMethod
+
+
+    /*!
+     * @brief 時刻フォーマット整形(ログデータ)
+     * 
+     * @param hhmm ":"無しの時刻文字列
+     * @param ss ":"無しの時刻文字列
+     * @return ":"付の日付文字列
+     * @attention なし
+     */
+	Method utlFormatTime(hhmm,ss)
+		strResult		
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utlFormatTime()\n")
+		EndIf
+
+		strResult = hhmm.Left(2) & ":" 
+		strResult = strResult & hhmm.Right(2) & ":"
+		strResult = strResult & ss 
+		return(strResult)	
+	EndMethod
+
+    /*!
+     * @brief 固定文字列用dec2char
+     * 
+     * @param val 入力データ
+     * @param decnum 小数以下桁数(0-3)
+     * @param outlength 出力桁数
+     * @return 変換文字列
+     * @attention なし
+     */
+	Method utl_dec2char_fix( val, decnum, outlength)
+		val_tmp
+		val_tmp2
+		val_tmp3
+		sp = "0"		/**< 埋め草 */
+		decpos			/**< 小数点位置(右から) */
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] UTL:utl_dec2char_fix()\n")
+		EndIf
+
+		If ( decnum < 0 or 3 < decnum ) Then return("") EndIf
+		If ( outlength < 1 ) Then return("") EndIf
+
+		val = val*1000
+		If ( val < 0 ) Then val_tmp = 0 - val
+		Else val_tmp = val
+		EndIf
+		val_tmp = "000" & val_tmp
+		val_tmp2 = val_tmp.left(val_tmp.length - 3) & "." & val_tmp.right(3)
+
+		decpos = 3 - decnum
+		If decnum == 0 Then decpos = 4 EndIf
+		val_tmp2 = val_tmp2.left(val_tmp2.length - decpos)
+
+		val_tmp = sp.repeat(outlength)
+		If ( val < 0 ) Then
+			If ( val_tmp2.length < (outlength-1) ) Then
+				val_tmp3 = "-" & val_tmp.mid(1, (outlength-1) - val_tmp2.length) & val_tmp2
+			Else
+				val_tmp3 = "-" & val_tmp2.mid(val_tmp2.length - (outlength-1), (outlength-1))
+			EndIf
+		Else
+			If ( val_tmp2.length < outlength ) Then
+				val_tmp3 = val_tmp.left(outlength - val_tmp2.length) & val_tmp2
+			Else
+				val_tmp3 = val_tmp2.mid(val_tmp2.length - outlength, outlength)
+			EndIf
+		EndIf
+
+		return (val_tmp3)
+	EndMethod
+
+EndPackage
+
+
+
+/*!
+ * @class 情報一時保存パッケージ
+ */
+Package	TempScreenInfo
+
+	/** 一時保存情報 */
+	tempUpdate
+	tempReverse
+	tempFont
+	tempFontSize
+	tempFontGapx
+	tempFontGapy
+	tempPosx
+	tempPosy
+	tempStatus
+	templeftKey
+	temprightKey
+    /*!
+     * @brief 退避
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method Push()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] TempScreenInfo:Push()\n")
+		EndIf
+
+		//退避
+		With Screen
+			
+			tempUpdate	= :update
+			tempReverse	= :reverse
+			tempFont	= :font
+			tempFontSize= :fontSize
+			tempFontGapx= :fontGapx
+			tempFontGapy= :fontGapy
+			tempPosx	= :posx
+			tempPosy	= :posy
+			tempStatus	= :status
+		EndWith
+		Screen:coordinate = "text"
+		templeftKey = Handy:leftKey
+		temprightKey = Handy:rightKey
+
+	EndMethod
+
+
+    /*!
+     * @brief 復帰
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method Pop()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] TempScreenInfo:Pop()\n")
+		EndIf
+
+		With Screen
+			:update 	= tempUpdate
+			:reverse	= tempReverse
+			:font		= tempFont
+			:fontSize	= tempFontSize
+			:fontGapx	= tempFontGapx
+			:fontGapy	= tempFontGapy
+			:posx 		= tempPosx
+			:posy 		= tempPosy
+			If ( :status is false or tempStatus is false ) Then
+				:status		= tempStatus
+			EndIf
+		EndWith
+		Screen:coordinate = "graphic"
+		Handy:leftKey = templeftKey
+		Handy:rightKey = temprightKey
+
+	EndMethod
+
+    /*!
+     * @brief 
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method Pop2()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] TempScreenInfo:Pop2()\n")
+		EndIf
+
+		With Screen
+			:update 	= tempUpdate
+			:reverse	= tempReverse
+			:font		= tempFont
+			:fontSize	= tempFontSize
+			:fontGapx	= tempFontGapx
+			:fontGapy	= tempFontGapy
+			:posx 		= tempPosx
+			:posy 		= tempPosy
+			If ( not :status is tempStatus ) Then
+				:status		= tempStatus
+			EndIf
+		EndWith
+		Screen:coordinate = "graphic"
+		Handy:leftKey = templeftKey
+		Handy:rightKey = temprightKey
+
+	EndMethod
+	
+EndPackage
+
+/*!
+ * @class 通信確認パッケージ
+ */
+Package	RFMenu
+	
+    /*!
+     * @brief メニュー表示
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method Show()
+		btvItem1	// メニュー項目1
+		btvItem2	// メニュー項目2
+		btvItem3	// メニュー項目3
+		btvItem4	// メニュー項目4
+		btvMenupos	// メニュー選択位置
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] RFMenu:Show()\n")
+		EndIf
+
+		btvItem1 = "1.バージョン確認"
+		btvItem2 = nil
+		btvItem3 = nil
+		btvItem4 = nil
+		btvMenupos = 1
+		While 1
+			btvMenupos = Handy:ShowMenu("通信確認",btvItem1,btvItem2,btvItem3,btvItem4,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				ConfVersion()
+			Case "C"
+				Wbreak
+			End Select
+		Wend
+	EndMethod
+	
+    /*!
+     * @brief 端末情報確認ダイアログ表示
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method ConfVersion()
+		ret
+		key
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] RFMenu:ConfVersion()\n")
+		EndIf
+
+		TempScreenInfo:Push()
+		
+		With Screen
+			:update = false
+			:Clear()
+			:reverse = false
+			:font = 1	:fontSize = "middle"	:fontGapy = 1	:fontGapx = 0
+			:posx = 1	:posy = 1	:OutputText("バージョン確認")
+			:multiColumn = 2
+			For i = 0 to 127 Step 8
+				:DrawLine(i, 17, i+3, 17, "black")
+			Next
+			
+			:posx = 1	:posy = 4	:OutputText("タイトル：")
+			:posx = 1	:posy = 6	:OutputText( Handy:fileTitle )
+			:posx = 1	:posy = 12	:OutputText("バージョン：")
+			:posx = 1	:posy = 14	:OutputText( Handy:fileVersion )
+			:update = true
+		EndWith
+		
+		While 1
+			key = Handy:KeyWait()
+			Select Case key
+			Case "ENT","C","BS" 
+				Wbreak
+			Case Else
+				Wcontinue
+			End Select
+		Wend
+		
+		TempScreenInfo:Pop()
+		
+	EndMethod
+
+EndPackage
+
+
+/*!
+ * @class 多段読み関連パッケージ
+ */
+Package FullDetection
+	_columnNum = 0
+	_count = 0				// 読み出した個数を記憶
+	_length	= 0				// 連結したデータ長を記憶
+	_code_type[4]			// 設定したコード種別を記憶しておく
+	_column_param[4]		// 桁限定設定
+	_column_string[4]		// 限定文字列
+	_readData[16]			// 1時的なデータの読み出し先
+	_detectData[16]			// 1時的なデータの読み出し先
+	_linkedQRFlag			// 連結QRコードでの多段読み出し
+
+    /*!
+     * @brief 初期化関数
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method Initialize()
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:Initialize()\n")
+		EndIf
+
+		_columnNum = 0
+		_count = 0
+		_length = 0
+		_linkedQRFlag = false
+		For i = 0 To 3
+			_code_type[i] = nil
+			_column_param[i] = nil
+			_column_string[i] = nil
+			BCR:SetFullDetection(i, nil, nil)
+		Next
+		For i = 0 To 15
+			_readData[i] = ""
+			_detectData[i] = ""
+		Next
+	EndMethod
+	
+    /*!
+     * @brief 多段読み条件の設定
+     * 
+     * @param index インデクス
+     * @param code コード種別
+     * @param column_param 桁限定設定
+     * @param column_string 限定文字列
+     * @return なし
+     * @attention なし
+     */
+	Method SetCondition(index, code, column_param, column_string)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:SetCondition()\n")
+		EndIf
+
+		// 呼ばれた回数を記憶
+		_columnNum = _columnNum + 1
+		// 指定されたコード種別を記憶
+		_code_type[index] = code
+		_column_param[index] = column_param
+		_column_string[index] = column_string
+
+		BCR:SetFullDetection(index, code, column_param)
+	EndMethod
+	
+
+    /*!
+     * @brief 読み出し連結データを取得
+     * 
+     * @param なし
+     * @return 連結後の文字列 ("":読み出し失敗)
+     * @attention なし
+     */
+	Method Exec()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:Exec()\n")
+		EndIf
+
+		With BCR
+		// コードが1つしかない場合そのまま返す
+			If :count == 1 Then
+				Return (InputString:data)
+			EndIf
+			:GetData(1)
+		// QR以外の2次元コードは連結対象外なので、InputStringで取得した値を直接返す
+			If :lastType eq "Composite"
+			Or :lastType eq "PDF417"
+			Or :lastType eq "Maxi"
+			Or :lastType eq "DataMatrix" Then
+				Return (InputString:data)
+			EndIf
+			If :lastType eq "QR" And (:GetQRData(0) ne "0,0,0")Then
+				_linkedQRFlag = true
+			EndIf
+		EndWith
+		
+		// データを読み出す
+		If _ReadOut() is false Then Return ("") EndIf
+		
+		// データを並び替える
+		If _SortData() is false Then Return ("") EndIf
+		
+		// 結合する
+		Return (_MergeData())
+		
+	EndMethod
+
+
+    /*!
+     * @brief 読み込んだデータを格納する
+     * 
+     * @param なし
+     * @return true:成功 / false:失敗
+     * @attention なし
+     */
+	Method _ReadOut()
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:_ReadOut()\n")
+		EndIf
+
+		_length = 0
+		With BCR
+			_count = :count
+			For i = 0 To _count - 1
+				If :GetData(i) is false Then
+					Fbreak
+				Else
+					_readData[i] = :data
+					_length = _length + _readData[i].length
+				EndIf
+			Next
+		EndWith
+		
+		// データの長さが8192を越える場合はエラー
+		If _length > 8192 Then
+			Return(false)
+		Else
+			return(true)
+		EndIf
+	EndMethod
+
+
+    /*!
+     * @brief 読み取ったデータを並び替える
+     * 
+     * @param なし
+     * @return true:成功 / false:失敗
+     * @attention なし
+     */
+	Method _SortData()
+
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:_SortData()\n")
+		EndIf
+
+		If _linkedQRFlag is true Then
+			Return (_SortLinkedQRData())
+		Else
+			Return (_SortNormalData())
+		EndIf
+		
+	EndMethod
+
+
+    /*!
+     * @brief 読み取った連結QRコードのデータを並び替える
+     * 
+     * @param なし
+     * @return true:成功 / false:失敗
+     * @attention なし
+     */
+	Method _SortLinkedQRData()
+		i
+		QRData = ""
+		splitQRData[3]		// コード番号、トータル数、パリティを受ける
+		baseQRData[3]		// 1コード目のみ記憶する
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:_SortLinkedQRData()\n")
+		EndIf
+
+		For i = 0 To _count - 1
+			QRData = BCR:GetQRData(i)
+			If QRData eq "0,0,0" Then Return (false) EndIf
+			
+			splitQRData = QRData.split(",")
+			If i == 0 Then
+				baseQRData[0] = splitQRData[0]
+				baseQRData[1] = splitQRData[1]
+				baseQRData[2] = splitQRData[2]
+			Else
+				// パリティ、トータル数が異なっていたらエラー
+				If baseQRData[1] <> splitQRData[1] Then Return (false) EndIf
+					
+				If baseQRData[2] <> splitQRData[2] Then Return (false) EndIf
+				
+				// 格納先のデータが既に存在していたらエラー
+				If _detectData[splitQRData[0] - 1] ne "" Then Return (false) EndIf
+			EndIf
+			// データをコード番号にしたがって格納
+			_detectData[splitQRData[0] - 1] = _readData[i]
+		Next
+		
+		Return (true)
+	EndMethod
+
+    /*!
+     * @brief 読み取った連結QRコード以外のデータを並び替える
+     * 
+     * @param なし
+     * @return true:成功 / false:失敗
+     * @attention なし
+     */
+	Method _SortNormalData()
+		i
+		cordType
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:_SortNormalData()\n")
+		EndIf
+
+		// コード種別を探す
+		For i = 0 To _columnNum
+			If i == _columnNum Then
+				Return (false)
+			EndIf
+			If _code_type[i] eq BCR:lastType Then
+				cordType = i
+				Fbreak
+			EndIf
+		Next
+		// 条件に適合するかをチェックする
+		If _CheckCondition(cordType) is false Then
+			Return (false)
+		Else
+			Return (true)
+		EndIf
+	EndMethod
+
+
+    /*!
+     * @brief 読み取ったコードのデータの設定をチェックする
+     * 
+     * @param なし
+     * @return true:成功 / false:失敗
+     * @attention なし
+     */
+	Method _CheckCondition(cordType)
+		column_param[4] = {"", "", "", ""}
+		column_string[4] = {"!", "!", "!", "!"}
+		column_setflg[4] = {False, False, False, False}
+		minmax[2]
+		endNum
+		i
+		j
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:_CheckCondition()\n")
+		EndIf
+
+		// 文字列から各設定を抜き出す
+		column_param = _column_param[cordType].split("|")
+		column_string = _column_string[cordType].split("|")
+		
+		For i = 0 To _count - 1
+			minmax = column_param[i].split(",")
+			For j = 0 To _count - 1
+				If column_setflg[j] is False Then
+					If minmax[0] <= _readData[j].length And _readData[j].length <= minmax[1] Then
+						If _readData[j] weq column_string[i] Then
+							_detectData[i] = _readData[j]
+							column_setflg[j] = True
+							Fbreak
+						EndIf
+					EndIf
+				EndIf
+			Next
+			If _detectData[i].length == 0 Then
+				Return (False)
+			EndIf
+		Next
+		Return (True)
+	EndMethod
+
+
+    /*!
+     * @brief 読み取ったデータを連結する
+     * 
+     * @param なし
+     * @return 連結データ
+     * @attention なし
+     */
+	Method _MergeData()
+		i
+		data = ""
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] FullDetection:_MergeData()\n")
+		EndIf
+
+		For i = 0 To _count - 1
+			data = data & _detectData[i]
+		Next
+		Return (data)
+	EndMethod
+	
+EndPackage
+
+
+/*!
+ * @class 連結QRコード読み出しパッケージ
+ */
+Package LinkedQR
+	_count = 0				// 読み出した個数を記憶
+	_length	= 0				// 連結したデータ長を記憶
+	_baseQRData[3]			// 1コード目のみ記憶する
+	_readData[16]			// 読み出したデータの保存先
+	_linkedLock				// 連結QRコードの読み取りロック状態	
+
+    /*!
+     * @brief 初期化関数
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method Initialize()
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] LinkedQR:Initialize()\n")
+		EndIf
+
+		_count = 0
+		_length = 0
+		_linkedLock = true
+		For i = 0 To 2
+			_baseQRData[i] = 0
+		Next
+		For i = 0 To 15
+			_readData[i] = ""
+		Next
+	EndMethod
+
+    /*!
+     * @brief 連結QRコードのみを受け付ける状態かを調べる
+     * 
+     * @param なし
+     * @return true:読み取りロック状態 / false:それ以外
+     * @attention なし
+     */
+	Method IsLocked()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] LinkedQR:IsLocked()\n")
+		EndIf
+
+		Return(_linkedLock)
+	EndMethod
+	
+    /*!
+     * @brief 連結QRコードのみを受け付ける状態を解除する
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method UnLock()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] LinkedQR:UnLock()\n")
+		EndIf
+
+		_linkedLock = false
+	EndMethod
+	
+    /*!
+     * @brief 読み取ったデータを追加するメソッド
+     * 
+     * @param data データ
+     * @return true:成功 / false:失敗
+     * @attention なし
+     */
+	Method AddData(data)
+		qrData
+		splitQRData[3]
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] LinkedQR:AddData()\n")
+		EndIf
+
+		// 追加に成功したらtrue, 失敗したらfalse
+		
+		// 初めて読み込んだコードがQRコードで連結コードでなければOK終了
+		// 連結QR情報を取得
+		qrData = BCR:GetQRData(0)
+		
+		If _count == 0 Then
+			If (BCR:lastType ne "QR") Then
+				_readData[0] = data
+				_count = 1
+				Return (true)
+			ElseIf qrData eq "0,0,0" Then
+				_readData[0] = data
+				_count = 1
+				Return (true)
+			EndIf
+		EndIf
+
+		// 2つめ以上に読み込んだコードが連結QRコードでなければエラー
+		If qrData eq "0,0,0" Then Return (false) EndIf
+		
+		splitQRData = qrData.split(",")
+		If splitQRData[0] == 0 Then	Return (false) EndIf
+
+		// 初めて読み込む場合は記録する
+		If _count == 0 Then
+			_baseQRData = qrData.split(",")
+		Else
+			// 連結数、パリティが異なっていたらエラー
+			If (splitQRData[1] <> _baseQRData[1]) Or (splitQRData[2] <> _baseQRData[2]) Then
+				Return (false)
+			EndIf
+			// データがすでに登録されていたら正常終了
+			If _readData[splitQRData[0] - 1] ne "" Then
+				Return (true)
+			EndIf
+		EndIf
+
+		// データを記憶し、読み込んだデータ数を一つ増やす
+		_readData[splitQRData[0] - 1] = data
+		_count = _count + 1
+
+		Return (true)
+	EndMethod
+	
+    /*!
+     * @brief 連結したQRコードの取得を行う
+     * 
+     * @param なし
+     * @return 連結文字列 ("":失敗時)
+     * @attention なし
+     */
+	Method Exec()
+		data = ""
+		i
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] LinkedQR:Exec()\n")
+		EndIf
+
+		// トータル連結数よりも現在読み出しているデータの数が少なければ空データ
+		If _baseQRData[1] > _count Then
+		Else
+			// 連結して返す
+			For i = 0 To _count - 1
+				data = data & _readData[i]
+			Next
+		EndIf
+		
+		Return (data)
+	EndMethod
+	
+	
+EndPackage
+
+/*!
+ * @class 連続読み処理
+ */
+Package InputStringEx
+    /*!
+     * @brief 
+     * 
+     * @param なし
+     * @return 
+     * @attention なし
+     */
+	Method Exec()
+		tmpData
+		ret
+		initDataReplace = True	// １回目の初期値は連結しない
+		lastReadType = ""
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] InputStringEx:Exec()\n")
+		EndIf
+
+		lastReadType = ""
+		While 1
+			With InputString
+				tmpData = :data
+				ret = :Exec()
+				If :scanMode is nil Then
+					Wbreak
+				ElseIf ret eq "TRG" and :scanMode == 2 Then	// 連続読み時のバーコード読み取り
+					If :data.length + tmpData.length <= 8192 Then
+						If initDataReplace is True Then
+							initDataReplace = False
+						Else
+							:data = tmpData & :data
+						EndIf
+					EndIf
+					lastReadType = BCR:lastType
+					JOB:Entry_read_OK()
+				Else
+					If ret.isString is True and :scanMode == 2 Then
+						If ret eq "ENT" Then
+							BCR:lastType = lastReadType
+						Else
+							BCR:lastType = ""
+						EndIf
+					EndIf
+					Wbreak
+				EndIf
+			End With
+		Wend
+		Return(ret)
+	EndMethod
+EndPackage
+
+
+/*!
+ * @class グラフパッケージ
+ */
+Package	Graph
+	// 外部プロパティ
+	posx_1						// 左上座標(X)
+	posy_1						// 左上座標(Y)
+	posx_2						// 右下座標(X)
+	posy_2						// 右下座標(Y)
+	fontSize = "small"			// フォントサイズ("small","middle","large")
+	explanatoryNotes = false	// 凡例表示/非表示(円グラフのみ)
+
+	// 内部プロパティ
+	/** グラフデータ */
+	_data[15]
+
+	/** アイテム名 */
+	_item_name[15]
+
+	/** レコード名 */
+	_rec_name[15]
+
+	/** 最大値 */
+	_maxval=0
+
+	/** アイテム数 */
+	_itemnum
+
+	/** レコード数 */
+	_recnum
+
+	/** カラーテーブル */
+	colortable[15] = {
+		"255|0|0",
+		"255|255|0",
+		"0|255|0",
+		"0|255|255",
+		"0|0|255",
+		"255|127|0",
+		"255|255|127",
+		"127|255|127",
+		"127|255|255",
+		"0|127|255",
+		"127|127|127",
+		"0|0|0",
+		"255|0|0",
+		"255|255|0",
+		"0|255|0"
+	}
+
+	_fnsize = 12
+
+    /*!
+     * @brief グラフ表示
+     * 
+     * @param filename グラフ元データ
+     * @param mode 0:棒グラフ, 1:折れ線グラフ, 2:円グラフ
+     * @param option オプション
+     * @return ウィンドウ名 (null:エラー)
+     * @attention なし
+     */
+	Method Show(filename, mode, option)
+		ret
+		graph_pos_left,graph_pos_top,graph_pos_right,graph_pos_bottom
+		gpos_left,gpos_top,gpos_right,gpos_bottom
+		yoko_pitch[2]
+		tate_max
+		param
+		i,j
+		graph_dat[15]
+		sum_dat[15]
+		sumval = 0
+		nowval = 0
+		newval = 0
+		rlen
+
+		// 元状態
+		org_foreColor, org_backColor, org_selectForeColor, org_selectBackColor
+		org_compatibleMode
+		org_fontSize, org_fontGapx, org_fontGapy
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] Graph:Show()\n")
+		EndIf
+
+		With Screen
+			If _getRecordInfo(filename, option) is False Then Return(False) EndIf
+
+			If fontSize eq "small" Then _fnsize = 6
+			ElseIf fontSize eq "large" Then _fnsize = 10
+			Else _fnsize = 8
+			EndIf
+
+			org_compatibleMode = :compatibleMode
+			:compatibleMode = false
+			org_foreColor = :foreColor
+            org_backColor = :backColor
+			org_selectForeColor = :selectForeColor
+            org_selectBackColor = :selectBackColor
+			org_fontSize = :fontSize
+            org_fontGapx = :fontGapx
+            org_fontGapy = :fontGapy
+			:font = 1
+            :fontSize = fontSize
+            :fontGapx = 0
+            :fontGapy = 1
+            :reverse = false
+
+			// グラフ描画位置決定
+			graph_pos_left   = posx_1 + _maxval.length * _fnsize + 2
+			graph_pos_top    = posy_1
+			graph_pos_right  = posx_2 - 10
+			graph_pos_bottom = posy_2 - 24
+
+			yoko_pitch[0] = ((graph_pos_right - graph_pos_left) / (_itemnum * (_recnum + 1)) )
+			yoko_pitch[1] = ((graph_pos_right - graph_pos_left) / _itemnum )
+			tate_max = (graph_pos_bottom - graph_pos_top) / (_maxval * 1.1)
+
+			:foreColor = "0|0|0"
+			:backColor = "255|255|255"
+
+			:DrawBox(posx_1, posy_1, posx_2, posy_2, "white", true)
+			// グラフ描画
+			If mode == 0 or mode == 1 Then
+				:DrawBox(graph_pos_left, graph_pos_top, graph_pos_right, graph_pos_bottom, "white", true)
+				:DrawBox(graph_pos_left, graph_pos_top, graph_pos_right, graph_pos_bottom, "black", false)
+				
+				//paramは縦軸の幅
+				If _maxval >= 50 Then
+					param = _maxval/50
+					param = param.toInt*10
+				ElseIf _maxval >= 20 Then
+					param = 5
+				ElseIf _maxval >= 10 Then
+					param = 2
+				Else
+					param = 1
+				EndIf
+				
+
+				// 縦軸描画
+				i = 0
+				While True
+					gpos_left = graph_pos_left
+					//tate_maxは1(値)あたりのドット数
+					gpos_top = graph_pos_bottom - i*tate_max
+					If gpos_top < graph_pos_top Then Wbreak EndIf
+
+					gpos_right = graph_pos_right
+					gpos_bottom = gpos_top
+
+					:foreColor = "127|127|127"
+					:DrawLine(gpos_left, gpos_top, gpos_right, gpos_bottom, nil)
+					:foreColor = "0|0|0"
+
+					:posx = gpos_left - _fnsize*i.length - 1
+					:posy = gpos_top - _fnsize + 1
+					:OutputText(i)
+
+					i = i + param
+				Wend
+
+				// 横軸描画
+				For i = 0 To _itemnum-1
+					:posx = graph_pos_left + yoko_pitch[1] * i
+					:posy = graph_pos_bottom + 2
+					:OutputText(_item_name[i])
+				Next
+			EndIf
+
+			If mode == 0 Then	// 棒グラフ
+				:foreColor = "0|0|0"
+				For j = 0 to _recnum-1
+					graph_dat = _data[j].Split(",")
+					For i = 0 to _itemnum-1
+						If graph_dat[i] is nil Then graph_dat[i] = 0 EndIf
+						If graph_dat[i] eq "" Then graph_dat[i] = 0 EndIf
+						If j == 0 Then sum_dat[i] = graph_pos_bottom-1 EndIf
+
+						If option == 0 Then
+							gpos_left = graph_pos_left + yoko_pitch[1]*i + yoko_pitch[0]*j
+						Else
+							gpos_left = graph_pos_left + yoko_pitch[1]*i
+						EndIf
+						gpos_top = sum_dat[i] - graph_dat[i]*tate_max
+
+						:foreColor = colortable[j]
+						:DrawBox(gpos_left, gpos_top, gpos_left+yoko_pitch[option] -1, gpos_top+graph_dat[i]*tate_max+1, nil, true)
+						If option == 1 Then sum_dat[i]=gpos_top EndIf
+					Next
+				Next
+			ElseIf  mode == 1 Then	// 棒、折れ線グラフ
+				For j = 0 to _recnum-1
+					graph_dat = _data[j].Split(",")
+					If graph_dat[0] is nil Then graph_dat[0] = 0 EndIf
+					If graph_dat[0] eq "" Then graph_dat[0] = 0 EndIf
+					For i = 0 to _itemnum-2
+						If graph_dat[i+1] is nil Then graph_dat[i+1] = 0 EndIf
+						If graph_dat[i+1] eq "" Then graph_dat[i+1] = 0 EndIf
+						If j == 0 Then sum_dat[i] = graph_pos_bottom sum_dat[i+1] = graph_pos_bottom EndIf
+						gpos_left  = graph_pos_left + yoko_pitch[1]*i + _fnsize
+						gpos_right = graph_pos_left + yoko_pitch[1]*(i+1) + _fnsize
+						gpos_top = sum_dat[i] - graph_dat[i]  *tate_max
+						gpos_bottom = sum_dat[i+1] - graph_dat[i+1]*tate_max
+
+						:foreColor = colortable[j]
+						:DrawLine(gpos_left, gpos_top, gpos_right, gpos_bottom, nil)
+						If option == 1 Then sum_dat[i]=gpos_top EndIf
+					Next
+				Next
+			Else // 円グラフ
+				// 合計計算
+				sumval = 0
+				For j = 0 To _recnum - 1
+					graph_dat = _data[j].Split(",")
+					sum_dat[j] = 0
+					For i = 0 To _itemnum - 1
+						If graph_dat[i] is nil Then graph_dat[i] = 0 EndIf
+						If graph_dat[i] eq "" Then graph_dat[i] = 0 EndIf
+						sum_dat[j] = sum_dat[j] + graph_dat[i]
+					Next
+					sumval = sumval + sum_dat[j]
+				Next
+
+				// 描画
+				If posx_2 - posx_1 > posy_2 - posy_1 Then
+					rlen = (posy_2 - posy_1) / 2 - 20
+				Else
+					rlen = (posx_2 - posx_1) / 2 - 20
+				EndIf
+		
+				gpos_left = posx_1 + (posx_2 - posx_1) / 2
+				gpos_top = posy_1 + (posy_2 - posy_1) / 2 + 10
+		
+				newval = 0
+
+				For i = 0 To _recnum - 1
+					nowval = newval
+					newval = nowval + sum_dat[i]
+					:foreColor = colortable[i]
+					If newval == sumval Then
+						:Arc(gpos_left, gpos_top, nowval * 360 / sumval, 359, rlen, true)
+					Else
+						:Arc(gpos_left, gpos_top, nowval * 360 / sumval, newval * 360 / sumval, rlen, true)
+					EndIf
+				Next
+				:foreColor = "0|0|0"
+				:Arc(gpos_left, gpos_top, 0, 0, rlen, false)
+
+			EndIf
+
+			If explanatoryNotes.isBoolean Then
+				If explanatoryNotes is True Then _dispLegends() EndIf
+			Else
+				If explanatoryNotes <> 0 Then _dispLegends() EndIf
+			EndIf
+
+			:foreColor = org_foreColor
+            :backColor = org_backColor
+			:selectForeColor = org_selectForeColor
+            :selectBackColor = org_selectBackColor
+			:compatibleMode = org_compatibleMode
+			:fontSize = org_fontSize
+            :fontGapx = org_fontGapx
+            :fontGapy = org_fontGapy
+
+			:update = true
+		End With
+
+		Return(True)
+	End Method
+
+    /*!
+     * @brief 凡例表示・非表示（トグル式）
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method _dispLegends()
+		i
+		str = ""
+		max_len = 0
+		y
+		legends_name
+
+		mgn_x = 0
+		mgn_y = 0
+		posx, posy	// 左上位置
+
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] Graph:_dispLegends()\n")
+		EndIf
+
+		For i = 0 to _recnum-1
+			If max_len < _rec_name[i].length Then max_len = _rec_name[i].length EndIf
+		Next
+
+		If explanatoryNotes.isBoolean Then
+			posx = posx_1 + mgn_x
+		Else
+			If explanatoryNotes == 1 Then posx = posx_1 + mgn_x
+			ElseIf explanatoryNotes == 2 Then posx = posx_2 - (mgn_x + max_len*_fnsize + _fnsize * 2 + 4)
+			Else Return()
+			EndIf
+		EndIf
+		posy = posy_1 + mgn_y
+		
+		With Screen
+			:DrawBox(posx, posy, posx + max_len * _fnsize + _fnsize * 2 + 4, posy + _recnum * (_fnsize * 2) + 4, "white", true)
+			:DrawBox(posx, posy, posx + max_len * _fnsize + _fnsize * 2 + 4, posy + _recnum * (_fnsize * 2) + 4, "black", false)
+
+			y = posy + 2
+			For i = 0 to _recnum - 1
+				:foreColor = colortable[i]
+				:DrawBox(posx + 2, y, posx + 2 + _fnsize * 2, y + _fnsize * 2, nil, true)
+
+				:foreColor = "0|0|0"
+				:posx = posx + 2 + _fnsize * 2 + 2
+				:posy = y
+				:OutputText(_rec_name[i])
+				y = y + _fnsize * 2
+			Next
+		End With
+	End Method
+
+    /*!
+     * @brief ファイルを読み込んでグラフ情報を設定する
+     * 
+     * @param filename ファイル名
+     * @param option オプション
+     * @return true:成功 / false:失敗
+     * @attention なし
+     */
+	Method _getRecordInfo(filename, option)
+		tmpFileName
+		tmpFileCurPos
+		i,j
+		dat
+		header_size
+		tmp_ary[15]
+		item_sum[15]
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Utility.scp [func] Graph:_getRecordInfo()\n")
+		EndIf
+
+		With File
+			tmpFileName   = :name
+			tmpFileCurPos = :currentPos
+			:Initialize()
+			:name = filename
+			dat = :Gets(8192)
+			If dat is false Then
+				Dialog:Message(nil, "データが無い為、グラフ表示に失敗しました","confirm", "", "", "middle")
+				:Initialize()
+				Return(False)
+			EndIf
+			i=dat.Find(",",0)+1
+			dat = dat.Mid(i, dat.length-i-2)	// 先頭の","と末尾の"\r\n"をとる
+			For j = 0 to 15-1
+				_item_name[j] = Nil
+			Next
+			_item_name = dat.split(",")
+			For j = 0 to 15-1
+				If _item_name[j] is Nil Then _itemnum = j Fbreak EndIf
+				item_sum[j]=0
+			Next
+
+			_maxval = 0
+			For i = 0 to 15-1
+				dat = :Gets(8192)
+				If dat is Nil Then Fbreak EndIf
+				header_size = dat.Find(",",0)
+				_rec_name[i] = dat.Left(header_size)
+				_data[i] = dat.Mid(header_size+1,dat.length-header_size-3)	// レコード名と末尾の"\r\n"をとる
+				tmp_ary = _data[i].split(",")
+				For j = 0 to 15-1
+					If tmp_ary[j] is Nil Then Fbreak EndIf
+					If tmp_ary[j] eq "" Then tmp_ary[j] = 0 EndIf
+					If option == 0 Then
+						If _maxval < tmp_ary[j] Then _maxval = tmp_ary[j] EndIf
+					Else
+						item_sum[j]=item_sum[j] + tmp_ary[j]
+					EndIf
+				Next
+			Next
+			_recnum = i
+
+			If option == 1 Then
+				For j = 0 to _itemnum-1
+					If _maxval < item_sum[j] Then _maxval = item_sum[j] EndIf
+				Next
+			End If
+
+			:Initialize()
+			:name = tmpFileName
+			:currentPos = tmpFileCurPos
+		End With
+		Return(True)
+	Catch
+		With File
+			:Initialize()
+			:name = tmpFileName
+			:currentPos = tmpFileCurPos
+		End With
+		Return(False)
+	End Method
+End Package

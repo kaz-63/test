@@ -1,0 +1,35 @@
+// Copyright (c) 2011 KEYENCE CORPORATION. All rights reserved.
+/*!
+ * @file Trace.scp
+ * @brief トレースログ出力
+ *
+ * デバッグ用トレースログ出力
+ */
+
+
+
+/*!
+ * @class トレースログ出力パッケージ
+ */
+Package TraceLog
+    isOutput = false		// トレースログ出力フラグ（true:出力する	/	false:出力しない）
+    tickCount = 0           // 速度計測用
+
+    /*!
+     * @brief トレースログを出力する
+     * 
+     * @param message 出力文字列
+     * @return なし
+     * @attention なし
+     */
+	Method Output(message)
+        tempTickCount
+        tickCountMessage
+	Begin
+        tempTickCount = Handy:GetTickCount1()
+        tickCountMessage = "[tick] " & (tempTickCount - tickCount) & "ms "
+        Handy:DebugOut(tickCountMessage & message)
+        tickCount = tempTickCount
+	EndMethod
+
+EndPackage

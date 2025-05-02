@@ -1,0 +1,64 @@
+//////////////////////////////////////////////////////////////////////
+//  ファイル書き込み
+//  引数
+//		filename 書き込むファイル名
+//		inputData 書き込む内容
+//	返り値
+//		ErrorCodeの値	(1：二重登録 2：納入先不一致)
+//
+//	書き込むファイル名によって書き込む位置・書き込む量・チェックする内容が変化します。
+//////////////////////////////////////////////////////////////////////
+Include "Lib\Common"
+
+Package LogWrite
+
+	Method log_write_location( filename, userID, location, zaikoNO )
+	str = ""
+	Begin
+		str = Handy:date & " " & Handy:time & "," & Common:str_pad(userID, 20) & "," & Common:str_pad(location, 12) & "," & Common:str_pad(zaikoNO, 10) & "\n"
+		Return (log_write(filename, str))
+	EndMethod
+
+	Method log_write_kanryo( filename, userID, zaikoNo )
+	str = ""
+	Begin
+		str = Handy:date & " " & Handy:time & "," & Common:str_pad(userID, 20) & "," & Common:str_pad(zaikoNo, 10) & "\n"
+		Return (log_write(filename, str))
+	EndMethod
+	
+	Method log_write( filename, input )
+		startPos = 0					// 開始位置
+		codeSize = input.length			// 入力コードサイズ
+		temPos
+		temDat
+	Begin
+		File:Initialize()
+		
+		File:name = ConstString:DRIVE_NAME & filename
+		If FileSystem:FindFirst(filename) is true Then
+			
+			temPos = FileSystem:findFileSize
+			/* データ重複チェックはしない
+			File:currentPos = startPos
+			temDat = File:Gets(codeSize)
+			//データ重複チェック
+			While (temDat is true)
+			Handy:DebugOut("*" & temDat & "*")
+				If input.Right(11).Left(10) eq temDat.Right(11).Left(10) Then
+					Return (1)
+				End If
+				temDat = File:Gets(codeSize)
+			Wend
+			*/
+			File:currentPos = temPos
+			File:Puts(input, "append")
+			
+		Else
+			File:Puts(input, "create")
+		EndIf
+		File:Close()
+		
+		Return (0)
+	EndMethod
+	
+EndPackage

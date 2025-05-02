@@ -1,0 +1,270 @@
+/********************************************************************************
+ファイル名	：	BOX.scp
+バージョン	：	Ver.1.00
+作成日付	：	2010/04/22
+動作説明	：	BOX梱包登録
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Common"
+Include "Lib\Utility"
+Include "Lib\CustomWrite"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	
+	// 言語設定
+	Language:Initialize(System:arg2, ConstString:SCP_NAME_BOX)
+	// メッセージ設定
+	Message:Initialize(System:arg2, ConstString:SCP_NAME_BOX)
+	
+	// --処理開始--
+	JOB:job_main()
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+Package JOB
+	m_btvCurrent = "sagyou1"	// カレント作業番号
+	//---------------------------------------------------
+	// メインメソッド
+	Method job_main()
+		btvRet = ""
+	Begin
+		
+		While 1
+			Select Case m_btvCurrent
+			Case "sagyou1"
+				Common:Initialize()	
+				btvRet = SAGYOU1:sagyou_main()
+			Case "sagyou2"
+				
+				btvRet = SAGYOU2:sagyou_main()
+			End Select
+
+			//ループ判定処理 (次ループ準備)
+			If btvRet eq "returntop" Then 
+				Wbreak
+			ElseIf btvRet eq "retry" Then 
+				m_btvCurrent = "sagyou2"
+			ElseIf btvRet eq "back" Then 
+				m_btvCurrent = "sagyou1"
+			Else
+				m_btvCurrent = btvRet
+			EndIf
+		Wend
+		
+		// m_btvCurrentのリセット
+		m_btvCurrent = "sagyou1"
+		
+		System:Load(System:arg1, 0, System:arg2, System:arg3,0)
+		Return (0)
+
+	End Method
+	
+	// ログデータ作成・書き込み
+	Method LogWrite(InputData)
+	Begin
+	
+		If MatchCode:tagMatch(InputData) is false Then
+			Common:read_NG()
+			Return () // 作業のリトライ
+		EndIf
+	
+		ErrorCode:error_code = CustomWrite:LogWrite(SAGYOU1:btvEachInput, InputData, System:arg3)
+		If ErrorCode:error_code <> 0 Then
+			Common:read_NG()
+		Else
+			Common:read_OK()
+		EndIf
+		
+	End Method
+	
+EndPackage
+
+/////////////////////////////////////////////////////////
+//boxタグ入力に関連するPackage
+/////////////////////////////////////////////////////////
+Package SAGYOU1
+
+	btvEachInput = ""
+
+	Method sagyou_main()
+		btvRet
+		btvNextsagyou = "sagyou2"
+		deleteMsg[2]
+	Begin
+		
+		disp_normal()
+		While 1
+			btvRet = wait_input()
+			If btvRet eq "next" Then 
+				If MatchCode:typeMatch(ConstString:BOX_NAME, btvEachInput) is false Then
+					Common:read_NG()
+					Return ("back") // 作業のリトライ
+				EndIf
+				Common:read_OK()
+				ErrorCode:dispDelete()
+				Wbreak // 入力ループから抜ける
+			ElseIf btvRet eq "back" Then 
+				Return ("back") // 作業のリトライ
+			Else
+				Return (btvRet) // 作業 n へとぶ場合
+			EndIf
+		Wend
+		
+		
+		If Common:fileCount(ConstString:SAVE_BOX) >= 60 Then
+			If FileSystem:FindFirst(btvEachInput.Right(5) & ConstString:SAVE_BOX) is false Then
+				deleteMsg = Message:MessageItem[14].split("{0}")
+				Handy:ShowMessageBox(deleteMsg[0] & "\n" & deleteMsg[1], "ok" )
+				ErrorCode:error_code = 8
+				Return("back")
+			EndIf
+		EndIf
+		
+		
+		Return (btvNextsagyou)
+		
+	End Method
+	
+	//---------------------------------------------------
+	// 入力メソッド
+	Method wait_input()
+		btvKeycode
+		btvRet
+	Begin
+		Common:BarcodeRead()
+		
+		With InputString
+			:posx = 13 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "" // 初期値設定
+			:inputAreaSize = 7
+			:maxLength = 6
+			:minLength = 0
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = 1
+			:shiftPattern = "BT500"
+
+			btvKeycode = :Exec()
+			btvEachInput=:data
+			
+		EndWith
+
+		// 遷移先返却メソッド呼び出し
+		btvRet = InputLoop:input_loop(btvKeycode, JOB:m_btvCurrent)
+		
+		Return (btvRet)
+	End Method
+	
+	//---------------------------------------------------
+	// 通常入力画面 表示メソッド
+	Method disp_normal()
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = true :font = 1 :OutputText(Language:langItem[0])
+			:posx = 1 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[1] & "[        ]")
+			:posx = 1 :posy = 13 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[5])
+			CommonDisp:fillBlack("12", 0, 21)
+			:update = true
+		EndWith
+		
+		ErrorCode:dispUpdate()
+	End Method
+
+EndPackage
+
+/////////////////////////////////////////////////////////
+//現品タグ入力に関連するPackage
+/////////////////////////////////////////////////////////
+Package SAGYOU2
+
+	btvEachInput = ""
+
+	Method sagyou_main()
+		btvRet
+	Begin
+		
+		disp_normal()
+		
+		While 1
+			btvRet = wait_input()
+			If btvRet eq "next" Then 
+				JOB:LogWrite(btvEachInput)
+				Wbreak // 入力ループから抜ける
+			ElseIf btvRet eq "retry" Then 
+				Return ("retry") // 作業のリトライ
+			Else
+				ErrorCode:dispDelete()
+				Return (btvRet) // 作業 n へとぶ場合
+			EndIf
+		Wend
+		
+		Return ("retry")
+		
+	End Method
+	
+	//--------------------------------------------------
+	// 入力メソッド
+	Method wait_input()
+		btvKeycode
+		btvRet
+	Begin
+		
+		Common:BarcodeRead()
+		
+		With InputString
+			:posx = 9 :posy = 7 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "" // 初期値設定
+			:inputAreaSize = 11
+			:maxLength = 10
+			:minLength = 0
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = 1
+			:shiftPattern = "BT500"
+
+			btvKeycode = :Exec()
+			btvEachInput=:data
+			
+		EndWith
+		
+		// 遷移先返却メソッド呼び出し
+		btvRet = InputLoop:input_loop(btvKeycode, JOB:m_btvCurrent)
+		
+		Return (btvRet)
+	End Method
+	
+	//---------------------------------------------------
+	// 通常入力画面 表示メソッド
+	Method disp_normal()
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = true :font = 1 :OutputText(Language:langItem[0])
+			:posx = 1 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[1] & "[ " & SAGYOU1:btvEachInput & " ]")
+			:posx = 1 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[2])
+			:posx = 1 :posy = 7 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[3])
+			:posx = 1 :posy = 9 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[4])
+			:posx = 1 :posy = 13 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[5])
+			:posx = 10 :posy = 9 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Common:lastData(SAGYOU1:btvEachInput.Right(5) & ConstString:SAVE_BOX))
+			:posx = 17 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Common:dataCount(SAGYOU1:btvEachInput.Right(5) & ConstString:SAVE_BOX))
+			CommonDisp:fillBlack("12", 0, 21)
+			:update = true
+		EndWith
+		
+		ErrorCode:dispUpdate()
+	End Method
+
+EndPackage
+

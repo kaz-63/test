@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="shtMeisai.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="GrapeCity.Win.WorkBook.v40" name="GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+  <data name="shtMeisai.Data" type="GrapeCity.Win.ElTabelle.SheetData, GrapeCity.Win.WorkBook.v40" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        VEJXR0NYQQAEAAAA1wfJBAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAOQZAAAQAAAAYQAAAJoAAACuAAAATQAAAP////8BAgAAAAEBAQADAAAAAQAA
+        AAAAAAABABgAAAAADE1TIFVJIEdvdGhpYwAAEEEAAAAAAwAAAIAAMgAAAAMAAAAAARkAAAAAAAAANQAA
+        ACUAAAABAAAAAAAAAAAYAAAAAAxNUyBVSSBHb3RoaWMAABBBAAAAAAMAAACAAAAAAAAAAAAAEAAAAAAB
+        APyp8dJNYlA/ZAAAAAEyGQAAAQAAAAgAAAABAAAAIhkAAAFFAAAAkAAAANUBAAALAgAAmAIAABoEAAA3
+        CAAAywgAAEcJAAAsFgAAqBYAACQXAACgFwAAHBgAAJgYAADGGAAA9BgAAEcAAAAANUVMVF9YQV9DSElO
+        QV8xYTRjNWRjZGM5Mjg0ZjlmYTlmYzBjMmJmNzEzZTY0NV9UYWJlbGxlEQAAAAIAAAABAAAAAQAAAEEB
+        AAABAAAAAAAAAAAAAAAAAAEAAQAAAAAAARgAAAABAAAAAAAAAAAAAAAAAAAAAAIAAAABAAAAGAAAAAAM
+        TVMgVUkgR290aGljAAAQQQAAAAADAAAAgAACAAAAAAAAAAYAAAAAASMAAAANAAAAAAEjAAAAAAEEAAAA
+        AACAPwABBgAAAAABXwAAAAAA6OTk/wABAAAAAQMAAAAAAAAAAAEjAAAAAQAAAAAAAwAAAAAAAAABAAAA
+        cQAAAAABAAAAEQAAAAEAAQIAAAAAAAAAAAZzaGVldDEAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQAAAAAA
+        AiVWAAIlVgAAAAAAAAAAAAAAAAACJUMAAiVSAAAAAAAAAiVWAAAAAP8AAAAAAQAAAAAAAAAAAPA/AAEA
+        AAABAAAAAAAAAAAAAAAAAQAAAAEBAAAyAAAA//////////8BAQAAAAEAAAIAAAAAAAAAAAEBAgAAAAAC
+        AAAAAgAAAAAAAAAAASMAAACJAAAAAAAAAAEAAQD8qfHSTWJQP2QAAAABDgAAAAAAAAAAAAAAAQAAAAAA
+        AAACAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAPAAAAAAAAABAAAAAAAAAAIAAAAAAAAABAAAAAAAAAAIAA
+        AAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAgAAAAAAAB+AQAARgAAAP////8AABEAAAARAAAA
+        AAAAACgAAAD/////AAABAAAAUAAAAP////8AAAIAAAAoAAAA/////wAAAwAAACUAAAD/////AAAEAAAA
+        PAAAAP////8AAAUAAAA8AAAA/////wAABgAAACgAAAD/////AAAHAAAAPAAAAP////8AAAgAAAClAAAA
+        /////wAACQAAAKUAAAD/////AAAKAAAAKAAAAP////8AAAsAAAAoAAAA/////wAADAAAACUAAAD/////
+        AAANAAAAPAAAAP////8AAA4AAABGAAAA/////wAADwAAADwAAAD/////AAAQAAAAPAAAAP////8AABIA
+        AAD/////AAEBAAAAAAAAACIAAAD/////AAEBAAAAAAAAABIAAAD/////AAACAAAAAAAAACIAAAD/////
+        AAABAAAAAAAAABIAAAD/////AAABAAAAAAAAAA8AAAD/////AAAAAAAAAAAAAA8AAAD/////AAAAAAAA
+        AAAAABkEAAAAAwAAAAEBBgAAAAABBgAAAAAAAAAAAQAAAPsDAAABEQAAAAEAAAAABQAAAAAAAAAAAAEA
+        AAABAQAgAAAAAQBAQAAAAAAAAP8AAQAAAP8BAAAA/wEAAAD/AQAAAP8ABAAAAAAAAAAAHAAAAAEAAAAQ
+        AAAAAAAAAAEAQEAAAAAAAAAAAyVBJQEAjQMAABEAAAAlAAAAAAAAAAAAAAABAMBAIAAAAAAAAAZUYWdO
+        by4AAyVBJQD/////AAZUYWdOby4BJQAAAAAAAAABAAAAAQDAQCAAAAAAAAAG6KO955WqAAMlQSUA////
+        /wAG6KO955WqASEAAAAAAAAAAgAAAAEAwEAgAAAAAAAABENPREUAAyVBJQD/////AARDT0RFATEAAAAA
+        AAAAAwAAAAEAwEAgAAAAAAAADOWbs+mdoui/veeVqgADJUElAP////8ADOWbs+mdoui/veeVqgEhAAAA
+        AAAAAAQAAAABAMBAIAAAAAAAAARBcmVhAAMlQSUA/////wAEQXJlYQEjAAAAAAAAAAUAAAABAMBAIAAA
+        AAAAAAVGbG9vcgADJUElAP////8ABUZsb29yASUAAAAAAAAABgAAAAEAwEAgAAAAAAAABuapn+eorgAD
+        JUElAP////8ABuapn+eorgEjAAAAAAAAAAcAAAABAMBAIAAAAAAAAAVNLU5vLgADJUElAP////8ABU0t
+        Tm8uATUAAAAAAAAACAAAAAEAwEAgAAAAAAAADuWTgeWQjSjlkozmlocpAAMlQSUA/////wAO5ZOB5ZCN
+        KOWSjOaWhykBJQAAAAAAAAAJAAAAAQDAQCAAAAAAAAAG5ZOB5ZCNAAMlQSUA/////wAG5ZOB5ZCNATMA
+        AAAAAAAACgAAAAEAwEAgAAAAAAAADeWbs+eVqi/lvaLlvI8AAyVBJQD/////AA3lm7Pnlaov5b2i5byP
+        ASsAAAAAAAAACwAAAAEAwEAgAAAAAAAACeWMuuWJsk5vLgADJUElAP////8ACeWMuuWJsk5vLgElAAAA
+        AAAAAAwAAAABAMBAIAAAAAAAAAbmlbDph48AAyVBJQD/////AAbmlbDph48BMQAAAAAAAAANAAAAAQDA
+        QCAAAAAAAAAMTWVtbyjlgpnogIMpAAMlQSUA/////wAMTWVtbyjlgpnogIMpAT0AAAAAAAAADgAAAAEA
+        wEAgAAAAAAAAEumAmumWoueiuuiqjeeKtuaFiwADJUElAP////8AEumAmumWoueiuuiqjeeKtuaFiwEl
+        AAAAAAAAAA8AAAABAMBAIAAAAAAAAAZTVC1Oby4AAyVBJQD/////AAZTVC1Oby4BJQAAAAAAAAAQAAAA
+        AQDAQCAAAAAAAAAGQVIgTm8uAAMlQSUA/////wAGQVIgTm8uAZAAAAAAAwAAAAEBBgAAAAABBgAAAAAB
+        AAAAAAAAAHIAAAABAQAAAAIAAAAABQAAAAAAAAAAAAEAAAABAQAgAAAAAQBAQAAAAAAAAP8AAQAAAP8B
+        AAAA/wEAAAD/AQAAAP8AHAAAAAEAAAAQAAAAAAAAAAEAQEAAAAAAAAAAAyUxJQEABAAAAAAAAAAABAAA
+        AAAAAAB4AAAAAAMAAAABAQYAAAAAAQYAAAAAAQAAAAEAAABaAAAAAQEAAAABAAAAAAUAAAAAAAAAAAAB
+        AAAAAQEAIAAAAAEAQEAAAAAAAAD/AAEAAAD/AQAAAP8BAAAA/wEAAAD/AAQAAAAAAAAAAAQAAAAAAAAA
+        AAQAAAAAAAAA4QwAAAMAAAAAEQAAABEAAAAAAAAAAAZUQUdfTk8BAAAAAAZTRUlCQU4CAAAAAARDT0RF
+        AwAAAAALWlVNRU5fT0lCQU4EAAAAAARBUkVBBQAAAAAFRkxPT1IGAAAAAAVLSVNIVQcAAAAABE1fTk8I
+        AAAAAAlISU5NRUlfSlAJAAAAAAZISU5NRUkKAAAAAA5aVU1FTl9LRUlTSElLSQsAAAAACUtVV0FSSV9O
+        TwwAAAAAA05VTQ0AAAAABEJJS08OAAAAAA5DVVNUT01TX1NUQVRVUw8AAAAABVNUX05PEAAAAAAFQVJf
+        Tk8AAPYLAAABEQAAAAIAAAAABQAAAAAAAAAAAAEAAAABAQAxAAAAAQAACAAAAAAAAAABAAAA/wEAAAD/
+        AQAAAP8BAAAA/wAAAAAAAAAAAAADAAAAAAAAAAAxAwAAEQAAACMAAAAAAAAAAQCgCAAAAwAAAAEAAAAA
+        AQAAAAAAgAAAAAEAAQAAAAAAAAAjAAAAAQAAAAEAoAgAAAMAAAABAAAAAAEAAAAAAIAAAAABAAEAAAAA
+        AAAAIwAAAAIAAAABAKAIAAADAAAAAQAAAAABAAAAAACAAAAAAQABAAAAAAAAACYAAAADAAAAAQCoCAAA
+        AQAAAAMAAAABAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAjAAAABAAAAAEAoAgAAAMAAAABAAAAAAEAAAAA
+        AIAAAAABAAEAAAAAAAAAIgAAAAUAAAABAKAIAAADAAAAAQAAAAABAAAAAAAAAAAAAAEAAAAAAAAAIgAA
+        AAYAAAABAKAIAAADAAAAAQAAAAABAAAAAAAAAAAAAAEAAAAAAAAAIgAAAAcAAAABAKAIAAADAAAAAQAA
+        AAABAAAAAAAAAAAAAAEAAAAAAAAAIwAAAAgAAAABAKAIAAABAAAAAQAAAAABAAAAAACAAAAAAQABAAAA
+        AAAAACMAAAAJAAAAAQCgCAAAAwAAAAEAAAAAAQAAAAAAgAAAAAEAAQAAAAAAAAAjAAAACgAAAAEAoAgA
+        AAMAAAABAAAAAAEAAAAAAIAAAAABAAEAAAAAAAAAIwAAAAsAAAABAKAIAAADAAAAAQAAAAABAAAAAACA
+        AAAAAQABAAAAAAAAAH0AAAAMAAAAAQCoCAAAAQAAAAMAAAABAAAAAAEACAAAAA0wAgABAAAAn4YBAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUjIyMjMAAAAAAAAS0AAAAAAAAAAAsjIyMsIyMjLCMj
+        MAAAAAAAAS0AAAABMAABMAAAAQAAAAAAAAAiAAAADQAAAAEAoAgAAAMAAAABAAAAAAEAAAAAAAAAAAAA
+        AQAAAAAAAAAiAAAADgAAAAEAoAgAAAMAAAABAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAiAAAADwAAAAEA
+        oAgAAAMAAAABAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAeAAAAEAAAAAEAgAgAAAEAAAAAAQAAAAAAAAAA
+        AAABAAAAAAAAAAAZAAAAAQAAAA0AAAAAAAAAAQEBAQACAAAAAAAAAABNCAAAIgAAADsAAAAAAAAAAAAA
+        AAEAoAgAAAMAAAABAAAAAAEBAAAAAAAAAAAAAQAAAAAAAAACAAAAAAU5OTk5OQAFOTk5OTkABTk5OTk5
+        QQAAAAAAAAABAAAAAQCgCAAAAwAAAAEAAAAAAQEAAAAAAAAAAAABAAAAAAAAAAIAAAAAB01NTU1NTU0A
+        B01NTU1NTU0AB01NTU1NTU01AAAAAAAAAAIAAAABAKAIAAADAAAAAQAAAAABAQAAAAAAAAAAAAEAAAAA
+        AAAAAgAAAAADTU1NAANNTU0AA01NTTAAAAAAAAAAAwAAAAEAqAgAAAEAAAADAAAAAQAAAAABAQAAAAAA
+        AAAAAAEAAAAAAAAAAgAAAAAAAAAAAFAAAAAAAAAABAAAAAEAoAgAAAMAAAABAAAAAAEBAAAAAAAAAAAA
+        AQAAAAAAAAACAAAAAAxNTU1NTU1NTU1NTU0ADE1NTU1NTU1NTU1NTQAMTU1NTU1NTU1NTU1NUAAAAAAA
+        AAAFAAAAAQCgCAAAAwAAAAEAAAAAAQEAAAAAAAAAAAABAAAAAAAAAAIAAAAADE1NTU1NTU1NTU1NTQAM
+        TU1NTU1NTU1NTU1NAAxNTU1NTU1NTU1NTU1cAAAAAAAAAAYAAAABAKAIAAADAAAAAQAAAAABAQAAAAAA
+        AAAAAAEAAAAAAAAAAgAAAAAQTU1NTU1NTU1NTU1NTU1NTQAQTU1NTU1NTU1NTU1NTU1NTQAQTU1NTU1N
+        TU1NTU1NTU1NTR4AAAAAAAAABwAAAAEAoAgAAAMAAAABAAAAAAEBAAAAAAAAAAAAAAAAAKoAAAAAAAAA
+        CAAAAAEAoAgAAAEAAAABAAAAAAEBAAAAAAAAAAAAAQAAAAAAAAACAAAAACpNTU1NTU1NTU1NTU1NTU1N
+        TU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU0AKk1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1N
+        TU1NTU1NTU1NTQAqTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NpAAAAAAA
+        AAAJAAAAAQCgCAAAAwAAAAEAAAAAAQEAAAAAAAAAAAABAAAAAAAAAAIAAAAAKE1NTU1NTU1NTU1NTU1N
+        TU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU0AKE1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1N
+        TU1NTU1NTU0AKE1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU2GAAAAAAAAAAoA
+        AAABAKAIAAADAAAAAQAAAAABAQAAAAAAAAAAAAEAAAAAAAAAAgAAAAAeTU1NTU1NTU1NTU1NTU1NTU1N
+        TU1NTU1NTU1NTU1NAB5NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU0AHk1NTU1NTU1NTU1NTU1N
+        TU1NTU1NTU1NTU1NTU1NTUQAAAAAAAAACwAAAAEAoAgAAAMAAAABAAAAAAEBAAAAAAAAAAAAAQAAAAAA
+        AAACAAAAAAhNTU1NTU1NTQAITU1NTU1NTU0ACE1NTU1NTU1NQQAAAAAAAAAMAAAAAQCoCAAAAQAAAAMA
+        AAABAAAAAAEBAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAPBp+EAABTk5OTk5AAY5OSw5OTkRAAAAAAAA
+        AA0AAAABAQEBAAAAAAAAAAAAAAAAABEAAAAAAAAADgAAAAEBAQEAAAAAAAAAAAAAAAAAOgAAAAAAAAAP
+        AAAAAQEBAQAAAAAAAAAAAAEAAAAAAAAAAgAAAAAJTU1NTU1NTU1NAAlNTU1NTU1NTU0ACU1NTU1NTU1N
+        TREAAAAAAAAAEAAAAAEBAQEAAAAAAAAAAAAAAAAAHwAAAAEAAAAAAAAAAQEBAQAAAAAAAAAAAAEAAAAA
+        AAAAAgAAAAAAAAAAAB8AAAABAAAAAQAAAAEBAQEAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAAfAAAA
+        AQAAAAIAAAABAQEBAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAMAAAAAEAAAADAAAAAQCoCAAAAQAA
+        AAMAAAABAAAAAAEBAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAHwAAAAEAAAAEAAAAAQEBAQAAAAAA
+        AAAAAAEAAAAAAAAAAgAAAAAAAAAAAB8AAAABAAAABQAAAAEBAQEAAAAAAAAAAAABAAAAAAAAAAIAAAAA
+        AAAAAAAfAAAAAQAAAAYAAAABAQEBAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAEQAAAAEAAAAHAAAA
+        AQEBAQAAAAAAAAAAAAAAAAAfAAAAAQAAAAgAAAABAQEBAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAA
+        HwAAAAEAAAAJAAAAAQEBAQAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAAAB8AAAABAAAACgAAAAEBAQEA
+        AAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAAfAAAAAQAAAAsAAAABAQEBAAAAAAAAAAAAAQAAAAAAAAAC
+        AAAAAAAAAAAAJwAAAAEAAAAMAAAAAQEBAQAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAEwAAEw
+        EQAAAAEAAAANAAAAAQEBAQAAAAAAAAAAAAAAAAARAAAAAQAAAA4AAAABAQEBAAAAAAAAAAAAAAAAAB8A
+        AAABAAAADwAAAAEBAQEAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAARAAAAAQAAABAAAAABAQEBAAAA
+        AAAAAAAAAAAAAHgAAAAAAwAAAAEABgAAAAABBgAAAAABAAAAAQAAAFoAAAABEQAAAAEAAAAABQAAAAAA
+        AAAAAAEAAAABAQAgAAAAAQBAQAAAAAAAAP8AAQAAAP8BAAAA/wEAAAD/AQAAAP8ABAAAAAAAAAAABAAA
+        AAAAAAAABAAAAAAAAAB4AAAAAAMAAAABAAYAAAAAAQYAAAAAAQAAAAEAAABaAAAAAQEAAAACAAAAAAUA
+        AAAAAAAAAAABAAAAAQEAIAAAAAEAQEAAAAAAAAD/AAEAAAD/AQAAAP8BAAAA/wEAAAD/AAQAAAAAAAAA
+        AAQAAAAAAAAAAAQAAAAAAAAAeAAAAAADAAAAAQAGAAAAAAEGAAAAAAEAAAABAAAAWgAAAAEBAAAAAQAA
+        AAAFAAAAAAAAAAAAAQAAAAEBACAAAAABAEBAAAAAAAAA/wABAAAA/wEAAAD/AQAAAP8BAAAA/wAEAAAA
+        AAAAAAAEAAAAAAAAAAAEAAAAAAAAAHgAAAAAAwAAAAEABgAAAAABBgAAAAABAAAAAQAAAFoAAAABAQAA
+        AAEAAAAABQAAAAAAAAAAAAEAAAABAQAgAAAAAQBAQAAAAAAAAP8AAQAAAP8BAAAA/wEAAAD/AQAAAP8A
+        BAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAB4AAAAAAMAAAABAAYAAAAAAQYAAAAAAQAAAAEAAABaAAAA
+        AQEAAAABAAAAAAUAAAAAAAAAAAABAAAAAQEAIAAAAAEAQEAAAAAAAAD/AAEAAAD/AQAAAP8BAAAA/wEA
+        AAD/AAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAKgAAAAEAAQABBQAAAAMAAAABAAAAABQAAAD/////
+        /////wAAAAARAAAAAAAAACoAAAABAAEAAQUAAAADAAAAAQAAAAAUAAAA//////////8AAAAAAgAAAAAA
+        AAAqAAAAAQABAAEFAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="shtMeisai.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 86</value>
+  </data>
+  <data name="shtMeisai.Size" type="System.Drawing.Size, System.Drawing">
+    <value>922, 449</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="shtMeisai.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;shtMeisai.Name" xml:space="preserve">
+    <value>shtMeisai</value>
+  </data>
+  <data name="&gt;&gt;shtMeisai.Type" xml:space="preserve">
+    <value>GrapeCity.Win.ElTabelle.Sheet, GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8</value>
+  </data>
+  <data name="&gt;&gt;shtMeisai.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;shtMeisai.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtBoxNo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtBoxNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtBoxNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 19</value>
+  </data>
+  <data name="txtBoxNo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtBoxNo.Name" xml:space="preserve">
+    <value>txtBoxNo</value>
+  </data>
+  <data name="&gt;&gt;txtBoxNo.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtBoxNo.Parent" xml:space="preserve">
+    <value>lblBoxNo.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtBoxNo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblBoxNo.ChildPanel.Name" xml:space="preserve">
+    <value>lblBoxNo.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblBoxNo.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblBoxNo.ChildPanel.Parent" xml:space="preserve">
+    <value>lblBoxNo</value>
+  </data>
+  <data name="&gt;&gt;lblBoxNo.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblBoxNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 18</value>
+  </data>
+  <data name="lblBoxNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 19</value>
+  </data>
+  <data name="lblBoxNo.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblBoxNo.Text" xml:space="preserve">
+    <value>Box No.</value>
+  </data>
+  <data name="&gt;&gt;lblBoxNo.Name" xml:space="preserve">
+    <value>lblBoxNo</value>
+  </data>
+  <data name="&gt;&gt;lblBoxNo.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblBoxNo.Parent" xml:space="preserve">
+    <value>grpSearch</value>
+  </data>
+  <data name="&gt;&gt;lblBoxNo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtNonyusakiName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtNonyusakiName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtNonyusakiName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>375, 19</value>
+  </data>
+  <data name="txtNonyusakiName.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtNonyusakiName.Name" xml:space="preserve">
+    <value>txtNonyusakiName</value>
+  </data>
+  <data name="&gt;&gt;txtNonyusakiName.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtNonyusakiName.Parent" xml:space="preserve">
+    <value>lblNonyusakiName.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtNonyusakiName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblNonyusakiName.ChildPanel.Name" xml:space="preserve">
+    <value>lblNonyusakiName.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblNonyusakiName.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblNonyusakiName.ChildPanel.Parent" xml:space="preserve">
+    <value>lblNonyusakiName</value>
+  </data>
+  <data name="&gt;&gt;lblNonyusakiName.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblNonyusakiName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 43</value>
+  </data>
+  <data name="lblNonyusakiName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>455, 19</value>
+  </data>
+  <data name="lblNonyusakiName.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lblNonyusakiName.Text" xml:space="preserve">
+    <value>納入先(User)</value>
+  </data>
+  <data name="&gt;&gt;lblNonyusakiName.Name" xml:space="preserve">
+    <value>lblNonyusakiName</value>
+  </data>
+  <data name="&gt;&gt;lblNonyusakiName.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblNonyusakiName.Parent" xml:space="preserve">
+    <value>grpSearch</value>
+  </data>
+  <data name="&gt;&gt;lblNonyusakiName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtShip.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtShip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Off</value>
+  </data>
+  <data name="txtShip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtShip.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="txtShip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 19</value>
+  </data>
+  <data name="txtShip.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtShip.Name" xml:space="preserve">
+    <value>txtShip</value>
+  </data>
+  <data name="&gt;&gt;txtShip.Type" xml:space="preserve">
+    <value>DSWControl.DSWTextBox.DSWTextBox, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtShip.Parent" xml:space="preserve">
+    <value>lblShip.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;txtShip.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ChildPanel.Name" xml:space="preserve">
+    <value>lblShip.ChildPanel</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ChildPanel.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.CustomPanel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ChildPanel.Parent" xml:space="preserve">
+    <value>lblShip</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ChildPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblShip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>466, 43</value>
+  </data>
+  <data name="lblShip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 19</value>
+  </data>
+  <data name="lblShip.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblShip.Text" xml:space="preserve">
+    <value>便(Ship)</value>
+  </data>
+  <data name="&gt;&gt;lblShip.Name" xml:space="preserve">
+    <value>lblShip</value>
+  </data>
+  <data name="&gt;&gt;lblShip.Type" xml:space="preserve">
+    <value>DSWControl.DSWLabel.DSWLabel, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblShip.Parent" xml:space="preserve">
+    <value>grpSearch</value>
+  </data>
+  <data name="&gt;&gt;lblShip.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="grpSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 6</value>
+  </data>
+  <data name="grpSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>922, 74</value>
+  </data>
+  <data name="grpSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="grpSearch.Text" xml:space="preserve">
+    <value>検索条件</value>
+  </data>
+  <data name="&gt;&gt;grpSearch.Name" xml:space="preserve">
+    <value>grpSearch</value>
+  </data>
+  <data name="&gt;&gt;grpSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpSearch.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;grpSearch.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Name" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblCorner.Name" xml:space="preserve">
+    <value>lblCorner</value>
+  </data>
+  <data name="&gt;&gt;lblCorner.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCorner.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;lblCorner.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F01Button.Name" xml:space="preserve">
+    <value>fbrFunction.F01Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F01Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F02Button.Name" xml:space="preserve">
+    <value>fbrFunction.F02Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F02Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F03Button.Name" xml:space="preserve">
+    <value>fbrFunction.F03Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F03Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F04Button.Name" xml:space="preserve">
+    <value>fbrFunction.F04Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F04Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F05Button.Name" xml:space="preserve">
+    <value>fbrFunction.F05Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F05Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F06Button.Name" xml:space="preserve">
+    <value>fbrFunction.F06Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F06Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F07Button.Name" xml:space="preserve">
+    <value>fbrFunction.F07Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F07Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F08Button.Name" xml:space="preserve">
+    <value>fbrFunction.F08Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F08Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F09Button.Name" xml:space="preserve">
+    <value>fbrFunction.F09Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F09Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F10Button.Name" xml:space="preserve">
+    <value>fbrFunction.F10Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F10Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F11Button.Name" xml:space="preserve">
+    <value>fbrFunction.F11Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F11Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F12Button.Name" xml:space="preserve">
+    <value>fbrFunction.F12Button</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.F12Button.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionButton.CustomFunctionButton, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.Name" xml:space="preserve">
+    <value>fbrFunction</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.Type" xml:space="preserve">
+    <value>DSWControl.DSWFunctionBar.DSWFunctionBar, DSWControl, Version=1.8.4.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;fbrFunction.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlTitle.Name" xml:space="preserve">
+    <value>pnlTitle</value>
+  </data>
+  <data name="&gt;&gt;pnlTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtUserName.Name" xml:space="preserve">
+    <value>txtUserName</value>
+  </data>
+  <data name="&gt;&gt;txtUserName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtRoleName.Name" xml:space="preserve">
+    <value>txtRoleName</value>
+  </data>
+  <data name="&gt;&gt;txtRoleName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pnlTitleSpace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 4</value>
+  </data>
+  <data name="pnlTitleSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>684, 28</value>
+  </data>
+  <data name="&gt;&gt;pnlTitleSpace.Name" xml:space="preserve">
+    <value>pnlTitleSpace</value>
+  </data>
+  <data name="&gt;&gt;pnlTitleSpace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>946, 664</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>ShukkaJohoMeisai</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ShukkaJohoMeisai</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>SystemBase.Forms.CustomOrderForm, SystemBase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>

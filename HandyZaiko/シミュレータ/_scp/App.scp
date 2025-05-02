@@ -1,0 +1,111 @@
+/********************************************************************************************
+ファイル名    : App.scp
+バージョン    : Ver 0.0.0.1 
+作成日付      : 8/6/2013
+動作説明      : Keyence BT-Series アプリケーション 
+********************************************************************************************/
+Include "Lib\Trace"
+Include "RES\App_Res"
+
+Include "Lib\Common_Utility"
+//---------------------------------------------------
+// メインメソッド
+Method main()
+
+Begin
+
+	APP_RES:InitializeTraceLog()
+
+
+	Screen:topPos=1
+	Screen:coordinate = "graphic"
+	APP_RES:make_file_list()
+
+	APP_RES:set_application_action()
+
+	While (1)
+		APP:menu_main()
+	Wend
+
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Dialog:Message(nil, "アプリケーションに問題が発生しました("&System:error&")", "ok", "", "", "middle")
+End Method
+
+
+Package APP
+	model="BT600"
+
+	//---------------------------------------------------
+	// メインメソッド
+	Method menu_main()
+	Begin
+
+		Screen:Clear()
+
+		If  Handy:model.Left(6)  ne  "BT-600" Then 
+			Dialog:Message(nil, "このアプリケーションは  BT-600 用です\nこの端末では実行できません","confirm", "", "", "middle")
+			Handy:Reset()
+		EndIf
+
+		APP_RES:ShowMainScreen()
+
+	End Method
+
+
+EndPackage
+
+Package MENU_1
+	btvMenupos_old=0
+
+	//---------------------------------------------------
+	// メニュメソッド
+	Method menu_main()
+		btvMenupos
+	Begin
+
+		btvMenupos=1
+		If MENU_1:btvMenupos_old<>0 Then 
+			btvMenupos=MENU_1:btvMenupos_old
+		EndIf
+
+		// ステータス表示設定
+		MENU_1_RES:set_statusbar()
+
+		While 1
+			btvMenupos=MENU_1_RES:disp_menu_main(btvMenupos)
+			If btvMenupos eq "C" Then 
+				If MENU_1:btvMenupos_old<>0 Then 
+					btvMenupos=MENU_1:btvMenupos_old
+				EndIf
+			Else
+				MENU_1:btvMenupos_old=btvMenupos
+			EndIf
+			MENU_1_RES:ShowMainScreen(btvMenupos)
+		Wend
+	End Method
+
+EndPackage
+
+
+Package MENU_2
+
+	//---------------------------------------------------
+	// メニュメソッド
+	Method menu_main()
+		btvMenupos
+	Begin
+
+		btvMenupos=1
+
+		// ステータス表示設定
+		MENU_2_RES:set_statusbar()
+
+		While 1
+			btvMenupos=MENU_2_RES:disp_menu_main(btvMenupos)
+			MENU_2_RES:ShowMainScreen(btvMenupos)
+		Wend
+	End Method
+
+EndPackage
+

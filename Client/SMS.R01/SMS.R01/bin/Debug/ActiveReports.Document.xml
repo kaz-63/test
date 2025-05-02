@@ -1,0 +1,1820 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<doc>
+    <assembly>
+        <name>ActiveReports.Document</name>
+    </assembly>
+    <members>
+        <member name="N:DataDynamics.ActiveReports">
+            <summary>DataDynamics.ActiveReports名前空間には、Borderクラスとその設定が含まれています。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.BorderLineStyle">
+            <summary>罫線の描画に使用する線のスタイルを表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.None">
+            <summary>線なし。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.Solid">
+            <summary>１ピクセル幅の実線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.Dash">
+            <summary>１ピクセル幅の破線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.Dot">
+            <summary>１ピクセル幅の点線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.DashDot">
+            <summary>１ピクセル幅の一点鎖線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.DashDotDot">
+            <summary>１ピクセル幅の二点鎖線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.Double">
+            <summary>二重線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.ThickSolid">
+            <summary>太い実線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.ThickDash">
+            <summary>太い破線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.ThickDot">
+            <summary>太い点線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.ThickDashDot">
+            <summary>太い一点鎖線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.ThickDashDotDot">
+            <summary>太い二点鎖線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.ThickDouble">
+            <summary>太い二重線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.BorderLineStyle.ExtraThickSolid">
+            <summary>極太の実線。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.TextAlignment">
+            <summary>コントロール領域内のテキストの水平配置を表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.TextAlignment.Left">
+            <summary>テキストはコントロールの左辺に合わせて配置されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.TextAlignment.Center">
+            <summary>テキストはコントロール領域の左右の中央に合わせて配置されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.TextAlignment.Right">
+            <summary>テキストはコントロールの右辺に合わせて配置されます。テキストの右辺に空白文字がある場合、その空白文字は無視されたかたちで表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.TextAlignment.Justify">
+            <summary>テキストはコントロールの左右に合わせて両端揃えされます。この設定は、マルチラインでテキストに空白文字が含まれる行（最終行を除く）に対してのみ、有効に働きます。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.TextJustify">
+            <summary>AlignmentプロパティがJustifyに設定された場合に、テキストの配置（位置揃え）を取得または設定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.TextJustify.Auto">
+            <summary>TextJustify列挙体の値をActiveReportsが設定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.TextJustify.Distribute">
+            <summary>文字間隔と単語間隔を調整して均等割付とします。（アジア言語向け）</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.TextJustify.DistributeAllLines">
+            <summary>段落の最後の行を含む全ての行で、文字間隔と単語間隔を調整して均等割付とします。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.VerticalTextAlignment">
+            <summary>コントロール領域内のテキストの垂直配置を表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.VerticalTextAlignment.Top">
+            <summary>テキストはコントロールの上辺に合わせて配置されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.VerticalTextAlignment.Middle">
+            <summary>テキストはコントロールの上下の中央に合わせて配置されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.VerticalTextAlignment.Bottom">
+            <summary>テキストはコントロールの下辺に合わせて配置されます。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.PaddingEx">
+            <summary>コントロールの枠（４辺）から文字までの余白を設定するための情報を提供します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.PaddingEx.#ctor">
+            <summary>PaddingEx構造体の新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.PaddingEx.#ctor(System.Int32)">
+            <summary>すべての辺に対して同じ値を使用して、PaddingEx構造体の新しいインスタンスを初期化します。</summary>
+            <param name="all">コントロールの枠（４辺）から文字までの余白幅。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.PaddingEx.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>各辺に対して指定された値を使用して、PaddingEx 構造体の新しいインスタンスを初期化します。</summary>
+            <param name="left">コントロールの左辺から文字までの余白幅。</param>
+            <param name="top">コントロールの上辺から文字までの余白幅。</param>
+            <param name="right">コントロールの右辺から文字までの余白幅。</param>
+            <param name="bottom">コントロールの下辺から文字までの余白幅。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.PaddingEx.Equals">
+            <summary>現在のPaddingExオブジェクトが、指定したオブジェクトの値と同じかどうかを判断します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.PaddingEx.Equals(DataDynamics.ActiveReports.PaddingEx)">
+            <summary>現在のPaddingExオブジェクトと指定したPaddingExオブジェクトが、等しいかどうかを示す値を返します。</summary>
+            <param name="paddingEx">現在のPaddingExオブジェクトと比較するPaddingExオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.PaddingEx.Equals(System.Object)">
+            <summary>現在のPaddingExオブジェクトと指定したオブジェクトが、等しいかどうかを示す値を返します。</summary>
+            <param name="obj">現在の PaddingExオブジェクトと比較するオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.PaddingEx.GetHashCode">
+            <summary>PaddingExオブジェクトのハッシュコードを生成します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.op_Equality">
+            <summary>指定した2つのPaddingExオブジェクトが、等しいかどうかを確認します。</summary>
+            <param name="p1">比較対象となる１番目のPaddingExオブジェクト。</param>
+            <param name="p2">比較対象となる２番目のPaddingExオブジェクト。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.op_Inequality">
+            <summary>指定した２つのPaddingExオブジェクトが等しくないかどうかを確認します。</summary>
+            <param name="p1">比較対象となる１番目のPaddingExオブジェクト。</param>
+            <param name="p2">比較対象となる２番目のPaddingExオブジェクト。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.All">
+            <summary>コントロールの枠（４辺）から文字までの余白幅を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.Bottom">
+            <summary>コントロールの下辺から文字までの余白幅を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.Horizontal">
+            <summary>コントロールの左辺から文字までの余白幅と、右辺から文字までの余白幅の合計を取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.Left">
+            <summary>コントロールの左辺から文字までの余白幅を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.Right">
+            <summary>コントロールの右辺から文字までの余白幅を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.Size">
+            <summary>余白情報を System.Drawing.Size 構造体の形式で取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.Top">
+            <summary>コントロールの上辺から文字までの余白幅を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.PaddingEx.Vertical">
+            <summary>コントロールの上辺から文字までの余白幅と、下辺から文字までの余白幅の合計を取得します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.PaddingEx.Empty">
+            <summary>余白なしのPaddingExオブジェクトを返します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Border">
+            <summary>コントロール領域周囲の罫線を描画します。</summary>
+            <remarks>罫線はコントロール領域の外側に描画されます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.#ctor">
+            <summary>Borderクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.Clone">
+            <summary>Borderクラスの現在のインスタンスのコピーを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.ColorOfEdges(System.Int32)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.CopyTo(DataDynamics.ActiveReports.Border)">
+            <summary>Borderオブジェクトを指定したBorderオブジェクトにコピーします。</summary>
+            <param name="border">DataDynamics.ActiveReports.Borderオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.Inflate">
+            <summary>内部使用のみ</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.InflateInches(System.Drawing.Graphics,System.Drawing.RectangleF)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.IsEmpty">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.MarginsInPoints(System.Single,System.Single)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.PenStyle(System.Int32)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.Read(System.IO.BinaryReader,System.Int16)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.ReadXml(System.Xml.XmlNode)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.Render">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.Render(System.Drawing.Graphics,System.Drawing.RectangleF)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.Render(System.Drawing.Graphics,System.Drawing.RectangleF,System.Boolean)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.ToString">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.ToStrings">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.Write(System.IO.BinaryWriter,System.Int16)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Border.WriteXml(System.Xml.XmlElement)">
+            <summary>内部使用のみ。</summary>
+            <param name="controlNode">内部使用のみ。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.BottomColor">
+            <summary>下罫線の色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.BottomStyle">
+            <summary>下罫線のスタイルを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.Color">
+            <summary>コントロールの境界線の色を設定するか返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.LeftColor">
+            <summary>左罫線の色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.LeftStyle">
+            <summary>左罫線のスタイルを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.LineStyleOfEdges">
+            <summary>各辺の描画に使用するBorderLineStyleを取得します。内部使用のみ。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.Margins">
+            <summary>コントロール内容の周囲の余白を示すBorderMarginsを取得します。内部使用のみ。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.RightColor">
+            <summary>右罫線の色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.RightStyle">
+            <summary>右罫線のスタイルを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.Shadow">
+            <summary>コントロールの右辺と下辺に影を描画するかどうかを決定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.Style">
+            <summary>罫線のスタイルを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.TopColor">
+            <summary>上罫線の色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border.TopStyle">
+            <summary>上罫線のスタイルを取得または設定します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Border.PropertyChanged">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Border+BorderMargins">
+            <summary>コントロール内容の周囲の余白幅を表します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border+BorderMargins.Bottom">
+            <summary>コントロールの下辺の余白幅を取得します。設定はできません。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border+BorderMargins.Left">
+            <summary>コントロールの左辺の余白幅を取得します。設定はできません。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border+BorderMargins.Right">
+            <summary>コントロールの右辺の余白幅を取得します。設定はできません。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Border+BorderMargins.Top">
+            <summary>コントロールの上辺の余白幅を取得します。設定はできません。</summary>
+        </member>
+        <member name="N:DataDynamics.ActiveReports.Document">
+            <summary>DataDynamics.ActiveReports.Document名前空間には、レポートの最終出力のさまざまな特徴を制御する多くのクラスが含まれています。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.ILinkItem">
+            <summary>ハイパーリンク（テキスト、画像）用の共通のインターフェイスを提供します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.ILinkItem.Link">
+            <summary>リンク先のURLを設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.ILinkItem.Title">
+            <summary>ハイパーリンクのツールチップの内容を設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.BackgroundStyle">
+            <summary>下位レベルのページ描画APIを使用するときの、背景スタイルを表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.BackgroundStyle.Transparent">
+            <summary>背景は透明になります。背景内のオブジェクトは透けて見えます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.BackgroundStyle.Opaque">
+            <summary>背景を塗りつぶします。背景内のオブジェクトは透けません。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.PageOrientation">
+            <summary>プリンタに出力するときのページの向きを表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PageOrientation.Default">
+            <summary>プリンタのデフォルト設定に従います。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PageOrientation.Portrait">
+            <summary>ページを縦向きで印刷します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PageOrientation.Landscape">
+            <summary>ページを横向きで印刷します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.PenStyles">
+            <summary>ページに線を描画するときに使用するペンの種類を表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PenStyles.Transparent">
+            <summary>線なし。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PenStyles.Solid">
+            <summary>実線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PenStyles.Dash">
+            <summary>破線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PenStyles.Dot">
+            <summary>点線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PenStyles.DashDot">
+            <summary>一点鎖線。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.PenStyles.DashDotDot">
+            <summary>二点鎖線。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.RdfFormat">
+            <summary>レポートドキュメントの保存に使用するファイル形式を表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.RdfFormat.AR20">
+            <summary>         ActiveX版のActiveReports.2.0ファイル形式。このメンバは互換性のために残されております。     この形式で出力したレポートを、ActiveX製品の「ActiveReports     2.0J」や、.NET製品の「ActiveReports for .NET     3.0J」以前に含まれる、ActiveXビューワコントロールで表示することはサポートされていません。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.RdfFormat.ARNet">
+            <summary>ActiveReports for .NETファイル形式。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.SaveOptions">
+            <summary>レポートドキュメントの保存に使用する圧縮形式を表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.SaveOptions.Normal">
+            <summary>圧縮せずにRDFファイル形式に保存。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.SaveOptions.Compressed">
+            <summary>圧縮してRDFファイル形式に保存。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Units">
+            <summary>ドキュメントページで低レベルの描画APIを使用するときのドキュメントの計測単位を表します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Units.Centimeters">
+            <summary>ページ描画メソッドのパラメータをセンチ単位で指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Units.Inches">
+            <summary>ページ描画メソッドのパラメータをインチ単位で指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Units.Pixels">
+            <summary>ページ描画メソッドのパラメータをピクセル単位で指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Units.Document">
+            <summary>ページ描画メソッドのパラメータをドキュメント独自の単位（1/300インチ）で指定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.ActiveReportPrintController">
+            <summary>情報をプリンタに送信するプリントコントローラを表します。</summary>
+            <remarks>         ActiveReportの印刷エンジンを使ったSystem.Drawing.Printing.PrintDocumentの出力に使用します。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.ActiveReportPrintController.#ctor">
+            <summary>ActiveReportPrintControllerクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.ActiveReportPrintController.OnEndPage(System.Drawing.Printing.PrintDocument,System.Drawing.Printing.PrintPageEventArgs)">
+            <summary>ドキュメント内のページを印刷する時点と方法を決定する制御シーケンスを完了します。</summary>
+            <remarks>詳細については、System.Drawing.Printing名前空間を参照してください。</remarks>
+            <param name="prnDoc">印刷されるドキュメントを表すSystem.Drawing.Printing.PrintDocumentオブジェクト。</param>
+            <param name="ppea">ドキュメント内のページを印刷する方法に関する情報を含むSystem.Drawing.Printing.PrintPageEventArgsオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.ActiveReportPrintController.OnStartPage(System.Drawing.Printing.PrintDocument,System.Drawing.Printing.PrintPageEventArgs)">
+            <summary>ドキュメント内のページを印刷する時点と方法を決定する制御シーケンスを開始します。</summary>
+            <remarks>詳細については、System.Drawing.Printing名前空間を参照してください。</remarks>
+            <param name="prnDoc">印刷されるドキュメントを表すSystem.Drawing.Printing.PrintDocumentオブジェクト。</param>
+            <param name="ppea">ドキュメント内のページを印刷する方法に関する情報を含むSystem.Drawing.Printing.PrintPageEventArgsオブジェクト。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.ActiveReportPrintController.Cancel">
+            <summary>ActiveReportPrintControllerがキャンセルされたかどうかを取得または設定します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.ActiveReportPrintController.PrintingProgress">
+            <summary>プリントコントローラ内の各ページが印刷されるたびに発生します。</summary>
+            <remarks>このイベントは、進行状況を示すUIをユーザーに表示するのに使用します。</remarks>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.ActiveReportPrintControllerWithStatusDialog">
+            <summary>ドキュメントを印刷する方法を制御します。</summary>
+            <remarks>StandardPrintControllerを実装し、印刷状況ダイアログを追加します。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.ActiveReportPrintControllerWithStatusDialog.#ctor">
+            <summary>ActiveReportPrintControllerWithStatusDialogクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.ActiveReportPrintControllerWithStatusDialog.OnEndPage(System.Drawing.Printing.PrintDocument,System.Drawing.Printing.PrintPageEventArgs)">
+            <summary>ドキュメント内のページを印刷する時点と方法を決定する制御シーケンスを完了します。</summary>
+            <remarks>詳細については、System.Drawing.Printing名前空間を参照してください。</remarks>
+            <param name="prnDoc">印刷されるドキュメントを表すSystem.Drawing.Printing.PrintDocumentオブジェクト。</param>
+            <param name="ppea">ドキュメント内のページを印刷する方法に関する情報を含むSystem.Drawing.Printing.PrintPageEventArgsオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.ActiveReportPrintControllerWithStatusDialog.OnEndPrint(System.Drawing.Printing.PrintDocument,System.Drawing.Printing.PrintEventArgs)">
+            <summary>ドキュメントを印刷する時点と方法を決定する制御シーケンスを完了します。</summary>
+            <remarks>詳細については、System.Drawing.Printing名前空間を参照してください。</remarks>
+            <param name="prnDoc">印刷されるドキュメントを表すSystem.Drawing.Printing.PrintDocumentオブジェクト。</param>
+            <param name="ppea">ドキュメント内のページを印刷する方法に関する情報を含むSystem.Drawing.Printing.PrintPageEventArgsオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.ActiveReportPrintControllerWithStatusDialog.OnStartPage(System.Drawing.Printing.PrintDocument,System.Drawing.Printing.PrintPageEventArgs)">
+            <summary>ドキュメント内のページを印刷する時点と方法を決定する制御シーケンスを開始します。</summary>
+            <remarks>詳細については、System.Drawing.Printing名前空間を参照してください。</remarks>
+            <param name="prnDoc">印刷されるドキュメントを表すSystem.Drawing.Printing.PrintDocumentオブジェクト。</param>
+            <param name="ppea">ドキュメント内のページを印刷する方法に関する情報を含むSystem.Drawing.Printing.PrintPageEventArgsオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.ActiveReportPrintControllerWithStatusDialog.OnStartPrint(System.Drawing.Printing.PrintDocument,System.Drawing.Printing.PrintEventArgs)">
+            <summary>ドキュメントを印刷する時点と方法を決定する制御シーケンスを開始します。</summary>
+            <remarks>詳細については、System.Drawing.Printing名前空間を参照してください。</remarks>
+            <param name="prnDoc">印刷されるドキュメントを表すSystem.Drawing.Printing.PrintDocumentオブジェクト。</param>
+            <param name="ppea">ドキュメント内のページを印刷する方法に関する情報を含むSystem.Drawing.Printing.PrintPageEventArgsオブジェクト。</param>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.ActiveReportPrintControllerWithStatusDialog.PrintAborted">
+            <summary>ユーザーがステータスダイアログの〈キャンセル〉ボタンをクリックしたときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.ActiveReportPrintControllerWithStatusDialog.PrintingProgress">
+            <summary>印刷ジョブの進行中に、各ページの出力が完了するたびに発生します。</summary>
+            <remarks>このイベントは、進行状況を示すUIをユーザーに表示するのに使用します。</remarks>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Bookmark">
+            <summary>ハイパーリンクや見出し一覧の名前を使用して移動できる、ドキュメントまたはページ内の名前の付いた場所を示します。</summary>
+            <remarks>         ブックマークは、セクションのBeforePrintイベント内で、Section.AddBookmarkメソッドを使用して追加します。また、レポートの処理が完了した後で、Page.AddBookmarkイベントを使用して、ドキュメントの任意のページにブックマークを追加することも可能です。ブックマークはページごとに格納されます。ドキュメントにページが追加されると、そのページのブックマークがドキュメントのBookmarksコレクションにマージされます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Bookmark.#ctor">
+            <summary>Bookmarkクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Bookmark.Label">
+            <summary>ブックマークのキャプションを取得または設定します。</summary>
+            <remarks>    名前は単純な文字列または階層を作成するためのパスにします。たとえば、"Entry 1"     が親のないノードだとすると、"Entry 1\Child 1.1" は、キャプションが "Child 1.1"、親が     "Entry 1" のブックマークになります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Bookmark.Offset">
+            <summary>ページの上端を基準にしたブックマークの相対位置を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Bookmark.PageNumber">
+            <summary>ブックマークが追加されたページ番号を取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.BookmarksCollection">
+            <summary>Bookmarkオブジェクトのコレクションです。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.#ctor">
+            <summary>BookmarksCollectionクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.Add(DataDynamics.ActiveReports.Document.Bookmark)">
+            <summary>コレクションに指定したBookmarkオブジェクトを追加します。</summary>
+            <returns>コレクションに追加したブックマークのインデックスを表す値。</returns>
+            <param name="value">コレクションに追加するBookmarkオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.Clear">
+            <summary>コレクションからすべてのブックマークを削除します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.Contains(DataDynamics.ActiveReports.Document.Bookmark)">
+            <summary>指定したブックマークオブジェクトがコレクションに存在するかどうかを決定します。</summary>
+            <returns>    ブックマークがコレクションのメンバである場合は True、そうでなければ     False。</returns>
+            <param name="value">コレクション内で検索するBookmarkオブジェクトを指定します。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.CopyTo(DataDynamics.ActiveReports.Document.Bookmark[],System.Int32)">
+            <summary>指定したレポートのBookmarksコレクションを別のBookmarksコレクションの指定したインデックスにコピーします。</summary>
+            <param name="values">コピーするブックマークを含む配列。</param>
+            <param name="index">コレクション内の挿入インデックス。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.Dispose">
+            <summary>BookmarksCollectionインスタンスをメモリから解放します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.FillTree(System.Windows.Forms.TreeView)">
+            <summary>BookmarkオブジェクトをWindowsフォームのTreeViewコントロールに読み込みます。</summary>
+            <remarks>このメソッドを使用して、BookmarkオブジェクトをTreeViewコントロールに読み込んだり、見出し一覧の外観を変更できます。</remarks>
+            <param name="treeView">Bookmarkオブジェクトを設定するTreeViewコントロールを設定します。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.IndexOf(DataDynamics.ActiveReports.Document.Bookmark)">
+            <summary>コレクション内の指定したBookmarkオブジェクトのインデックスを返します。</summary>
+            <returns>指定したBookmarkのインデックスを表す値。</returns>
+            <param name="value">検索するBookmarkオブジェクトを指定します。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.Insert(System.Int32,DataDynamics.ActiveReports.Document.Bookmark)">
+            <summary>指定したBookmarkオブジェクトをコレクションの指定したインデックスに挿入します。</summary>
+            <param name="index">コレクション内の挿入インデックス。</param>
+            <param name="value">指定したインデックスに挿入する新しいBookmarkオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.BookmarksCollection.Remove(DataDynamics.ActiveReports.Document.Bookmark)">
+            <summary>指定したBookmarkオブジェクトをコレクションから削除します。</summary>
+            <param name="value">削除するBookmarkオブジェクト。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.BookmarksCollection.CurrentBookmark">
+            <summary>現在選択されているブックマークのインデックスを返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.BookmarksCollection.Item(System.Int32)">
+            <summary>指定したインデックスのブックマークオブジェクトへの参照を返します。</summary>
+            <param name="index">要求アイテムのインデックス。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.DDPaperSize">
+            <summary>プリンタに設定可能な用紙の大きさを設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.DDPaperSize.Kind">
+            <summary>用紙の種類を参照します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Document">
+            <summary>生成出力されたレポートを表すDocumentオブジェクト。</summary>
+            <remarks>         ActiveReportsは出力をDocumentオブジェクトのページに表示します。ドキュメントは任意のビューワコントロールで使用したり、後で使用するために保存したり、任意のActiveReportsエクスポートフィルタを使用してエクスポートしたりできます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.#ctor">
+            <summary>Documentクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.#ctor">
+            <summary>Documentクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.#ctor(System.String)">
+            <summary>指定した名前でDocumentクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.ClearFindTextSelection">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Compare(DataDynamics.ActiveReports.Document.Document,DataDynamics.ActiveReports.Document.CompareOptions)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Dispose">
+            <summary>Documentインスタンスをメモリから解放します。</summary>
+            <remarks>    DocumentオブジェクトのDispose()     を呼び出すことで、Documentオブジェクトに格納されているすべてのオブジェクトを破棄します。このため、Dispose()     メソッドを呼び出す前に、まだ使用する必要のある任意の項目は移しておく必要があります。同様に、DocumentオブジェクトのPagesコレクション内の任意のPagesへのアクセスを獲得するには、DocumentオブジェクトのDispose()     メソッドを呼び出す前にそれらのページをPagesコレクションから移しておく必要があります。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Find">
+            <summary>ドキュメントページから指定した文字列を検索します。</summary>
+            <remarks>         見つかった場合は、文字列の位置をcurrentIndexで返します。見つかった後に検索を続行する場合は、返されたcurrentIndexを指定して、このメソッドを再び呼び出します。</remarks>
+            <returns>    ブール値。ドキュメントで文字列が見つかった場合は True、それ以外の場合は     False。</returns>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Find(System.String,System.Int32@)">
+            <summary>ドキュメントページから指定した文字列を検索します。</summary>
+            <param name="searchString">ドキュメントで検索する文字列。</param>
+            <param name="currentIndex">検索の開始ページを表すインデックス。文字列が見つかった場合、currentIndexは文字列が見つかったページを表すインデックスに設定されます。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Load">
+            <summary>ストリームまたはファイルからDocumentオブジェクトをロードします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Load(System.IO.Stream)">
+            <summary>ストリームからレポートドキュメントをロードします。</summary>
+            <param name="stream">有効なレポートドキュメントを含むStreamオブジェクト。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Load(System.String)">
+            <summary>指定したファイルからドキュメントをロードします。</summary>
+            <param name="fileName">Documentファイル名。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Print">
+            <summary>ドキュメントの内容をプリンタに送信します。</summary>
+            <remarks>ドキュメントはレポートが実行された後でないと存在しないため、Printメソッドを呼び出す前にレポートを実行する必要があることに注意してください。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Print">
+            <summary>ドキュメントの内容をプリンタに送信します。</summary>
+            <remarks>ドキュメントを印刷する前に、プリンタオプションを設定するには、Printerプロパティを使用します。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Print(System.Boolean,System.Boolean)">
+            <summary>印刷ダイアログの表示有無および印刷進行状況ダイアログの表示有無を指定して、ドキュメントの内容をプリンタに送信します。</summary>
+            <remarks>オプションで、印刷ダイアログと印刷進行状況ダイアログを表示します。</remarks>
+            <param name="showPrintDialog">Trueに設定すると、ドキュメントをプリンタに送信する前に、ユーザーがプリンタオプションを設定できる、印刷ダイアログを表示します。プリンタダイアログは、現在のDocument.Printerの設定で初期化されます。Falseに設定すると、指定したDocument.Printerの設定でプリンタにドキュメントが送信されます。</param>
+            <param name="showPrintProgressDialog">Trueに設定すると、ユーザーが印刷ジョブを停止できる進行状況ダイアログが表示されます。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Print(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>印刷ダイアログの表示有無および印刷進行状況ダイアログの表示有無、印刷処理の別スレッドでの実行有無を指定して、ドキュメントの内容をプリンタに送信します。</summary>
+            <remarks>ドキュメントはレポートが実行された後でないと存在しないため、Printメソッドを呼び出す前にレポートを実行する必要があることに注意してください。</remarks>
+            <param name="showPrintDialog">Trueに設定すると、ドキュメントをプリンタに送信する前に、ユーザーがプリンタオプションを設定できる、印刷ダイアログを表示します。プリンタダイアログは、現在のDocument.Printerの設定で初期化されます。Falseに設定すると、指定したDocument.Printerの設定でプリンタにドキュメントが送信されます。</param>
+            <param name="showPrintProgressDialog">Trueに設定すると、ユーザーが印刷ジョブを停止できる進行状況ダイアログが表示されます。</param>
+            <param name="usePrintingThread">    印刷が個別のスレッドにおいて行われるかどうかを指定します。     True     に設定すると印刷が個別のスレッドにおいて行われます。このとき、印刷呼び出しの直後にそのアプリケーションを終了すると、レポートが印刷される前に個別のスレッドは破棄されるため、印刷は終了してしまいます。False     に設定すると、印刷が完了するまで次の処理に進むことはありません。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.ResetPrinter">
+            <summary>Printerクラスの設定を初期値に戻します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Save">
+            <summary>ドキュメントの内容をRDF形式でストリームまたはファイルに保存します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Save(System.String,DataDynamics.ActiveReports.Document.RdfFormat)">
+            <summary>レポートドキュメントを指定したファイル形式の指定したファイルに保存します。</summary>
+            <param name="fileName">ドキュメントを保存するファイル。</param>
+            <param name="fmt">ドキュメントを保存するファイル形式。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Save(System.String,DataDynamics.ActiveReports.Document.RdfFormat,DataDynamics.ActiveReports.Document.SaveOptions)">
+            <summary>レポートドキュメントを指定したファイル形式の指定したファイルに保存します。</summary>
+            <param name="fileName">ドキュメントを保存するファイル。</param>
+            <param name="fmt">ドキュメントを保存するファイル形式。</param>
+            <param name="options">ドキュメントの圧縮を指定するSaveOptions列挙体。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Save(System.String)">
+            <summary>レポートドキュメントを指定したファイルに保存します。</summary>
+            <remarks>    ドキュメントの内容をRDF形式でファイルに保存します。出力されるRDF形式のデフォルトの      RdfFormat はARNetです。</remarks>
+            <param name="fileName">ドキュメントを保存するファイル。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Save(System.IO.Stream,DataDynamics.ActiveReports.Document.RdfFormat)">
+            <summary>ドキュメントの内容を指定したファイル形式でストリームに保存します。</summary>
+            <param name="stream">ドキュメントを保存するStreamオブジェクト。</param>
+            <param name="fmt">ストリームに保存するファイル形式。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Save(System.IO.Stream,DataDynamics.ActiveReports.Document.RdfFormat,DataDynamics.ActiveReports.Document.SaveOptions)">
+            <summary>ドキュメントの内容を指定したファイル形式でストリームに保存します。</summary>
+            <param name="stream">ドキュメントを保存するStreamオブジェクト。</param>
+            <param name="fmt">ストリームに保存するファイル形式。</param>
+            <param name="options">ドキュメントの圧縮を指定するSaveOptions列挙体。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Document.Save(System.IO.Stream)">
+            <summary>ドキュメントの内容をStreamオブジェクトに保存します。</summary>
+            <remarks>    ドキュメントの内容をRDF形式でStreamオブジェクトに保存します。出力されるRDF形式のデフォルトの          RdfFormat はARNetです。</remarks>
+            <param name="stream">ドキュメントを保存するStreamオブジェクト。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.Bookmarks">
+            <summary>ドキュメントのブックマークへの参照を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.CacheToDisk">
+            <summary>レポート生成時やPDFエクスポート時、現在処理していないレポートのページを、メモリの代わりにハードディスクに格納するかどうかを取得または設定します。</summary>
+            <remarks>         このプロパティをTrueに設定すると、大量のメモリを消費するような場合に、メモリの代わりにハードディスクを使用して処理を実行します。この時、ハードディスク上に一時ファイルが作成されます。一時ファイルを確実に消去するにはDocumentクラスのDisposeメソッドを実行する必要があります。ただし、レポートの実行中に例外が発生した場合、一時ファイルは削除されずにハードディスク上に残るため注意が必要です。          このプロパティが有効になるのは、レポート生成時（Runメソッド実行時）とPDFエクスポート時です。使用するデータキャッシュ領域はCacheToDiskLocationプロパティで指定します。CacheToDiskLocationプロパティが指定されなかった場合、データキャッシュ領域に分離ストレージを使用します。分離ストレージは物理フォルダに比べ、使用サイズの制限等があるため、このプロパティを使用する場合は、CacheToDiskLocationプロパティを設定することをお勧めします。なお、分離ストレージに作成された一時ファイルはアプリケーション終了時に自動的に削除されますが、フォルダについては自動的に削除されません。     デフォルトの一時ファイル出力先（分離ストレージ）は以下の通りです。     WinForms:                       Windows 2000／XP／Server 2003          C:\Documents and Settings\&lt;user name&gt;\Local     Settings\Application Data\IsolatedStorage              Windows Vista／Server 2008          C:\Users\&lt;user     name&gt;\AppData\Local\IsolatedStorage     WebForms:              IIS5.x          以下はIIS規定のユーザー（ASPNET）の下でアプリケーションを実行した場合です。     C:\Documents and Settings\&lt;machine     name&gt;\ASPNET\Local Settings\Application     Data\IsolatedStorage     または     C:\Documents and Settings\ASPNET\Local     Settings\Application Data\IsolatedStorage              IIS6.0          IIS規定のユーザー（NETWORK     SERVICE）の下でアプリケーションを実行した場合、以下のフォルダにファイルが作成されます。     C:\Documents and Settings\Default User\Local     Settings\Application Data\IsolatedStorage     しかしながら、規定の設定では、このフォルダに書き込むことはできず、エラーが発生します。これは「NETWORK     SERVICE」ユーザーアカウントが最低限のアクセス許可しか持っていないためです。IIS6.0でCacheToDiskを使用する場合は、同時にCacheToDiskLocationプロパティも設定し、分離ストレージではなく任意の物理フォルダを使用してください。          CacheToDiskプロパティは分離ストレージ（IsolatedStorage）を使用し、生成されるレポートデータをハードディスクに格納します。このためCacheToDiskプロパティをTrueに設定する場合は、このアプリケーション自身が、分離ストレージにアクセスできる権限（適切なIsolatedStorageFilePermission）を有している必要があります。なお、通常の.NET     Frameworkのアプリケーションはすでにこの権限を有しています。分離ストレージの詳細につきましては、MSDNライブラリの「分離ストレージ」をご確認ください。     ■ 注記 ■                                             このプロパティは、GDIリソース（画像やバーコード）を大量に使用するレポートにのみ有効です。メモリの代わりにハードディスクを使用するため、レポートの生成速度は遅くなります。                                            このプロパティは、使用することによってメモリ使用量が減ることを保証するものではなく、メモリ不足による例外エラーの発生を極力少なくさせるための補完的な機能として提供しています。有効性が見受けられるレポートの場合のみに使用してください。                                            レポートの生成処理だけでなく、PDFエクスポート処理においてもこの設定は有効です。他の形式のエクスポートではこの機能は働きませんので、大量のレポートをエクスポートする場合に、メモリのリソース不足を引き起こす可能性があります。                           </remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.CacheToDiskLocation">
+            <summary>CacheToDiskプロパティによって格納される物理的なパスの位置を指定します。</summary>
+            <remarks>         ChacheToDiskプロパティがTrueに設定されており、このプロパティに物理的なファイルのパスが設定されていない場合は、生成されるレポートが分離ストレージの領域にキャッシュされます。分離ストレージに作成された一時ファイルはアプリケーション終了時に自動的に削除されますが、フォルダについては自動的に削除されません。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.Content">
+            <summary>ドキュメントをWebサービスに割り当てます。</summary>
+            <remarks>         このプロパティは、WebサービスにおいてXMLにシリアライズされたレポートを使用するためにあります。このプロパティの値には、基本的に、Viewer上にRDFにファイルをロードするのと同じ情報が含まれています。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.InProgress">
+            <summary>ドキュメントが現在ロード中であるかどうかを決定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.LoadUrl">
+            <summary>インターネットプロトコルを使用して非同期にドキュメントをダウンロードするためのURLを取得または設定します。</summary>
+            <remarks>    このプロパティにRDFファイルへのパスを表すURL文字列を設定します。     LoadURLプロパティを使用するには、IIS上でRDFファイルの保存先フォルダに対する匿名アクセスの設定を行う必要があります。                                     IISの「規定のWebサイト」から、RDFファイルの保存先となっている仮想フォルダ（下記コードの場合"LoadUrlTest"）のプロパティを開きます。                  「ディレクトリセキュリティ」タブを選択し、「匿名アクセスおよび認証コントロール」の「編集」ボタンを押します。                  「匿名アクセス」をチェックし、「認証済みアクセス」の「統合Windows認証」のチェックを外します。          </remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.Name">
+            <summary>ドキュメントの名前を取得または設定します。</summary>
+            <remarks>ドキュメントの名前は、ドキュメントを印刷するときに印刷ジョブのリストに表示されます。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.Pages">
+            <summary>ドキュメントのページへの参照を取得または設定します。</summary>
+            <remarks>このコレクションを使用して、ドキュメントのページを削除したり変更したりします。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.Password">
+            <summary>保存したドキュメントファイルを保護するためのパスワードを取得または設定します。</summary>
+            <remarks>パスワードは、ActiveReportsのRDF形式のファイルにおいて使用します。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.Printer">
+            <summary>ドキュメントのプリンタ設定への参照を取得または設定します。</summary>
+            <remarks>         このプロパティは、印刷ダイアログを表示する前にプリンタオプションを設定したり、指定したオプションでドキュメントを直接印刷したりするために使用します。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Document.UserPreferences">
+            <summary>ハイパーリンクの外観、およびViewerコントロール中でそれらをホストするコントロールの外観を指定します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Document.DownloadError">
+            <summary>LoadUrlから非同期にドキュメントをダウンロードしている間に例外がスローされたときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Document.LoadCompleted">
+            <summary>すべてのドキュメントページが完全にロードされた後に発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Document.PrintAborted">
+            <summary>ユーザーが印刷ジョブをキャンセルしたときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Document.PrintingThreadErrorEvent">
+            <summary>印刷スレッドによって例外がスローされるときに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Document.PrintProgress">
+            <summary>レポートドキュメントの各ページが印刷されるごとに発生します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Document.StateChanged">
+            <summary>状態が変わったときに発生します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Margins">
+            <summary>出力されたページの余白を設定するために使用します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Margins.#ctor">
+            <summary>Marginsクラスの新しいインスタンスを指定した余白設定で初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Margins.#ctor">
+            <summary>Marginsクラスの新しいインスタンスを指定した余白設定で初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Margins.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Marginsクラスの新しいインスタンスを指定した余白設定で初期化します。</summary>
+            <param name="left">左余白。</param>
+            <param name="top">上余白。</param>
+            <param name="right">右余白。</param>
+            <param name="bottom">下余白。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Margins.Clone">
+            <summary>Margins クラスの現在のインスタンスのコピーを作成します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Margins.Bottom">
+            <summary>ページの下余白を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Margins.Left">
+            <summary>ページの左余白を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Margins.Right">
+            <summary>ページの右余白を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Margins.Top">
+            <summary>ページの上余白を取得または設定します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Margins.Changed">
+            <summary>マージンが変更されるときに発生します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Page">
+            <summary>レポートドキュメントとして出力されたページを表します。</summary>
+            <remarks>         Pageクラスには、PageStartやPageEndの各イベント、あるいはレポートの生成が完了した後に、ページに任意の内容を描画できるメソッドが用意されています。          PageStartイベントでCurrentPageに描画したものは、レポートの後ろに描画されますが、PageEndイベントで描画したものは、レポートの前景として描画されます。          PageStartやPageEndの各イベントで描画できるのは、CurentPageに対してのみです。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.#ctor">
+            <summary>Pageクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.AddBookmark(System.String,System.Single)">
+            <summary>指定したオフセットでブックマークをページに追加します。</summary>
+            <remarks>ビューワの見出し一覧に表示されるブックマーク。</remarks>
+            <returns>ドキュメント内の新しいブックマークのインデックス</returns>
+            <param name="strBookmark">ブックマークの名前。円記号（\）をパスの区切り文字として使用し、ブックマークの階層を作成できます。</param>
+            <param name="offset">ページ上のブックマークの位置。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Clear">
+            <summary>すべての項目をすべてのページからクリアします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.ClearCanvasItems">
+            <summary>すべてのCanvasItemsをページからクリアします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Clone">
+            <summary>Pageオブジェクトのクローンを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Dispose">
+            <summary>Pageインスタンスをメモリから解放します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Draw">
+            <summary>BinaryReaderまたはファイルからページ内容をロードします。</summary>
+            <remarks>このメソッドを使用すると、ページの内容を拡大／縮小して矩形内に表示できます。これによりページのサムネイル画像を作成したり、複数のページを１枚の用紙に印刷したりできます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Draw(System.Drawing.Graphics,System.Drawing.RectangleF)">
+            <summary>指定したGraphicsオブジェクトに、指定した座標のページの内容を表示します。</summary>
+            <param name="graphics">ページの内容を表示するGraphicsオブジェクト。</param>
+            <param name="bounds">ページの内容を拡大／縮小して表示するGraphicsオブジェクト上の矩形。System.Drawing.RectangleF。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Draw(System.Drawing.Graphics,System.Drawing.RectangleF,System.Single,System.Single,System.Boolean)">
+            <summary>サンプル（レポートの拡大／縮小）で使用しています。</summary>
+            <param name="graphics">ページの内容を表示するGraphicsオブジェクト。</param>
+            <param name="bounds">ページの内容を拡大／縮小して表示するGraphicsオブジェクト上の矩形。System.Drawing.RectangleF。</param>
+            <param name="scaleFactorX">水平方向の拡大率。1.0が等倍です。</param>
+            <param name="scaleFactorY">水直方向の拡大率。1.0が等倍です。</param>
+            <param name="printing">描画するgraphicsオブジェクトの種類に応じて切り替えます。PrintDocumentなど印刷に使われるgraphicsオブジェクトの場合、Trueをセットします。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Draw(System.Drawing.Graphics,System.Drawing.RectangleF,System.Drawing.Text.TextRenderingHint,System.Single,System.Single)">
+            <summary>内部使用のみ。</summary>
+            <param name="graphics">ページの内容を表示するGraphicsオブジェクト。</param>
+            <param name="bounds">ページの内容を拡大／縮小して表示するGraphicsオブジェクト上の矩形。System.Drawing.RectangleF。</param>
+            <param name="textRenderHint">System.Drawing.Text.TextRenderingHint列挙体。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawBorder">
+            <summary>ページ上に境界線を描画します。</summary>
+            <remarks>単位はPage.Unitsプロパティによって決定されます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawBorder(DataDynamics.ActiveReports.Border,System.Single,System.Single,System.Single,System.Single)">
+            <summary>指定した座標の指定した境界線を描画します。</summary>
+            <param name="border">ページ上に描画するBorderオブジェクト。</param>
+            <param name="left">境界線の左位置（インチ単位）。</param>
+            <param name="top">境界線の上位置（インチ単位）。</param>
+            <param name="width">境界線の幅（インチ単位）。</param>
+            <param name="height">境界線の高さ（インチ単位）。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawBorder(DataDynamics.ActiveReports.Border,System.Drawing.RectangleF)">
+            <summary>指定した範囲の指定した境界線を描画します。</summary>
+            <param name="border">ページ上に描画するBorderオブジェクト。</param>
+            <param name="bounds">境界線を描画するSystem.Drawing.RectangleF座標。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawEllipse(System.Single,System.Single,System.Single,System.Single)">
+            <summary>ページ上に楕円を描画します。</summary>
+            <param name="left">楕円の左端の座標（インチ単位）。</param>
+            <param name="top">楕円の上端の座標（インチ単位）。</param>
+            <param name="width">楕円の幅（インチ単位）。</param>
+            <param name="height">楕円の高さ（インチ単位）。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage">
+            <summary>ページ上に画像を描画します。</summary>
+            <remarks>単位はPage.Unitsプロパティによって決定されます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single)">
+            <summary>指定した画像を指定した座標に描画します。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+            <param name="left">画像の左端の座標（インチ単位）。</param>
+            <param name="top">画像の上端の座標（インチ単位）。</param>
+            <param name="width">画像の幅（インチ単位）。</param>
+            <param name="height">画像の高さ（インチ単位）。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single,System.String,System.String)">
+            <summary>指定した画像を指定した座標に描画します。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+            <param name="left">画像の左端の座標（インチ単位）。</param>
+            <param name="top">画像の上端の座標（インチ単位）。</param>
+            <param name="width">画像の幅（インチ単位）。</param>
+            <param name="height">画像の高さ（インチ単位）。</param>
+            <param name="title">画像のタイトル。</param>
+            <param name="description">画像の説明。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Boolean,System.Single,System.Single,System.Single,System.Single)">
+            <summary>指定した画像を指定した座標に描画します。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+            <param name="left">画像の左端の座標（インチ単位）。</param>
+            <param name="top">画像の上端の座標（インチ単位）。</param>
+            <param name="width">画像の幅（インチ単位）。</param>
+            <param name="height">画像の高さ（インチ単位）。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Drawing.RectangleF)">
+            <summary>指定した画像を指定した矩形範囲に描画します。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Boolean,System.Drawing.RectangleF)">
+            <summary>ページ上の指定した矩形範囲に画像を描画します。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single,System.String)">
+            <summary>指定した画像をページ上の指定した座標に描画し、この画像領域にハイパーリンクを割り当てます。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+            <param name="left">画像の左端の座標（インチ単位）。</param>
+            <param name="top">画像の上端の座標（インチ単位）。</param>
+            <param name="width">画像の幅（インチ単位）。</param>
+            <param name="height">画像の高さ（インチ単位）。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String)">
+            <summary>指定した画像をページ上の指定した座標に描画し、この画像領域にハイパーリンクを割り当てます。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+            <param name="left">画像の左端の座標（インチ単位）。</param>
+            <param name="top">画像の上端の座標（インチ単位）。</param>
+            <param name="width">画像の幅（インチ単位）。</param>
+            <param name="height">画像の高さ（インチ単位）。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+            <param name="title">画像のタイトル。</param>
+            <param name="description">画像の説明。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Boolean,System.Single,System.Single,System.Single,System.Single,System.String)">
+            <summary>指定した画像をページ上の指定した座標に描画し、画像領域へのハイパーリンクを割り当てます。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+            <param name="left">画像の左端の座標（インチ単位）。</param>
+            <param name="top">画像の上端の座標（インチ単位）。</param>
+            <param name="width">画像の幅（インチ単位）。</param>
+            <param name="height">画像の高さ（インチ単位）。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Drawing.RectangleF,System.String)">
+            <summary>指定した画像を指定した矩形範囲に描画し、この矩形範囲にハイパーリンクを割り当てます。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawImage(System.Drawing.Image,System.Boolean,System.Drawing.RectangleF,System.String)">
+            <summary>指定した画像を指定した矩形範囲に描画し、ページ上の領域へのハイパーリンクを割り当てます。</summary>
+            <param name="image">ページ上に描画するSystem.Drawing.Image。</param>
+            <param name="imageChanged">画像が変更されたかどうかを決定するブール値。</param>
+            <param name="text">画像の矩形範囲。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawLine(System.Single,System.Single,System.Single,System.Single)">
+            <summary>ページ上の指定した座標に線を描画します。</summary>
+            <remarks>         線の描画にはPenStyleとPenWidthを使用します。単位はPage.Unitsによって決定されます。</remarks>
+            <param name="x1">線の始点の水平座標（インチ単位）。</param>
+            <param name="y1">線の始点の垂直座標（インチ単位）。</param>
+            <param name="x2">線の終点の水平座標（インチ単位）。</param>
+            <param name="y2">線の始点の垂直座標（インチ単位）。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawRect">
+            <summary>ページ上の指定した座標に四角形を描画します。</summary>
+            <remarks>         四角形の描画には、PenStyle、PenWidth、BackColorの各プロパティを使用します。単位はPage.Unitsプロパティによって決定されます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawRect(System.Single,System.Single,System.Single,System.Single)">
+            <summary>ページ上の指定した座標に四角形を描画します。</summary>
+            <param name="left">四角形の左端の座標（インチ単位）。</param>
+            <param name="top">四角形の上端の座標（インチ単位）。</param>
+            <param name="width">四角形の幅（インチ単位）。</param>
+            <param name="height">四角形の高さ（インチ単位）。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawRect(System.Drawing.RectangleF)">
+            <summary>ページ上の指定した座標に四角形を描画します。</summary>
+            <param name="rc">四角形の矩形範囲。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawRoundRect(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>ページ上の指定した座標に角丸四角形を描画します。</summary>
+            <remarks>         角丸四角形の描画には、PenStyle、PenWidth、BackColorの各プロパティを使用します。単位はPage.Unitsプロパティによって決定されます。</remarks>
+            <param name="left">角丸四角形の左端の座標（インチ単位）。</param>
+            <param name="top">角丸四角形の上端の座標（インチ単位）。</param>
+            <param name="width">角丸四角形の幅（インチ単位）。</param>
+            <param name="height">角丸四角形の高さ（インチ単位）。</param>
+            <param name="edgeWidth">角丸の幅。</param>
+            <param name="edgeHeight">角丸の高さ。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawTable(System.Drawing.RectangleF)">
+            <summary>ページ上の指定した範囲にテーブルを描画します。内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText">
+            <summary>ページ上にテキストを描画します。</summary>
+            <remarks>単位はPage.Unitsプロパティによって決定されます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText(System.String[],System.Drawing.RectangleF,System.String)">
+            <summary>指定した文字列の配列を指定した矩形範囲に描画し、指定した領域へのハイパーリンクを作成します。</summary>
+            <param name="astrText">ページ上に描画するテキスト文字列の配列。</param>
+            <param name="text">テキストの矩形範囲。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText(System.String,System.Single,System.Single,System.Single,System.Single)">
+            <summary>指定した文字列を指定した座標に描画します。</summary>
+            <remarks>         ページのFont、ForeColor、TextAlignment、TextAngle、VerticalTextAlignmentの各プロパティを使用して、文字列を描画します。このメソッドで出力したものは、直前に表示された色に依存しますので、使用する場合には必ず事前にForeColor/BackColorを指定してください。</remarks>
+            <param name="strText">ページ上に描画するテキスト文字列。</param>
+            <param name="left">テキストの左端の座標。</param>
+            <param name="top">テキストの上端の座標。</param>
+            <param name="width">テキスト領域の幅。</param>
+            <param name="height">テキスト領域の高さ。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText(System.String,System.Drawing.RectangleF)">
+            <summary>指定した文字列を指定した矩形範囲に描画します。</summary>
+            <remarks>         ページのFont、ForeColor、TextAlignment、TextAngle、VerticalTextAlignmentの各プロパティを使用して、文字列を描画します。このメソッドで出力したものは、直前に表示された色に依存しますので、使用する場合には必ず事前にForeColor/BackColorを指定してください。</remarks>
+            <param name="strText">ページ上に描画するテキスト文字列。</param>
+            <param name="text">テキストの矩形範囲。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText(System.String[],System.Single,System.Single,System.Single,System.Single)">
+            <summary>指定した文字列の配列を指定した座標に描画します。</summary>
+            <param name="astrText">ページ上に描画するテキスト文字列の配列。</param>
+            <param name="left">テキストの左端の座標。</param>
+            <param name="top">テキストの上端の座標。</param>
+            <param name="width">テキスト領域の幅。</param>
+            <param name="height">テキスト領域の高さ。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText(System.String[],System.Drawing.RectangleF)">
+            <summary>指定した文字列の配列を指定した矩形範囲に描画します。</summary>
+            <param name="astrText">ページ上に描画するテキスト文字列の配列。</param>
+            <param name="text">テキストの矩形範囲。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText(System.String,System.Single,System.Single,System.Single,System.Single,System.String)">
+            <summary>指定した文字列を指定した座標に描画し、テキスト領域のハイパーリンクを作成します。</summary>
+            <remarks>         ページのFont、ForeColor、TextAlignment、TextAngle、VerticalTextAlignmentの各プロパティを使用して、文字列を描画します。このメソッドで出力したものは、直前に表示された色に依存しますので、使用する場合には必ず事前にForeColor/BackColorを指定してください。</remarks>
+            <param name="strText">ページ上に描画するテキスト文字列。</param>
+            <param name="left">テキストの左端の座標。</param>
+            <param name="top">テキストの上端の座標。</param>
+            <param name="width">テキスト領域の幅。</param>
+            <param name="height">テキスト領域の高さ。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText(System.String,System.Drawing.RectangleF,System.String)">
+            <summary>指定した文字列を指定した矩形範囲に描画し、指定した領域へのハイパーリンクを作成します。</summary>
+            <remarks>         ページのFont、ForeColor、TextAlignment、TextAngle、VerticalTextAlignmentの各プロパティを使用して、文字列を描画します。このメソッドで出力したものは、直前に表示された色に依存しますので、使用する場合には必ず事前にForeColor/BackColorを指定してください。</remarks>
+            <param name="strText">ページ上に描画するテキスト文字列。</param>
+            <param name="text">テキストの矩形範囲。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.DrawText(System.String[],System.Single,System.Single,System.Single,System.Single,System.String)">
+            <summary>指定した文字列の配列を指定した座標に描画し、テキスト領域のハイパーリンクを作成します。</summary>
+            <param name="astrText">ページ上に描画するテキスト文字列の配列。</param>
+            <param name="left">テキストの左端の座標。</param>
+            <param name="top">テキストの上端の座標。</param>
+            <param name="width">テキスト領域の幅。</param>
+            <param name="height">テキスト領域の高さ。</param>
+            <param name="strLink">ハイパーリンクURL。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.FillRect">
+            <summary>指定した領域を現在のページのBackColorで塗りつぶします。</summary>
+            <remarks>単位はPage.Unitsプロパティによって決定されます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.FillRect(System.Single,System.Single,System.Single,System.Single)">
+            <summary>指定した座標を現在のページのBackColorで塗りつぶします。</summary>
+            <param name="left">四角形の左端の座標（インチ単位）。</param>
+            <param name="top">四角形の上端の座標（インチ単位）。</param>
+            <param name="width">四角形の幅（インチ単位）。</param>
+            <param name="height">四角形の高さ（インチ単位）。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.FillRect(System.Drawing.RectangleF)">
+            <summary>指定した範囲を現在のページのBackColorで塗りつぶします。</summary>
+            <param name="rc">四角形の矩形範囲。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.IntersectClip">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Load">
+            <summary>BinaryReaderまたはファイルからページ内容をロードします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Load(System.String)">
+            <summary>指定した名前のファイルからページ内容をロードします。</summary>
+            <remarks>ページ内容はPage.Saveメソッドを使用して保存できます。</remarks>
+            <param name="strFileName">以前に保存したページ内容を含むファイルの名前。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Load(System.IO.Stream)">
+            <summary>指定したストリームからページ内容をロードします。</summary>
+            <param name="stm">保存済みのページ内容を含むストリームを指定します。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.MeasureParagraphHeight">
+            <summary>現在のページ設定を使用して、指定したテキストを指定した幅で表示したときの高さを計測します。 現在のページ設定を使用して、指定したテキストを指定した幅、フォント、フォーマットで表示したときの高さを計測します。</summary>
+            <returns>テキストの高さと幅（インチ単位）を含むSizeF構造体。</returns>
+            <remarks>単位はインチ固定です。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.MeasureParagraphHeight(System.String,System.Single)">
+            <summary>現在のページ設定を使用して、指定したテキストを指定した幅で表示したときの高さを計測します。</summary>
+            <param name="strText">計測するテキスト文字列。</param>
+            <param name="width">テキストの幅（インチ単位）。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.MeasureParagraphHeight(System.String,System.Single,System.Drawing.Font,System.Drawing.StringFormat)">
+            <summary>現在のページ設定を使用して、指定したテキストを指定した幅、フォント、フォーマットで表示したときの高さを計測します。</summary>
+            <param name="strText">計測するテキスト文字列。</param>
+            <param name="width">テキストの幅（インチ単位）。</param>
+            <param name="textFont">計測するテキストフォント。</param>
+            <param name="strFormat">計測するテキストフォーマット。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.MeasureText(System.String)">
+            <summary>テキスト文字列の幅と高さを決定します。</summary>
+            <returns>文字列の幅と高さを表すSizeF構造体。</returns>
+            <param name="strText">計測するテキスト文字列。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Overlay(DataDynamics.ActiveReports.Document.Page)">
+            <summary>指定したページオブジェクトをこのページの上に重ねます。</summary>
+            <param name="page">上に重ねるページ。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.RestoreClip">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Save">
+            <summary>ページの内容を保存します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Save(System.String)">
+            <summary>ページ内容を指定した名前のファイルに保存します。</summary>
+            <param name="strFileName">ページ内容を格納するファイルの名前。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.Save(System.IO.Stream)">
+            <summary>ページ内容を指定したストリームに保存します。</summary>
+            <param name="stm">ページ内容の格納先のストリームを指定します。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.SaveClip">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Page.ToString">
+            <summary>ページの設定情報と内容を文字列で返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Annotations">
+            <summary>ページの注釈を設定または取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.BackColor">
+            <summary>形状とテキストをページ上に描画する場合に使用する背景色を指定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Bookmarks">
+            <summary>ページのブックマークのリストを返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.CanvasItems">
+            <summary>ページのキャンバス項目のリストを返します。</summary>
+            <remarks>Clearメソッドを使用し、すべてのCanvasItemsをPageオブジェクトから削除します。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.CharacterSpacing">
+            <summary>Pageクラスの描画メソッドで描画するテキストの文字ピッチを設定または取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Compress">
+            <summary>ページを圧縮するかどうかを示す値を設定するか返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Font">
+            <summary>ページ上にテキストを表示するときに使用する現在のフォントを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Fonts">
+            <summary>ページのフォントコレクションを返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.ForeColor">
+            <summary>ページ上のテキストと図形の表示に使用する現在の前景色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Height">
+            <summary>ページの高さを取得または設定します（インチ単位）。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.LineSpacing">
+            <summary>Pageクラスの描画メソッドで描画するテキストの行ピッチを設定または取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Margins">
+            <summary>ページ余白の設定を参照します。</summary>
+            <remarks>このプロパティは、現在のページ余白を参照します。ページ余白は変更できません。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Orientation">
+            <summary>ページの向きを取得または設定します。</summary>
+            <remarks>Printer.PaperHeightの計測は、用紙が縦向きの場合です。横向きの場合、高さはPrinter.PaperWidthと等しくなります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Padding">
+            <summary>コントロールの枠から文字までの間の余白を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.PenStyle">
+            <summary>線と図形の描画に使用するペンの種類を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.PenWidth">
+            <summary>線と図形の描画に使用するペンの幅を取得または設定します（1/10ポイント単位）。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.RightToLeft">
+            <summary>右から左へ記述するフォントを使う地域をサポートするために、DrawTextメソッドがテキストを右から左に表示するかどうかを示す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Size">
+            <summary>ページの高さと幅を含むSizeF構造体を返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.TextAlignment">
+            <summary>DrawTextメソッドを使用するときのテキストの配置を決定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.TextAngle">
+            <summary>Pageクラスの描画メソッドで描画するテキストの角度を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.TextJustify">
+            <summary>TextAlignmentプロパティがJustifyに設定された場合に、テキストの配置（位置揃え）を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Units">
+            <summary>プリミティブなページ描画メソッドで使用する単位を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.VerticalText">
+            <summary>テキストを描画する場合に、文字を垂直方向に回転して描画するかどうかを示す値を設定するか返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.VerticalTextAlignment">
+            <summary>DrawTextメソッドを使用するときのテキストの垂直方向の配置を決定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.Width">
+            <summary>ページの幅を取得または設定します（インチ単位）。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Page.WordWrap">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.PagesCollection">
+            <summary>Documentオブジェクト内のページのコレクションを管理します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.#ctor">
+            <summary>PagesCollectionクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.#ctor">
+            <summary>PagesCollectionクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.Add">
+            <summary>指定したPageオブジェクトをコレクションに追加します。</summary>
+            <returns>新しく追加されたページのインデックス。</returns>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.AddRange">
+            <summary>ページの配列またはコレクションを追加します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.AddRange(DataDynamics.ActiveReports.Document.Page[])">
+            <summary>指定したPageオブジェクトの配列を指定したコレクションに追加します。</summary>
+            <param name="pages">追加するページの配列。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.AddRange(DataDynamics.ActiveReports.Document.PagesCollection)">
+            <summary>指定したコレクションからこのコレクションにページを追加します。</summary>
+            <param name="pages">このコレクションにマージするページのコレクション。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.Clear">
+            <summary>コレクションからすべてのページを削除します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.Clone">
+            <summary>PagesCollectionのクローンを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.Contains">
+            <summary>指定したオブジェクトがコレクションのメンバであるかどうかを決定します。</summary>
+            <returns>    ブール値。オブジェクトがコレクションのメンバである場合は     True、それ以外の場合は False。</returns>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.CopyTo">
+            <summary>コレクションの特定のインデックスから始まるページを配列にコピーします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.Dispose">
+            <summary>PagesCollectionインスタンスをメモリから解放します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.GetEnumerator">
+            <summary>PagesCollectionを反復処理できる列挙子を返します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.GetRange(System.Int32,System.Int32)">
+            <summary>指定したインデックスから指定したページ数の新しいコレクションを抽出して返します。</summary>
+            <returns>コレクションの指定したインデックスから開始して抽出された新しいコレクション。</returns>
+            <param name="index">範囲の開始ページを表すインデックス。</param>
+            <param name="count">抽出するページ数。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.IndexOf">
+            <summary>コレクション内のページのインデックスを返します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.Insert">
+            <summary>指定したページをコレクションの指定したインデックスに挿入します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.InsertNew(System.Int32)">
+            <summary>新しいPageオブジェクトを作成し、コレクション内の指定したインデックスに挿入します。</summary>
+            <param name="index">新しいページのインデックス。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.InsertRange">
+            <summary>ページの範囲をコレクションの指定したインデックスに挿入します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.InsertRange(System.Int32,DataDynamics.ActiveReports.Document.PagesCollection)">
+            <summary>指定したPagesCollectionのメンバをコレクションの指定したインデックスに挿入します。</summary>
+            <param name="index">PagesCollectionの挿入位置を表すコレクションのインデックス。インデックスは０から始まります。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.InsertRange(System.Int32,DataDynamics.ActiveReports.Document.Page[])">
+            <summary>Pageオブジェクトの配列をコレクションの指定したインデックスに挿入します。</summary>
+            <param name="index">ページ配列の挿入位置を表すコレクションのインデックス。インデックスは０から始まります。</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.Remove">
+            <summary>指定したPageオブジェクトをコレクションから削除します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PagesCollection.RemoveAt(System.Int32)">
+            <summary>指定したインデックスのメンバをコレクションから削除します。</summary>
+            <param name="index">削除するページのインデックス（ゼロベース）。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.PagesCollection.Count">
+            <summary>コレクションに含まれるPageメンバの数を返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.PagesCollection.Fonts">
+            <summary>PagesCollectionで使用されるFontsCollectionを返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.PagesCollection.Item(System.Int32)">
+            <summary>コレクションの指定したインデックスのメンバを返します。</summary>
+            <param name="index">取得するメンバのインデックス。</param>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.PagesCollection.Changed">
+            <summary>コレクションメンバが変更されたときに発生します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Printer">
+            <summary>レポート実行中のプリンタ設定を管理します。</summary>
+            <remarks>         PageSettingsの各プロパティは、レポート処理の開始時に、Document.Printerプロパティの初期値を設定するために使用されます。PageSettingsの各プロパティがデフォルトに設定されている場合、値は選択されたPrinterオブジェクトから取得されます。</remarks>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Printer.#ctor">
+            <summary>Printerクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Printer.Reinitialize">
+            <summary>Printerクラスのインスタンスを再初期化します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.Landscape">
+            <summary>ページを縦に印刷するか横に印刷するかを表す値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.PaperHeight">
+            <summary>用紙の高さを取得または設定します（インチ単位）。</summary>
+            <remarks>         ここでの高さは用紙を縦向きに使用した場合の高さです。横向きの場合、高さはPaperWidthに等しくなります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.PaperKind">
+            <summary>レポートの印刷に使用する用紙の種類を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.PaperSize">
+            <summary>レポートの印刷に使用する、カスタムの用紙サイズオブジェクトを取得または設定します。</summary>
+            <remarks>         Printer.DefaultPageSettings.PaperSizeの代わりにこのプロパティを使用する必要があります。値がキャッシュされレポートの処理速度が向上します。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.PaperSizes">
+            <summary>このプリンタでサポートされている用紙サイズを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.PaperWidth">
+            <summary>用紙の幅を取得または設定します（インチ単位）。</summary>
+            <remarks>         ここでの幅は用紙を縦向きに使用した場合の幅です。横向きの場合、幅はPaperHeightに等しくなります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.PrintController">
+            <summary>印刷プロセスを管理するプリントコントローラを設定または参照します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.PrinterName">
+            <summary>使用するプリンタの名前を取得または設定します。</summary>
+            <remarks>         仮想プリンタデバイスを使用するには、このプロパティを空の文字列に設定します。仮想プリンタデバイスを使用すると、マシンにプリンタがインストールされていない場合や、ユーザーがインストールされているプリンタを使用する権限を持っていない場合でも、「プリンタがインストールされていません」というエラーの発生を防ぐことができます。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.PrinterSettings">
+            <summary>System.Drawing.Printing.PrinterSettingsを設定または取得します。</summary>
+            <remarks>         Printer.PrinterSettings.PrinterNameプロパティの代わりに、常にプリンタのPrinterNameプロパティを使用する必要があります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Printer.VisibleBounds">
+            <summary>プリンタに出力可能なページ領域を取得します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.PrintingThreadErrorEventArgs">
+            <summary>    PrintThreadErrorイベントの引数を指定します。     この型のすべてのメンバの一覧については、PrintingThreadErrorEventArgsメンバを参照してください。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PrintingThreadErrorEventArgs.#ctor(System.Exception)">
+            <summary>例外を指定して、PrintThreadErrorEventArgsクラスの新しいインスタンスを作成します。</summary>
+            <param name="exception">印刷スレッドエラーの原因となった例外を指定します。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.PrintingThreadErrorEventArgs.Exception">
+            <summary>印刷スレッドエラーの原因となった例外を指定する値を取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.PrintProgressEventArgs">
+            <summary>PrintProgressイベントの引数を表します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.PrintProgressEventArgs.#ctor(System.Int32)">
+            <summary>指定したページを印刷中のページとして設定してPrintProgressEventArgsの新しいインスタンスを作成します。</summary>
+            <param name="currentPage">現在印刷中のページを指定します。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.PrintProgressEventArgs.CurrentPage">
+            <summary>現在印刷中のページを取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.RawImageResourceData">
+            <summary>画像およびリソースデータを管理します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.RawImageResourceData.#ctor(System.String,System.String,System.Guid,System.Object)">
+            <summary>RawImageResourceDataクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.RawImageResourceData.CreateImage">
+            <summary>リソースデータをもとに、新しい画像を作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.RawImageResourceData.FromImage(System.Drawing.Image)">
+            <summary>画像からリソースデータを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.RawImageResourceData.FromStream(System.IO.BinaryReader)">
+            <summary>RDFファイルからデータを読み取り、RawImageResourceDataクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.RawImageResourceData.ToBytes">
+            <summary>RDFファイルのオブジェクトコンテントを返します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.RawImageResourceData.Write(System.IO.BinaryWriter)">
+            <summary>RDFファイルにオブジェクトコンテントを書き込みます。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.RawImageResourceData.IsMetafile">
+            <summary>画像がメタファイルである場合に、Trueを返します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.UrlErrorEventArgs">
+            <summary>downloadErrorイベントの引数を表します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.UrlErrorEventArgs.#ctor">
+            <summary>UrlErrorEventArgsクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.UrlErrorEventArgs.#ctor">
+            <summary>UrlErrorEventArgsクラスの新しいインスタンスを作成します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.UrlErrorEventArgs.#ctor(System.Exception)">
+            <summary>指定した例外のUrlErrorEventArgsクラスの新しいインスタンス作成します。</summary>
+            <param name="e">イベントデータを含むUrlErrorEventArgs値。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.UrlErrorEventArgs.Exception">
+            <summary>ダウンロードエラーを引き起こした例外を表す値を取得します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.UserPreferences">
+            <summary>ハイパーリンクの外観、およびViewerコントロール内で、それらをホストするコントロールの外観を指定します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.UserPreferences.#ctor">
+            <summary>UserPreferenceクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.UserPreferences.HyperLinkBackColor">
+            <summary>ハイパーリンクをホストするコントロールの背景色を、取得または設定します。デフォルトは透明です。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.UserPreferences.HyperLinkForeColor">
+            <summary>ハイパーリンクをホストするコントロールのテキストの色を、取得または設定します。デフォルトは青です。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.UserPreferences.HyperLinkUnderline">
+            <summary>ハイパーリンクをホストするコントロールのテキストに下線を引くかどうかを、取得または設定します。デフォルトはTrueです。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.UserPreferences.SearchResultsBackColor">
+            <summary>Viewerコントロールの［検索］ダイアログで検索されたテキストの背景色を、取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.UserPreferences.SearchResultsForeColor">
+            <summary>Viewerコントロールの［検索］ダイアログで検索されたテキストの前景色を、取得または設定します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.UserPreferences.PropertyChanged">
+            <summary>UserPreferences クラスのプロパティが変更されたときに発生します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.ChangedEventHandler">
+            <summary>PagesCollection.Changedイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.LoadCompletedEventHandler">
+            <summary>ドキュメントのLoadCompletedイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.PrintAbortedEventHandler">
+            <summary>ActiveReportPrintControllerWithStatusDialogのPrintAbortedイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.PrintingThreadErrorEventHandler">
+            <summary>ドキュメントのPrintingThreadErrorイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むPrintingThreadErrorEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.PrintProgressEventHandler">
+            <summary>ActiveReportPrintControllerのPrintingProgessイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むPrintProgressEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.StateChangedHandler">
+            <summary>DocumentのStateChangedイベントのタイプを設定します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むStateChangedEventArgs値。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.UrlErrorEventHandler">
+            <summary>ドキュメントのdownloadErrorイベントを処理するメソッドを表します。</summary>
+            <param name="sender">イベントの送信元。</param>
+            <param name="e">イベントデータを含むUrlErrorEventArgs値。</param>
+        </member>
+        <member name="N:DataDynamics.ActiveReports.Document.Annotations">
+            <summary>DataDynamics.ActiveReports.Document.Anotations名前空間には、注釈に関するクラスが含まれています。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant">
+            <summary>吹き出しの尾の部分を、４分割のどこに位置するかを指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.TopLeft">
+            <summary>上辺の左</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.TopRight">
+            <summary>上辺の右</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.BottomLeft">
+            <summary>下辺の左</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.BottomRight">
+            <summary>下辺の右</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.LeftTop">
+            <summary>左辺の上</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.LeftBottom">
+            <summary>左辺の下</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.RightTop">
+            <summary>右辺の上</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.RightBottom">
+            <summary>右辺の下</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon+BallonQuadrant.None">
+            <summary>尾はなし</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+LinePlacement">
+            <summary>AnnotationLineオブジェクトの罫線を、どこに描画するかを指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+LinePlacement.Top">
+            <summary>AnnotationLineオブジェクトの一番上に罫線を引きます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+LinePlacement.Middle">
+            <summary>AnnotationLineオブジェクトの中央に罫線を引きます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+LinePlacement.Bottom">
+            <summary>AnnotationLineオブジェクトの一番下に罫線を引きます。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+ShowArrowCap">
+            <summary>矢先を描画するかどうかを指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+ShowArrowCap.LeftOnly">
+            <summary>左端に矢先を描画します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+ShowArrowCap.RightOnly">
+            <summary>右端に矢先を描画します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+ShowArrowCap.LeftRight">
+            <summary>両端に矢先を描画します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine+ShowArrowCap.None">
+            <summary>矢先を描画しません。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.ArrowDirection">
+            <summary>矢印の方向を指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ArrowDirection.Left">
+            <summary>左矢印</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ArrowDirection.Top">
+            <summary>上矢印</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ArrowDirection.Right">
+            <summary>右矢印</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ArrowDirection.Bottom">
+            <summary>下矢印</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitBottom">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitLeft">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitRight">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitTop">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitLowerLeft">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitLowerRight">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitUpperLeft">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitUpperRight">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitMove">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.HitTestPoints.HitNull">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.ImageLayout">
+            <summary>Annotation画像の位置を指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.Zoom">
+            <summary>画像は、コントロールのサイズに合わせて表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.Tile">
+            <summary>画像は、実際のサイズで、注釈の領域全体に並べて表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.Stretch">
+            <summary>画像は、縦横比に関わらず、注釈の領域に合わせて引き伸ばされるかどうかを取得または設定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.Center">
+            <summary>画像は、注釈の領域の中央に表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.Left">
+            <summary>画像は、注釈の領域の左端に表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.Top">
+            <summary>画像は、注釈の領域の上端に表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.Right">
+            <summary>画像は、注釈の領域の右端に表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.Bottom">
+            <summary>画像は、注釈の領域の下端に表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.LeftTop">
+            <summary>画像は、注釈の領域の左上端に表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.RightTop">
+            <summary>画像は、注釈の領域の右上端に表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.RightBottom">
+            <summary>画像は、注釈の領域の右下端に表示されます。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Document.Annotations.ImageLayout.LeftBottom">
+            <summary>画像は、注釈の領域の左下端に表示されます。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.Annotation">
+            <summary>Annotationは、Annotationオブジェクトの基本クラスです。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.Annotation.#ctor(DataDynamics.ActiveReports.Document.Annotations.Border)">
+            <summary>Annotationクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.Annotation.Attach(System.Single,System.Single)">
+            <summary>Annotationオブジェクトを配置する左上隅の座標を取得または設定します。</summary>
+            <param name="x">Annotationオブジェクトを配置するx座標</param>
+            <param name="y">Annotationオブジェクトを配置するｙ座標</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.Annotation.Refresh">
+            <summary>Annotationオブジェクトを再描画します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.Alpha">
+            <summary>Annotationオブジェクトのアルファレベル（透明度）を取得または設定します。</summary>
+            <remarks>有効範囲は0から255です。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.Border">
+            <summary>Annotationオブジェクトの罫線を定義するborderオブジェクトを取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.Bounds">
+            <summary>注釈を描画する矩形の領域を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.Color">
+            <summary>Annotationオブジェクトの塗りつぶしに使用する色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.Height">
+            <summary>Annotationオブジェクトの高さを取得または設定します。</summary>
+            <remarks>注釈の高さを設定する前に、ページに注釈を追加する必要があります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.PageRectangle">
+            <summary>注釈が描画されるページの矩形領域を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.Width">
+            <summary>Annotationオブジェクトの幅を取得または設定します。</summary>
+            <remarks>注釈の幅を設定する前に、ページに注釈を追加する必要があります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.X">
+            <summary>注釈の水平位置をインチ単位で取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Annotation.Y">
+            <summary>注釈の垂直位置をインチ単位で取得または設定します。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Annotations.Annotation.PropertyChanged">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationArrow">
+            <summary>AnnotationArrowオブジェクト（テキストを入力できる２D矢印）を描画します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationArrow.#ctor">
+            <summary>AnnotationArrowクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationArrow.ArrowDirection">
+            <summary>矢印の方向を取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon">
+            <summary>AnnotationBalloonオブジェクト（テキストを入力できる吹き出し）を描画します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon.#ctor">
+            <summary>AnnotationBalloonクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationBalloon.Quadrant">
+            <summary>吹き出しの尾の部分を、４分割のどこに位置するかを取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationBaseText">
+            <summary>全てのAnnotationオブジェクトの基本クラスを表します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationBaseText.Alignment">
+            <summary>注釈のテキストの配置を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationBaseText.Font">
+            <summary>注釈テキストのフォントを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationBaseText.LineAligment">
+            <summary>注釈線の配置を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationBaseText.Text">
+            <summary>注釈に使用するテキストを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationBaseText.TextColor">
+            <summary>注釈に使用するテキストの色を取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationCircle">
+            <summary>AnnotationCircleオブジェクト（テキストを入力できない円）を描画します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationCircle.#ctor">
+            <summary>AnnotationCircleクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationCollection">
+            <summary>Annotationオブジェクトのコレクションを表します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationCollection.#ctor">
+            <summary>AnnotationCollecionクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationCollection.Add(DataDynamics.ActiveReports.Document.Annotations.Annotation)">
+            <summary>コレクションの末尾にAnnotationオブジェクトを追加します。</summary>
+            <param name="annotation">コレクションの末尾に追加するAnnotation</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationCollection.Refresh(DataDynamics.ActiveReports.Document.Annotations.Annotation)">
+            <summary>強制的にAnnotationオブジェクトを再描画します。</summary>
+            <param name="annotation">再描画するAnnotation</param>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationCollection.Remove(DataDynamics.ActiveReports.Document.Annotations.Annotation)">
+            <summary>コレクションから指定したAnnotationを削除します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationCollection.BackColor">
+            <summary>塗りつぶしに使用する色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationCollection.Item(System.Int32)">
+            <summary>コレクション内のAnnotationアイテムを取得します。</summary>
+            <param name="index">項目のインデックス。</param>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationCollection.SelectionService">
+            <summary>選択されたコンポーネントの情報を参照し、選択が変更された際にイベントを提供します。内部使用のみ。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationImage">
+            <summary>AnnotationImageオブジェクトを表します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationImage.#ctor">
+            <summary>AnnotationImageクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationImage.BackgroundImage">
+            <summary>注釈の背景画像として使用するSystem.Drawing.Imageを、取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationImage.BackgroundLayout">
+            <summary>注釈ボックス内の画像の位置を表す列挙体の値を、取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationImage.ShowBorder">
+            <summary>注釈ボックスの端に罫線を描画するかどうかを表す値を、取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine">
+            <summary>AnnotationLineオブジェクト（テキスト領域付きの線形）を描画します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.#ctor">
+            <summary>AnnotationLineクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.ArrowCapHeight">
+            <summary>矢印の先端の高さを取得または設定します。</summary>
+            <remarks>矢印の先端の高さとは、三角形の底辺から矢先までの高さをいいます。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.ArrowCapWidth">
+            <summary>矢印の先端の幅を取得または設定します。</summary>
+            <remarks>矢印の先端の幅とは、三角形の底辺の幅をいいます。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.Border">
+            <summary>Annotationオブジェクトの罫線を定義するborderオブジェクトを取得します。内部使用のみ。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.Color">
+            <summary>AnnotationLineオブジェクトの色を取得します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.DashCap">
+            <summary>AnnotationLineの破線の各ダッシュの両端に使用する、グラフィック形状の種類を取得または設定します。</summary>
+            <remarks>DashStyle プロパティがSolidに設定されている場合、DashCap プロパティは無効になります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.DashStyle">
+            <summary>AnnotationLineオブジェクトで描画する破線のスタイルを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.FillArrowCaps">
+            <summary>矢印の先端の三角形を塗りつぶすかどうかを決定します。</summary>
+            <remarks>ShowArrowCaps プロパティが None, の場合、FillArrowCaps プロパティは無効となります。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.Font">
+            <summary>テキストの描画に使用するフォントオブジェクトを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.LineColor">
+            <summary>AnnotationLineオブジェクトの色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.LineLocation">
+            <summary>Annotationオブジェクト内のAnnotationLineの位置を取得または設定します。 Top、Middle、Bottomの３つの値より設定できます。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.LineWidth">
+            <summary>AnnotationLineオブジェクトの幅を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.ShowArrowCaps">
+            <summary>矢先を描画するかどうかを取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.Text">
+            <summary>注釈のテキストの値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.TextAlignment">
+            <summary>テキストの水平方向の配置を決定する値を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.TextColor">
+            <summary>注釈のテキストの色を取得または設定します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.TextWidth">
+            <summary>AnnotationLineオブジェクトの描画範囲内で、テキストに割り当てる幅を取得または設定します。</summary>
+            <remarks>TextWidthプロパティの値が、AnnotationLineオブジェクトの幅より大きな値に設定されている場合、テキストを収めることができるようにAnnotationLineオブジェクトは再描画されます。</remarks>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.AnnotationLine.Width">
+            <summary>AnnotationLineオブジェクトの幅を取得または設定します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationRectangle">
+            <summary>AnnotationRectangleオブジェクト（テキストを入力できない矩形）を描画します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationRectangle.#ctor">
+            <summary>AnnotationRectangleクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.AnnotationText">
+            <summary>AnnotationTextオブジェクト（テキストを入力できる矩形）を描画します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.AnnotationText.#ctor">
+            <summary>AnnotationTextクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.Border">
+            <summary>Annotationオブジェクトの周りに罫線を描画します。内部使用のみ。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.Border.Render(System.Drawing.Graphics,System.Drawing.PointF,System.Boolean)">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Border.Bounds">
+            <summary>注釈の境界線を設定または参照します。内部使用のみ。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Document.Annotations.Border.Color">
+            <summary>注釈の罫線に使用する色を取得または設定します。内部使用のみ。</summary>
+        </member>
+        <member name="E:DataDynamics.ActiveReports.Document.Annotations.Border.PropertyChanged">
+            <summary>内部使用のみ。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.BorderCircle">
+            <summary>AnnotationCircle（テキストを入力できない円）の周りに罫線を描画します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.BorderCircle.#ctor">
+            <summary>BorderCircleクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.BorderCircle.Render(System.Drawing.Graphics,System.Drawing.PointF,System.Boolean)">
+            <summary>AnnotationCircleオブジェクト（テキストを入力できない円）の周りに罫線をレンダリングします。</summary>
+            <param name="graphics">罫線の描画は、System.Drawing.Graphicsオブジェクトを用います。</param>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Document.Annotations.BorderRectangle">
+            <summary>AnnotationRectangle（テキストを入力できない矩形）の周りに罫線を描画します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.BorderRectangle.#ctor">
+            <summary>BorderRectangleクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Document.Annotations.BorderRectangle.Render(System.Drawing.Graphics,System.Drawing.PointF,System.Boolean)">
+            <summary>AnnotationRectangleオブジェクト（テキストを入力できない矩形）の周りに罫線をレンダリングします。</summary>
+            <param name="graphics">罫線の描画は、System.Drawing.Graphicsオブジェクトを用います。</param>
+        </member>
+        <member name="N:DataDynamics.ActiveReports.Export">
+            <summary>DataDynamics.ActiveReports.Export名前空間には、エクスポート関連の共通のインターフェイスが含まれています。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Export.IDocumentExport">
+            <summary>全てのエクスポートフィルタ用に共通のインタフェースを提供します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.IDocumentExport.Export">
+            <summary>指定した範囲のページを、HTMLにエクスポートします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.IDocumentExport.Export(DataDynamics.ActiveReports.Document.Document,System.String,System.String)">
+            <summary>指定したページ範囲を、HTMLにエクスポートします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.IDocumentExport.Export(DataDynamics.ActiveReports.Document.Document,System.String)">
+            <summary>ActiveReportsのドキュメント全体を、指定したHTMLにエクスポートします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.IDocumentExport.Export(DataDynamics.ActiveReports.Document.Document,System.IO.Stream)">
+            <summary>ActiveReportsのドキュメント全体を、HTMLとすべてのイメージを単一のファイルに結合するMIME MHT形式(インターネット·エクスプローラーからWebアーカイブとして保存される形式)のHTMLにエクスポートします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.IDocumentExport.Export(DataDynamics.ActiveReports.Document.Document,System.IO.Stream,System.String)">
+            <summary>指定したページ範囲を、HTMLとすべてのイメージを単一のファイルに結合するMIME MHT形式(インターネット·エクスプローラーからWebアーカイブとして保存される形式)のHTMLにエクスポートします。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.IDocumentExport.Export(DataDynamics.ActiveReports.Document.Document,DataDynamics.ActiveReports.Export.Html.IOutputHtml,System.String)">
+            <summary>指定したページ範囲をoutputHandlerへエクスポートします。</summary>
+        </member>
+        <member name="N:DataDynamics.ActiveReports.Export.Html">
+            <summary>DataDynamics.ActiveReports.Export.Html名前空間には、HTMLエクスポート関連のクラスが含まれています。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Export.Html.IOutputHtml">
+            <summary>IOutputHtmlインタフェースは、OutputHtmlDataメソッドとFinishメソッドを含みます。これらのメソッドはHtmlExportクラスと共に使用し、データの出力、およびエクスポートが完了するタイミングを示します。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.Html.IOutputHtml.Finish">
+            <summary>このメソッドはHtmlExportによって呼び出され、現在のドキュメントのエクスポートが完了したことを示します。このメソッドは、実装元から、残りの出力をすべてフラッシュしたり、以前にエクスポートされたドキュメントのフレームセットページを書き出すために使用できます。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.Html.IOutputHtml.OutputHtmlData(DataDynamics.ActiveReports.Export.Html.HtmlOutputInfoArgs)">
+            <summary>OutputHtmlDataメソッドはHtmlExportクラスによって呼び出され、データを出力します。</summary>
+            <remarks>         OutputHtmlDataの実装はinfo引数に渡されたデータを使用し、実装元が必要とする場合にそのデータを格納します。戻り値は、呼び出し元のHtmlExportクラスが、メインのHTMLページからデータへのリンクを配置するために使用できるファイル名になります。たとえば、HTMLページが生成されているときに、HTML     imgとして出力される画像があると、HtmlExportオブジェクトはこのメソッドを呼び出し、データを実装元に提供します。OutputHtmlDataからの戻り値（ファイル名）は、src属性の値として使用されます。          HTMLページが準備できると、OutputHtmlDataが再度呼び出されて実際のHTMLページのデータを渡します。この場合、OutputHtmlData実装によって返されるファイル名は使用されません。</remarks>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Export.Html.HtmlOutputKind">
+            <summary>HTML出力の種類を指定します。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Export.Html.HtmlOutputKind.ImagePng">
+            <summary>出力はPNG画像です。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Export.Html.HtmlOutputKind.ImageJpg">
+            <summary>出力はJPG画像です。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Export.Html.HtmlOutputKind.HtmlPage">
+            <summary>出力はHTMLページです。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Export.Html.HtmlOutputKind.BookmarksHtml">
+            <summary>出力は、メインHTMLページのブックマークのリストを含むHTMLページです。</summary>
+        </member>
+        <member name="F:DataDynamics.ActiveReports.Export.Html.HtmlOutputKind.FramesetHtml">
+            <summary>出力は、TOCページまたはTOCが使えない場合の見出しページを含むHTMLページと、右側の対象ドキュメントページです。</summary>
+        </member>
+        <member name="T:DataDynamics.ActiveReports.Export.Html.HtmlOutputInfoArgs">
+            <summary>IOutputHtmlインタフェースのOutputHtmlData関数の引数として使用されます。</summary>
+        </member>
+        <member name="M:DataDynamics.ActiveReports.Export.Html.HtmlOutputInfoArgs.#ctor(DataDynamics.ActiveReports.Export.Html.HtmlOutputKind,System.IO.Stream)">
+            <summary>HtmlOutputInfoArgクラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Export.Html.HtmlOutputInfoArgs.OutputKind">
+            <summary>OutputStreamプロパティに含まれる出力データの種類を返します。</summary>
+        </member>
+        <member name="P:DataDynamics.ActiveReports.Export.Html.HtmlOutputInfoArgs.OutputStream">
+            <summary>出力される実際のデータです。</summary>
+        </member>
+    </members>
+</doc>

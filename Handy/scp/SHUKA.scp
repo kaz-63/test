@@ -1,0 +1,156 @@
+/********************************************************************************
+ファイル名	：	SHUKA.scp
+バージョン	：	Ver.1.00
+作成日付	：	2010/04/22
+動作説明	：	集荷データ登録
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Utility"
+Include "Lib\Common"
+Include "Lib\CustomWrite"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+
+	// 言語設定
+	Language:Initialize(System:arg2, ConstString:SCP_NAME_SHUKA)
+	// メッセージ設定
+	Message:Initialize(System:arg2, ConstString:SCP_NAME_SHUKA)
+	
+	Common:Initialize()
+
+	// --処理開始--
+	JOB:job_main()
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+Package JOB
+	m_btvCurrent = "sagyou1"	// カレント作業番号
+	//---------------------------------------------------
+	// メインメソッド
+	Method job_main()
+		btvRet = ""
+	Begin
+		
+		While 1
+		
+			btvRet = SAGYOU1:sagyou_main()
+
+			//ループ判定処理 (次ループ準備)
+			If btvRet eq "returntop" Then 
+				Wbreak
+			EndIf
+		Wend
+
+		System:Load(System:arg1, 0, System:arg2, System:arg3,0)
+		Return (0)
+
+	End Method
+	
+	// ログデータ作成・書き込み
+	Method LogWrite(InputData)
+	Begin
+	
+		If MatchCode:tagMatch(InputData) is false Then
+			Common:read_NG()
+			Return () // 作業のリトライ
+		EndIf
+	
+		ErrorCode:error_code = CustomWrite:LogWrite(ConstString:SHUKA_NAME, InputData, System:arg3)
+		If ErrorCode:error_code <> 0 Then
+			Common:read_NG()
+		Else
+			Common:read_OK()
+		EndIf
+		
+	End Method
+	
+EndPackage
+
+
+/////////////////////////////////////////////////////////
+//タグ入力に関連するPackage
+/////////////////////////////////////////////////////////
+Package SAGYOU1
+
+	btvEachInput = ""
+
+	Method sagyou_main()
+		btvRet
+	Begin
+		
+		disp_normal()
+		While 1
+			btvRet = wait_input()
+			If btvRet eq "next" Then 
+				JOB:LogWrite(btvEachInput)
+				Wbreak // 入力ループから抜ける
+			Else
+				Return (btvRet) // 作業 n へとぶ場合
+			EndIf
+		Wend
+		
+		Return (0)
+		
+	End Method
+	
+	//---------------------------------------------------
+	// 入力メソッド
+	Method wait_input()
+		btvKeycode
+		btvRet
+	Begin
+		Common:BarcodeRead()
+		
+		With InputString
+			:posx = 9 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "" // 初期値設定
+			:inputAreaSize = 11
+			:maxLength = 10
+			:minLength = 0
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = 1
+			:shiftPattern = "BT500"
+			
+			btvKeycode = :Exec()
+			btvEachInput=:data
+			
+		EndWith
+
+		// 遷移先返却メソッド呼び出し
+		btvRet = InputLoop:input_loop(btvKeycode, JOB:m_btvCurrent)
+		
+		Return (btvRet)
+	End Method
+	
+	//---------------------------------------------------
+	// 通常入力画面 表示メソッド
+	Method disp_normal()
+	Begin
+		With Screen
+			:update = false
+			:Clear()
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = true :font = 1 :OutputText(Language:langItem[0])
+			:posx = 10 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[1])
+			:posx = 1 :posy = 5 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[2])
+			:posx = 1 :posy = 8 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[3])
+			:posx = 1 :posy = 13 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[4])
+			:posx = 17 :posy = 3 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Common:dataCount(ConstString:SHUKA_DATA))
+			:posx = 10 :posy = 8 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Common:lastData(ConstString:SHUKA_DATA))
+			CommonDisp:fillBlack("12", 0, 21)
+			:update = true
+		EndWith
+		ErrorCode:dispUpdate()
+	End Method
+	
+EndPackage
+

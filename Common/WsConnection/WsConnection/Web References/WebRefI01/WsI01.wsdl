@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:element name="GetLocationCombo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondI01">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="_stockDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="_sagyoFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="_jissekiDateFrom" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="_jissekiDateTo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BukkenNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ZaikoNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="StockDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SagyoFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ARNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HinmeiJp" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hinmei" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ZumenKeishiki" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Floor" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KuwariNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TagCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TagNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BoxNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PalletNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KiwakuNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CaseNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JissekiDateFrom" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JissekiDateTo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="WorkUserID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="InventDate" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLocationComboResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationComboResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationLikeSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationLikeSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationLikeSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsLocationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsLocationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsLocationDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdLocationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdLocationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdLocationDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelLocationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelLocationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelLocationDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShukkaZaiko">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShukkaZaikoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShukkaZaikoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsZaikoData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsZaikoDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsZaikoDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKanryoData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKanryoDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKanryoDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelKanryoData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelKanryoDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelKanryoDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTanaoroshiLocationCombo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTanaoroshiLocationComboResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTanaoroshiLocationComboResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTanaoroshiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTanaoroshiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTanaoroshiDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTanaoroshiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTanaoroshiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTanaoroshiDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZaikoMainteRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZaikoMainteRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetZaikoMainteRoleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZaikoHoshu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZaikoHoshuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetZaikoHoshuResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdZaikoHoshu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtUpd">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtDel">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdZaikoHoshuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdZaikoHoshuResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJisseki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondI01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJissekiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJissekiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLocationComboSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocationCombo" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationComboSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationComboResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationLikeSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocationLikeSearch" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationLikeSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationLikeSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsLocationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:InsLocationData" />
+  </wsdl:message>
+  <wsdl:message name="InsLocationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:InsLocationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdLocationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdLocationData" />
+  </wsdl:message>
+  <wsdl:message name="UpdLocationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdLocationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelLocationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelLocationData" />
+  </wsdl:message>
+  <wsdl:message name="DelLocationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelLocationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShukkaZaikoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShukkaZaiko" />
+  </wsdl:message>
+  <wsdl:message name="GetShukkaZaikoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShukkaZaikoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsZaikoDataSoapIn">
+    <wsdl:part name="parameters" element="tns:InsZaikoData" />
+  </wsdl:message>
+  <wsdl:message name="InsZaikoDataSoapOut">
+    <wsdl:part name="parameters" element="tns:InsZaikoDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKanryoDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKanryoData" />
+  </wsdl:message>
+  <wsdl:message name="GetKanryoDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKanryoDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelKanryoDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DelKanryoData" />
+  </wsdl:message>
+  <wsdl:message name="DelKanryoDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DelKanryoDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTanaoroshiLocationComboSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTanaoroshiLocationCombo" />
+  </wsdl:message>
+  <wsdl:message name="GetTanaoroshiLocationComboSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTanaoroshiLocationComboResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTanaoroshiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTanaoroshiData" />
+  </wsdl:message>
+  <wsdl:message name="GetTanaoroshiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTanaoroshiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTanaoroshiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTanaoroshiData" />
+  </wsdl:message>
+  <wsdl:message name="UpdTanaoroshiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTanaoroshiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetZaikoMainteRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetZaikoMainteRole" />
+  </wsdl:message>
+  <wsdl:message name="GetZaikoMainteRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetZaikoMainteRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetZaikoHoshuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetZaikoHoshu" />
+  </wsdl:message>
+  <wsdl:message name="GetZaikoHoshuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetZaikoHoshuResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdZaikoHoshuSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdZaikoHoshu" />
+  </wsdl:message>
+  <wsdl:message name="UpdZaikoHoshuSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdZaikoHoshuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJissekiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJisseki" />
+  </wsdl:message>
+  <wsdl:message name="GetJissekiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJissekiResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsI01Soap">
+    <wsdl:operation name="GetLocationCombo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ロケーションコンボボックス用データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetLocationComboSoapIn" />
+      <wsdl:output message="tns:GetLocationComboSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ロケーション取得(完全一致・物件管理No、出荷区分、ロケーション必須)</wsdl:documentation>
+      <wsdl:input message="tns:GetLocationSoapIn" />
+      <wsdl:output message="tns:GetLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationLikeSearch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ロケーション取得(あいまい検索)</wsdl:documentation>
+      <wsdl:input message="tns:GetLocationLikeSearchSoapIn" />
+      <wsdl:output message="tns:GetLocationLikeSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsLocationData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ロケーションの追加</wsdl:documentation>
+      <wsdl:input message="tns:InsLocationDataSoapIn" />
+      <wsdl:output message="tns:InsLocationDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdLocationData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ロケーションの更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdLocationDataSoapIn" />
+      <wsdl:output message="tns:UpdLocationDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelLocationData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ロケーションの削除</wsdl:documentation>
+      <wsdl:input message="tns:DelLocationDataSoapIn" />
+      <wsdl:output message="tns:DelLocationDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShukkaZaiko">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷・在庫データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetShukkaZaikoSoapIn" />
+      <wsdl:output message="tns:GetShukkaZaikoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsZaikoData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">入庫処理</wsdl:documentation>
+      <wsdl:input message="tns:InsZaikoDataSoapIn" />
+      <wsdl:output message="tns:InsZaikoDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKanryoData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">完了データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKanryoDataSoapIn" />
+      <wsdl:output message="tns:GetKanryoDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelKanryoData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">完了処理</wsdl:documentation>
+      <wsdl:input message="tns:DelKanryoDataSoapIn" />
+      <wsdl:output message="tns:DelKanryoDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTanaoroshiLocationCombo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">棚卸ロケーションコンボボックス用データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTanaoroshiLocationComboSoapIn" />
+      <wsdl:output message="tns:GetTanaoroshiLocationComboSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTanaoroshiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">棚卸データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTanaoroshiDataSoapIn" />
+      <wsdl:output message="tns:GetTanaoroshiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTanaoroshiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">棚卸処理</wsdl:documentation>
+      <wsdl:input message="tns:UpdTanaoroshiDataSoapIn" />
+      <wsdl:output message="tns:UpdTanaoroshiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZaikoMainteRole">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">在庫メンテ権限取得</wsdl:documentation>
+      <wsdl:input message="tns:GetZaikoMainteRoleSoapIn" />
+      <wsdl:output message="tns:GetZaikoMainteRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZaikoHoshu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">在庫データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetZaikoHoshuSoapIn" />
+      <wsdl:output message="tns:GetZaikoHoshuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdZaikoHoshu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">在庫データ更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdZaikoHoshuSoapIn" />
+      <wsdl:output message="tns:UpdZaikoHoshuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJisseki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">オペ履歴取得</wsdl:documentation>
+      <wsdl:input message="tns:GetJissekiSoapIn" />
+      <wsdl:output message="tns:GetJissekiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsI01Soap" type="tns:WsI01Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLocationCombo">
+      <soap:operation soapAction="http://smssrv/GetLocationCombo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap:operation soapAction="http://smssrv/GetLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationLikeSearch">
+      <soap:operation soapAction="http://smssrv/GetLocationLikeSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsLocationData">
+      <soap:operation soapAction="http://smssrv/InsLocationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdLocationData">
+      <soap:operation soapAction="http://smssrv/UpdLocationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelLocationData">
+      <soap:operation soapAction="http://smssrv/DelLocationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShukkaZaiko">
+      <soap:operation soapAction="http://smssrv/GetShukkaZaiko" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsZaikoData">
+      <soap:operation soapAction="http://smssrv/InsZaikoData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKanryoData">
+      <soap:operation soapAction="http://smssrv/GetKanryoData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKanryoData">
+      <soap:operation soapAction="http://smssrv/DelKanryoData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTanaoroshiLocationCombo">
+      <soap:operation soapAction="http://smssrv/GetTanaoroshiLocationCombo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTanaoroshiData">
+      <soap:operation soapAction="http://smssrv/GetTanaoroshiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTanaoroshiData">
+      <soap:operation soapAction="http://smssrv/UpdTanaoroshiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZaikoMainteRole">
+      <soap:operation soapAction="http://smssrv/GetZaikoMainteRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZaikoHoshu">
+      <soap:operation soapAction="http://smssrv/GetZaikoHoshu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdZaikoHoshu">
+      <soap:operation soapAction="http://smssrv/UpdZaikoHoshu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJisseki">
+      <soap:operation soapAction="http://smssrv/GetJisseki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsI01Soap12" type="tns:WsI01Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLocationCombo">
+      <soap12:operation soapAction="http://smssrv/GetLocationCombo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap12:operation soapAction="http://smssrv/GetLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationLikeSearch">
+      <soap12:operation soapAction="http://smssrv/GetLocationLikeSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsLocationData">
+      <soap12:operation soapAction="http://smssrv/InsLocationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdLocationData">
+      <soap12:operation soapAction="http://smssrv/UpdLocationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelLocationData">
+      <soap12:operation soapAction="http://smssrv/DelLocationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShukkaZaiko">
+      <soap12:operation soapAction="http://smssrv/GetShukkaZaiko" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsZaikoData">
+      <soap12:operation soapAction="http://smssrv/InsZaikoData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKanryoData">
+      <soap12:operation soapAction="http://smssrv/GetKanryoData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKanryoData">
+      <soap12:operation soapAction="http://smssrv/DelKanryoData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTanaoroshiLocationCombo">
+      <soap12:operation soapAction="http://smssrv/GetTanaoroshiLocationCombo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTanaoroshiData">
+      <soap12:operation soapAction="http://smssrv/GetTanaoroshiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTanaoroshiData">
+      <soap12:operation soapAction="http://smssrv/UpdTanaoroshiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZaikoMainteRole">
+      <soap12:operation soapAction="http://smssrv/GetZaikoMainteRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZaikoHoshu">
+      <soap12:operation soapAction="http://smssrv/GetZaikoHoshu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdZaikoHoshu">
+      <soap12:operation soapAction="http://smssrv/UpdZaikoHoshu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJisseki">
+      <soap12:operation soapAction="http://smssrv/GetJisseki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsI01">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsI01Soap" binding="tns:WsI01Soap">
+      <soap:address location="http://smssrv/sms/WsI01.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsI01Soap12" binding="tns:WsI01Soap12">
+      <soap12:address location="http://smssrv/sms/WsI01.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

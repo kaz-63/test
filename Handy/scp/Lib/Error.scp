@@ -1,0 +1,367 @@
+/////////////////////////////////////////////////////////
+// エラー表示・コード整合性チェック
+// コード整合性チェックでは入力桁数過多のチェックと、読み取りタイムアウトの検出が行えません。
+/////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////
+//						エラーコードパッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package ErrorCode
+	
+	error_code = 0
+	
+	Method ErrorString(no)
+		ret = ""
+	Begin
+		Select Case no
+			Case 1
+				// 同じコードが発見された場合
+				ret = Message:MessageItem[0]
+			Case 2 
+				// Box梱包時現品タグの前1桁が前回タグと一致しなかった
+				ret = Message:MessageItem[1]
+			Case 3 
+				// 入力桁数が不足している
+				ret = Message:MessageItem[2]
+			Case 4 
+				// 入力桁数が多すぎる
+				ret = Message:MessageItem[3]
+			Case 5
+				// 想定される頭文字ではなかった
+				ret = Message:MessageItem[4]
+			Case 6
+				// カウント部に数字以外が出現した
+				ret = Message:MessageItem[5]
+			Case 7
+				// カウント部に数字以外が出現した
+				ret = Message:MessageItem[6]
+			Case 8
+				// ファイル数が既定値を超えた
+				ret = Message:MessageItem[7]
+			Case 9
+				// 読み取りエラー
+				ret = Message:MessageItem[8]
+				
+			Case 10
+				// 入力文字が不正
+				ret = Message:MessageItem[9]
+			Case 11
+				// 現品タグの前1桁が不正(0:本体　1:AR)
+				ret = Message:MessageItem[10]
+			Case 12
+				// 入荷数入力不正
+				ret = Message:MessageItem[20]
+			Case 13
+				// 重量入力不正
+				ret = Message:MessageItem[23]
+		End Select
+		
+		Return (ret)
+		
+	EndMethod
+	
+	// エラーコードを画面に反映させる
+	Method dispUpdate()
+	Begin
+		
+		/* メッセージボックスでのエラー表示
+		If error_code <> 0 Then
+			Handy:ShowMessageBox(ErrorString(error_code), "ok" )
+		EndIf
+		*/
+		
+		With Screen
+			:update = false
+			:posx = 1 :posy = 11 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" "&ErrorString(error_code))
+			:update = true
+		EndWith
+		
+	EndMethod
+	
+	// エラー表示の消去
+	Method dispDelete()
+	Begin
+		error_code = 0
+		dispUpdate()
+	EndMethod
+
+EndPackage
+
+//////////////////////////////////////////////////////////////////////////
+//						照会パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package MatchCode
+
+	// 入力されたユーザーIDが正しいかどうか
+	Method userMatch(code)
+	Begin
+		If code.length == 0 Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf code.length > 10 Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		EndIf
+		
+		If code.Find("$",0) is nil AND
+			code.Find("%",0) is nil AND
+			code.Find("/",0) is nil AND
+			code.Find("+",0) is nil AND
+			code.Find("*",0) is nil AND
+			code.Find("#",0) is nil Then
+		Else
+			// 入力文字が不正
+			ErrorCode:error_code = 10
+			Return (false)
+		EndIf
+		
+		Return (true)
+	EndMethod
+	
+	// 入力されたBoxNo･パレットNoが正しいかチェック
+	Method typeMatch(type, code)
+
+	Begin
+		If code.length < 6 Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf code.length > 6 Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		ElseIf code.Left(1) ne type Then
+			// 頭文字不一致
+			ErrorCode:error_code = 5
+			Return (false)
+		ElseIf code.Right(3) weq "[0-9][0-9][0-9]" is false Then
+			// カウントNo不正
+			If type eq "B" Then
+				ErrorCode:error_code = 6
+			Else
+				ErrorCode:error_code = 7
+			EndIf
+			
+			Return (false)
+		EndIf
+
+		Return (true)
+	EndMethod
+
+	// 入力された現品タグNoが正しいかどうか
+	Method tagMatch(code)
+	Begin
+		If code.length < 10 Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf code.length > 10 Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		EndIf
+		
+		If code.Left(1) ne "0" AND
+			code.Left(1) ne "1" Then
+			// 現品タグの前1桁が不正(0:本体　1:AR)
+			ErrorCode:error_code = 11
+			Return (false)
+		EndIf
+		
+		If code.Find("$",0) is nil AND
+			code.Find("%",0) is nil AND
+			code.Find("/",0) is nil AND
+			code.Find("+",0) is nil AND
+			code.Find("*",0) is nil AND
+			code.Find("#",0) is nil Then
+		Else
+			// 入力文字が不正
+			ErrorCode:error_code = 10
+			Return (false)
+		EndIf
+		
+		
+		Return (true)
+		
+	EndMethod
+	
+	/*!
+	 * @brief 入力された手配No.が正しいかどうか
+	 * 
+	 * @param code 入力内容
+	 * @return 成功時:true / 失敗時:false
+	 * @attention なし
+	 */
+	Method tehaiMatch(code)
+	Begin
+		
+		If checkFixedLength(code, ConstString:TEHAI_NO_SIZE) is false Then
+			Return (false)
+		EndIf
+		
+		If code.Find("$",0) is nil AND
+			code.Find("%",0) is nil AND
+			code.Find("/",0) is nil AND
+			code.Find("+",0) is nil AND
+			code.Find("*",0) is nil AND
+			code.Find("#",0) is nil Then
+		Else
+			// 入力文字が不正
+			ErrorCode:error_code = 10
+			Return (false)
+		EndIf
+		
+		Return (true)
+		
+	EndMethod
+	
+	/*!
+	 * @brief 入力された入荷数が正しいかどうか
+	 * 
+	 * @param code 入力内容
+	 * @return 成功時:true / 失敗時:false
+	 * @attention なし
+	 */
+	Method nyukaCountMatch(code)
+	Begin
+		
+		If checkCodeRange(code, ConstString:NYUKA_COUNT_SIZE, 1) is false Then
+			Return (false)
+		EndIf
+		
+		// 数値チェック
+		If code.isDigit is false
+			OR code.isInt is false Then
+			// 入力文字不正
+			ErrorCode:error_code = 10
+			Return (false)
+		EndIf
+		
+		// 記号チェック(小数点とハイフンが存在するとエラー)
+		If not (code.Find(".", 0) is nil) OR not (code.Find("-", 0) is nil) Then
+			// 入荷数入力不正
+			ErrorCode:error_code = 12
+			Return (false)
+		EndIf
+		
+		// 先頭のゼロは認めない
+		If code weq "0!" Then
+			// 入荷数入力不正
+			ErrorCode:error_code = 12
+			Return (false)
+		EndIf
+		
+		Return (true)
+		
+	EndMethod
+	
+	// @brief 入力された重量が正しいかどうか
+	//
+	// @param code 入力内容
+	// @return 成功時:true / 失敗時:false
+	Method weightMatch(code)
+		minLen = 1			// 最小桁数1桁(整数のみの入力を認める)
+		splitStr[2]
+	Begin
+		If checkCodeRange(code, ConstString:WEIGHT_SIZE, minLen) is false Then
+			Return (false)
+		EndIf
+		
+		// 数値チェック
+		If code.isDigit is false Then
+			// 入力文字不正
+			ErrorCode:error_code = 10
+			Return (false)
+		EndIf
+		
+		// 0以下は重量として認めない
+		If code <= 0 Then
+			// 重量入力不正
+			ErrorCode:error_code = 13
+			Return (false)
+		EndIf
+		
+		// 小数点チェック
+		If code.Find(".", 0) is nil Then
+			If code.length > 4 OR code weq "0!" Then
+				// 重量入力不正
+				ErrorCode:error_code = 13
+				Return (false)
+			EndIf
+		Else
+			// 整数部分と小数部分に分割して確認する
+			splitStr = code.split(".")
+			If splitStr[0].length < 1
+				OR splitStr[0].length > 4
+				OR splitStr[1].length < 1
+				OR splitStr[1].length > 2 Then
+				// 重量入力不正
+				ErrorCode:error_code = 13
+				Return (false)
+			EndIf
+			
+			// 整数部分の先頭に0がある
+			If splitStr[0].length > 1 AND splitStr[0] weq "0!" Then
+				// 重量入力不正
+				ErrorCode:error_code = 13
+				Return (false)
+			EndIf
+		EndIf
+		
+		Return (true)
+		
+	EndMethod
+
+	
+	/*!
+	 * @brief 入力内容の桁範囲チェック
+	 * 
+	 * @param code 入力内容
+	 * @param maxLen 最大桁数
+	 * @param minLen 最小桁数
+	 * @return 成功時:true / 失敗時:false
+	 * @attention エラーコードをセットする
+	 */
+	Method checkCodeRange(code, maxLen, minLen)
+	Begin
+		If code.length < minLen Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf code.length > maxLen Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		EndIf
+		
+		Return (true)
+	EndMethod
+	
+	/*!
+	 * @brief 入力内容の固定長チェック
+	 * 
+	 * @param code 入力内容
+	 * @param codeLen 入力長
+	 * @return 成功時:true / 失敗時:false
+	 * @attention エラーコードをセットする
+	 */
+	Method checkFixedLength(code, codeLen)
+	Begin
+		If code.length < codeLen Then
+			// 桁数不足
+			ErrorCode:error_code = 3
+			Return (false)
+		ElseIf code.length > codeLen Then
+			// 桁数過多
+			ErrorCode:error_code = 4
+			Return (false)
+		EndIf
+		
+		Return (true)
+	EndMethod
+
+EndPackage
+

@@ -1,0 +1,1818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="IsExistenceNonyusaki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondA1">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JyokyoFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JyokyoFlagAR" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Taisaku" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GirenNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GenchiTehaisaki" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName0" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName5" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName6" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlagName7" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="UpdateDateFrom" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="UpdateDateTo" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Kishu" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Goki" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SeparatorRange" type="s1:char" />
+              <s:element minOccurs="1" maxOccurs="1" name="SeparatorItem" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" name="DateKubun" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SelectGroupCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BukkenNo" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsToroku" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsShinchoku" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="IsGenchiShukkaJyokyo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailIDTemp" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArNoTemp" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FilePathTemp" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IsExistenceNonyusakiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsExistenceNonyusakiResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArDataList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArDataListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArDataListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistNonyusakiAndExcle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistNonyusakiAndExcleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExistNonyusakiAndExcleResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllARListData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllARListDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllARListDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistNonyusakiAndHiyouExcel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistNonyusakiAndHiyouExcelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExistNonyusakiAndHiyouExcelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllARCostListData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllARCostListDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllARCostListDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendMailInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendMailInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSendMailInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNonyusaki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNonyusakiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNonyusakiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetARData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetARDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetARDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetARandInterLock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetARandInterLockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetARandInterLockResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdARInterUnLock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdARInterUnLockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdARInterUnLockResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsAR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsARResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsARResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="nonyusakiCd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdAR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdARResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdARResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArMailInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArMailInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArMailInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="_isNotify" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCheckMeisaiData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCheckMeisaiDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCheckMeisaiDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSelectItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSelectItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSelectItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommonListFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommonListFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommonListFlagResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGokiNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGokiNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetGokiNumResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShinchokuKanriNotify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShinchokuKanriNotifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShinchokuKanriNotifyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailIDWithoutUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailIDWithoutUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailIDWithoutUpdateResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetARNoWithoutUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetARNoWithoutUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetARNoWithoutUpdateResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckGoki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckGokiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckGokiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtMessage">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsInzuhyo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsInzuhyoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsInzuhyoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtMessage">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArShinchokuList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArShinchokuListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArShinchokuListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArShinchokuMailInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArShinchokuMailInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArShinchokuMailInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendArShinchokuMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendArShinchokuMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendArShinchokuMailResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdARUnLockShinchoku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdARUnLockShinchokuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdARUnLockShinchokuResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetARInterLockAndShinchokuInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetARInterLockAndShinchokuInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetARInterLockAndShinchokuInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdARShinchokuInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdARShinchokuInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdARShinchokuInfoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKishu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKishuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKishuResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGokiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGokiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRireki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondA1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRirekiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRirekiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IsExistenceNonyusakiSoapIn">
+    <wsdl:part name="parameters" element="tns:IsExistenceNonyusaki" />
+  </wsdl:message>
+  <wsdl:message name="IsExistenceNonyusakiSoapOut">
+    <wsdl:part name="parameters" element="tns:IsExistenceNonyusakiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArDataListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArDataList" />
+  </wsdl:message>
+  <wsdl:message name="GetArDataListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExistNonyusakiAndExcleSoapIn">
+    <wsdl:part name="parameters" element="tns:ExistNonyusakiAndExcle" />
+  </wsdl:message>
+  <wsdl:message name="ExistNonyusakiAndExcleSoapOut">
+    <wsdl:part name="parameters" element="tns:ExistNonyusakiAndExcleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllARListDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllARListData" />
+  </wsdl:message>
+  <wsdl:message name="GetAllARListDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllARListDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExistNonyusakiAndHiyouExcelSoapIn">
+    <wsdl:part name="parameters" element="tns:ExistNonyusakiAndHiyouExcel" />
+  </wsdl:message>
+  <wsdl:message name="ExistNonyusakiAndHiyouExcelSoapOut">
+    <wsdl:part name="parameters" element="tns:ExistNonyusakiAndHiyouExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllARCostListDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllARCostListData" />
+  </wsdl:message>
+  <wsdl:message name="GetAllARCostListDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllARCostListDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSendMailInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSendMailInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSendMailInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSendMailInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNonyusakiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNonyusaki" />
+  </wsdl:message>
+  <wsdl:message name="GetNonyusakiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNonyusakiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetARDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetARData" />
+  </wsdl:message>
+  <wsdl:message name="GetARDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetARDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetARandInterLockSoapIn">
+    <wsdl:part name="parameters" element="tns:GetARandInterLock" />
+  </wsdl:message>
+  <wsdl:message name="GetARandInterLockSoapOut">
+    <wsdl:part name="parameters" element="tns:GetARandInterLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdARInterUnLockSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdARInterUnLock" />
+  </wsdl:message>
+  <wsdl:message name="UpdARInterUnLockSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdARInterUnLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsARSoapIn">
+    <wsdl:part name="parameters" element="tns:InsAR" />
+  </wsdl:message>
+  <wsdl:message name="InsARSoapOut">
+    <wsdl:part name="parameters" element="tns:InsARResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdARSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdAR" />
+  </wsdl:message>
+  <wsdl:message name="UpdARSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdARResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArMailInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArMailInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArMailInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArMailInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckMeisaiDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCheckMeisaiData" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckMeisaiDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCheckMeisaiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSelectItem" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSelectItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonListFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommonListFlag" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonListFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommonListFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGokiNumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGokiNum" />
+  </wsdl:message>
+  <wsdl:message name="GetGokiNumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGokiNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShinchokuKanriNotifySoapIn">
+    <wsdl:part name="parameters" element="tns:GetShinchokuKanriNotify" />
+  </wsdl:message>
+  <wsdl:message name="GetShinchokuKanriNotifySoapOut">
+    <wsdl:part name="parameters" element="tns:GetShinchokuKanriNotifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailIDWithoutUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailIDWithoutUpdate" />
+  </wsdl:message>
+  <wsdl:message name="GetMailIDWithoutUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailIDWithoutUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetARNoWithoutUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetARNoWithoutUpdate" />
+  </wsdl:message>
+  <wsdl:message name="GetARNoWithoutUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetARNoWithoutUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckGokiSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckGoki" />
+  </wsdl:message>
+  <wsdl:message name="CheckGokiSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckGokiResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsInzuhyoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsInzuhyo" />
+  </wsdl:message>
+  <wsdl:message name="InsInzuhyoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsInzuhyoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArShinchokuListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArShinchokuList" />
+  </wsdl:message>
+  <wsdl:message name="GetArShinchokuListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArShinchokuListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArShinchokuMailInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArShinchokuMailInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArShinchokuMailInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArShinchokuMailInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendArShinchokuMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendArShinchokuMail" />
+  </wsdl:message>
+  <wsdl:message name="SendArShinchokuMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendArShinchokuMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdARUnLockShinchokuSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdARUnLockShinchoku" />
+  </wsdl:message>
+  <wsdl:message name="UpdARUnLockShinchokuSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdARUnLockShinchokuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetARInterLockAndShinchokuInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetARInterLockAndShinchokuInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetARInterLockAndShinchokuInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetARInterLockAndShinchokuInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdARShinchokuInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdARShinchokuInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdARShinchokuInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdARShinchokuInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKishuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKishu" />
+  </wsdl:message>
+  <wsdl:message name="GetKishuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKishuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGokiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoki" />
+  </wsdl:message>
+  <wsdl:message name="GetGokiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGokiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRirekiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRireki" />
+  </wsdl:message>
+  <wsdl:message name="GetRirekiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRirekiResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsA01Soap">
+    <wsdl:operation name="IsExistenceNonyusaki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">納入先存在チェック</wsdl:documentation>
+      <wsdl:input message="tns:IsExistenceNonyusakiSoapIn" />
+      <wsdl:output message="tns:IsExistenceNonyusakiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArDataList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetArDataListSoapIn" />
+      <wsdl:output message="tns:GetArDataListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistNonyusakiAndExcle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">納入先マスタの存在確認後、Excelデータの件数を取得する</wsdl:documentation>
+      <wsdl:input message="tns:ExistNonyusakiAndExcleSoapIn" />
+      <wsdl:output message="tns:ExistNonyusakiAndExcleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllARListData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">全体Excel用データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetAllARListDataSoapIn" />
+      <wsdl:output message="tns:GetAllARListDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistNonyusakiAndHiyouExcel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">納入先マスタの存在確認後、費用Excelデータの件数を取得する</wsdl:documentation>
+      <wsdl:input message="tns:ExistNonyusakiAndHiyouExcelSoapIn" />
+      <wsdl:output message="tns:ExistNonyusakiAndHiyouExcelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllARCostListData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">全体費用Excel用データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetAllARCostListDataSoapIn" />
+      <wsdl:output message="tns:GetAllARCostListDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendMailInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メール送信情報を取得</wsdl:documentation>
+      <wsdl:input message="tns:GetSendMailInfoSoapIn" />
+      <wsdl:output message="tns:GetSendMailInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNonyusaki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">納入先マスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetNonyusakiSoapIn" />
+      <wsdl:output message="tns:GetNonyusakiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetARData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetARDataSoapIn" />
+      <wsdl:output message="tns:GetARDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetARandInterLock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報データ インターロック＆データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetARandInterLockSoapIn" />
+      <wsdl:output message="tns:GetARandInterLockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdARInterUnLock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報データ インターロック解除</wsdl:documentation>
+      <wsdl:input message="tns:UpdARInterUnLockSoapIn" />
+      <wsdl:output message="tns:UpdARInterUnLockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsAR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報データ登録</wsdl:documentation>
+      <wsdl:input message="tns:InsARSoapIn" />
+      <wsdl:output message="tns:InsARSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdAR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報データ更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdARSoapIn" />
+      <wsdl:output message="tns:UpdARSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArMailInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報データ更新</wsdl:documentation>
+      <wsdl:input message="tns:GetArMailInfoSoapIn" />
+      <wsdl:output message="tns:GetArMailInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckMeisaiData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷明細データのチェック</wsdl:documentation>
+      <wsdl:input message="tns:GetCheckMeisaiDataSoapIn" />
+      <wsdl:output message="tns:GetCheckMeisaiDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">名称マスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetSelectItemSoapIn" />
+      <wsdl:output message="tns:GetSelectItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ユーザー取得</wsdl:documentation>
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonListFlag">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">リスト区分取得</wsdl:documentation>
+      <wsdl:input message="tns:GetCommonListFlagSoapIn" />
+      <wsdl:output message="tns:GetCommonListFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGokiNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">登録号機数の取得</wsdl:documentation>
+      <wsdl:input message="tns:GetGokiNumSoapIn" />
+      <wsdl:output message="tns:GetGokiNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShinchokuKanriNotify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">進捗管理通知設定取得</wsdl:documentation>
+      <wsdl:input message="tns:GetShinchokuKanriNotifySoapIn" />
+      <wsdl:output message="tns:GetShinchokuKanriNotifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailIDWithoutUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MAIL_ID取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMailIDWithoutUpdateSoapIn" />
+      <wsdl:output message="tns:GetMailIDWithoutUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetARNoWithoutUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR_No取得</wsdl:documentation>
+      <wsdl:input message="tns:GetARNoWithoutUpdateSoapIn" />
+      <wsdl:output message="tns:GetARNoWithoutUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckGoki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">号機チェック</wsdl:documentation>
+      <wsdl:input message="tns:CheckGokiSoapIn" />
+      <wsdl:output message="tns:CheckGokiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsInzuhyo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">員数表登録</wsdl:documentation>
+      <wsdl:input message="tns:InsInzuhyoSoapIn" />
+      <wsdl:output message="tns:InsInzuhyoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArShinchokuList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">進捗情報検索</wsdl:documentation>
+      <wsdl:input message="tns:GetArShinchokuListSoapIn" />
+      <wsdl:output message="tns:GetArShinchokuListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArShinchokuMailInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR進捗のメール送信情報を取得</wsdl:documentation>
+      <wsdl:input message="tns:GetArShinchokuMailInfoSoapIn" />
+      <wsdl:output message="tns:GetArShinchokuMailInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendArShinchokuMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR進捗のメール送信</wsdl:documentation>
+      <wsdl:input message="tns:SendArShinchokuMailSoapIn" />
+      <wsdl:output message="tns:SendArShinchokuMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdARUnLockShinchoku">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR情報のインターンロックを解除</wsdl:documentation>
+      <wsdl:input message="tns:UpdARUnLockShinchokuSoapIn" />
+      <wsdl:output message="tns:UpdARUnLockShinchokuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetARInterLockAndShinchokuInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR進捗情報取得</wsdl:documentation>
+      <wsdl:input message="tns:GetARInterLockAndShinchokuInfoSoapIn" />
+      <wsdl:output message="tns:GetARInterLockAndShinchokuInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdARShinchokuInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AR進捗情報登録</wsdl:documentation>
+      <wsdl:input message="tns:UpdARShinchokuInfoSoapIn" />
+      <wsdl:output message="tns:UpdARShinchokuInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKishu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">機種取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKishuSoapIn" />
+      <wsdl:output message="tns:GetKishuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">号機取得</wsdl:documentation>
+      <wsdl:input message="tns:GetGokiSoapIn" />
+      <wsdl:output message="tns:GetGokiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRireki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">変更履歴取得</wsdl:documentation>
+      <wsdl:input message="tns:GetRirekiSoapIn" />
+      <wsdl:output message="tns:GetRirekiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsA01Soap" type="tns:WsA01Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsExistenceNonyusaki">
+      <soap:operation soapAction="http://smssrv/IsExistenceNonyusaki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArDataList">
+      <soap:operation soapAction="http://smssrv/GetArDataList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistNonyusakiAndExcle">
+      <soap:operation soapAction="http://smssrv/ExistNonyusakiAndExcle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllARListData">
+      <soap:operation soapAction="http://smssrv/GetAllARListData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistNonyusakiAndHiyouExcel">
+      <soap:operation soapAction="http://smssrv/ExistNonyusakiAndHiyouExcel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllARCostListData">
+      <soap:operation soapAction="http://smssrv/GetAllARCostListData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendMailInfo">
+      <soap:operation soapAction="http://smssrv/GetSendMailInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNonyusaki">
+      <soap:operation soapAction="http://smssrv/GetNonyusaki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetARData">
+      <soap:operation soapAction="http://smssrv/GetARData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetARandInterLock">
+      <soap:operation soapAction="http://smssrv/GetARandInterLock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdARInterUnLock">
+      <soap:operation soapAction="http://smssrv/UpdARInterUnLock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsAR">
+      <soap:operation soapAction="http://smssrv/InsAR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdAR">
+      <soap:operation soapAction="http://smssrv/UpdAR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArMailInfo">
+      <soap:operation soapAction="http://smssrv/GetArMailInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckMeisaiData">
+      <soap:operation soapAction="http://smssrv/GetCheckMeisaiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectItem">
+      <soap:operation soapAction="http://smssrv/GetSelectItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://smssrv/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonListFlag">
+      <soap:operation soapAction="http://smssrv/GetCommonListFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGokiNum">
+      <soap:operation soapAction="http://smssrv/GetGokiNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShinchokuKanriNotify">
+      <soap:operation soapAction="http://smssrv/GetShinchokuKanriNotify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailIDWithoutUpdate">
+      <soap:operation soapAction="http://smssrv/GetMailIDWithoutUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetARNoWithoutUpdate">
+      <soap:operation soapAction="http://smssrv/GetARNoWithoutUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGoki">
+      <soap:operation soapAction="http://smssrv/CheckGoki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsInzuhyo">
+      <soap:operation soapAction="http://smssrv/InsInzuhyo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArShinchokuList">
+      <soap:operation soapAction="http://smssrv/GetArShinchokuList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArShinchokuMailInfo">
+      <soap:operation soapAction="http://smssrv/GetArShinchokuMailInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendArShinchokuMail">
+      <soap:operation soapAction="http://smssrv/SendArShinchokuMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdARUnLockShinchoku">
+      <soap:operation soapAction="http://smssrv/UpdARUnLockShinchoku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetARInterLockAndShinchokuInfo">
+      <soap:operation soapAction="http://smssrv/GetARInterLockAndShinchokuInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdARShinchokuInfo">
+      <soap:operation soapAction="http://smssrv/UpdARShinchokuInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKishu">
+      <soap:operation soapAction="http://smssrv/GetKishu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoki">
+      <soap:operation soapAction="http://smssrv/GetGoki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRireki">
+      <soap:operation soapAction="http://smssrv/GetRireki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsA01Soap12" type="tns:WsA01Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsExistenceNonyusaki">
+      <soap12:operation soapAction="http://smssrv/IsExistenceNonyusaki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArDataList">
+      <soap12:operation soapAction="http://smssrv/GetArDataList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistNonyusakiAndExcle">
+      <soap12:operation soapAction="http://smssrv/ExistNonyusakiAndExcle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllARListData">
+      <soap12:operation soapAction="http://smssrv/GetAllARListData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistNonyusakiAndHiyouExcel">
+      <soap12:operation soapAction="http://smssrv/ExistNonyusakiAndHiyouExcel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllARCostListData">
+      <soap12:operation soapAction="http://smssrv/GetAllARCostListData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendMailInfo">
+      <soap12:operation soapAction="http://smssrv/GetSendMailInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNonyusaki">
+      <soap12:operation soapAction="http://smssrv/GetNonyusaki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetARData">
+      <soap12:operation soapAction="http://smssrv/GetARData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetARandInterLock">
+      <soap12:operation soapAction="http://smssrv/GetARandInterLock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdARInterUnLock">
+      <soap12:operation soapAction="http://smssrv/UpdARInterUnLock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsAR">
+      <soap12:operation soapAction="http://smssrv/InsAR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdAR">
+      <soap12:operation soapAction="http://smssrv/UpdAR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArMailInfo">
+      <soap12:operation soapAction="http://smssrv/GetArMailInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckMeisaiData">
+      <soap12:operation soapAction="http://smssrv/GetCheckMeisaiData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectItem">
+      <soap12:operation soapAction="http://smssrv/GetSelectItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://smssrv/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonListFlag">
+      <soap12:operation soapAction="http://smssrv/GetCommonListFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGokiNum">
+      <soap12:operation soapAction="http://smssrv/GetGokiNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShinchokuKanriNotify">
+      <soap12:operation soapAction="http://smssrv/GetShinchokuKanriNotify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailIDWithoutUpdate">
+      <soap12:operation soapAction="http://smssrv/GetMailIDWithoutUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetARNoWithoutUpdate">
+      <soap12:operation soapAction="http://smssrv/GetARNoWithoutUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGoki">
+      <soap12:operation soapAction="http://smssrv/CheckGoki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsInzuhyo">
+      <soap12:operation soapAction="http://smssrv/InsInzuhyo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArShinchokuList">
+      <soap12:operation soapAction="http://smssrv/GetArShinchokuList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArShinchokuMailInfo">
+      <soap12:operation soapAction="http://smssrv/GetArShinchokuMailInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendArShinchokuMail">
+      <soap12:operation soapAction="http://smssrv/SendArShinchokuMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdARUnLockShinchoku">
+      <soap12:operation soapAction="http://smssrv/UpdARUnLockShinchoku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetARInterLockAndShinchokuInfo">
+      <soap12:operation soapAction="http://smssrv/GetARInterLockAndShinchokuInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdARShinchokuInfo">
+      <soap12:operation soapAction="http://smssrv/UpdARShinchokuInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKishu">
+      <soap12:operation soapAction="http://smssrv/GetKishu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoki">
+      <soap12:operation soapAction="http://smssrv/GetGoki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRireki">
+      <soap12:operation soapAction="http://smssrv/GetRireki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsA01">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsA01Soap" binding="tns:WsA01Soap">
+      <soap:address location="http://smssrv/sms/WsA01.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsA01Soap12" binding="tns:WsA01Soap12">
+      <soap12:address location="http://smssrv/sms/WsA01.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

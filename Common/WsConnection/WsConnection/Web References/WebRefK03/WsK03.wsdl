@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:element name="CheckExistenceKiwaku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK03" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondK03">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="KojiNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KojiName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ship" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CaseId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="torokuFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BukkenNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KiwakuInsertType" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckExistenceKiwakuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckExistenceKiwakuResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwaku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK03" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKiwakuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKiwakuResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsKiwaku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK03" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsKiwakuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsKiwakuResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="kojiNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdKiwaku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK03" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdKiwakuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdKiwakuResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelKiwaku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondK03" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelKiwakuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelKiwakuResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckExistenceKiwakuSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckExistenceKiwaku" />
+  </wsdl:message>
+  <wsdl:message name="CheckExistenceKiwakuSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckExistenceKiwakuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKiwaku" />
+  </wsdl:message>
+  <wsdl:message name="GetKiwakuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKiwakuResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsKiwakuSoapIn">
+    <wsdl:part name="parameters" element="tns:InsKiwaku" />
+  </wsdl:message>
+  <wsdl:message name="InsKiwakuSoapOut">
+    <wsdl:part name="parameters" element="tns:InsKiwakuResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdKiwakuSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdKiwaku" />
+  </wsdl:message>
+  <wsdl:message name="UpdKiwakuSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdKiwakuResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelKiwakuSoapIn">
+    <wsdl:part name="parameters" element="tns:DelKiwaku" />
+  </wsdl:message>
+  <wsdl:message name="DelKiwakuSoapOut">
+    <wsdl:part name="parameters" element="tns:DelKiwakuResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsK03Soap">
+    <wsdl:operation name="CheckExistenceKiwaku">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠取得チェック</wsdl:documentation>
+      <wsdl:input message="tns:CheckExistenceKiwakuSoapIn" />
+      <wsdl:output message="tns:CheckExistenceKiwakuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwaku">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKiwakuSoapIn" />
+      <wsdl:output message="tns:GetKiwakuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsKiwaku">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠データ登録</wsdl:documentation>
+      <wsdl:input message="tns:InsKiwakuSoapIn" />
+      <wsdl:output message="tns:InsKiwakuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwaku">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠データ更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdKiwakuSoapIn" />
+      <wsdl:output message="tns:UpdKiwakuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwaku">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">木枠データ削除</wsdl:documentation>
+      <wsdl:input message="tns:DelKiwakuSoapIn" />
+      <wsdl:output message="tns:DelKiwakuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsK03Soap" type="tns:WsK03Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckExistenceKiwaku">
+      <soap:operation soapAction="http://smssrv/CheckExistenceKiwaku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwaku">
+      <soap:operation soapAction="http://smssrv/GetKiwaku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsKiwaku">
+      <soap:operation soapAction="http://smssrv/InsKiwaku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwaku">
+      <soap:operation soapAction="http://smssrv/UpdKiwaku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwaku">
+      <soap:operation soapAction="http://smssrv/DelKiwaku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsK03Soap12" type="tns:WsK03Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckExistenceKiwaku">
+      <soap12:operation soapAction="http://smssrv/CheckExistenceKiwaku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKiwaku">
+      <soap12:operation soapAction="http://smssrv/GetKiwaku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsKiwaku">
+      <soap12:operation soapAction="http://smssrv/InsKiwaku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKiwaku">
+      <soap12:operation soapAction="http://smssrv/UpdKiwaku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKiwaku">
+      <soap12:operation soapAction="http://smssrv/DelKiwaku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsK03">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsK03Soap" binding="tns:WsK03Soap">
+      <soap:address location="http://smssrv/sms/WsK03.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsK03Soap12" binding="tns:WsK03Soap12">
+      <soap12:address location="http://smssrv/sms/WsK03.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

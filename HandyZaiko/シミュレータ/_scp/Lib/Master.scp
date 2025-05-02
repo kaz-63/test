@@ -1,0 +1,646 @@
+// Copyright (c) 2005-2010 KEYENCE CORPORATION. All rights reserved.
+/*!
+ * @file Master.scp
+ * @brief 
+ */
+
+
+/*!
+ * @class マスタ操作パッケージ
+ */
+Package MasterAccess
+	mstName = ""
+	mstTmpName = ""
+	mstAddName = ""
+	mstType = ""
+	mstModify = ""
+	mstKey = 0
+	btvMstRecNum = 0	// マスタ検索数
+	btvMstRecPos = 0	// 現在表示レコード
+
+    /*!
+     * @brief マスタ操作パッケージの初期化(オープンは実施しない)
+     * 
+     * @param name ファイル名
+     * @param type マスタの種別
+     * @param modify 変更を行う列番号
+     * @param max 最大フィールド数
+     * @param preloop ループ先頭より前の対象数(0-2)
+     * @return なし
+     * @attention なし
+     */
+	Method Initialize(name, type, modify, max, preloop)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:Initialize()\n")
+		EndIf
+
+		Master:Initialize()
+		mstName = name
+		mstType = type
+		mstModify = modify
+
+		// マスターテンポラリファイル名を作成する
+		mstTmpName = ConvertTmpName(mstName)
+		Master:tmpFilename = mstTmpName
+
+	End Method
+
+    /*!
+     * @brief 元のファイル名から一時ファイル名を作成する
+     * 
+     * @param fileName マスタファイル名
+     * @return 一時ファイル名
+     * @attention なし
+     */
+	Method ConvertTmpName(fileName)
+		pos
+		tmpName
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:ConvertTmpName()\n")
+		EndIf
+
+		pos = fileName.Rfind(".", fileName.length-1)
+		If pos is Nil Then
+			tmpName = fileName & ".MTP"
+		Else
+			tmpName = fileName.left(pos) & ".MTP"
+		EndIf
+		If tmpName.Left(2) eq "1:" Then
+			tmpName = "2:" & tmpName.mid(2, tmpName.length-2)
+		ElseIf tmpName.Left(2) eq "5:" Then
+			tmpName = "5:" & tmpName.mid(2, tmpName.length-2)
+		Else
+			tmpName = ""
+		EndIf
+		
+		Return(tmpName)
+		
+	EndMethod
+	
+    /*!
+     * @brief マスタのオープン
+     * 
+     * @param なし
+     * @return 成功時:true, 失敗時:false
+     * @attention なし
+     */
+	Method Open()
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:Open()\n")
+		EndIf
+
+		Master:tmpFilename = mstTmpName
+		ret = Master:Open(mstName, mstType, mstModify)
+		mstAddName = Master:addFilename
+		Return(ret)
+
+	End Method
+
+    /*!
+     * @brief マスタを閉じる。
+     * 
+     * @param なし
+     * @return マージを行った場合はレコード件数、トップに戻る場合は"returntop"、それ以外の場合は""
+     * @attention なし
+     */
+	Method Close()
+		ret = true
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:Close()\n")
+		EndIf
+
+		// nilの場合は何もしない
+		If JOB:MasterType is nil Then
+			return(true)
+		EndIf
+		Master:Close()
+		mstKey = 0
+		Return(ret)
+	End Method
+
+    /*!
+     * @brief 2度読み防止用マスタのリセット(ローカルマスタのみMTPファイル、ADDファイルを削除する)
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method Reset()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:Reset()\n")
+		EndIf
+
+		// nilの場合は何もしない
+		If JOB:MasterType is nil Then
+			return(true)
+		EndIf
+
+		With Master
+			:Close()
+			FileSystem:Delete(mstTmpName)
+			FileSystem:Delete(mstAddName)
+		EndWith
+
+		Open()
+	Catch
+		Open()
+	End Method
+
+    /*!
+     * @brief 一時ファイルの削除(ローカルマスタのみMTPファイル、ADDファイルを削除する)
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method DeleteTmpFile()		// Resetとほぼ同じ処理(最後にOpenしない)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:DeleteTmpFile()\n")
+		EndIf
+
+		// nilの場合は何もしない
+		If JOB:MasterType is nil Then
+			return(true)
+		EndIf
+
+		With Master
+			:Close()
+			FileSystem:Delete(mstTmpName)
+			FileSystem:Delete(mstAddName)
+		EndWith
+
+	Catch
+	End Method
+
+    /*!
+     * @brief 2度読み防止用マスタファイルをすべて削除
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method AllReset()
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:AllReset()\n")
+		EndIf
+
+		// ドライブ1、ドライブ2のファイルを検索し、OVERLAP!.MTP, OVERLAP!.ADDファイルを削除する
+		If JOB:MasterType is nil Then
+		Else
+			Master:Close()
+		EndIf
+		
+		With FileSystem
+			:Initialize()
+			ret = :FindFirst("1:")
+			While (ret is true)
+				If :findFileName weq "1:OVERLAP!.MTP" Then
+					:Delete(:findFileName)
+					ret = :FindFirst("1:")
+				ElseIf :findFileName weq "1:OVERLAP!.ADD" Then
+					:Delete(:findFileName)
+					ret = :FindFirst("1:")
+				Else
+					ret = :FindNext()
+				EndIf
+			Wend
+			
+			:Initialize()
+			ret = :FindFirst("2:")
+			While (ret is true)
+				If :findFileName weq "2:OVERLAP!.MTP" Then
+					:Delete(:findFileName)
+					ret = :FindFirst("2:")
+				ElseIf :findFileName weq "2:OVERLAP!.ADD" Then
+					:Delete(:findFileName)
+					ret = :FindFirst("2:")
+				Else
+					ret = :FindNext()
+				EndIf
+			Wend
+		EndWith
+		// 現在の作業を継続できるようにオープンを行う
+		Open()
+	Catch
+		Open()
+	EndMethod
+	
+    /*!
+     * @brief 検索キーのセット
+     * 
+     * @param itemIndex セットするインデクス
+     * @param keyData キーデータ
+     * @return 成功時:true / 失敗時:false
+     * @attention なし
+     */
+	Method SetKey(itemIndex, keyData)
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:SetKey()\n")
+		EndIf
+
+		ret = Master:SetKey(itemIndex, keyData)
+		Return(ret)
+
+	Catch
+		Return(false)
+	End Method
+
+    /*!
+     * @brief 使用する選択キーの数を設定
+     * 
+     * @param index 選択キーの数
+     * @return なし
+     * @attention 基本的にはmstKeyは、VerifyやGetCountで自動的に設定される
+     */
+	Method SetKeyIndex(index)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:SetKeyIndex()\n")
+		EndIf
+
+		mstKey = index
+	End Method
+
+    /*!
+     * @brief 設定されているキーの数を取得
+     * 
+     * @param なし
+     * @return キーの数
+     * @attention なし
+     */
+	Method GetKeyIndex()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:GetKeyIndex()\n")
+		EndIf
+
+		return (mstKey)
+	End Method
+
+    /*!
+     * @brief 照合の実行
+     * 
+     * @param order 順序指定
+     * @param keynum 検索キーの数
+     * @return true:照合成功、false:照合失敗、"returptop":トップに戻る (リモートの場合のみ、成功時は一致レコード数)
+     * @attention なし
+     */
+	Method Verify(order, keynum)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:Verify()\n")
+		EndIf
+
+		mstKey = keynum
+		With Master
+			:keyNum = keynum
+			Return(:GetFirst(order, false))
+		EndWith
+	End Method
+
+    /*!
+     * @brief 登録したマスタデータの追加
+     * 
+     * @param なし
+     * @return 成功時:true / 失敗時:false (リモート:false)
+     * @attention なし
+     */
+	Method Append()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:Append()\n")
+		EndIf
+
+		Return(Master:Append())
+
+	End Method
+
+    /*!
+     * @brief マスタに消し込み可能なデータがあるかどうか
+     * 
+     * @param なし
+     * @return "existdata" ある時
+     *         "nodata" 無いとき
+     *         "nomaster" マスタが存在しない
+     *         "existdata_no_tmpfile" ファイルが存在するが一時ファイルが存在しない
+     *         "returntop" 通信エラー
+     * @attention なし
+     */
+	Method CheckMaster()
+		mstRet
+		msttemp		/**< キー項目数退避変数 */
+		tmpfilefind = true
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:CheckMaster()\n")
+		EndIf
+
+		If (FileSystem:FindFirst(mstName)) is false Then return ("nomaster") EndIf
+		If (FileSystem:FindFirst(mstTmpName)) is false Then tmpfilefind = false EndIf
+
+		With Master
+			msttemp = :keyNum
+			:Close()
+			mstRet = :Open(mstName, mstType, mstModify)
+			:keyNum = 0
+			mstRet = :GetFirst(nil, false)
+			:keyNum = msttemp
+		End With
+		If (mstRet is false) Then
+			return ("nodata")
+		ElseIf (mstRet > 0) Then 
+			IF tmpfilefind is false Then
+				return ("existdata_no_tmpfile")
+			Else
+				return ("existdata")
+			EndIf
+		Else
+			return ("nodata")
+		EndIf
+
+	End Method
+
+
+    /*!
+     * @brief 指定したフィールドの値を増減する(差分入力用)
+     * 
+     * @param setFieldNum 差分入力するフィールド
+     * @param incNum 増加数
+     * @return 更新件数、負の値:更新に失敗、"returntop":トップに戻る
+     * @attention なし
+     */
+	Method IncrementalUpdate( setFieldNum, incNum )
+		val
+		fieldLen
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:IncrementalUpdate()\n")
+		EndIf
+
+		With Master
+			val = :GetData(setFieldNum)
+			fieldLen = val.length
+			:keyNum = setFieldNum
+			:GetFirst(nil,false)
+			val = val + incNum
+
+			If mstType.length > 1 Then
+			// 固定長の数値フィールドは0を前詰めで桁数を合わせる
+				val = UTL:utlMakeFixedNumZero(val, fieldLen)
+			EndIf
+
+			If (:ModifyItem(val)) Then
+				return (1)
+			Else
+				return (-1)
+			EndIf
+		End With
+	End Method
+
+    /*!
+     * @brief マスタの消しこみ
+     * 
+     * @param なし
+     * @return 削除件数、負の値:削除に失敗、"returntop":トップに戻る (ローカルの場合はtrue:成功、false:失敗)
+     * @attention なし
+     */
+	Method DeleteRecord()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:DeleteRecord()\n")
+		EndIf
+
+		Master:keyNum = mstKey
+		Return(Master:SetDeleteFlag(true,false))
+
+	End Method
+
+    /*!
+     * @brief フィールドの値をセットする(2度読み防止用)
+     * 
+     * @param index インデクス
+     * @param data データ
+     * @return true:成功 / false:失敗 (リモート時はtrue)
+     * @attention なし
+     */
+	Method SetData(index, data)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:SetData()\n")
+		EndIf
+
+		Return(Master:SetData(index, data))
+
+	End Method
+
+    /*!
+     * @brief フィールドの値を取得する
+     * 
+     * @param index インデクス
+     * @return フィールドの値 (null:取得に失敗)
+     * @attention なし
+     */
+	Method GetData(index)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:GetData()\n")
+		EndIf
+
+		Return(Master:GetData(index))
+
+	End Method
+
+    /*!
+     * @brief マスタファイルの残り件数を取得
+     * 
+     * @param key キーインデクス
+     * @return 残り件数 (TOPに戻る:"returntop")
+     * @attention なし
+     */
+	Method GetCount(key)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:GetCount()\n")
+		EndIf
+
+		mstKey = key
+
+		Master:keyNum = key
+		If key == 0 Then
+			Return(Master:GetTotalCount(false))
+		Else
+			Return(Master:GetCount(false))
+		EndIf
+
+	End Method
+
+    /*!
+     * @brief 残り作業表示
+     * 
+     * @param keynum 検索キーの指定数
+     * @return true:残り作業表示終了、"returntop":トップに戻る
+     * @attention なし
+     */
+	Method ShowList(keynum)
+		btvRet
+		btvRet2
+		btvKeynum_tmp		// キー項目数テンポラリ
+		btvKeycode
+		btvTitle			// タイトル
+		btvDispLine			// ビューア表示範囲
+
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:ShowList()\n")
+		EndIf
+
+		btvKeynum_tmp = Master:keyNum
+
+		If ( keynum == 0 or mstKey < keynum ) Then 
+			Master:keyNum = 0
+		Else
+			Master:keyNum = keynum
+		EndIf
+
+		btvMstRecNum = Master:GetCount(false)
+
+		btvMstRecPos = 0
+		btvRet = Master:GetAt(btvMstRecPos)
+		If btvRet is false Then 
+			Dialog:Message(nil, "マスタファイルを確認して下さい","confirm", "", "", "middle")
+			return ( false )
+		EndIf
+
+		//画面表示
+		btvRet = UTL_INTERFACE:disp_sagyou_list()
+		If not (btvRet is nil) Then
+			If btvRet eq "returntop" Then return( true ) EndIf
+		EndIf
+
+		While 1
+			btvTitle = "残り作業表示"
+			With Screen
+				TempScreenInfo:Push()
+				:fontSize="large"
+				:fontGapx=0
+				:fontGapy=0
+				btvDispLine = (160 * 4) * 2 / (14 + :fontGapy) - 1
+				btvKeycode = :Viewer(btvTitle,1,btvDispLine,1)
+				TempScreenInfo:Pop2()
+			EndWith
+
+			Select Case btvKeycode
+			Case "RIGHT"
+				btvMstRecPos = btvMstRecPos + 1
+				If btvMstRecPos > btvMstRecNum-1 Then
+					btvMstRecPos = 0
+				EndIf
+			Case "LEFT"
+				btvMstRecPos = btvMstRecPos -1
+				If btvMstRecPos < 0 Then
+					btvMstRecPos = btvMstRecNum-1
+				EndIf
+			Case "ENT"
+				Wbreak
+			Case "C"
+				Wbreak
+			Case "BS"
+				Wbreak
+			Case Else
+			End Select
+			
+			btvRet = Master:GetAt(btvMstRecPos)
+			If btvRet is false Then 
+				Dialog:Message(nil, "マスタファイルを確認して下さい","confirm", "", "", "middle")
+				return ( false )
+			EndIf
+			btvRet = UTL_INTERFACE:disp_sagyou_list()
+			If not (btvRet is nil) Then
+				If btvRet eq "returntop" Then return( true ) EndIf
+			EndIf
+		Wend
+		
+		Master:keyNum = btvKeynum_tmp
+		return(false)
+	End Method
+
+
+    /*!
+     * @brief 作業画面以外での指示データの取得メソッド
+     * 
+     * @param keynum キーインデクス
+     * @return 指示データ ("*****":取得に失敗)
+     * @attention なし
+     */
+	Method GetDirective( keynum )
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:GetDirective()\n")
+		EndIf
+
+		Master:keyNum = mstKey
+		Master:GetFirst(false,false)
+		Return(Master:GetData(keynum))
+	Catch
+		Return( "*****" )
+	End Method
+
+    /*!
+     * @brief GetDirectiveをキーの設定を自動的に操作して実行するメソッド
+     * 
+     * @see MasterAccess:GetDirective
+     * @param keynum キーインデクス
+     * @param fieldnum フィールド番号
+     * @return 指示データ ("*****":取得に失敗)
+     * @attention なし
+     */
+	Method GetDirectiveAuto( keynum, fieldnum )
+		tmpKeyNum
+		result
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:GetDirectiveAuto()\n")
+		EndIf
+
+		tmpKeyNum = mstKey
+		
+		If keynum > 0 Then
+			mstKey = keynum - 1
+		EndIf
+		result = GetDirective( fieldnum )
+		
+		mstKey = tmpKeyNum
+		
+		Return ( result )
+	EndMethod
+	
+    /*!
+     * @brief 作業画面内専用指示データの取得メソッド
+     * 
+     * @param keynum キーインデクス
+     * @return 指示データ ("*****":取得に失敗)
+     * @attention なし
+     */
+	Method GetDirectiveInList( keynum )
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Master.scp [func] MasterAccess:GetDirectiveInList()\n")
+		EndIf
+
+		Return(Master:GetData(keynum))
+	Catch
+		Return( "*****" )
+	End Method
+
+EndPackage

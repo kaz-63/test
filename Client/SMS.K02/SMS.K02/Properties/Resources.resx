@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BoxListHakko_BoxNo" xml:space="preserve">
+    <value>BoxNo.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="BoxListHakko_DeliveryDestination" xml:space="preserve">
+    <value>納入先(User)</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="BoxListHakko_Print" xml:space="preserve">
+    <value>Print</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="BoxListHakko_Ship" xml:space="preserve">
+    <value>便(Ship)</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpoMeisai_PalletNo" xml:space="preserve">
+    <value>PalletNo.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_ButtonTextPtMeisai" xml:space="preserve">
+    <value>PT明細</value>
+  </data>
+  <data name="KiwakuKonpo_ButtonTextTagMeisai" xml:space="preserve">
+    <value>TAG明細</value>
+  </data>
+  <data name="KiwakuKonpo_CNo" xml:space="preserve">
+    <value>C/NO</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_Description" xml:space="preserve">
+    <value>DESCRIPTION</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_GrossW" xml:space="preserve">
+    <value>GROSS/W</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_Item" xml:space="preserve">
+    <value>ITEM</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_Mment" xml:space="preserve">
+    <value>MMENT</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_NetW" xml:space="preserve">
+    <value>NET/W</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_Pallet" xml:space="preserve">
+    <value>Pallet</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_PkgStyle" xml:space="preserve">
+    <value>PKG
+STYLE</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuKonpo_WoodFrameWeight" xml:space="preserve">
+    <value>木枠重量</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PackingListHakko_ConstructionIdentityNo" xml:space="preserve">
+    <value>工事識別NO</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PackingListHakko_ExcelFilter" xml:space="preserve">
+    <value>ExcelFiles|*.xls</value>
+  </data>
+  <data name="PackingListHakko_ExcelFilterXlsx" xml:space="preserve">
+    <value>ExcelFiles|*.xlsx</value>
+  </data>
+  <data name="PackingListHakko_ListSelect" xml:space="preserve">
+    <value>ListSelect</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PackingListHakko_ManagementNo" xml:space="preserve">
+    <value>管理No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PackingListHakko_Print" xml:space="preserve">
+    <value>Print</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PackingListHakko_sfdExcel_Title" xml:space="preserve">
+    <value>明細ExcelFiles保存</value>
+    <comment>ファイル保存ダイアログのタイトル</comment>
+  </data>
+  <data name="PackingListHakko_Ship" xml:space="preserve">
+    <value>便(Ship)</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PackingListHakko_WorkSituation" xml:space="preserve">
+    <value>作業状況</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PalletListHakko_DeliveryDestination" xml:space="preserve">
+    <value>納入先(User)</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PalletListHakko_PalletNo" xml:space="preserve">
+    <value>PalletNo.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PalletListHakko_Print" xml:space="preserve">
+    <value>Print</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="PalletListHakko_Ship" xml:space="preserve">
+    <value>便(Ship)</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShagaiKiwakuKonpoMeisai_MarkingTagNo" xml:space="preserve">
+    <value>現品TagNo.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_FileOpen" xml:space="preserve">
+    <value>Fileを開く</value>
+  </data>
+  <data name="KiwakuMatomeInsatsu_ImageFile" xml:space="preserve">
+    <value>Image Files(*.PNG;*.JPG;*.BMP)|*.PNG;*.JPG;*.BMP</value>
+  </data>
+  <data name="KiwakuMatomeInsatsu_CNo" xml:space="preserve">
+    <value>C/No</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_Description" xml:space="preserve">
+    <value>DESCRIPTION</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_Item" xml:space="preserve">
+    <value>ITEM</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_Mment" xml:space="preserve">
+    <value>MMENT</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_Order" xml:space="preserve">
+    <value>順番</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_PkgStyle" xml:space="preserve">
+    <value>PKG STYLE</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_PrintCNo" xml:space="preserve">
+    <value>印刷C/No</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_Ship" xml:space="preserve">
+    <value>便(Ship)</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_WoodWeight" xml:space="preserve">
+    <value>木材重量</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_FillCNoFormat" xml:space="preserve">
+    <value>{0}-{1}</value>
+    <comment>0:便名,1:連番</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_GrossW" xml:space="preserve">
+    <value>GROSS/W</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="KiwakuMatomeInsatsu_NetW" xml:space="preserve">
+    <value>NET/W</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+</root>

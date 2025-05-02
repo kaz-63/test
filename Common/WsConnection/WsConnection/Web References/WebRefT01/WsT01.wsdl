@@ -1,0 +1,2145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:element name="GetTehaiMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondT01">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EcsNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EcsQuota" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TehaiRenkeiNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssyRange" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SetteiDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BukkenName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Seiban" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ARNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShukkaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nouhinsaki" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TehaiNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProjectNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Shukkasaki" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TehaiKubun" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Yusho" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Mitsumorizyokyo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MitsumoriNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PONo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SelectGroupCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HinmeiJp" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hinmei" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PartsCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Oiban" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NyukaFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssyFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TagTourokuFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TehaiSKSRenkeiFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ZumenKeishiki" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ZumenKeishiki2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TehaiKindFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NonyusakiCDs" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="CaseNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TagNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BoxNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PalletNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KiwakuShip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DispSelect" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HenkyakuhinFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TehaiNyukaSearchMode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssyNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Estimate_Mode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreateDateStart" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreateDateEnd" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SetteiDateStart" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SetteiDateEnd" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RirekiUpdate" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTehaiMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiMeisaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsTehaiMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsTehaiMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsTehaiMeisaiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiMeisaiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelTehaiMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelTehaiMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelTehaiMeisaiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGiren">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGirenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGirenResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSelectItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSelectItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSelectItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartsName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartsNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartsNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManageZumenKeishikiInSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManageZumenKeishikiInSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetManageZumenKeishikiInSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZumenKeishikiInputAssistance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZumenKeishikiInputAssistanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetZumenKeishikiInputAssistanceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiSKSWorkVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiSKSWorkVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiSKSWorkVersionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSKSTehaiRenkeiDispData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSKSTehaiRenkeiDispDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSKSTehaiRenkeiDispDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSKSTehaiRenkeiTehaiSKS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSKSTehaiRenkeiTehaiSKSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSKSTehaiRenkeiTehaiSKSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSKSTehaiRenkeiTehaiSKSWork">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSKSTehaiRenkeiTehaiSKSWorkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSKSTehaiRenkeiTehaiSKSWorkResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdSKSTehaiRenkei">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdSKSTehaiRenkeiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdSKSTehaiRenkeiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiShokai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiShokaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiShokaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInitTehaiJohoShokai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInitTehaiJohoShokaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInitTehaiJohoShokaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiJohoShokai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiJohoShokaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiJohoShokaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiJohoRireki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiJohoRirekiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiJohoRirekiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiMitsumori">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiMitsumoriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiMitsumoriResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEstimateInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEstimateInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEstimateInformationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsTehaiMitsumori">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsTehaiMitsumoriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsTehaiMitsumoriResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="saiban" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMitsumori">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMitsumoriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiMitsumoriResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelTehaiMitsumori">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelTehaiMitsumoriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelTehaiMitsumoriResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMitsumoriOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMitsumoriOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiMitsumoriOrderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiEstimateMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiEstimateMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiEstimateMailResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTotalAmountForMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTotalAmountForMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTotalAmountForMailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiMitsumoriMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiMitsumoriMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiMitsumoriMeisaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMitsumoriMeisaiVersionData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiMitsumoriMeisaiVersionDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiMitsumoriMeisaiVersionDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiKenpin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiKenpinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiKenpinResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiKenpinCsv">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiKenpinCsvResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiKenpinCsvResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiKenpin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdTehaiKenpinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTehaiKenpinResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBukkenNameList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBukkenNameListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBukkenNameListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInitTehaiKenpin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInitTehaiKenpinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInitTehaiKenpinResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSksLastLink">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSksLastLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSksLastLinkResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKumitateJisseki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKumitateJissekiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKumitateJissekiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdKumitateJisseki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdKumitateJissekiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdKumitateJissekiResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShukkaMeisai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShukkaMeisaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShukkaMeisaiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiMitsumoriValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiMitsumoriValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiMitsumoriValueResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiMeisaiRireki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondT01" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTehaiMeisaiRirekiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTehaiMeisaiRirekiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTehaiMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiMeisai" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsTehaiMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:InsTehaiMeisai" />
+  </wsdl:message>
+  <wsdl:message name="InsTehaiMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:InsTehaiMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMeisai" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelTehaiMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:DelTehaiMeisai" />
+  </wsdl:message>
+  <wsdl:message name="DelTehaiMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:DelTehaiMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGirenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGiren" />
+  </wsdl:message>
+  <wsdl:message name="GetGirenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGirenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSelectItem" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSelectItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartsNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartsName" />
+  </wsdl:message>
+  <wsdl:message name="GetPartsNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartsNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetManageZumenKeishikiInSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:GetManageZumenKeishikiInSearch" />
+  </wsdl:message>
+  <wsdl:message name="GetManageZumenKeishikiInSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:GetManageZumenKeishikiInSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetZumenKeishikiInputAssistanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetZumenKeishikiInputAssistance" />
+  </wsdl:message>
+  <wsdl:message name="GetZumenKeishikiInputAssistanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetZumenKeishikiInputAssistanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiSKSWorkVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiSKSWorkVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiSKSWorkVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiSKSWorkVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSKSTehaiRenkeiDispDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSKSTehaiRenkeiDispData" />
+  </wsdl:message>
+  <wsdl:message name="GetSKSTehaiRenkeiDispDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSKSTehaiRenkeiDispDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSKSTehaiRenkeiTehaiSKSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSKSTehaiRenkeiTehaiSKS" />
+  </wsdl:message>
+  <wsdl:message name="GetSKSTehaiRenkeiTehaiSKSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSKSTehaiRenkeiTehaiSKSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSKSTehaiRenkeiTehaiSKSWorkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSKSTehaiRenkeiTehaiSKSWork" />
+  </wsdl:message>
+  <wsdl:message name="GetSKSTehaiRenkeiTehaiSKSWorkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSKSTehaiRenkeiTehaiSKSWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdSKSTehaiRenkeiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdSKSTehaiRenkei" />
+  </wsdl:message>
+  <wsdl:message name="UpdSKSTehaiRenkeiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdSKSTehaiRenkeiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiShokaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiShokai" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiShokaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiShokaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInitTehaiJohoShokaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInitTehaiJohoShokai" />
+  </wsdl:message>
+  <wsdl:message name="GetInitTehaiJohoShokaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInitTehaiJohoShokaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiJohoShokaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiJohoShokai" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiJohoShokaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiJohoShokaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiJohoRirekiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiJohoRireki" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiJohoRirekiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiJohoRirekiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMitsumoriSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiMitsumori" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMitsumoriSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiMitsumoriResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEstimateInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEstimateInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetEstimateInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEstimateInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsTehaiMitsumoriSoapIn">
+    <wsdl:part name="parameters" element="tns:InsTehaiMitsumori" />
+  </wsdl:message>
+  <wsdl:message name="InsTehaiMitsumoriSoapOut">
+    <wsdl:part name="parameters" element="tns:InsTehaiMitsumoriResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMitsumoriSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMitsumori" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMitsumoriSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMitsumoriResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelTehaiMitsumoriSoapIn">
+    <wsdl:part name="parameters" element="tns:DelTehaiMitsumori" />
+  </wsdl:message>
+  <wsdl:message name="DelTehaiMitsumoriSoapOut">
+    <wsdl:part name="parameters" element="tns:DelTehaiMitsumoriResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMitsumoriOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMitsumoriOrder" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMitsumoriOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMitsumoriOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiEstimateMailSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiEstimateMail" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiEstimateMailSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiEstimateMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalAmountForMailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTotalAmountForMail" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalAmountForMailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTotalAmountForMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMitsumoriMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiMitsumoriMeisai" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMitsumoriMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiMitsumoriMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMitsumoriMeisaiVersionDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMitsumoriMeisaiVersionData" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiMitsumoriMeisaiVersionDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiMitsumoriMeisaiVersionDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiKenpinSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiKenpin" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiKenpinSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiKenpinResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiKenpinCsvSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiKenpinCsv" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiKenpinCsvSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiKenpinCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiKenpinSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTehaiKenpin" />
+  </wsdl:message>
+  <wsdl:message name="UpdTehaiKenpinSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTehaiKenpinResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBukkenNameListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBukkenNameList" />
+  </wsdl:message>
+  <wsdl:message name="GetBukkenNameListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBukkenNameListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInitTehaiKenpinSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInitTehaiKenpin" />
+  </wsdl:message>
+  <wsdl:message name="GetInitTehaiKenpinSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInitTehaiKenpinResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSksLastLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSksLastLink" />
+  </wsdl:message>
+  <wsdl:message name="GetSksLastLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSksLastLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKumitateJissekiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKumitateJisseki" />
+  </wsdl:message>
+  <wsdl:message name="GetKumitateJissekiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKumitateJissekiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdKumitateJissekiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdKumitateJisseki" />
+  </wsdl:message>
+  <wsdl:message name="UpdKumitateJissekiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdKumitateJissekiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShukkaMeisaiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShukkaMeisai" />
+  </wsdl:message>
+  <wsdl:message name="GetShukkaMeisaiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShukkaMeisaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMitsumoriValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiMitsumoriValue" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMitsumoriValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiMitsumoriValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMeisaiRirekiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTehaiMeisaiRireki" />
+  </wsdl:message>
+  <wsdl:message name="GetTehaiMeisaiRirekiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTehaiMeisaiRirekiResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsT01Soap">
+    <wsdl:operation name="GetTehaiMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiMeisaiSoapIn" />
+      <wsdl:output message="tns:GetTehaiMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細データ登録</wsdl:documentation>
+      <wsdl:input message="tns:InsTehaiMeisaiSoapIn" />
+      <wsdl:output message="tns:InsTehaiMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細データ更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiMeisaiSoapIn" />
+      <wsdl:output message="tns:UpdTehaiMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細データ削除</wsdl:documentation>
+      <wsdl:input message="tns:DelTehaiMeisaiSoapIn" />
+      <wsdl:output message="tns:DelTehaiMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGiren">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">技連情報取得</wsdl:documentation>
+      <wsdl:input message="tns:GetGirenSoapIn" />
+      <wsdl:output message="tns:GetGirenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">名称マスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetSelectItemSoapIn" />
+      <wsdl:output message="tns:GetSelectItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">パーツ名マスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetPartsNameSoapIn" />
+      <wsdl:output message="tns:GetPartsNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManageZumenKeishikiInSearch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">図番/型式画像ファイル管理データ取得(IN検索)</wsdl:documentation>
+      <wsdl:input message="tns:GetManageZumenKeishikiInSearchSoapIn" />
+      <wsdl:output message="tns:GetManageZumenKeishikiInSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZumenKeishikiInputAssistance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">図番/型式の入力補助関連データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetZumenKeishikiInputAssistanceSoapIn" />
+      <wsdl:output message="tns:GetZumenKeishikiInputAssistanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiSKSWorkVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細WORKバージョン取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiSKSWorkVersionSoapIn" />
+      <wsdl:output message="tns:GetTehaiSKSWorkVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiDispData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細取得</wsdl:documentation>
+      <wsdl:input message="tns:GetSKSTehaiRenkeiDispDataSoapIn" />
+      <wsdl:output message="tns:GetSKSTehaiRenkeiDispDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiTehaiSKS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細取得</wsdl:documentation>
+      <wsdl:input message="tns:GetSKSTehaiRenkeiTehaiSKSSoapIn" />
+      <wsdl:output message="tns:GetSKSTehaiRenkeiTehaiSKSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiTehaiSKSWork">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配明細WORK取得</wsdl:documentation>
+      <wsdl:input message="tns:GetSKSTehaiRenkeiTehaiSKSWorkSoapIn" />
+      <wsdl:output message="tns:GetSKSTehaiRenkeiTehaiSKSWorkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiRenkei">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS手配連携更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdSKSTehaiRenkeiSoapIn" />
+      <wsdl:output message="tns:UpdSKSTehaiRenkeiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiShokai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiShokaiSoapIn" />
+      <wsdl:output message="tns:GetTehaiShokaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInitTehaiJohoShokai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">初期表示(手配情報照会)</wsdl:documentation>
+      <wsdl:input message="tns:GetInitTehaiJohoShokaiSoapIn" />
+      <wsdl:output message="tns:GetInitTehaiJohoShokaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiJohoShokai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiJohoShokaiSoapIn" />
+      <wsdl:output message="tns:GetTehaiJohoShokaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiJohoRireki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配履歴更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiJohoRirekiSoapIn" />
+      <wsdl:output message="tns:UpdTehaiJohoRirekiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumori">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配見積取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiMitsumoriSoapIn" />
+      <wsdl:output message="tns:GetTehaiMitsumoriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstimateInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">見積情報取得</wsdl:documentation>
+      <wsdl:input message="tns:GetEstimateInformationSoapIn" />
+      <wsdl:output message="tns:GetEstimateInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiMitsumori">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配見積データ登録</wsdl:documentation>
+      <wsdl:input message="tns:InsTehaiMitsumoriSoapIn" />
+      <wsdl:output message="tns:InsTehaiMitsumoriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumori">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配見積データ更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiMitsumoriSoapIn" />
+      <wsdl:output message="tns:UpdTehaiMitsumoriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiMitsumori">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配見積データ削除</wsdl:documentation>
+      <wsdl:input message="tns:DelTehaiMitsumoriSoapIn" />
+      <wsdl:output message="tns:DelTehaiMitsumoriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumoriOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配見積受注状態更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiMitsumoriOrderSoapIn" />
+      <wsdl:output message="tns:UpdTehaiMitsumoriOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiEstimateMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">見積MAIL配信</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiEstimateMailSoapIn" />
+      <wsdl:output message="tns:UpdTehaiEstimateMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalAmountForMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MAIL配信用累計金額取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTotalAmountForMailSoapIn" />
+      <wsdl:output message="tns:GetTotalAmountForMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumoriMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配見積情報取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiMitsumoriMeisaiSoapIn" />
+      <wsdl:output message="tns:GetTehaiMitsumoriMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumoriMeisaiVersionData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配見積明細有償/無償更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiMitsumoriMeisaiVersionDataSoapIn" />
+      <wsdl:output message="tns:UpdTehaiMitsumoriMeisaiVersionDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiKenpin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiKenpinSoapIn" />
+      <wsdl:output message="tns:GetTehaiKenpinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiKenpinCsv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細取得CSV</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiKenpinCsvSoapIn" />
+      <wsdl:output message="tns:GetTehaiKenpinCsvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiKenpin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配入荷検品データ更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdTehaiKenpinSoapIn" />
+      <wsdl:output message="tns:UpdTehaiKenpinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBukkenNameList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">物件名一覧取得</wsdl:documentation>
+      <wsdl:input message="tns:GetBukkenNameListSoapIn" />
+      <wsdl:output message="tns:GetBukkenNameListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInitTehaiKenpin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">初期データ取得(入荷検品)</wsdl:documentation>
+      <wsdl:input message="tns:GetInitTehaiKenpinSoapIn" />
+      <wsdl:output message="tns:GetInitTehaiKenpinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSksLastLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SKS最終連携日時取得</wsdl:documentation>
+      <wsdl:input message="tns:GetSksLastLinkSoapIn" />
+      <wsdl:output message="tns:GetSksLastLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKumitateJisseki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">組立実績データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetKumitateJissekiSoapIn" />
+      <wsdl:output message="tns:GetKumitateJissekiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdKumitateJisseki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">組立実績データ更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdKumitateJissekiSoapIn" />
+      <wsdl:output message="tns:UpdKumitateJissekiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShukkaMeisai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷明細データ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetShukkaMeisaiSoapIn" />
+      <wsdl:output message="tns:GetShukkaMeisaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumoriValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">VALUE情報取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiMitsumoriValueSoapIn" />
+      <wsdl:output message="tns:GetTehaiMitsumoriValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMeisaiRireki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">手配明細履歴取得</wsdl:documentation>
+      <wsdl:input message="tns:GetTehaiMeisaiRirekiSoapIn" />
+      <wsdl:output message="tns:GetTehaiMeisaiRirekiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsT01Soap" type="tns:WsT01Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTehaiMeisai">
+      <soap:operation soapAction="http://smssrv/GetTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiMeisai">
+      <soap:operation soapAction="http://smssrv/InsTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMeisai">
+      <soap:operation soapAction="http://smssrv/UpdTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiMeisai">
+      <soap:operation soapAction="http://smssrv/DelTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGiren">
+      <soap:operation soapAction="http://smssrv/GetGiren" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectItem">
+      <soap:operation soapAction="http://smssrv/GetSelectItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsName">
+      <soap:operation soapAction="http://smssrv/GetPartsName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManageZumenKeishikiInSearch">
+      <soap:operation soapAction="http://smssrv/GetManageZumenKeishikiInSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZumenKeishikiInputAssistance">
+      <soap:operation soapAction="http://smssrv/GetZumenKeishikiInputAssistance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiSKSWorkVersion">
+      <soap:operation soapAction="http://smssrv/GetTehaiSKSWorkVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiDispData">
+      <soap:operation soapAction="http://smssrv/GetSKSTehaiRenkeiDispData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiTehaiSKS">
+      <soap:operation soapAction="http://smssrv/GetSKSTehaiRenkeiTehaiSKS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiTehaiSKSWork">
+      <soap:operation soapAction="http://smssrv/GetSKSTehaiRenkeiTehaiSKSWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiRenkei">
+      <soap:operation soapAction="http://smssrv/UpdSKSTehaiRenkei" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiShokai">
+      <soap:operation soapAction="http://smssrv/GetTehaiShokai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitTehaiJohoShokai">
+      <soap:operation soapAction="http://smssrv/GetInitTehaiJohoShokai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiJohoShokai">
+      <soap:operation soapAction="http://smssrv/GetTehaiJohoShokai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiJohoRireki">
+      <soap:operation soapAction="http://smssrv/UpdTehaiJohoRireki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumori">
+      <soap:operation soapAction="http://smssrv/GetTehaiMitsumori" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstimateInformation">
+      <soap:operation soapAction="http://smssrv/GetEstimateInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiMitsumori">
+      <soap:operation soapAction="http://smssrv/InsTehaiMitsumori" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumori">
+      <soap:operation soapAction="http://smssrv/UpdTehaiMitsumori" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiMitsumori">
+      <soap:operation soapAction="http://smssrv/DelTehaiMitsumori" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumoriOrder">
+      <soap:operation soapAction="http://smssrv/UpdTehaiMitsumoriOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiEstimateMail">
+      <soap:operation soapAction="http://smssrv/UpdTehaiEstimateMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalAmountForMail">
+      <soap:operation soapAction="http://smssrv/GetTotalAmountForMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumoriMeisai">
+      <soap:operation soapAction="http://smssrv/GetTehaiMitsumoriMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumoriMeisaiVersionData">
+      <soap:operation soapAction="http://smssrv/UpdTehaiMitsumoriMeisaiVersionData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiKenpin">
+      <soap:operation soapAction="http://smssrv/GetTehaiKenpin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiKenpinCsv">
+      <soap:operation soapAction="http://smssrv/GetTehaiKenpinCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiKenpin">
+      <soap:operation soapAction="http://smssrv/UpdTehaiKenpin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBukkenNameList">
+      <soap:operation soapAction="http://smssrv/GetBukkenNameList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitTehaiKenpin">
+      <soap:operation soapAction="http://smssrv/GetInitTehaiKenpin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSksLastLink">
+      <soap:operation soapAction="http://smssrv/GetSksLastLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKumitateJisseki">
+      <soap:operation soapAction="http://smssrv/GetKumitateJisseki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKumitateJisseki">
+      <soap:operation soapAction="http://smssrv/UpdKumitateJisseki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShukkaMeisai">
+      <soap:operation soapAction="http://smssrv/GetShukkaMeisai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumoriValue">
+      <soap:operation soapAction="http://smssrv/GetTehaiMitsumoriValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMeisaiRireki">
+      <soap:operation soapAction="http://smssrv/GetTehaiMeisaiRireki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsT01Soap12" type="tns:WsT01Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTehaiMeisai">
+      <soap12:operation soapAction="http://smssrv/GetTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiMeisai">
+      <soap12:operation soapAction="http://smssrv/InsTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMeisai">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiMeisai">
+      <soap12:operation soapAction="http://smssrv/DelTehaiMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGiren">
+      <soap12:operation soapAction="http://smssrv/GetGiren" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectItem">
+      <soap12:operation soapAction="http://smssrv/GetSelectItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsName">
+      <soap12:operation soapAction="http://smssrv/GetPartsName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManageZumenKeishikiInSearch">
+      <soap12:operation soapAction="http://smssrv/GetManageZumenKeishikiInSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZumenKeishikiInputAssistance">
+      <soap12:operation soapAction="http://smssrv/GetZumenKeishikiInputAssistance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiSKSWorkVersion">
+      <soap12:operation soapAction="http://smssrv/GetTehaiSKSWorkVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiDispData">
+      <soap12:operation soapAction="http://smssrv/GetSKSTehaiRenkeiDispData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiTehaiSKS">
+      <soap12:operation soapAction="http://smssrv/GetSKSTehaiRenkeiTehaiSKS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKSTehaiRenkeiTehaiSKSWork">
+      <soap12:operation soapAction="http://smssrv/GetSKSTehaiRenkeiTehaiSKSWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSKSTehaiRenkei">
+      <soap12:operation soapAction="http://smssrv/UpdSKSTehaiRenkei" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiShokai">
+      <soap12:operation soapAction="http://smssrv/GetTehaiShokai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitTehaiJohoShokai">
+      <soap12:operation soapAction="http://smssrv/GetInitTehaiJohoShokai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiJohoShokai">
+      <soap12:operation soapAction="http://smssrv/GetTehaiJohoShokai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiJohoRireki">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiJohoRireki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumori">
+      <soap12:operation soapAction="http://smssrv/GetTehaiMitsumori" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstimateInformation">
+      <soap12:operation soapAction="http://smssrv/GetEstimateInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTehaiMitsumori">
+      <soap12:operation soapAction="http://smssrv/InsTehaiMitsumori" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumori">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiMitsumori" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelTehaiMitsumori">
+      <soap12:operation soapAction="http://smssrv/DelTehaiMitsumori" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumoriOrder">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiMitsumoriOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiEstimateMail">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiEstimateMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalAmountForMail">
+      <soap12:operation soapAction="http://smssrv/GetTotalAmountForMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumoriMeisai">
+      <soap12:operation soapAction="http://smssrv/GetTehaiMitsumoriMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiMitsumoriMeisaiVersionData">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiMitsumoriMeisaiVersionData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiKenpin">
+      <soap12:operation soapAction="http://smssrv/GetTehaiKenpin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiKenpinCsv">
+      <soap12:operation soapAction="http://smssrv/GetTehaiKenpinCsv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTehaiKenpin">
+      <soap12:operation soapAction="http://smssrv/UpdTehaiKenpin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBukkenNameList">
+      <soap12:operation soapAction="http://smssrv/GetBukkenNameList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitTehaiKenpin">
+      <soap12:operation soapAction="http://smssrv/GetInitTehaiKenpin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSksLastLink">
+      <soap12:operation soapAction="http://smssrv/GetSksLastLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKumitateJisseki">
+      <soap12:operation soapAction="http://smssrv/GetKumitateJisseki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKumitateJisseki">
+      <soap12:operation soapAction="http://smssrv/UpdKumitateJisseki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShukkaMeisai">
+      <soap12:operation soapAction="http://smssrv/GetShukkaMeisai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMitsumoriValue">
+      <soap12:operation soapAction="http://smssrv/GetTehaiMitsumoriValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTehaiMeisaiRireki">
+      <soap12:operation soapAction="http://smssrv/GetTehaiMeisaiRireki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsT01">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsT01Soap" binding="tns:WsT01Soap">
+      <soap:address location="http://smssrv/sms/WsT01.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsT01Soap12" binding="tns:WsT01Soap12">
+      <soap12:address location="http://smssrv/sms/WsT01.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

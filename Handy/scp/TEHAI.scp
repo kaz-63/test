@@ -1,0 +1,60 @@
+/********************************************************************************
+ファイル名	：	TEHAI.scp
+バージョン	：	Ver.1.00
+作成日付	：	2018/10/18
+動作説明	：	手配業務を選択する
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	// 言語設定
+	Language:Initialize(System:arg2, ConstString:SCP_NAME_TEHAI)
+	// メッセージ設定
+	Message:Initialize(System:arg2, ConstString:SCP_NAME_TEHAI)
+	
+	TEHAI:tehai_main()
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+Package TEHAI
+	
+	//---------------------------------------------------
+	// 手配メインメソッド
+	Method tehai_main()
+		btvMenupos = 1
+	Begin
+		
+		With Screen
+			:update = false
+			:status = true
+			:fontSize = 12
+			:update = true
+		EndWith
+		
+		While 1
+			btvMenupos = Handy:ShowMenu(Language:langItem[0], Language:langItem[1], nil, nil, nil, btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				System:Load(ConstString:SCP_NAME_KENPIN, ConstString:SCP_NAME_TEHAI, System:arg2,System:arg3,0)
+			Case 2
+				System:Load(ConstString:SCP_NAME_DEL_TEHAI, ConstString:SCP_NAME_TEHAI, System:arg2,System:arg3,0)
+			Case "C"
+				System:Load(ConstString:SCP_NAME_GYOMU, 0, System:arg2,System:arg3,0)
+			End Select
+		Wend
+		
+	End Method
+	
+EndPackage
+
+

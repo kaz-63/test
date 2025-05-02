@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{996CD031-C325-455E-B75B-E35C9421CB7D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMS.A01</RootNamespace>
+    <AssemblyName>SMS.A01</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetZip, Version=1.12.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="DSWControl, Version=1.7.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DSWUtil, Version=0.5.4.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="ElTabelleHelper, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\ElTabelleHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.Excel, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=b0e38629244efa22" />
+    <Reference Include="GrapeCity.Win.BaseGrid.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+    <Reference Include="GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+    <Reference Include="MultiRowTabelle, Version=1.0.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MultiRowTabelle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XlsxCreatorHelper, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsxCreatorHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ARJohoRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ARJohoRichTextBox.Designer.cs">
+      <DependentUpon>ARJohoRichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DoubleBufferingListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DoubleBufferingListView.Designer.cs">
+      <DependentUpon>DoubleBufferingListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARJoho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARJoho.Designer.cs">
+      <DependentUpon>ARJoho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARJohoHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARJohoHelp.Designer.cs">
+      <DependentUpon>ARJohoHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARJohoMeisai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARJohoMeisai.Designer.cs">
+      <DependentUpon>ARJohoMeisai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARJohoMeisaiNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARJohoMeisaiNote.Designer.cs">
+      <DependentUpon>ARJohoMeisaiNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShinchokuKanriHenkoRireki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShinchokuKanriHenkoRireki.Designer.cs">
+      <DependentUpon>ShinchokuKanriHenkoRireki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShinchokuKanriDateTouroku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShinchokuKanriDateTouroku.Designer.cs">
+      <DependentUpon>ShinchokuKanriDateTouroku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShinchokuInzuhyoImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShinchokuInzuhyoImport.Designer.cs">
+      <DependentUpon>ShinchokuInzuhyoImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShinchokuKanri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShinchokuKanri.Designer.cs">
+      <DependentUpon>ShinchokuKanri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARJohoMeisaiGokiIchiran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARJohoMeisaiGokiIchiran.Designer.cs">
+      <DependentUpon>ARJohoMeisaiGokiIchiran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShinchokuKishuIchiran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShinchokuKishuIchiran.Designer.cs">
+      <DependentUpon>ShinchokuKishuIchiran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShinchokuGokiIchiran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShinchokuGokiIchiran.Designer.cs">
+      <DependentUpon>ShinchokuGokiIchiran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARJohoRelationSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARJohoRelationSelect.Designer.cs">
+      <DependentUpon>ARJohoRelationSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ARJohoRichTextBox.en.resx">
+      <DependentUpon>ARJohoRichTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ARJohoRichTextBox.ja.resx">
+      <DependentUpon>ARJohoRichTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ARJohoRichTextBox.resx">
+      <DependentUpon>ARJohoRichTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJoho.en.resx">
+      <DependentUpon>ARJoho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJoho.ja.resx">
+      <DependentUpon>ARJoho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJoho.resx">
+      <DependentUpon>ARJoho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoHelp.en.resx">
+      <DependentUpon>ARJohoHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoHelp.ja.resx">
+      <DependentUpon>ARJohoHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoHelp.resx">
+      <DependentUpon>ARJohoHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisai.en.resx">
+      <DependentUpon>ARJohoMeisai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisai.ja.resx">
+      <DependentUpon>ARJohoMeisai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisai.resx">
+      <DependentUpon>ARJohoMeisai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisaiNote.en.resx">
+      <DependentUpon>ARJohoMeisaiNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisaiNote.ja.resx">
+      <DependentUpon>ARJohoMeisaiNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisaiNote.resx">
+      <DependentUpon>ARJohoMeisaiNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanriHenkoRireki.en.resx">
+      <DependentUpon>ShinchokuKanriHenkoRireki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanriHenkoRireki.ja.resx">
+      <DependentUpon>ShinchokuKanriHenkoRireki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanriHenkoRireki.resx">
+      <DependentUpon>ShinchokuKanriHenkoRireki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanriDateTouroku.en.resx">
+      <DependentUpon>ShinchokuKanriDateTouroku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanriDateTouroku.ja.resx">
+      <DependentUpon>ShinchokuKanriDateTouroku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanriDateTouroku.resx">
+      <DependentUpon>ShinchokuKanriDateTouroku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuInzuhyoImport.en.resx">
+      <DependentUpon>ShinchokuInzuhyoImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuInzuhyoImport.ja.resx">
+      <DependentUpon>ShinchokuInzuhyoImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuInzuhyoImport.resx">
+      <DependentUpon>ShinchokuInzuhyoImport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanri.en.resx">
+      <DependentUpon>ShinchokuKanri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanri.ja.resx">
+      <DependentUpon>ShinchokuKanri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKanri.resx">
+      <DependentUpon>ShinchokuKanri.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisaiGokiIchiran.en.resx">
+      <DependentUpon>ARJohoMeisaiGokiIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisaiGokiIchiran.ja.resx">
+      <DependentUpon>ARJohoMeisaiGokiIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoMeisaiGokiIchiran.resx">
+      <DependentUpon>ARJohoMeisaiGokiIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKishuIchiran.en.resx">
+      <DependentUpon>ShinchokuKishuIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKishuIchiran.ja.resx">
+      <DependentUpon>ShinchokuKishuIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuKishuIchiran.resx">
+      <DependentUpon>ShinchokuKishuIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuGokiIchiran.en.resx">
+      <DependentUpon>ShinchokuGokiIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuGokiIchiran.ja.resx">
+      <DependentUpon>ShinchokuGokiIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShinchokuGokiIchiran.resx">
+      <DependentUpon>ShinchokuGokiIchiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoRelationSelect.en.resx">
+      <DependentUpon>ARJohoRelationSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoRelationSelect.ja.resx">
+      <DependentUpon>ARJohoRelationSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARJohoRelationSelect.resx">
+      <DependentUpon>ARJohoRelationSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.en.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Commons\Commons\Commons.csproj">
+      <Project>{7CF83010-9C8F-482B-B0C0-CA10DA669345}</Project>
+      <Name>Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\WsConnection\WsConnection\WsConnection.csproj">
+      <Project>{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}</Project>
+      <Name>WsConnection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMS.E01\SMS.E01\SMS.E01.csproj">
+      <Project>{E1D56A03-5204-4548-9C84-C40C8FA95F6A}</Project>
+      <Name>SMS.E01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMS.P02\SMS.P02\SMS.P02.csproj">
+      <Project>{C0F2E4D2-1E6A-4858-B8BC-B49008A72675}</Project>
+      <Name>SMS.P02</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SystemBase\SystemBase\SystemBase.csproj">
+      <Project>{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}</Project>
+      <Name>SystemBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(ProjectDir)"
+copy "$(TargetPath)" "..\..\..\Bin\
+if exist "$(TargetDir)en\" xcopy "$(TargetDir)en\*.*" "..\..\..\Bin\en\" /D/E/C/I/H/Y
+if exist "$(TargetDir)ja\" xcopy "$(TargetDir)ja\*.*" "..\..\..\Bin\ja\" /D/E/C/I/H/Y</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,232 @@
+/********************************************************************************
+ファイル名	：	DELETE.scp
+バージョン	：	Ver.1.00
+作成日付	：	2010/04/22
+動作説明	：	データ削除
+
+********************************************************************************/
+
+Include "Lib\Language"
+Include "Lib\Message"
+Include "Lib\Utility"
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	
+	// 言語設定
+	Language:Initialize(System:arg3, ConstString:SCP_NAME_DELETE)
+	// メッセージ設定
+	Message:Initialize(System:arg3, ConstString:SCP_NAME_DELETE)
+	
+	LOGDELETE:delete_main()
+	
+Catch
+	Handy:ShowMessageBox("Application Error(" & System:error & ")", "ok" )
+End Method
+
+
+
+Package LOGDELETE
+	
+	btvEachInput = ""	// 入力された値
+	loc_count
+	ivt_count
+	cpl_count	
+	
+	Method delete_main()
+		btvRet
+	Begin
+		Common:Initialize()
+		
+		// 件数カウント
+		loc_count = Common:data_count(ConstString:FILE_LOCATION)
+		ivt_count = Common:data_count(ConstString:FILE_TANAOROSHI)
+		cpl_count = Common:data_count(ConstString:FILE_KANRYO)
+		
+		// 削除できるファイルが無い場合メニューに戻る
+		If loc_count == 0 AND ivt_count == 0 AND cpl_count == 0 Then
+			Handy:ShowMessageBox(Message:MessageItem[18], "ok" )
+			System:Load(System:arg1, 0, System:arg2, System:arg3,0)
+			Return ()
+		EndIf
+	
+		disp_normal()
+		
+		While 1
+			// 削除できるファイルが無い場合メニューに戻る
+			If loc_count == 0 AND ivt_count == 0 AND cpl_count == 0 Then
+				System:Load(System:arg1, 0, System:arg2, System:arg3,0)
+				Return ()
+			EndIf
+			
+			// 入力待ち
+			btvRet = wait_input()
+			If btvRet eq "next" Then 
+				log_delete()
+			ElseIf btvRet eq "retry" Then 
+				
+			Else
+				System:Load(System:arg1, 0, System:arg2, System:arg3,0)
+				Return ()
+			EndIf
+		Wend
+
+	End Method
+	
+	Method log_delete()
+			error_String = ""
+			message_output
+	Begin
+		Select Case btvEachInput
+			Case 1
+				If loc_count == 0 Then
+					Handy:ShowMessageBox(Message:MessageItem[18], "ok" )
+				Else
+					FileList:file_list(Language:langItem[0], ConstString:FILE_LOCATION)
+				EndIf
+			Case 2
+				If cpl_count == 0 Then
+					Handy:ShowMessageBox(Message:MessageItem[18], "ok" )
+				Else
+					FileList:file_list(Language:langItem[1], ConstString:FILE_KANRYO)
+				EndIf
+			Case 3
+				If ivt_count == 0 Then
+					Handy:ShowMessageBox(Message:MessageItem[18], "ok" )
+				Else
+					FileList:file_list(Language:langItem[2], ConstString:FILE_TANAOROSHI)
+				EndIf
+			Case 4
+				// メッセージ："Dataを全て削除します。よろしいですか？"
+				If System:arg3 eq "japanese" Then
+					message_output = Message:MessageItem[19] & Message:MessageItem[15]
+				Else
+					// TODO:英語翻訳
+					message_output = Message:MessageItem[19] & Message:MessageItem[15]
+				EndIf
+				
+				If Handy:ShowMessageBox(message_output,"yesno|no") Then
+					Common:delete_user_file()
+					Handy:ShowMessageBox(Message:MessageItem[20],"ok")
+				Else
+					Handy:ShowMessageBox(Message:MessageItem[17], "ok" )
+				EndIf
+				
+		End Select
+		disp_normal()
+	
+		If input_String(btvEachInput) is false Then
+			Common:read_NG()
+			error_String = Message:MessageItem[9]
+		Else
+			error_String = ""
+		EndIf
+		
+		With Screen
+			:update = false
+			:posx = 7 :posy = 12 :multiColumn = 1 :reverse = false :font = 1 :OutputText(error_String)
+			:update = true
+		EndWith
+	
+	
+	End Method
+
+	// 画面表示
+	Method disp_normal()
+	Begin
+		loc_count = Common:data_count(ConstString:FILE_LOCATION)
+		ivt_count = Common:data_count(ConstString:FILE_TANAOROSHI)
+		cpl_count = Common:data_count(ConstString:FILE_KANRYO)
+		With Screen
+			:status = false
+			:update = false
+			:Clear()
+			:foreColor = "255|255|255" :backColor = "0|0|128" :fontSize = "large"
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[3])
+			:foreColor = "0|0|0" :backColor = "255|255|255" :fontSize = "small"
+			:posx = 1 :posy = 4 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[4])
+			:posx = 1 :posy = 6 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[5])
+			:posx = 1 :posy = 8 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[6])
+			:posx = 1 :posy = 10 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[7])
+			:posx = 1 :posy = 12 :multiColumn = 1 :reverse = false :font = 1 :OutputText("[   ]")
+			:posx = 1 :posy = 18 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[8])
+			
+			:posx = 15 :posy = 4 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& loc_count &"]")
+			:posx = 15 :posy = 6 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& cpl_count &"]")
+			:posx = 15 :posy = 8 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& ivt_count &"]")
+			
+			:update = true
+		EndWith
+		
+	End Method
+
+	// 入力判定メソッド
+	Method input_loop(btvKeycode)
+		btvRet
+	Begin
+	Select Case btvKeycode
+		Case "ENT"
+			Return ("next")
+		Case "F1"
+			Return (0)
+		Case "ERR_RANGE_UPPER"
+			Return ("retry")
+		Case "ERR_RANGE_LOWER"
+			Return ("retry")
+		Case Else
+			Return ("retry")
+		End Select
+		
+	End Method
+
+	// 入力文字判定メソッド
+	Method input_String(btvEachInput)
+		btvRet
+	Begin
+	Select Case btvEachInput
+		Case "1"
+			Return ("")
+		Case "2"
+			Return ("")
+		Case "3"
+			Return ("")
+		Case "4"
+			Return ("")
+		Case Else
+			Return (false)
+		End Select
+		
+	End Method
+
+
+	// 入力設定
+	Method wait_input()
+		btvKeycode
+		btvRet
+		
+	Begin
+		With InputString
+			:posx = 3 :posy = 12 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "0" // 初期値設定
+			:inputAreaSize = 2
+			:maxLength = 1
+			:minLength = 0
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = nil
+			
+			btvKeycode = :Exec()
+			btvEachInput=:data
+			
+		EndWith
+		
+		btvRet = input_loop(btvKeycode)
+		
+		Return (btvRet)
+	End Method
+	
+EndPackage
+

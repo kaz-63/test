@@ -1,0 +1,982 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="shape1.Height" type="System.Single, mscorlib">
+    <value>1.072835</value>
+  </data>
+  <data name="shape1.Left" type="System.Single, mscorlib">
+    <value>0.1019685</value>
+  </data>
+  <data name="shape1.Top" type="System.Single, mscorlib">
+    <value>0.3649606</value>
+  </data>
+  <data name="shape1.Width" type="System.Single, mscorlib">
+    <value>1.962205</value>
+  </data>
+  <data name="crossSectionBox1.Left" type="System.Single, mscorlib">
+    <value>0.1020236</value>
+  </data>
+  <data name="crossSectionBox1.Top" type="System.Single, mscorlib">
+    <value>1.494</value>
+  </data>
+  <data name="label1.Height" type="System.Single, mscorlib">
+    <value>0.3228346</value>
+  </data>
+  <data name="label1.Left" type="System.Single, mscorlib">
+    <value>4.015749</value>
+  </data>
+  <data name="label1.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 24pt; text-align: center</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>-// BOX LIST //-</value>
+  </data>
+  <data name="label1.Top" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label1.Width" type="System.Single, mscorlib">
+    <value>2.697244</value>
+  </data>
+  <data name="shape2.Height" type="System.Single, mscorlib">
+    <value>1.072835</value>
+  </data>
+  <data name="shape2.Left" type="System.Single, mscorlib">
+    <value>2.156299</value>
+  </data>
+  <data name="shape2.Top" type="System.Single, mscorlib">
+    <value>0.3649606</value>
+  </data>
+  <data name="shape2.Width" type="System.Single, mscorlib">
+    <value>8.466536</value>
+  </data>
+  <data name="label2.Height" type="System.Single, mscorlib">
+    <value>1.080709</value>
+  </data>
+  <data name="label2.Left" type="System.Single, mscorlib">
+    <value>0.1531496</value>
+  </data>
+  <data name="label2.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 12pt; white-space: nowrap; ddo-font-vertical: none</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>B
+O
+X
+
+N
+O</value>
+  </data>
+  <data name="label2.Top" type="System.Single, mscorlib">
+    <value>0.3854331</value>
+  </data>
+  <data name="label2.Width" type="System.Single, mscorlib">
+    <value>0.1925197</value>
+  </data>
+  <data name="lblBoxNo.Height" type="System.Single, mscorlib">
+    <value>0.6838583</value>
+  </data>
+  <data name="lblBoxNo.Left" type="System.Single, mscorlib">
+    <value>0.3192914</value>
+  </data>
+  <data name="lblBoxNo.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 39.75pt; text-align: center</value>
+  </data>
+  <data name="lblBoxNo.Text" xml:space="preserve">
+    <value>B99999</value>
+  </data>
+  <data name="lblBoxNo.Top" type="System.Single, mscorlib">
+    <value>0.6366142</value>
+  </data>
+  <data name="lblBoxNo.Width" type="System.Single, mscorlib">
+    <value>1.744882</value>
+  </data>
+  <data name="label4.Height" type="System.Single, mscorlib">
+    <value>0.3074803</value>
+  </data>
+  <data name="label4.Left" type="System.Single, mscorlib">
+    <value>5.156693</value>
+  </data>
+  <data name="label4.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 20.25pt</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="label4.Top" type="System.Single, mscorlib">
+    <value>0.3559055</value>
+  </data>
+  <data name="label4.Width" type="System.Single, mscorlib">
+    <value>0.6248031</value>
+  </data>
+  <data name="label5.Height" type="System.Single, mscorlib">
+    <value>0.3007874</value>
+  </data>
+  <data name="label5.Left" type="System.Single, mscorlib">
+    <value>3.520866</value>
+  </data>
+  <data name="label5.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 20.25pt</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="label5.Top" type="System.Single, mscorlib">
+    <value>0.8952757</value>
+  </data>
+  <data name="label5.Width" type="System.Single, mscorlib">
+    <value>0.6248031</value>
+  </data>
+  <data name="label6.Height" type="System.Single, mscorlib">
+    <value>0.3405512</value>
+  </data>
+  <data name="label6.Left" type="System.Single, mscorlib">
+    <value>6.844095</value>
+  </data>
+  <data name="label6.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 20.25pt</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="label6.Top" type="System.Single, mscorlib">
+    <value>0.906693</value>
+  </data>
+  <data name="label6.Width" type="System.Single, mscorlib">
+    <value>0.7602363</value>
+  </data>
+  <data name="bcdBoxNo.Height" type="System.Single, mscorlib">
+    <value>0.3854331</value>
+  </data>
+  <data name="bcdBoxNo.Left" type="System.Single, mscorlib">
+    <value>8.989764</value>
+  </data>
+  <data name="bcdBoxNo.Text" xml:space="preserve">
+    <value>barcode1</value>
+  </data>
+  <data name="bcdBoxNo.Top" type="System.Single, mscorlib">
+    <value>0.9846457</value>
+  </data>
+  <data name="bcdBoxNo.Width" type="System.Single, mscorlib">
+    <value>1.5</value>
+  </data>
+  <data name="line1.Height" type="System.Single, mscorlib">
+    <value>1.07283449</value>
+  </data>
+  <data name="line1.Left" type="System.Single, mscorlib">
+    <value>8.819292</value>
+  </data>
+  <data name="line1.Top" type="System.Single, mscorlib">
+    <value>0.3649606</value>
+  </data>
+  <data name="line1.Width" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="line2.Height" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="line2.Left" type="System.Single, mscorlib">
+    <value>2.1563</value>
+  </data>
+  <data name="line2.Top" type="System.Single, mscorlib">
+    <value>0.9078741</value>
+  </data>
+  <data name="line2.Width" type="System.Single, mscorlib">
+    <value>6.662992</value>
+  </data>
+  <data name="lblArea.Height" type="System.Single, mscorlib">
+    <value>0.268504024</value>
+  </data>
+  <data name="lblArea.Left" type="System.Single, mscorlib">
+    <value>2.1563</value>
+  </data>
+  <data name="lblArea.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 18pt; text-align: center</value>
+  </data>
+  <data name="lblArea.Text" xml:space="preserve">
+    <value>WWWWMWWWWOWWWWMWWW20</value>
+  </data>
+  <data name="lblArea.Top" type="System.Single, mscorlib">
+    <value>1.16929138</value>
+  </data>
+  <data name="lblArea.Width" type="System.Single, mscorlib">
+    <value>3.35866213</value>
+  </data>
+  <data name="lblFloor.Height" type="System.Single, mscorlib">
+    <value>0.268504024</value>
+  </data>
+  <data name="lblFloor.Left" type="System.Single, mscorlib">
+    <value>5.514961</value>
+  </data>
+  <data name="lblFloor.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 18pt; text-align: center</value>
+  </data>
+  <data name="lblFloor.Text" xml:space="preserve">
+    <value>WWWWMWWWWOWWWWMWWW20</value>
+  </data>
+  <data name="lblFloor.Top" type="System.Single, mscorlib">
+    <value>1.16929138</value>
+  </data>
+  <data name="lblFloor.Width" type="System.Single, mscorlib">
+    <value>3.3043313</value>
+  </data>
+  <data name="lblNonyusaki.Height" type="System.Single, mscorlib">
+    <value>0.3007874</value>
+  </data>
+  <data name="lblNonyusaki.Left" type="System.Single, mscorlib">
+    <value>2.156299</value>
+  </data>
+  <data name="lblNonyusaki.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 20.25pt; text-align: center; vertical-align: top</value>
+  </data>
+  <data name="lblNonyusaki.Text" xml:space="preserve">
+    <value>MMMMMMMMMOWWWWWWWWWOMMMMMMMMMOWWWWWWWWWOWWWWWWWWWOWWWWWWWW60</value>
+  </data>
+  <data name="lblNonyusaki.Top" type="System.Single, mscorlib">
+    <value>0.6070867</value>
+  </data>
+  <data name="lblNonyusaki.Width" type="System.Single, mscorlib">
+    <value>6.643703</value>
+  </data>
+  <data name="label10.Height" type="System.Single, mscorlib">
+    <value>0.1767717</value>
+  </data>
+  <data name="label10.Left" type="System.Single, mscorlib">
+    <value>9.612599</value>
+  </data>
+  <data name="label10.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 11.25pt</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>PAGE</value>
+  </data>
+  <data name="label10.Top" type="System.Single, mscorlib">
+    <value>0.1984252</value>
+  </data>
+  <data name="label10.Width" type="System.Single, mscorlib">
+    <value>0.3645668</value>
+  </data>
+  <data name="lblDate.Height" type="System.Single, mscorlib">
+    <value>0.1561844</value>
+  </data>
+  <data name="lblDate.Left" type="System.Single, mscorlib">
+    <value>9.707088</value>
+  </data>
+  <data name="lblDate.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 11.25pt</value>
+  </data>
+  <data name="lblDate.Text" xml:space="preserve">
+    <value>9999/99/99</value>
+  </data>
+  <data name="lblDate.Top" type="System.Single, mscorlib">
+    <value>0.03188977</value>
+  </data>
+  <data name="lblDate.Width" type="System.Single, mscorlib">
+    <value>0.8645658</value>
+  </data>
+  <data name="line5.Height" type="System.Single, mscorlib">
+    <value>1.072795</value>
+  </data>
+  <data name="line5.Left" type="System.Single, mscorlib">
+    <value>0.31</value>
+  </data>
+  <data name="line5.Top" type="System.Single, mscorlib">
+    <value>0.365</value>
+  </data>
+  <data name="line5.Width" type="System.Single, mscorlib">
+    <value>0.00496059656</value>
+  </data>
+  <data name="line7.Height" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="line7.Left" type="System.Single, mscorlib">
+    <value>0.1019685</value>
+  </data>
+  <data name="line7.Top" type="System.Single, mscorlib">
+    <value>1.760236</value>
+  </data>
+  <data name="line7.Width" type="System.Single, mscorlib">
+    <value>10.5208712</value>
+  </data>
+  <data name="line3.Height" type="System.Single, mscorlib">
+    <value>0.529953837</value>
+  </data>
+  <data name="line3.Left" type="System.Single, mscorlib">
+    <value>5.514961</value>
+  </data>
+  <data name="line3.Top" type="System.Single, mscorlib">
+    <value>0.9078741</value>
+  </data>
+  <data name="line3.Width" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="line4.Height" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="line4.Left" type="System.Single, mscorlib">
+    <value>2.1563</value>
+  </data>
+  <data name="line4.Top" type="System.Single, mscorlib">
+    <value>1.169291</value>
+  </data>
+  <data name="line4.Width" type="System.Single, mscorlib">
+    <value>6.662992</value>
+  </data>
+  <data name="label12.Height" type="System.Single, mscorlib">
+    <value>0.1979167</value>
+  </data>
+  <data name="label12.Left" type="System.Single, mscorlib">
+    <value>0.1019685</value>
+  </data>
+  <data name="label12.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; text-align: center</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="label12.Top" type="System.Single, mscorlib">
+    <value>1.525</value>
+  </data>
+  <data name="label12.Width" type="System.Single, mscorlib">
+    <value>0.2909449</value>
+  </data>
+  <data name="label13.Height" type="System.Single, mscorlib">
+    <value>0.2779293</value>
+  </data>
+  <data name="label13.Left" type="System.Single, mscorlib">
+    <value>0.3929134</value>
+  </data>
+  <data name="label13.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; text-align: center</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Tag
+No.</value>
+  </data>
+  <data name="label13.Top" type="System.Single, mscorlib">
+    <value>1.50039375</value>
+  </data>
+  <data name="label13.Width" type="System.Single, mscorlib">
+    <value>0.398425221</value>
+  </data>
+  <data name="label14.Height" type="System.Single, mscorlib">
+    <value>0.198031545</value>
+  </data>
+  <data name="label14.Left" type="System.Single, mscorlib">
+    <value>0.8118111</value>
+  </data>
+  <data name="label14.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; text-align: center</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>JOB No.</value>
+  </data>
+  <data name="label14.Top" type="System.Single, mscorlib">
+    <value>1.53503942</value>
+  </data>
+  <data name="label14.Width" type="System.Single, mscorlib">
+    <value>1.02165365</value>
+  </data>
+  <data name="label15.Height" type="System.Single, mscorlib">
+    <value>0.2673234</value>
+  </data>
+  <data name="label15.Left" type="System.Single, mscorlib">
+    <value>1.85314977</value>
+  </data>
+  <data name="label15.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; text-align: center</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>DWG
+No.</value>
+  </data>
+  <data name="label15.Top" type="System.Single, mscorlib">
+    <value>1.50039375</value>
+  </data>
+  <data name="label15.Width" type="System.Single, mscorlib">
+    <value>0.4850394</value>
+  </data>
+  <data name="label16.Height" type="System.Single, mscorlib">
+    <value>0.1980315</value>
+  </data>
+  <data name="label16.Left" type="System.Single, mscorlib">
+    <value>2.396457</value>
+  </data>
+  <data name="label16.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; text-align: center</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>M-No.</value>
+  </data>
+  <data name="label16.Top" type="System.Single, mscorlib">
+    <value>1.52480328</value>
+  </data>
+  <data name="label16.Width" type="System.Single, mscorlib">
+    <value>1.14173234</value>
+  </data>
+  <data name="label17.Height" type="System.Single, mscorlib">
+    <value>0.2582365</value>
+  </data>
+  <data name="label17.Left" type="System.Single, mscorlib">
+    <value>4.24252</value>
+  </data>
+  <data name="label17.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Parts(JAPANESE)
+Parts / Parts Type</value>
+  </data>
+  <data name="label17.Top" type="System.Single, mscorlib">
+    <value>1.50236225</value>
+  </data>
+  <data name="label17.Width" type="System.Single, mscorlib">
+    <value>1.1811024</value>
+  </data>
+  <data name="label18.Height" type="System.Single, mscorlib">
+    <value>0.198031545</value>
+  </data>
+  <data name="label18.Left" type="System.Single, mscorlib">
+    <value>6.43779564</value>
+  </data>
+  <data name="label18.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; text-align: center</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Parts No.</value>
+  </data>
+  <data name="label18.Top" type="System.Single, mscorlib">
+    <value>1.52480328</value>
+  </data>
+  <data name="label18.Width" type="System.Single, mscorlib">
+    <value>1.12755966</value>
+  </data>
+  <data name="label19.Height" type="System.Single, mscorlib">
+    <value>0.198031545</value>
+  </data>
+  <data name="label19.Left" type="System.Single, mscorlib">
+    <value>8.640158</value>
+  </data>
+  <data name="label19.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; text-align: center</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="label19.Top" type="System.Single, mscorlib">
+    <value>1.52480328</value>
+  </data>
+  <data name="label19.Width" type="System.Single, mscorlib">
+    <value>0.465353966</value>
+  </data>
+  <data name="label20.Height" type="System.Single, mscorlib">
+    <value>0.2700784</value>
+  </data>
+  <data name="label20.Left" type="System.Single, mscorlib">
+    <value>9.133465</value>
+  </data>
+  <data name="label20.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; text-align: left</value>
+  </data>
+  <data name="label20.Text" xml:space="preserve">
+    <value>Section No.
+Type</value>
+  </data>
+  <data name="label20.Top" type="System.Single, mscorlib">
+    <value>1.50039375</value>
+  </data>
+  <data name="label20.Width" type="System.Single, mscorlib">
+    <value>0.7551185</value>
+  </data>
+  <data name="crossSectionLine3.Left" type="System.Single, mscorlib">
+    <value>1.87440956</value>
+  </data>
+  <data name="crossSectionLine3.Top" type="System.Single, mscorlib">
+    <value>1.49409461</value>
+  </data>
+  <data name="crossSectionLine4.Left" type="System.Single, mscorlib">
+    <value>2.379134</value>
+  </data>
+  <data name="crossSectionLine4.Top" type="System.Single, mscorlib">
+    <value>1.49409461</value>
+  </data>
+  <data name="crossSectionLine5.Left" type="System.Single, mscorlib">
+    <value>3.5440948</value>
+  </data>
+  <data name="crossSectionLine5.Top" type="System.Single, mscorlib">
+    <value>1.49409461</value>
+  </data>
+  <data name="crossSectionLine6.Left" type="System.Single, mscorlib">
+    <value>6.23307133</value>
+  </data>
+  <data name="crossSectionLine6.Top" type="System.Single, mscorlib">
+    <value>1.49409461</value>
+  </data>
+  <data name="crossSectionLine7.Left" type="System.Single, mscorlib">
+    <value>8.640158</value>
+  </data>
+  <data name="crossSectionLine7.Top" type="System.Single, mscorlib">
+    <value>1.49409461</value>
+  </data>
+  <data name="crossSectionLine8.Left" type="System.Single, mscorlib">
+    <value>9.101576</value>
+  </data>
+  <data name="crossSectionLine8.Top" type="System.Single, mscorlib">
+    <value>1.49409509</value>
+  </data>
+  <data name="line6.Height" type="System.Single, mscorlib">
+    <value>0.003000021</value>
+  </data>
+  <data name="line6.Left" type="System.Single, mscorlib">
+    <value>0.1019685</value>
+  </data>
+  <data name="line6.Top" type="System.Single, mscorlib">
+    <value>1.779677</value>
+  </data>
+  <data name="line6.Width" type="System.Single, mscorlib">
+    <value>10.5208712</value>
+  </data>
+  <data name="label3.Height" type="System.Single, mscorlib">
+    <value>0.1767717</value>
+  </data>
+  <data name="label3.Left" type="System.Single, mscorlib">
+    <value>10.24685</value>
+  </data>
+  <data name="label3.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 11.25pt</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="label3.Top" type="System.Single, mscorlib">
+    <value>0.1984252</value>
+  </data>
+  <data name="label3.Width" type="System.Single, mscorlib">
+    <value>0.1562986</value>
+  </data>
+  <data name="textBox8.Height" type="System.Single, mscorlib">
+    <value>0.1979167</value>
+  </data>
+  <data name="textBox8.Left" type="System.Single, mscorlib">
+    <value>10.23937</value>
+  </data>
+  <data name="textBox8.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 11.25pt; text-align: right</value>
+  </data>
+  <data name="textBox8.Top" type="System.Single, mscorlib">
+    <value>0.1874016</value>
+  </data>
+  <data name="textBox8.Width" type="System.Single, mscorlib">
+    <value>0.291585</value>
+  </data>
+  <data name="textBox9.Height" type="System.Single, mscorlib">
+    <value>0.1979167</value>
+  </data>
+  <data name="textBox9.Left" type="System.Single, mscorlib">
+    <value>9.934647</value>
+  </data>
+  <data name="textBox9.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 11.25pt; text-align: right</value>
+  </data>
+  <data name="textBox9.Top" type="System.Single, mscorlib">
+    <value>0.1874016</value>
+  </data>
+  <data name="textBox9.Width" type="System.Single, mscorlib">
+    <value>0.291585</value>
+  </data>
+  <data name="crossSectionLine2.Left" type="System.Single, mscorlib">
+    <value>0.3929134</value>
+  </data>
+  <data name="crossSectionLine2.Top" type="System.Single, mscorlib">
+    <value>1.49409449</value>
+  </data>
+  <data name="crossSectionLine9.Left" type="System.Single, mscorlib">
+    <value>0.811023653</value>
+  </data>
+  <data name="crossSectionLine9.Top" type="System.Single, mscorlib">
+    <value>1.49409461</value>
+  </data>
+  <data name="txtNo.Height" type="System.Single, mscorlib">
+    <value>0.1979167</value>
+  </data>
+  <data name="txtNo.Left" type="System.Single, mscorlib">
+    <value>0.1019685</value>
+  </data>
+  <data name="txtNo.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9.75pt; text-align: center</value>
+  </data>
+  <data name="txtNo.Text" xml:space="preserve">
+    <value>99</value>
+  </data>
+  <data name="txtNo.Top" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtNo.Width" type="System.Single, mscorlib">
+    <value>0.2909449</value>
+  </data>
+  <data name="textBox2.Height" type="System.Single, mscorlib">
+    <value>0.274803162</value>
+  </data>
+  <data name="textBox2.Left" type="System.Single, mscorlib">
+    <value>0.423622072</value>
+  </data>
+  <data name="textBox2.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9.75pt; text-align: left</value>
+  </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>MMMMM</value>
+  </data>
+  <data name="textBox2.Top" type="System.Single, mscorlib">
+    <value>0.00118110247</value>
+  </data>
+  <data name="textBox2.Width" type="System.Single, mscorlib">
+    <value>0.398425221</value>
+  </data>
+  <data name="textBox3.Height" type="System.Single, mscorlib">
+    <value>0.274803162</value>
+  </data>
+  <data name="textBox3.Left" type="System.Single, mscorlib">
+    <value>0.8220473</value>
+  </data>
+  <data name="textBox3.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9.75pt</value>
+  </data>
+  <data name="textBox3.Text" xml:space="preserve">
+    <value>123456789012345</value>
+  </data>
+  <data name="textBox3.Top" type="System.Single, mscorlib">
+    <value>0.00118110247</value>
+  </data>
+  <data name="textBox3.Width" type="System.Single, mscorlib">
+    <value>1.08346474</value>
+  </data>
+  <data name="textBox4.Height" type="System.Single, mscorlib">
+    <value>0.275984257</value>
+  </data>
+  <data name="textBox4.Left" type="System.Single, mscorlib">
+    <value>1.85393715</value>
+  </data>
+  <data name="textBox4.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9.75pt; text-align: right</value>
+  </data>
+  <data name="textBox4.Text" xml:space="preserve">
+    <value>123456789012</value>
+  </data>
+  <data name="textBox4.Top" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="textBox4.Width" type="System.Single, mscorlib">
+    <value>0.484252334</value>
+  </data>
+  <data name="textBox5.Height" type="System.Single, mscorlib">
+    <value>0.274803162</value>
+  </data>
+  <data name="textBox5.Left" type="System.Single, mscorlib">
+    <value>2.396457</value>
+  </data>
+  <data name="textBox5.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9.75pt</value>
+  </data>
+  <data name="textBox5.Text" xml:space="preserve">
+    <value>インボイス付加名４０桁あああああああ終了</value>
+  </data>
+  <data name="textBox5.Top" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="textBox5.Width" type="System.Single, mscorlib">
+    <value>1.14173234</value>
+  </data>
+  <data name="txtHinmei.Height" type="System.Single, mscorlib">
+    <value>0.15</value>
+  </data>
+  <data name="txtHinmei.Left" type="System.Single, mscorlib">
+    <value>3.554331</value>
+  </data>
+  <data name="txtHinmei.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; vertical-align: top; white-space: nowrap</value>
+  </data>
+  <data name="txtHinmei.Text" xml:space="preserve">
+    <value>WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMW100</value>
+  </data>
+  <data name="txtHinmei.Top" type="System.Single, mscorlib">
+    <value>0.136220485</value>
+  </data>
+  <data name="txtHinmei.Width" type="System.Single, mscorlib">
+    <value>2.67874</value>
+  </data>
+  <data name="txtHinmeiJ.Height" type="System.Single, mscorlib">
+    <value>0.134645686</value>
+  </data>
+  <data name="txtHinmeiJ.Left" type="System.Single, mscorlib">
+    <value>3.55472469</value>
+  </data>
+  <data name="txtHinmeiJ.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt; vertical-align: top; white-space: nowrap</value>
+  </data>
+  <data name="txtHinmeiJ.Text" xml:space="preserve">
+    <value>間間間間間間間間間０間間間間間間間間間０間間間間間間間間間０間間間間間間間間間０間間間間間間間１００</value>
+  </data>
+  <data name="txtHinmeiJ.Top" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtHinmeiJ.Width" type="System.Single, mscorlib">
+    <value>2.67834663</value>
+  </data>
+  <data name="txtKeishiki.Height" type="System.Single, mscorlib">
+    <value>0.274803162</value>
+  </data>
+  <data name="txtKeishiki.Left" type="System.Single, mscorlib">
+    <value>6.253544</value>
+  </data>
+  <data name="txtKeishiki.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt</value>
+  </data>
+  <data name="txtKeishiki.Text" xml:space="preserve">
+    <value>WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMWMW0WMWMWMW100</value>
+  </data>
+  <data name="txtKeishiki.Top" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtKeishiki.Width" type="System.Single, mscorlib">
+    <value>2.39133883</value>
+  </data>
+  <data name="textBox6.Height" type="System.Single, mscorlib">
+    <value>0.1979167</value>
+  </data>
+  <data name="textBox6.Left" type="System.Single, mscorlib">
+    <value>8.64567</value>
+  </data>
+  <data name="textBox6.OutputFormat" xml:space="preserve">
+    <value>#,##0</value>
+  </data>
+  <data name="textBox6.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9.75pt; text-align: right</value>
+  </data>
+  <data name="textBox6.Text" xml:space="preserve">
+    <value>99.999</value>
+  </data>
+  <data name="textBox6.Top" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="textBox6.Width" type="System.Single, mscorlib">
+    <value>0.4354334</value>
+  </data>
+  <data name="txtKishu.Height" type="System.Single, mscorlib">
+    <value>0.1488189</value>
+  </data>
+  <data name="txtKishu.Left" type="System.Single, mscorlib">
+    <value>9.111811</value>
+  </data>
+  <data name="txtKishu.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9pt</value>
+  </data>
+  <data name="txtKishu.Text" xml:space="preserve">
+    <value>MMMMMMMMMOWWWWWWWWWOMMMMMMMMMOWWWWWWWW40</value>
+  </data>
+  <data name="txtKishu.Top" type="System.Single, mscorlib">
+    <value>0.125984266</value>
+  </data>
+  <data name="txtKishu.Width" type="System.Single, mscorlib">
+    <value>1.51023769</value>
+  </data>
+  <data name="txtKuwari.Height" type="System.Single, mscorlib">
+    <value>0.1448819</value>
+  </data>
+  <data name="txtKuwari.Left" type="System.Single, mscorlib">
+    <value>9.111811</value>
+  </data>
+  <data name="txtKuwari.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 9.75pt</value>
+  </data>
+  <data name="txtKuwari.Text" xml:space="preserve">
+    <value>MMMMyMMM</value>
+  </data>
+  <data name="txtKuwari.Top" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtKuwari.Width" type="System.Single, mscorlib">
+    <value>0.6692914</value>
+  </data>
+  <data name="line8.Height" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="line8.Left" type="System.Single, mscorlib">
+    <value>0.101968512</value>
+  </data>
+  <data name="line8.Top" type="System.Single, mscorlib">
+    <value>0.274803162</value>
+  </data>
+  <data name="line8.Width" type="System.Single, mscorlib">
+    <value>10.5210028</value>
+  </data>
+  <data name="lblShip.Height" type="System.Single, mscorlib">
+    <value>0.300787449</value>
+  </data>
+  <data name="lblShip.Left" type="System.Single, mscorlib">
+    <value>8.818897</value>
+  </data>
+  <data name="lblShip.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 20.25pt; text-align: center</value>
+  </data>
+  <data name="lblShip.Text" xml:space="preserve">
+    <value>MMMMMMMMMM</value>
+  </data>
+  <data name="lblShip.Top" type="System.Single, mscorlib">
+    <value>0.6062992</value>
+  </data>
+  <data name="lblShip.Width" type="System.Single, mscorlib">
+    <value>1.80314958</value>
+  </data>
+  <data name="line9.Height" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="line9.Left" type="System.Single, mscorlib">
+    <value>8.818897</value>
+  </data>
+  <data name="line9.Top" type="System.Single, mscorlib">
+    <value>0.9094488</value>
+  </data>
+  <data name="line9.Width" type="System.Single, mscorlib">
+    <value>1.80393887</value>
+  </data>
+  <data name="label8.Height" type="System.Single, mscorlib">
+    <value>0.307480276</value>
+  </data>
+  <data name="label8.Left" type="System.Single, mscorlib">
+    <value>9.405512</value>
+  </data>
+  <data name="label8.Style" xml:space="preserve">
+    <value>font-family: ＭＳ ゴシック; font-size: 20.25pt</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Ship</value>
+  </data>
+  <data name="label8.Top" type="System.Single, mscorlib">
+    <value>0.354330719</value>
+  </data>
+  <data name="label8.Width" type="System.Single, mscorlib">
+    <value>0.6248031</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayLargeIcon" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

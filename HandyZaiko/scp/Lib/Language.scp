@@ -1,0 +1,83 @@
+//////////////////////////////////////////////////////////////////////////
+//	多言語対応パッケージ
+//////////////////////////////////////////////////////////////////////////
+Package Language
+	
+	Const MAX_ITEM_NUM = 50
+	langItem[50]			// 画面表示項目
+	
+	// ***** マスタファイル管理 *****
+	LANG_MASTER_PARTIAL_USED = false			// 言語マスタファイルを個別管理(Lang_XX.csvで一元化しない)
+	
+	// ***** 定数 *****
+	Const FILE_SUFFIX_JP = "_JP.csv"
+	Const FILE_SUFFIX_EN = "_EN.csv"
+	Const SAVE_DRIVE_LANG = "1:"
+	Const LANG_MASTER_FILENAME = "Lang"
+	
+	//-----------------------------------------------
+	// 言語設定に対応した画面表示項目を設定する
+	Method Initialize(lang, scpName)
+		fileSuffix
+		langFile
+	Begin
+		
+		If lang eq "japanese" Then
+			fileSuffix = FILE_SUFFIX_JP
+		Else
+			fileSuffix = FILE_SUFFIX_EN
+		End If
+		
+		// 言語マスタファイル名称
+		If LANG_MASTER_PARTIAL_USED is false Then
+			langFile = SAVE_DRIVE_LANG & LANG_MASTER_FILENAME & fileSuffix
+		Else
+			langFile = SAVE_DRIVE_LANG & scpName & fileSuffix
+		End If
+		
+		SetLanguage(langFile, scpName)
+	End Method
+	
+	//-----------------------------------------------
+	// 言語マスタを読み込み、画面表示項目にセットする
+	Method SetLanguage(masterFile, scpName)
+		openResult				// マスタオープン結果
+		getResult				// 読み込み結果
+		offset = 0				// レコードオフセット
+	Begin
+		// マスタ初期化
+		Master:Initialize()
+		
+		// マスタをオープンする
+		openResult = Master:Open(masterFile, ",", 3)
+		If openResult is false Then
+			Handy:ShowMessageBox("Language Master Error", "confirm")
+			Return()
+		End If
+		
+		// 1件ずつマスタ読み込み
+		Master:keyNum = 2
+		Master:SetKey(1, scpName)
+		While 1
+			Master:SetKey(2, offset)
+			
+			getResult = Master:GetFirst(nil, false)
+			If getResult is false Then
+				Wbreak
+			EndIf
+			
+			langItem[offset] = Master:GetData(3)
+			
+			offset = offset + 1
+			If offset == MAX_ITEM_NUM Then
+				Handy:ShowMessageBox("Language Master Error", "confirm")
+				Wbreak
+			EndIf
+		Wend
+		
+		// マスタファイルを閉じる
+		Master:Close()
+		
+	End Method
+	
+EndPackage

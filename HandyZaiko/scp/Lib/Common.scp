@@ -1,0 +1,234 @@
+Include "Lib\Const"
+Include "Lib\Error"
+
+//////////////////////////////////////////////////////////////////
+//						共通パッケージ							//
+//////////////////////////////////////////////////////////////////
+Package Common
+
+	//---------------------------------------------------
+	// 初期処理 メニュー画面以外
+	Method Initialize()
+	Begin		
+		// ステータス表示設定
+		Screen:status = false
+		
+	EndMethod
+
+	Method BarcodeRead()
+	Begin
+		// --バーコード読み取り設定--
+		BCR:timeOut = 50// 100[msec]単位
+		
+		With CODE39
+			:enable = true :includeStartChar = false :useCD = false :includeCD = true 
+			If ( :max > 3 ) Then  :min = 3 :max = 50  Else  :max = 50 :min = 3  EndIf
+		EndWith
+		
+		
+		CODE93:enable = false
+		CODE128:enable = false
+		
+		JAN:enable = false
+		EAN128:enable = false
+		ITF:enable = false
+		NW7:enable = false
+		TOF:enable = false
+		COOP:enable = false
+		
+	EndMethod
+	
+	//---------------------------------------------------
+	// 読み取りNG時のデバイス動作設定
+	Method read_NG()
+	Begin
+		
+		With Buzzer
+			:onTime = 1 :offTime =1  :loopCount = 2 :synchronization =false :pitch = 7 :volume = 3
+		EndWith
+		
+		With Led
+			:onTime = 1 :offTime = 1 :loopCount = 3 :synchronization =false :color = "red"
+		EndWith
+
+		With Vibration
+			:onTime = 2 :offTime = 0 :loopCount = 1 :synchronization =false
+		EndWith
+		
+		Led:Exec()
+		Vibration:Exec()
+		Buzzer:Exec()
+	End Method
+	
+	
+	//---------------------------------------------------
+	// 照合OK時のデバイス動作設定
+	Method read_OK()
+	Begin
+		
+		With Buzzer
+			:onTime = 1 :offTime = 0 :loopCount = 1 :synchronization =false :pitch = 14 :volume = 3
+		EndWith
+		
+		With Led
+			:onTime = 1 :offTime = 0 :loopCount = 1 :synchronization =false :color = "green"
+		EndWith
+
+		Buzzer:Exec()
+		Led:Exec()
+		
+	End Method
+	
+	// 各種データ数返却
+	Method data_count(filename)
+	Begin
+		If FileSystem:FindFirst(filename) is true Then	
+			If filename eq ConstString:FILE_LOCATION Or
+			  filename eq ConstString:FILE_TANAOROSHI Then
+				Return(FileSystem:findFileSize / ConstString:L_SIZE)
+			Else
+				Return(FileSystem:findFileSize / ConstString:K_SIZE)
+			End If
+		Else
+			Return (0)
+		EndIf
+	EndMethod
+	
+	// 前回入力データ返却
+	Method get_last_data(fileName)
+		codeSize = ConstString:TAG_SIZE
+	Begin
+		If FileSystem:FindFirst(fileName) is true Then
+			File:Initialize()
+			File:name = fileName
+			File:currentPos = FileSystem:findFileSize - ConstString:TAG_SIZE - 1
+			Return (File:Gets(codeSize))
+		Else
+			Return ("")
+		EndIf
+	EndMethod
+	
+	// 文字列埋め
+	Method str_pad(str, sz)
+		padding = " "
+	Begin
+		If (sz < str.length) Then
+			Return (str)
+		Else
+			Return (str & padding.Repeat(sz - str.length))
+		EndIf
+	EndMethod
+	
+	// ドライブ2からユーザーの使用しているファイルでファイルリスト以外を全て削除します。
+	Method delete_user_file()
+		findflg = false		// ファイル検索フラグ
+		ret
+		filename
+		protectName
+	Begin
+
+		// 削除時保護リスト
+		If FileSystem:FindFirst("_FILE.LST") is false Then return() EndIf
+		File2:Initialize()
+		File2:name = "_FILE.LST"
+
+		ret = FileSystem:FindFirst(ConstString:DRIVE_NAME)
+		While ret is true
+			filename = FileSystem:findFileName
+			If filename.Remove(ConstString:DRIVE_NAME) ne ConstString:FILE_LOCATION And
+				 filename.Remove(ConstString:DRIVE_NAME) ne ConstString:FILE_KANRYO And
+				 filename.Remove(ConstString:DRIVE_NAME) ne ConstString:FILE_TANAOROSHI Then
+				ret = FileSystem:FindNext()
+				Wcontinue
+			EndIf
+			
+			File2:currentPos = 0
+
+			findflg = false
+			While 1		// ファイルリストループ
+				protectName = File2:Gets(126)
+				If protectName is nil Then Wbreak EndIf
+				If protectName.length < 3 Then Wbreak EndIf
+				If protectName.left(1) ne "<" Then
+					protectName = protectName.remove("\r")
+					protectName = protectName.remove("\n")
+					If protectName.toUpper eq FileSystem:findFileName.toUpper Then
+						findflg = true
+						Wbreak
+					EndIf
+				EndIf
+			Wend
+			If findflg is false Then
+				FileSystem:Delete(FileSystem:findFileName)
+				ret = FileSystem:FindFirst(ConstString:DRIVE_NAME)
+			Else
+				ret = FileSystem:FindNext()
+			EndIf
+
+		Wend
+		File2:Initialize()
+
+	EndMethod
+	
+EndPackage
+
+//////////////////////////////////////////////////////////////////////////////////
+// 入力時の遷移先振り分け
+// next = 次へ  back = 1つ前の作業へ  returntop = メニューに戻る  retry = もう一度
+//////////////////////////////////////////////////////////////////////////////////
+Package InputLoop
+	
+	// 入力判定メソッド
+	Method input_loop(btvKeycode,current)
+		btvRet
+	Begin
+
+		Select Case btvKeycode
+		Case "ENT"
+			Return ("next")
+		Case "TRG"
+			Return ("next")
+		End Select
+		
+		If current eq "sagyou1" Then
+			Select Case btvKeycode
+				Case "C"
+					Return ("returntop")
+				Case "ERR_BCR_INPUT"
+					ErrorCode:error_code = 9
+					Common:read_NG()
+					Return ("back")
+				Case "ERR_RANGE_UPPER"
+					ErrorCode:error_code = 4
+					Common:read_NG()
+					Return ("back")
+				Case "ERR_RANGE_LOWER"
+					Return ("back")
+				Case "F1"
+					Return ("returntop")
+			End Select
+			Return ("back")
+		Else
+			Select Case btvKeycode
+				Case "C"
+					Return ("back")
+				Case "ERR_BCR_INPUT"
+					ErrorCode:error_code = 9
+					Common:read_NG()
+					Return ("retry")
+				Case "ERR_RANGE_UPPER"
+					ErrorCode:error_code = 4
+					Common:read_NG()
+					Return ("retry")
+				Case "ERR_RANGE_LOWER"
+					Return ("retry")
+				Case "F1"
+					Return ("back")
+			End Select
+			Return ("retry")
+		EndIf
+
+	End Method
+
+EndPackage
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ee1bb839-3750-4555-a627-4a3d72f251c0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://smssrv/sms/WsAttachFile.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WsAttachFile.disco" MetadataType="Disco" ID="66a4da32-b345-478d-b57f-e684af86b6dc" SourceId="1" SourceUrl="http://adv1908v001/sms/WsAttachFile.svc?disco" />
+    <MetadataFile FileName="WsAttachFile1.wsdl" MetadataType="Wsdl" ID="fde7c78e-9c23-44d6-a14b-0e37ee79d0de" SourceId="1" SourceUrl="http://adv1908v001/sms/WsAttachFile.svc?wsdl" />
+    <MetadataFile FileName="WsAttachFile1.xsd" MetadataType="Schema" ID="536afbcf-1c79-4683-839a-6c44341f897d" SourceId="1" SourceUrl="http://adv1908v001/sms/WsAttachFile.svc?xsd=xsd0" />
+    <MetadataFile FileName="WsAttachFile2.xsd" MetadataType="Schema" ID="0a3549a8-5e5b-4601-955d-2282df52bf0c" SourceId="1" SourceUrl="http://adv1908v001/sms/WsAttachFile.svc?xsd=xsd1" />
+    <MetadataFile FileName="WsAttachFile.wsdl" MetadataType="Wsdl" ID="f6c2815b-5e64-4504-89a7-91dddd33edd7" SourceId="1" SourceUrl="http://adv1908v001/sms/WsAttachFile.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="WsAttachFile.xsd" MetadataType="Schema" ID="8c52538b-9946-4d39-acfb-b2d17d480ff1" SourceId="1" SourceUrl="http://adv1908v001/sms/WsAttachFile.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,14 @@
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\WsConnection.dll.config
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\WsConnection.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\WsConnection.XmlSerializers.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\WsConnection.pdb
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\Commons.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\DSWUtil.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\DSWUtil.xml
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\Commons.pdb
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\en\Commons.resources.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\bin\Release\ja\Commons.resources.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\obj\Release\ResolveAssemblyReference.cache
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\obj\Release\WsConnection.dll
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\obj\Release\WsConnection.pdb
+C:\contec002\source\SMSAll\Common\WsConnection\WsConnection\obj\Release\WsConnection.XmlSerializers.dll

@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WsConnection.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WsConnection_WsCommon_WsCommon" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsCommon.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefU01_WsU01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsU01.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefS02_WsS02" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsS02.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefSms_WsSms" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsSms.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefS01_WsS01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsS01.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefP02_WsP02" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsP02.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefP01_WsP01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsP01.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefMaster_WsMaster" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsMaster.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefM01_WsM01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsM01.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefK04_WsK04" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsK04.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefK03_WsK03" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsK03.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefK02_WsK02" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsK02.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefK01_WsK01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsK01.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefJ01_WsJ01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsJ01.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefA01_WsA01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsA01.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_WebRefZ99_WsZ99" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsZ99.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_smssrv_WsI01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsI01.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_smssrv_WsI02" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsI02.asmx</Value>
+    </Setting>
+    <Setting Name="WsConnection_smssrv_WsT01" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://smssrv/sms/WsT01.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

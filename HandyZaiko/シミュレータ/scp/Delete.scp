@@ -1,0 +1,217 @@
+/********************************************************************************
+ファイル名	：	DELETE.scp
+バージョン	：	Ver.1.00
+作成日付	：	2010/04/22
+動作説明	：	データ削除
+
+********************************************************************************/
+
+Include "Lib\Utility"
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+Begin
+	
+	LOGDELETE:delete_main()
+	
+Catch
+	Handy:ShowMessageBox("Applicationに問題が発生しました("&System:error&")", "ok" )
+End Method
+
+
+
+Package LOGDELETE
+	
+	btvEachInput = ""	// 入力された値
+	loc_count
+	ivt_count
+	cpl_count	
+	
+	Method delete_main()
+		btvRet
+	Begin
+		Common:Initialize()
+		
+		// 件数カウント
+		loc_count = Common:data_count(ConstString:FILE_LOCATION)
+		ivt_count = Common:data_count(ConstString:FILE_TANAOROSHI)
+		cpl_count = Common:data_count(ConstString:FILE_KANRYO)
+		
+		// 削除できるファイルが無い場合メニューに戻る
+		If loc_count == 0 AND ivt_count == 0 AND cpl_count == 0 Then
+			Handy:ShowMessageBox("Dataがありません", "ok" )
+			System:Load(System:arg1, 0, System:arg2, 0,0)
+			Return ()
+		EndIf
+	
+		disp_normal()
+		
+		While 1
+			// 削除できるファイルが無い場合メニューに戻る
+			If loc_count == 0 AND ivt_count == 0 AND cpl_count == 0 Then
+				System:Load(System:arg1, 0, System:arg2, 0,0)
+				Return ()
+			EndIf
+			
+			// 入力待ち
+			btvRet = wait_input()
+			If btvRet eq "next" Then 
+				log_delete()
+			ElseIf btvRet eq "retry" Then 
+				
+			Else
+				System:Load(System:arg1, 0, System:arg2, 0,0)
+				Return ()
+			EndIf
+		Wend
+
+	End Method
+	
+	Method log_delete()
+			error_String = ""
+	Begin
+		Select Case btvEachInput
+			Case 1
+				If loc_count == 0 Then
+					Handy:ShowMessageBox("Dataがありません", "ok" )
+				Else
+					FileList:file_list("Location", ConstString:FILE_LOCATION)
+				EndIf
+			Case 2
+				If cpl_count == 0 Then
+					Handy:ShowMessageBox("Dataがありません", "ok" )
+				Else
+					FileList:file_list("完了", ConstString:FILE_KANRYO)
+				EndIf
+			Case 3
+				If ivt_count == 0 Then
+					Handy:ShowMessageBox("Dataがありません", "ok" )
+				Else
+					FileList:file_list("棚卸", ConstString:FILE_TANAOROSHI)
+				EndIf
+			Case 4
+				If Handy:ShowMessageBox("Dataを全て削除します。よろしいですか？","yesno|no") Then
+						// todo
+						Common:delete_user_file()
+						Handy:ShowMessageBox("Data削除が完了しました","ok")
+				Else
+					Handy:ShowMessageBox("Cancelされました", "ok" )
+				EndIf
+				
+		End Select
+		disp_normal()
+	
+		If input_String(btvEachInput) is false Then
+			Common:read_NG()
+			error_String = "入力文字不正"
+		Else
+			error_String = ""
+		EndIf
+		
+		With Screen
+			:update = false
+			:posx = 7 :posy = 12 :multiColumn = 1 :reverse = false :font = 1 :OutputText(error_String)
+			:update = true
+		EndWith
+	
+	
+	End Method
+
+	// 画面表示
+	Method disp_normal()
+	Begin
+		loc_count = Common:data_count(ConstString:FILE_LOCATION)
+		ivt_count = Common:data_count(ConstString:FILE_TANAOROSHI)
+		cpl_count = Common:data_count(ConstString:FILE_KANRYO)
+		With Screen
+			:status = false
+			:update = false
+			:Clear()
+			:foreColor = "255|255|255" :backColor = "0|0|128" :fontSize = "large"
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = false :font = 1 :OutputText("    Data削除    ")
+			:foreColor = "0|0|0" :backColor = "255|255|255" :fontSize = "small"
+			:posx = 1 :posy = 4 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" 1.Location")
+			:posx = 1 :posy = 6 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" 2.完了")
+			:posx = 1 :posy = 8 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" 3.棚卸")
+			:posx = 1 :posy = 10 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" 4.全て")
+			:posx = 1 :posy = 12 :multiColumn = 1 :reverse = false :font = 1 :OutputText("[   ]")
+			:posx = 1 :posy = 18 :multiColumn = 1 :reverse = false :font = 1 :OutputText(" F1:戻る   ENT:実行")
+			
+			:posx = 14 :posy = 4 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& loc_count &"]")
+			:posx = 14 :posy = 6 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& cpl_count &"]")
+			:posx = 14 :posy = 8 :multiColumn = 1 :reverse = false :font = 1 :OutputText("["& ivt_count &"]")
+			
+			:update = true
+		EndWith
+		
+	End Method
+
+	// 入力判定メソッド
+	Method input_loop(btvKeycode)
+		btvRet
+	Begin
+	Select Case btvKeycode
+		Case "ENT"
+			Return ("next")
+		Case "F1"
+			Return (0)
+		Case "ERR_RANGE_UPPER"
+			Return ("retry")
+		Case "ERR_RANGE_LOWER"
+			Return ("retry")
+		Case Else
+			Return ("retry")
+		End Select
+		
+	End Method
+
+	// 入力文字判定メソッド
+	Method input_String(btvEachInput)
+		btvRet
+	Begin
+	Select Case btvEachInput
+		Case "1"
+			Return ("")
+		Case "2"
+			Return ("")
+		Case "3"
+			Return ("")
+		Case "4"
+			Return ("")
+		Case Else
+			Return (false)
+		End Select
+		
+	End Method
+
+
+	// 入力設定
+	Method wait_input()
+		btvKeycode
+		btvRet
+		
+	Begin
+		With InputString
+			:posx = 3 :posy = 12 :multiColumn = 1 :reverse = false :font = 1 
+			:data = "0" // 初期値設定
+			:inputAreaSize = 2
+			:maxLength = 1
+			:minLength = 0
+			:enableKeyInput = true
+			:scanMode = 1
+			:shift = nil
+			
+			btvKeycode = :Exec()
+			btvEachInput=:data
+			
+		EndWith
+		
+		btvRet = input_loop(btvKeycode)
+		
+		Return (btvRet)
+	End Method
+	
+EndPackage
+

@@ -1,0 +1,75 @@
+//////////////////////////////////////////////////////////////////////////
+//						定数パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package ConstString
+	
+	Const DRIVE_NAME = "2:"					// 保存ドライブ名
+	
+	Const SHUKA_NAME = "SHUKA"				// 出荷ログファイル名
+	Const HIKIWATASHI_NAME = "HIKIWATASHI"
+	Const BOX_NAME = "B"					// Box梱包ログ頭文字
+	Const PARET_NAME = "P"					// パレット梱包ログ頭文字
+	
+	Const SAVE_TYPE = ".TXT"				// ログ保存拡張子
+	Const SAVE_HIKIWATASHI = ".W"
+	Const SAVE_BOX = ".B"
+	Const SAVE_PARET = ".P"
+	Const SHUKA_DATA = "SHUKA.TXT"			// 出荷ログファイル名(拡張子含む)
+	Const KENPIN_DATA = "KENPIN.R"			// 入荷検品ファイル名(拡張子含む)
+	Const MEASURE_DATA = "KEISOKU.M"		// 計測ファイル名(拡張子含む)
+	Const HIKIWATASHI_DATA = "HIKIWATASHI.W"	// 引渡ログファイル名(拡張子含む)
+	
+	//------------------------------------------------------
+	// 桁数
+	Const TAG_SIZE = 10				// 現品タグの桁数
+	Const NO_SIZE = 6				// ボックスタグ・パレットタグの桁数
+	Const TEHAI_NO_SIZE = 8			// 手配No.の桁数
+	Const NYUKA_COUNT_SIZE = 6		// 入荷数の桁数
+	Const WEIGHT_SIZE = 7			// 計測重量の桁数(9999.99)
+	Const USER_ID_SIZE = 20			// 作業者コードの桁数
+	
+	Const START_S_POS = 0			// 集荷ログの開始位置
+	Const START_BP_POS = 7			// ボックス梱包・パレット梱包の開始位置
+	
+	Const COUNT_S_POS = 22			// 集荷ログの次の位置
+	Const COUNT_BP_POS = 29			// ボックス梱包・パレット梱包の次の位置
+	
+	Const LAST_SB_POS = 32			// 集荷ログ・ボックス梱包の最後の位置
+	Const LAST_P_POS = 28			// パレット梱包の最後の位置
+	
+	Const S_SIZE = 32						// 集荷データの1レコードバイト数
+	Const B_SIZE = 39						// ボックス梱包の1レコードバイト数
+	Const P_SIZE = 35						// パレット梱包の1レコードバイト数
+	Const KENPIN_BYTE_SIZE = 37				// 入荷検品の1レコードバイト数
+	Const MEASURE_BYTE_SIZE = 40			// 計測の1レコードバイト数
+	
+	//------------------------------------------------------
+	// スクリプト名称
+	Const SCP_NAME_APP = "App"
+	Const SCP_NAME_LOGIN = "LOGIN"
+	Const SCP_NAME_MENU = "MENU"
+	Const SCP_NAME_SHUKA = "SHUKA"
+	Const SCP_NAME_HIKIWATASHI = "HIKIWATASHI"
+	Const SCP_NAME_BOX = "BOX"
+	Const SCP_NAME_PALLET = "PALLET"
+	Const SCP_NAME_DELETE = "DELETE"
+	Const SCP_NAME_GYOMU = "GYOMU"
+	Const SCP_NAME_TEHAI = "TEHAI"
+	Const SCP_NAME_KENPIN = "KENPIN"
+	Const SCP_NAME_DEL_TEHAI = "DEL_TEHAI"
+	Const SCP_NAME_MEASURE = "MEASURE"
+	
+	Method TYPE(fileName)
+	Begin
+	If fileName eq "B" Then
+		Return (SAVE_BOX)
+	ElseIf fileName eq "P" Then
+		Return (SAVE_PARET)
+	ElseIf fileName eq "H" Then
+		Return (SAVE_HIKIWATASHI)
+	EndIf
+	Return(SHUKA_NAME)
+	End Method
+	
+	
+EndPackage

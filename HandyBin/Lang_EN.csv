@@ -1,0 +1,61 @@
+MENU,0,     < Packing >     
+MENU,1, 1. Handover tag| 2. Pick up tag| 3. Box packing| 4. Pallet packing| 5. Measurement
+MENU,2, 6. Delete Data
+SHUKA,0,   < Pick up tag >   
+SHUKA,1,Qty:
+SHUKA,2,Tag no.[           ]
+SHUKA,3,Previous
+SHUKA,4, F1: Back  ENT: Add
+BOX,0,   < Box packing >   
+BOX,1,Box no.   
+BOX,2,          Qty:
+BOX,3,Tag no.[           ]
+BOX,4,Previous
+BOX,5, F1: Back  ENT: Add
+PALLET,0, < Pallet packing >  
+PALLET,1,Pallet no.
+PALLET,2,          Qty:
+PALLET,3,Box no.   [        ]
+PALLET,4,Previous
+PALLET,5, F1: Back  ENT: Add
+GYOMU,0,ID:
+GYOMU,1, 1. Procurement| 2. Packing
+TEHAI,0, < Procurement menu >
+TEHAI,1, 1. Inspection| 2. Delete data
+KENPIN,0,   < Inspection >    
+KENPIN,1, Procurement no.
+KENPIN,2, Qty
+KENPIN,3, Previous
+KENPIN,4, F1: Back  ENT: Add
+MEASURE,0,   < Measurement >   
+MEASURE,1, Tag no.
+MEASURE,2, Weight (Kg)
+MEASURE,3, Previous
+MEASURE,4, F1: Back  ENT: Add
+DELETE,0, F1: Back   ENT: Del.
+DELETE,1,Box packing list
+DELETE,2,Pallet packing list
+DELETE,3,Measurement list
+DELETE,4,   < Delete data >   
+DELETE,5,2.Pick up tag
+DELETE,6,3.Box packing
+DELETE,7,4.Pallet packing
+DELETE,8,5.Measurement
+DELETE,9,6.All
+DELETE,10, F1: Back  ENT: Exec
+DELETE,11,1.Handover tag
+DEL_TEHAI,0, F1: Back   ENT: Del.
+DEL_TEHAI,1,Inspection list
+DEL_TEHAI,2,   < Delete data >   
+DEL_TEHAI,3, 1. Inspection
+DEL_TEHAI,4, 4. All
+DEL_TEHAI,5, F1: Back  ENT: Exec
+LOGIN,0,      < Login >      
+LOGIN,1, Login ID:
+LOGIN,2,    [            ]
+LOGIN,3,F1: Back   ENT: Login
+HIKIWATASHI,0,   < Handover tag >  
+HIKIWATASHI,1,Qty:
+HIKIWATASHI,2,Tag no.[           ]
+HIKIWATASHI,3,Previous
+HIKIWATASHI,4, F1: Back  ENT: Add

@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BukkenMeiHoshuIkkatsu_ArTagNo" xml:space="preserve">
+    <value>AR tag qty</value>
+  </data>
+  <data name="BukkenMeiHoshuIkkatsu_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="BukkenMeiHoshuIkkatsu_MailNotify" xml:space="preserve">
+    <value>Email notice</value>
+  </data>
+  <data name="BukkenMeiHoshuIkkatsu_NormalTagNo" xml:space="preserve">
+    <value>Regular tag qty</value>
+  </data>
+  <data name="BukkenMeiHoshu_MailNotificationInvestment" xml:space="preserve">
+    <value>Email notice</value>
+  </data>
+  <data name="BukkenMeiHoshu_ManagementNo" xml:space="preserve">
+    <value>Control no.</value>
+  </data>
+  <data name="BukkenMeiHoshu_PropertyName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="BukkenMeiHoshu_ShippingDivision" xml:space="preserve">
+    <value>Shipment type</value>
+  </data>
+  <data name="BukkenMeiHoshu_ShippingDivisionHidden" xml:space="preserve">
+    <value>Shipment type</value>
+  </data>
+  <data name="BukkenMeiHoshu_TagNo" xml:space="preserve">
+    <value>Tag qty</value>
+  </data>
+  <data name="EcsHoshu_ArNo" xml:space="preserve">
+    <value>AR no.</value>
+  </data>
+  <data name="EcsHoshu_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="EcsHoshu_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="EcsHoshu_EcsNo" xml:space="preserve">
+    <value>ECS no.</value>
+  </data>
+  <data name="EcsHoshu_KanriFlag" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="EcsHoshu_Kishu" xml:space="preserve">
+    <value>Device type</value>
+  </data>
+  <data name="EcsHoshu_Quota" xml:space="preserve">
+    <value>Fiscal year</value>
+  </data>
+  <data name="EcsHoshu_Seiban" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="HaisosakiHoshu_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="HaisosakiHoshu_Fax" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="HaisosakiHoshu_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="HaisosakiHoshu_SortNo" xml:space="preserve">
+    <value>Sort order</value>
+  </data>
+  <data name="HaisosakiHoshu_Tel1" xml:space="preserve">
+    <value>Telephone</value>
+  </data>
+  <data name="HaisosakiHoshu_Tel2" xml:space="preserve">
+    <value>Telephone 2</value>
+  </data>
+  <data name="HaisousakidHosyu_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="KonpoJohoHoshu_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="KonpoJohoHoshu_ARNo" xml:space="preserve">
+    <value>AR no.</value>
+  </data>
+  <data name="KonpoJohoHoshu_BoxNo" xml:space="preserve">
+    <value>Box no.</value>
+  </data>
+  <data name="KonpoJohoHoshu_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="KonpoJohoHoshu_DrawingAdditionalNo" xml:space="preserve">
+    <value>Sequence no.</value>
+  </data>
+  <data name="KonpoJohoHoshu_DrawingNoFormat" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="KonpoJohoHoshu_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="KonpoJohoHoshu_JpName" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="KonpoJohoHoshu_Memo" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="KonpoJohoHoshu_MNo" xml:space="preserve">
+    <value>Model no.</value>
+  </data>
+  <data name="KonpoJohoHoshu_Model" xml:space="preserve">
+    <value>Device type</value>
+  </data>
+  <data name="KonpoJohoHoshu_Name" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="KonpoJohoHoshu_ProductNo" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="KonpoJohoHoshu_Quantity" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="KonpoJohoHoshu_SectioningNo" xml:space="preserve">
+    <value>Section No.</value>
+  </data>
+  <data name="KonpoJohoHoshu_STNo" xml:space="preserve">
+    <value>Station no.</value>
+  </data>
+  <data name="KonpoJohoHoshu_TagNo" xml:space="preserve">
+    <value>Tag no.</value>
+  </data>
+  <data name="MailSendInfo_Cc" xml:space="preserve">
+    <value>Cc</value>
+  </data>
+  <data name="MailSendInfo_DateModified" xml:space="preserve">
+    <value>Date updated</value>
+  </data>
+  <data name="MailSendInfo_FailureCount" xml:space="preserve">
+    <value>Times failed</value>
+  </data>
+  <data name="MailSendInfo_FailureReason" xml:space="preserve">
+    <value>Reason for failure</value>
+  </data>
+  <data name="MailSendInfo_RegisterdDate" xml:space="preserve">
+    <value>Date created</value>
+  </data>
+  <data name="MailSendInfo_State" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="MailSendInfo_Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="MailSendInfo_To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="MeishoHoshu_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NiukeHoshu_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="NiukeHoshu_ChinaFlag" xml:space="preserve">
+    <value>For China</value>
+  </data>
+  <data name="NiukeHoshu_Fax" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="NiukeHoshu_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NiukeHoshu_SortNo" xml:space="preserve">
+    <value>Sort order</value>
+  </data>
+  <data name="NiukeHoshu_Tel1" xml:space="preserve">
+    <value>Telephone</value>
+  </data>
+  <data name="NiukeHoshu_Tel2" xml:space="preserve">
+    <value>Telephone 2</value>
+  </data>
+  <data name="NiukeHoshu_UsciCd" xml:space="preserve">
+    <value>USCI</value>
+  </data>
+  <data name="NonyusakiHoshu_DeliveryDestination" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="NonyusakiHoshu_ExclusionDivision" xml:space="preserve">
+    <value>Remove type</value>
+  </data>
+  <data name="NonyusakiHoshu_FlagName" xml:space="preserve">
+    <value>Regular</value>
+  </data>
+  <data name="NonyusakiHoshu_ManagementDivision" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="NonyusakiHoshu_ManagementNo" xml:space="preserve">
+    <value>Control no.</value>
+  </data>
+  <data name="NonyusakiHoshu_Ship" xml:space="preserve">
+    <value>Shipment no.</value>
+  </data>
+  <data name="NonyusakiHoshu_ShippingDivision" xml:space="preserve">
+    <value>Shipment type</value>
+  </data>
+  <data name="PartsNameHonyaku_Customer" xml:space="preserve">
+    <value>Distributor</value>
+  </data>
+  <data name="PartsNameHonyaku_InvName" xml:space="preserve">
+    <value>Part name extension</value>
+  </data>
+  <data name="PartsNameHonyaku_JPName" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="PartsNameHonyaku_Maker" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="PartsNameHonyaku_Name" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="PartsNameHonyaku_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="PartsNameHonyaku_Numeric" xml:space="preserve">
+    <value>Characters allowed: numeric</value>
+  </data>
+  <data name="PartsNameHonyaku_ofdExcel_Filter" xml:space="preserve">
+    <value>Excel files | *.xlsx</value>
+  </data>
+  <data name="PartsNameHonyaku_ofdExcel_Title" xml:space="preserve">
+    <value>Open file</value>
+  </data>
+  <data name="PartsNameHonyaku_OriginCountry" xml:space="preserve">
+    <value>Country of origin</value>
+  </data>
+  <data name="PartsNameHonyaku_PlatformDependentChar" xml:space="preserve">
+    <value>Characters disallowed: platform-dependent characters</value>
+  </data>
+  <data name="PartsNameHonyaku_sdfExcel_Filter" xml:space="preserve">
+    <value>Excel files | *.xlsx</value>
+  </data>
+  <data name="PartsNameHonyaku_sdfExcel_Title" xml:space="preserve">
+    <value>Export data in Excel file format.</value>
+  </data>
+  <data name="PartsNameHonyaku_Singlebyte" xml:space="preserve">
+    <value>Characters allowed: alphabetic, numeric, sign, space</value>
+  </data>
+  <data name="PartsNameHonyaku_Type" xml:space="preserve">
+    <value>Model no.</value>
+  </data>
+  <data name="PartsNameHonyaku_UpperAndNumber" xml:space="preserve">
+    <value>Characters allowed: uppercase alphabetic and numeric</value>
+  </data>
+  <data name="ShukkamotoHoshu_DispNo" xml:space="preserve">
+    <value>Sort order</value>
+  </data>
+  <data name="ShukkamotoHoshu_ShanaiGaiFlag" xml:space="preserve">
+    <value>Internal/External</value>
+  </data>
+  <data name="ShukkamotoHoshu_ShipFrom" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ShukkamotoHoshu_UnusedFlag" xml:space="preserve">
+    <value>Unused</value>
+  </data>
+  <data name="UnsoKaisyaHoshu_InvoiceFlag" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="UnsoKaisyaHoshu_KokunaiGaiFlag" xml:space="preserve">
+    <value>Shipping area</value>
+  </data>
+  <data name="UnsoKaisyaHoshu_PackingListFlag" xml:space="preserve">
+    <value>Packing list</value>
+  </data>
+  <data name="UnsoKaisyaHoshu_SortNo" xml:space="preserve">
+    <value>Sort order</value>
+  </data>
+  <data name="UnsoKaisyaHoshu_TuukanAttn" xml:space="preserve">
+    <value>Send export clearance to</value>
+  </data>
+  <data name="UnsoKaisyaHoshu_TuukanFlag" xml:space="preserve">
+    <value>Export clearance</value>
+  </data>
+  <data name="UnsoKaisyaHoshu_UnsokaishaName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UnsoKaisyaHoshu_UnsokaishaNo" xml:space="preserve">
+    <value>Control no.</value>
+  </data>
+  <data name="UserMaster_Authority" xml:space="preserve">
+    <value>Rights</value>
+  </data>
+  <data name="UserMaster_ChangeAuthority" xml:space="preserve">
+    <value>Mail address change rights</value>
+  </data>
+  <data name="UserMaster_MailAddress" xml:space="preserve">
+    <value>Mail address</value>
+  </data>
+  <data name="UserMaster_MailPackingFlag" xml:space="preserve">
+    <value>Packing outline recipient</value>
+  </data>
+  <data name="UserMaster_MailTagRenkeiFlag" xml:space="preserve">
+    <value>Tag association recipient</value>
+  </data>
+  <data name="UserMaster_Remarks" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="UserMaster_sdfExcel_Filter" xml:space="preserve">
+    <value>Excel files | *.xlsx</value>
+  </data>
+  <data name="UserMaster_sdfExcel_Title" xml:space="preserve">
+    <value>Export data in Excel file format.</value>
+  </data>
+  <data name="UserMaster_StaffCode" xml:space="preserve">
+    <value>Login ID</value>
+  </data>
+  <data name="UserMaster_StaffKbn" xml:space="preserve">
+    <value>Staff type</value>
+  </data>
+  <data name="UserMaster_StaffName" xml:space="preserve">
+    <value>Login name</value>
+  </data>
+  <data name="NounyusakiHoshu_SipFromName" xml:space="preserve">
+    <value>Ship-from</value>
+  </data>
+  <data name="BukkenmeiHosyuIkkatsu_JuchuNo" xml:space="preserve">
+    <value>Order no.</value>
+  </data>
+  <data name="UserMaster_MailShukkakeikakuFlag" xml:space="preserve">
+    <value>Plan Importation Mail</value>
+  </data>
+  <data name="HaisosakiHoshu_sdfExcel_Filter" xml:space="preserve">
+    <value>ExcelFiles|*.xlsx</value>
+  </data>
+  <data name="HaisosakiHoshu_sdfExcel_Title" xml:space="preserve">
+    <value>Save Destination Excel Files</value>
+  </data>
+  <data name="HaisosakiHoshu_UnavailNy" xml:space="preserve">
+    <value>Unavailable Dates(NY)</value>
+  </data>
+  <data name="HaisosakiHoshu_UnavailNorm" xml:space="preserve">
+    <value>Unavailable Dates</value>
+  </data>
+  <data name="HaisosakiHoshu_UnavailMay" xml:space="preserve">
+    <value>Unavailable Dates(May)</value>
+  </data>
+  <data name="HaisosakiHoshu_UnavailAug" xml:space="preserve">
+    <value>Unavailable Dates(Aug)</value>
+  </data>
+  <data name="HaisosakiHoshu_ShippingContact" xml:space="preserve">
+    <value>ShippingContact</value>
+  </data>
+  <data name="HaisosakiHoshu_ShippingItem" xml:space="preserve">
+    <value>ShippingItem</value>
+  </data>
+  <data name="HaisosakiHoshu_ShippingType" xml:space="preserve">
+    <value>ShippingType</value>
+  </data>
+  <data name="PartsNameHonyaku_CustomsStatus" xml:space="preserve">
+    <value>CustomsStatus</value>
+  </data>
+</root>

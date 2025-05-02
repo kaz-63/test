@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WsConnection</RootNamespace>
+    <AssemblyName>WsConnection</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSWUtil, Version=0.5.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AspectConnectionRetry.cs" />
+    <Compile Include="Condition Constructors\CCA01.cs" />
+    <Compile Include="Condition Constructors\CCCommon.cs" />
+    <Compile Include="Condition Constructors\CCI01.cs" />
+    <Compile Include="Condition Constructors\CCI02.cs" />
+    <Compile Include="Condition Constructors\CCK01.cs" />
+    <Compile Include="Condition Constructors\CCK02.cs" />
+    <Compile Include="Condition Constructors\CCK03.cs" />
+    <Compile Include="Condition Constructors\CCK04.cs" />
+    <Compile Include="Condition Constructors\CCM01.cs" />
+    <Compile Include="Condition Constructors\CCMaster.cs" />
+    <Compile Include="Condition Constructors\CCP02.cs" />
+    <Compile Include="Condition Constructors\CCS01.cs" />
+    <Compile Include="Condition Constructors\CCS02.cs" />
+    <Compile Include="Condition Constructors\CCSms.cs" />
+    <Compile Include="Condition Constructors\CCT01.cs" />
+    <Compile Include="Condition Constructors\CCU01.cs" />
+    <Compile Include="ConnA01.cs" />
+    <Compile Include="ConnAttachFile.cs" />
+    <Compile Include="ConnBase.cs" />
+    <Compile Include="ConnCommon.cs" />
+    <Compile Include="ConnJ01.cs" />
+    <Compile Include="ConnK01.cs" />
+    <Compile Include="ConnK02.cs" />
+    <Compile Include="ConnK03.cs" />
+    <Compile Include="ConnK04.cs" />
+    <Compile Include="ConnM01.cs" />
+    <Compile Include="ConnMaster.cs" />
+    <Compile Include="ConnP01.cs" />
+    <Compile Include="ConnP02.cs" />
+    <Compile Include="ConnS01.cs" />
+    <Compile Include="ConnS02.cs" />
+    <Compile Include="ConnSms.cs" />
+    <Compile Include="ConnT01.cs" />
+    <Compile Include="ConnU01.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebRefAttachFile\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefT01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefI02\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefI01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefA01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefCommon\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefJ01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefK01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefK02\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefK03\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefK04\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefM01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefMaster\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefP01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefP02\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefS01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefS02\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefSms\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefU01\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefZ99\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="ConnZ99.cs" />
+    <Compile Include="ConnI01.cs" />
+    <Compile Include="ConnI02.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://smssrv/sms/WsT01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefT01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsT01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_smssrv_WsT01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsA01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefA01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsA01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefA01_WsA01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsCommon.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefCommon\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsCommon.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WsCommon_WsCommon</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsI01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefI01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsI01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_smssrv_WsI01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsI02.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefI02\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsI02.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_smssrv_WsI02</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsJ01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefJ01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsJ01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefJ01_WsJ01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsK01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefK01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsK01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefK01_WsK01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsK02.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefK02\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsK02.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefK02_WsK02</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsK03.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefK03\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsK03.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefK03_WsK03</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsK04.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefK04\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsK04.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefK04_WsK04</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsM01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefM01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsM01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefM01_WsM01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsMaster.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefMaster\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsMaster.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefMaster_WsMaster</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsP01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefP01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsP01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefP01_WsP01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsP02.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefP02\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsP02.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefP02_WsP02</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsS01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefS01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsS01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefS01_WsS01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsS02.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefS02\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsS02.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefS02_WsS02</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsSms.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefSms\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsSms.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefSms_WsSms</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsU01.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefU01\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsU01.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefU01_WsU01</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://smssrv/sms/WsZ99.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefZ99\</RelPath>
+      <UpdateFromURL>http://smssrv/sms/WsZ99.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WsConnection_WebRefZ99_WsZ99</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefCommon\WsCommon.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefCommon\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefCommon\WsCommon.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefU01\WsU01.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefU01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefU01\WsU01.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefS02\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefS02\WsS02.disco" />
+    <None Include="Web References\WebRefS02\WsS02.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefS01\WsS01.wsdl" />
+    <None Include="Web References\WebRefSms\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefSms\WsSms.disco" />
+    <None Include="Web References\WebRefSms\WsSms.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefS01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefS01\WsS01.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefP01\WsP01.wsdl" />
+    <None Include="Web References\WebRefP02\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefP02\WsP02.disco" />
+    <None Include="Web References\WebRefP02\WsP02.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefMaster\WsMaster.wsdl" />
+    <None Include="Web References\WebRefP01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefP01\WsP01.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefM01\WsM01.wsdl" />
+    <None Include="Web References\WebRefMaster\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefMaster\WsMaster.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefM01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefM01\WsM01.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefK04\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefK04\WsK04.disco" />
+    <None Include="Web References\WebRefK04\WsK04.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefK03\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefK03\WsK03.disco" />
+    <None Include="Web References\WebRefK03\WsK03.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefK02\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefK02\WsK02.disco" />
+    <None Include="Web References\WebRefK02\WsK02.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefK01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefK01\WsK01.disco" />
+    <None Include="Web References\WebRefK01\WsK01.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefA01\WsA01.wsdl" />
+    <None Include="Web References\WebRefJ01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefJ01\WsJ01.disco" />
+    <None Include="Web References\WebRefJ01\WsJ01.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefA01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefA01\WsA01.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefZ99\WsZ99.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Commons\Commons\Commons.csproj">
+      <Project>{7CF83010-9C8F-482B-B0C0-CA10DA669345}</Project>
+      <Name>Commons</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefZ99\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefZ99\WsZ99.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefI01\WsI01.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefI02\WsI02.wsdl" />
+    <None Include="Web References\WebRefI01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefI01\WsI01.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefI02\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefI02\WsI02.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebRefT01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefT01\WsT01.disco" />
+    <None Include="Web References\WebRefT01\WsT01.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WebRefAttachFile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebRefAttachFile\WsAttachFile.disco" />
+    <None Include="Service References\WebRefAttachFile\WsAttachFile.wsdl" />
+    <None Include="Service References\WebRefAttachFile\WsAttachFile.xsd" />
+    <None Include="Service References\WebRefAttachFile\WsAttachFile1.wsdl" />
+    <None Include="Service References\WebRefAttachFile\WsAttachFile1.xsd" />
+    <None Include="Service References\WebRefAttachFile\WsAttachFile2.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebRefAttachFile\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebRefAttachFile\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebRefAttachFile\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebRefAttachFile\WsConnection.WebRefAttachFile.ARHelpDownloadResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebRefAttachFile\WsConnection.WebRefAttachFile.FileDeleteResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebRefAttachFile\WsConnection.WebRefAttachFile.FileDownloadResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebRefAttachFile\WsConnection.WebRefAttachFile.FileUploadResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(ProjectDir)"
+copy "$(TargetPath)" "..\..\..\Bin\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

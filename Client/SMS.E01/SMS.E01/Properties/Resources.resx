@@ -1,0 +1,1729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ExportAllARJoho_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportAllARJoho_Connector" xml:space="preserve">
+    <value>連絡者</value>
+  </data>
+  <data name="ExportAllARJoho_CorrespondingDepartment" xml:space="preserve">
+    <value>対応部署</value>
+  </data>
+  <data name="ExportAllARJoho_Countermeasures" xml:space="preserve">
+    <value>対策内容</value>
+  </data>
+  <data name="ExportAllARJoho_DateModified" xml:space="preserve">
+    <value>更新日時</value>
+  </data>
+  <data name="ExportAllARJoho_DefectContent" xml:space="preserve">
+    <value>不具合内容</value>
+  </data>
+  <data name="ExportAllARJoho_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ExportAllARJoho_GirenNo1" xml:space="preserve">
+    <value>技連No①</value>
+  </data>
+  <data name="ExportAllARJoho_GirenNo2" xml:space="preserve">
+    <value>技連No②</value>
+  </data>
+  <data name="ExportAllARJoho_GirenNo3" xml:space="preserve">
+    <value>技連No③</value>
+  </data>
+  <data name="ExportAllARJoho_GmsIssueNumber" xml:space="preserve">
+    <value>GMS発行No</value>
+  </data>
+  <data name="ExportAllARJoho_JpFactoryDate" xml:space="preserve">
+    <value>日本・工場出荷日</value>
+  </data>
+  <data name="ExportAllARJoho_JpInvoiceNumber" xml:space="preserve">
+    <value>日本・送り状No</value>
+  </data>
+  <data name="ExportAllARJoho_JpSettingDeliveryTime" xml:space="preserve">
+    <value>日本・設定納期</value>
+  </data>
+  <data name="ExportAllARJoho_JpShippingCompany" xml:space="preserve">
+    <value>日本・運送会社</value>
+  </data>
+  <data name="ExportAllARJoho_JpShippingDate" xml:space="preserve">
+    <value>日本・出荷予定日</value>
+  </data>
+  <data name="ExportAllARJoho_List" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="ExportAllARJoho_LocalArrangementsDestination" xml:space="preserve">
+    <value>現地・手配先</value>
+  </data>
+  <data name="ExportAllARJoho_LocalFactoryDate" xml:space="preserve">
+    <value>現地・工場出荷日</value>
+  </data>
+  <data name="ExportAllARJoho_LocalSettingDeliveryTime" xml:space="preserve">
+    <value>現地・設定納期</value>
+  </data>
+  <data name="ExportAllARJoho_LocalShippingDate" xml:space="preserve">
+    <value>現地・出荷予定日</value>
+  </data>
+  <data name="ExportAllARJoho_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportAllARJoho_ModifiedBy" xml:space="preserve">
+    <value>更新者</value>
+  </data>
+  <data name="ExportAllARJoho_Remarks" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ExportAllARJoho_ShippingMethod" xml:space="preserve">
+    <value>出荷方法</value>
+  </data>
+  <data name="ExportAllARJoho_SiteDesiredArrivalDate" xml:space="preserve">
+    <value>現地到着希望日</value>
+  </data>
+  <data name="ExportAllARJoho_Situation" xml:space="preserve">
+    <value>状況</value>
+  </data>
+  <data name="ExportAllARJoho_SpecificationCommunicationNo" xml:space="preserve">
+    <value>仕様連絡No</value>
+  </data>
+  <data name="ExportAllARJoho_TimeAndDate" xml:space="preserve">
+    <value>発生日時</value>
+  </data>
+  <data name="ExportAllARJoho_Unit" xml:space="preserve">
+    <value>号機</value>
+  </data>
+  <data name="ExportKiwakuMeisai_CNo" xml:space="preserve">
+    <value>C/No</value>
+  </data>
+  <data name="ExportKiwakuMeisai_ConstructionIdentificationName" xml:space="preserve">
+    <value>工事識別名</value>
+  </data>
+  <data name="ExportKiwakuMeisai_ConstructionIdentificationNo" xml:space="preserve">
+    <value>工事識別No.</value>
+  </data>
+  <data name="ExportKiwakuMeisai_Description1" xml:space="preserve">
+    <value>DESCRIPTION1</value>
+  </data>
+  <data name="ExportKiwakuMeisai_Description2" xml:space="preserve">
+    <value>DESCRIPTION2</value>
+  </data>
+  <data name="ExportKiwakuMeisai_DimensionH" xml:space="preserve">
+    <value>DIMENSION(H)</value>
+  </data>
+  <data name="ExportKiwakuMeisai_DimensionL" xml:space="preserve">
+    <value>DIMENSION(L)</value>
+  </data>
+  <data name="ExportKiwakuMeisai_DimensionW" xml:space="preserve">
+    <value>DIMENSION(W)</value>
+  </data>
+  <data name="ExportKiwakuMeisai_GrossW" xml:space="preserve">
+    <value>GROSS･W</value>
+  </data>
+  <data name="ExportKiwakuMeisai_Item" xml:space="preserve">
+    <value>ITEM</value>
+  </data>
+  <data name="ExportKiwakuMeisai_Mmnet" xml:space="preserve">
+    <value>MMNET</value>
+  </data>
+  <data name="ExportKiwakuMeisai_NetW" xml:space="preserve">
+    <value>NET/W</value>
+  </data>
+  <data name="ExportKiwakuMeisai_Ship" xml:space="preserve">
+    <value>便</value>
+  </data>
+  <data name="ExportKiwakuMeisai_Style" xml:space="preserve">
+    <value>STYLE</value>
+  </data>
+  <data name="ExportKiwakuMeisai_WoodWeight" xml:space="preserve">
+    <value>木材重量</value>
+  </data>
+  <data name="ExportShukkaMeisai_AccessionDate" xml:space="preserve">
+    <value>受入日付</value>
+  </data>
+  <data name="ExportShukkaMeisai_AccessionUser" xml:space="preserve">
+    <value>受入担当者</value>
+  </data>
+  <data name="ExportShukkaMeisai_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ExportShukkaMeisai_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportShukkaMeisai_BLNo" xml:space="preserve">
+    <value>BLNo.</value>
+  </data>
+  <data name="ExportShukkaMeisai_BoxNo" xml:space="preserve">
+    <value>Box No.</value>
+  </data>
+  <data name="ExportShukkaMeisai_BoxPackingDate" xml:space="preserve">
+    <value>Box梱包日付</value>
+  </data>
+  <data name="ExportShukkaMeisai_CODE" xml:space="preserve">
+    <value>CODE</value>
+  </data>
+  <data name="ExportShukkaMeisai_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ExportShukkaMeisai_DrawingNumberFormat" xml:space="preserve">
+    <value>図番/型式</value>
+  </data>
+  <data name="ExportShukkaMeisai_DrawingSerialNumber" xml:space="preserve">
+    <value>図面追番</value>
+  </data>
+  <data name="ExportShukkaMeisai_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="ExportShukkaMeisai_FramePackingDate" xml:space="preserve">
+    <value>木枠梱包日付</value>
+  </data>
+  <data name="ExportShukkaMeisai_Free1" xml:space="preserve">
+    <value>材質</value>
+  </data>
+  <data name="ExportShukkaMeisai_Free2" xml:space="preserve">
+    <value>原産国</value>
+  </data>
+  <data name="ExportShukkaMeisai_InvoiceNo" xml:space="preserve">
+    <value>INVOICENo.</value>
+  </data>
+  <data name="ExportShukkaMeisai_JpName" xml:space="preserve">
+    <value>品名(和文)</value>
+  </data>
+  <data name="ExportShukkaMeisai_Memo" xml:space="preserve">
+    <value>Memo(備考)</value>
+  </data>
+  <data name="ExportShukkaMeisai_MNo" xml:space="preserve">
+    <value>M-No.</value>
+  </data>
+  <data name="ExportShukkaMeisai_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportShukkaMeisai_Name" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportShukkaMeisai_OkurijoNo" xml:space="preserve">
+    <value>送り状No.</value>
+  </data>
+  <data name="ExportShukkaMeisai_PalletNo" xml:space="preserve">
+    <value>Pallet No.</value>
+  </data>
+  <data name="ExportShukkaMeisai_PalletPackingDate" xml:space="preserve">
+    <value>Pallet梱包日付</value>
+  </data>
+  <data name="ExportShukkaMeisai_PickUpDate" xml:space="preserve">
+    <value>集荷日付</value>
+  </data>
+  <data name="ExportShukkaMeisai_ProductNumber" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportShukkaMeisai_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="ExportShukkaMeisai_SectioningNo" xml:space="preserve">
+    <value>区割 No.</value>
+  </data>
+  <data name="ExportShukkaMeisai_Ship" xml:space="preserve">
+    <value>便</value>
+  </data>
+  <data name="ExportShukkaMeisai_ShippingCompany" xml:space="preserve">
+    <value>運送会社</value>
+  </data>
+  <data name="ExportShukkaMeisai_ShippingDate" xml:space="preserve">
+    <value>出荷日付</value>
+  </data>
+  <data name="ExportShukkaMeisai_STNo" xml:space="preserve">
+    <value>ST-No.</value>
+  </data>
+  <data name="ExportShukkaMeisai_TagNo" xml:space="preserve">
+    <value>Tag No.</value>
+  </data>
+  <data name="ExportShukkaMeisai_WoodFrameNo" xml:space="preserve">
+    <value>木枠 No.</value>
+  </data>
+  <data name="ExportARJoho_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportARJoho_Connector" xml:space="preserve">
+    <value>連絡者</value>
+  </data>
+  <data name="ExportARJoho_CorrespondingDepartment" xml:space="preserve">
+    <value>対応部署</value>
+  </data>
+  <data name="ExportARJoho_Countermeasures" xml:space="preserve">
+    <value>対策内容</value>
+  </data>
+  <data name="ExportARJoho_DateModified" xml:space="preserve">
+    <value>更新日時</value>
+  </data>
+  <data name="ExportARJoho_DefectContent" xml:space="preserve">
+    <value>不具合内容</value>
+  </data>
+  <data name="ExportARJoho_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ExportARJoho_GirenNo1" xml:space="preserve">
+    <value>技連No①</value>
+  </data>
+  <data name="ExportARJoho_GirenNo2" xml:space="preserve">
+    <value>技連No②</value>
+  </data>
+  <data name="ExportARJoho_GirenNo3" xml:space="preserve">
+    <value>技連No③</value>
+  </data>
+  <data name="ExportARJoho_List" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="ExportARJoho_ListFlagName" xml:space="preserve">
+    <value>LIST_FLAG_NAME</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ExportARJoho_LocalArrangementsDestination" xml:space="preserve">
+    <value>現地･手配先</value>
+  </data>
+  <data name="ExportARJoho_LocalFactoryDate" xml:space="preserve">
+    <value>現地･工場出荷日</value>
+  </data>
+  <data name="ExportARJoho_LocalSettingDeliveryTime" xml:space="preserve">
+    <value>現地･設定納期</value>
+  </data>
+  <data name="ExportARJoho_LocalShippingDate" xml:space="preserve">
+    <value>現地･出荷予定日</value>
+  </data>
+  <data name="ExportARJoho_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportARJoho_ModifiedBy" xml:space="preserve">
+    <value>更新者</value>
+  </data>
+  <data name="ExportARJoho_SiteDesiredArrivalDate" xml:space="preserve">
+    <value>現場到着希望日</value>
+  </data>
+  <data name="ExportARJoho_Situation" xml:space="preserve">
+    <value>状況</value>
+  </data>
+  <data name="ExportARJoho_TimeAndDate" xml:space="preserve">
+    <value>発生日時</value>
+  </data>
+  <data name="ExportARJoho_Unit" xml:space="preserve">
+    <value>号機</value>
+  </data>
+  <data name="ExportPackingList_AccessionDate" xml:space="preserve">
+    <value>受入日付</value>
+  </data>
+  <data name="ExportPackingList_AccessionUser" xml:space="preserve">
+    <value>受入担当者</value>
+  </data>
+  <data name="ExportPackingList_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ExportPackingList_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportPackingList_BLNo" xml:space="preserve">
+    <value>BLNo.</value>
+  </data>
+  <data name="ExportPackingList_BoxNo" xml:space="preserve">
+    <value>Box No.</value>
+  </data>
+  <data name="ExportPackingList_BoxPackingDate" xml:space="preserve">
+    <value>Box梱包日付</value>
+  </data>
+  <data name="ExportPackingList_Code" xml:space="preserve">
+    <value>CODE</value>
+  </data>
+  <data name="ExportPackingList_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ExportPackingList_DeliveryDetails" xml:space="preserve">
+    <value>出荷明細</value>
+  </data>
+  <data name="ExportPackingList_DrawingNumberFormat" xml:space="preserve">
+    <value>図番/型式</value>
+  </data>
+  <data name="ExportPackingList_DrawingSerialNumber" xml:space="preserve">
+    <value>図面追番</value>
+  </data>
+  <data name="ExportPackingList_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="ExportPackingList_FramePackingDate" xml:space="preserve">
+    <value>木枠梱包日付</value>
+  </data>
+  <data name="ExportPackingList_Free1" xml:space="preserve">
+    <value>Free1</value>
+  </data>
+  <data name="ExportPackingList_Free2" xml:space="preserve">
+    <value>Free2</value>
+  </data>
+  <data name="ExportPackingList_InvoiceNo" xml:space="preserve">
+    <value>INVOICENo.</value>
+  </data>
+  <data name="ExportPackingList_JpName" xml:space="preserve">
+    <value>品名(和文)</value>
+  </data>
+  <data name="ExportPackingList_Memo" xml:space="preserve">
+    <value>Memo(備考)</value>
+  </data>
+  <data name="ExportPackingList_MNo" xml:space="preserve">
+    <value>M-No.</value>
+  </data>
+  <data name="ExportPackingList_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportPackingList_Name" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportPackingList_OkurijoNo" xml:space="preserve">
+    <value>送り状No.</value>
+  </data>
+  <data name="ExportPackingList_PalletNo" xml:space="preserve">
+    <value>Pallet No.</value>
+  </data>
+  <data name="ExportPackingList_PalletPackingDate" xml:space="preserve">
+    <value>Pallet梱包日付</value>
+  </data>
+  <data name="ExportPackingList_PickUpDate" xml:space="preserve">
+    <value>集荷日付</value>
+  </data>
+  <data name="ExportPackingList_ProductNumber" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportPackingList_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="ExportPackingList_SectioningNo" xml:space="preserve">
+    <value>区割 No.</value>
+  </data>
+  <data name="ExportPackingList_Ship" xml:space="preserve">
+    <value>便</value>
+  </data>
+  <data name="ExportPackingList_ShippingCompany" xml:space="preserve">
+    <value>運送会社</value>
+  </data>
+  <data name="ExportPackingList_ShippingDate" xml:space="preserve">
+    <value>出荷日付</value>
+  </data>
+  <data name="ExportPackingList_STNo" xml:space="preserve">
+    <value>ST-No.</value>
+  </data>
+  <data name="ExportPackingList_TagNo" xml:space="preserve">
+    <value>Tag No.</value>
+  </data>
+  <data name="ExportPackingList_WoodFrameNo" xml:space="preserve">
+    <value>木枠 No.</value>
+  </data>
+  <data name="ExportTanaoroshiList_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ExportTanaoroshiList_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportTanaoroshiList_BoxNo" xml:space="preserve">
+    <value>Box No.</value>
+  </data>
+  <data name="ExportTanaoroshiList_Code" xml:space="preserve">
+    <value>CODE</value>
+  </data>
+  <data name="ExportTanaoroshiList_Date" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="ExportTanaoroshiList_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ExportTanaoroshiList_DrawingNumberFormat" xml:space="preserve">
+    <value>図番/形式</value>
+  </data>
+  <data name="ExportTanaoroshiList_DrawingSerialNumber" xml:space="preserve">
+    <value>図面追番</value>
+  </data>
+  <data name="ExportTanaoroshiList_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="ExportTanaoroshiList_JpName" xml:space="preserve">
+    <value>品名(和文)</value>
+  </data>
+  <data name="ExportTanaoroshiList_Memo" xml:space="preserve">
+    <value>Memo(備考)</value>
+  </data>
+  <data name="ExportTanaoroshiList_MNo" xml:space="preserve">
+    <value>M-No.</value>
+  </data>
+  <data name="ExportTanaoroshiList_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportTanaoroshiList_Name" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportTanaoroshiList_ProductNumber" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportTanaoroshiList_PropertyName" xml:space="preserve">
+    <value>物件名</value>
+  </data>
+  <data name="ExportTanaoroshiList_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="ExportTanaoroshiList_SectioningNo" xml:space="preserve">
+    <value>区割 No.</value>
+  </data>
+  <data name="ExportTanaoroshiList_Ship" xml:space="preserve">
+    <value>便</value>
+  </data>
+  <data name="ExportTanaoroshiList_Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="ExportTanaoroshiList_STNo" xml:space="preserve">
+    <value>ST-No.</value>
+  </data>
+  <data name="ExportTanaoroshiList_StockLocation" xml:space="preserve">
+    <value>在庫Locaiton</value>
+  </data>
+  <data name="ExportTanaoroshiList_StocktakingLocation" xml:space="preserve">
+    <value>棚卸Location</value>
+  </data>
+  <data name="ExportTanaoroshiList_TagCode" xml:space="preserve">
+    <value>Tag Code</value>
+  </data>
+  <data name="ExportZaikoList_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ExportZaikoList_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportZaikoList_BoxNo" xml:space="preserve">
+    <value>Box No.</value>
+  </data>
+  <data name="ExportZaikoList_Code" xml:space="preserve">
+    <value>CODE</value>
+  </data>
+  <data name="ExportZaikoList_Date" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="ExportZaikoList_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ExportZaikoList_DrawingNumberFormat" xml:space="preserve">
+    <value>図番/形式</value>
+  </data>
+  <data name="ExportZaikoList_DrawingSerialNumber" xml:space="preserve">
+    <value>図面追番</value>
+  </data>
+  <data name="ExportZaikoList_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="ExportZaikoList_JpName" xml:space="preserve">
+    <value>品名(和文)</value>
+  </data>
+  <data name="ExportZaikoList_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportZaikoList_Name" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportZaikoList_PalletNo" xml:space="preserve">
+    <value>Pallet No.</value>
+  </data>
+  <data name="ExportZaikoList_ProductNumber" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportZaikoList_PropertyName" xml:space="preserve">
+    <value>物件名</value>
+  </data>
+  <data name="ExportZaikoList_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="ExportZaikoList_SectioningNo" xml:space="preserve">
+    <value>区割 No.</value>
+  </data>
+  <data name="ExportZaikoList_Ship" xml:space="preserve">
+    <value>便</value>
+  </data>
+  <data name="ExportZaikoList_Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="ExportZaikoList_STNo" xml:space="preserve">
+    <value>ST-No.</value>
+  </data>
+  <data name="ExportZaikoList_StockLocation" xml:space="preserve">
+    <value>在庫Locaiton</value>
+  </data>
+  <data name="ExportZaikoList_TagCode" xml:space="preserve">
+    <value>Tag Code</value>
+  </data>
+  <data name="ExportOpeRirekiList_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ExportOpeRirekiList_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportOpeRirekiList_Code" xml:space="preserve">
+    <value>CODE</value>
+  </data>
+  <data name="ExportOpeRirekiList_Date" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="ExportOpeRirekiList_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ExportOpeRirekiList_DivisionOfWork" xml:space="preserve">
+    <value>作業区分</value>
+  </data>
+  <data name="ExportOpeRirekiList_DrawingNumberFormat" xml:space="preserve">
+    <value>図番/形式</value>
+  </data>
+  <data name="ExportOpeRirekiList_DrawingSerialNumber" xml:space="preserve">
+    <value>図面追番</value>
+  </data>
+  <data name="ExportOpeRirekiList_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="ExportOpeRirekiList_JpName" xml:space="preserve">
+    <value>品名(和文)</value>
+  </data>
+  <data name="ExportOpeRirekiList_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="ExportOpeRirekiList_Memo" xml:space="preserve">
+    <value>Memo(備考)</value>
+  </data>
+  <data name="ExportOpeRirekiList_MNo" xml:space="preserve">
+    <value>M-No.</value>
+  </data>
+  <data name="ExportOpeRirekiList_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportOpeRirekiList_Name" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportOpeRirekiList_ProductNumber" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportOpeRirekiList_PropertyName" xml:space="preserve">
+    <value>物件名</value>
+  </data>
+  <data name="ExportOpeRirekiList_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="ExportOpeRirekiList_SectioningNo" xml:space="preserve">
+    <value>区割 No.</value>
+  </data>
+  <data name="ExportOpeRirekiList_Ship" xml:space="preserve">
+    <value>便</value>
+  </data>
+  <data name="ExportOpeRirekiList_Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="ExportOpeRirekiList_STNo" xml:space="preserve">
+    <value>ST-No.</value>
+  </data>
+  <data name="ExportOpeRirekiList_StockComletionDate" xml:space="preserve">
+    <value>在庫/完了日付</value>
+  </data>
+  <data name="ExportOpeRirekiList_TagCode" xml:space="preserve">
+    <value>Tag Code</value>
+  </data>
+  <data name="ExportOpeRirekiList_Worker" xml:space="preserve">
+    <value>作業者</value>
+  </data>
+  <data name="ExportZaikoList_AccessionDate" xml:space="preserve">
+    <value>受入日付</value>
+  </data>
+  <data name="ExportZaikoList_AccessionUser" xml:space="preserve">
+    <value>受入担当者</value>
+  </data>
+  <data name="ExportZaikoList_BLNo" xml:space="preserve">
+    <value>BLNo.</value>
+  </data>
+  <data name="ExportZaikoList_BoxPackingDate" xml:space="preserve">
+    <value>Box梱包日付</value>
+  </data>
+  <data name="ExportZaikoList_FramePackingDate" xml:space="preserve">
+    <value>木枠梱包日付</value>
+  </data>
+  <data name="ExportZaikoList_InvoiceNo" xml:space="preserve">
+    <value>INVOICENo.</value>
+  </data>
+  <data name="ExportZaikoList_Memo" xml:space="preserve">
+    <value>Memo(備考)</value>
+  </data>
+  <data name="ExportZaikoList_MNo" xml:space="preserve">
+    <value>M-No.</value>
+  </data>
+  <data name="ExportZaikoList_OkurijoNo" xml:space="preserve">
+    <value>送り状No.</value>
+  </data>
+  <data name="ExportZaikoList_PalletPackingDate" xml:space="preserve">
+    <value>Pallet梱包日付</value>
+  </data>
+  <data name="ExportZaikoList_PickUpDate" xml:space="preserve">
+    <value>集荷日付</value>
+  </data>
+  <data name="ExportZaikoList_ShippingCompany" xml:space="preserve">
+    <value>運送会社</value>
+  </data>
+  <data name="ExportZaikoList_ShippingDate" xml:space="preserve">
+    <value>出荷日付</value>
+  </data>
+  <data name="ExportZaikoList_WoodFrameNo" xml:space="preserve">
+    <value>木枠 No.</value>
+  </data>
+  <data name="ExportARJoho_BIKO_ALL" xml:space="preserve">
+    <value>BIKO_ALL</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ExportARJoho_GMSIssueNo" xml:space="preserve">
+    <value>GMS発行No</value>
+  </data>
+  <data name="ExportARJoho_JpFactoryShippingDate" xml:space="preserve">
+    <value>日本・工場出荷日</value>
+  </data>
+  <data name="ExportARJoho_JpInvoiceNo" xml:space="preserve">
+    <value>日本・送り状No</value>
+  </data>
+  <data name="ExportARJoho_JpSettingDeliveryTime" xml:space="preserve">
+    <value>日本・設定納期</value>
+  </data>
+  <data name="ExportARJoho_JpShippingCompany" xml:space="preserve">
+    <value>日本・運送会社</value>
+  </data>
+  <data name="ExportARJoho_JpShippingDate" xml:space="preserve">
+    <value>日本・出荷予定日</value>
+  </data>
+  <data name="ExportARJoho_Remarks" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ExportARJoho_ShippingMethod" xml:space="preserve">
+    <value>出荷方法</value>
+  </data>
+  <data name="ExportARJoho_SpecificationsContactNo" xml:space="preserve">
+    <value>仕様連絡No</value>
+  </data>
+  <data name="ExportPackingList_KiwakuShip" xml:space="preserve">
+    <value>{0}便</value>
+  </data>
+  <data name="ExportPackingList_PageNo" xml:space="preserve">
+    <value>NO. {0}</value>
+  </data>
+  <data name="ExportPackingList_Sum" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="ExportAllARCost_Item" xml:space="preserve">
+    <value>項目</value>
+  </data>
+  <data name="ExportAllARCost_LineNo" xml:space="preserve">
+    <value>行 No.</value>
+  </data>
+  <data name="ExportAllARCost_Number" xml:space="preserve">
+    <value>台数</value>
+  </data>
+  <data name="ExportAllARCost_Rate" xml:space="preserve">
+    <value>単価/h(千円)</value>
+  </data>
+  <data name="ExportAllARCost_Total" xml:space="preserve">
+    <value>合計(千円)</value>
+  </data>
+  <data name="ExportAllARCost_Workers" xml:space="preserve">
+    <value>人員</value>
+  </data>
+  <data name="ExportAllARCost_WorkTime" xml:space="preserve">
+    <value>時間/台</value>
+  </data>
+  <data name="ExportAllARJoho_HasseiYouin" xml:space="preserve">
+    <value>発生原因</value>
+  </data>
+  <data name="ExportAllARJoho_ReferenceNo1" xml:space="preserve">
+    <value>参考資料No①</value>
+  </data>
+  <data name="ExportAllARJoho_ReferenceNo2" xml:space="preserve">
+    <value>参考資料No②</value>
+  </data>
+  <data name="ExportARJoho_HasseiYouin" xml:space="preserve">
+    <value>発生原因</value>
+  </data>
+  <data name="ExportARJoho_ReferenceNo1" xml:space="preserve">
+    <value>参考資料No①</value>
+  </data>
+  <data name="ExportARJoho_ReferenceNo2" xml:space="preserve">
+    <value>参考資料No②</value>
+  </data>
+  <data name="ExportShukkaMeisai_GRWT" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="ExportShukkaMeisai_TEHAI_RENKEI_NO" xml:space="preserve">
+    <value>連携No.</value>
+  </data>
+  <data name="ExportPackingList_SheetNameKonpoMeisai" xml:space="preserve">
+    <value>梱包明細書</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportPackingList_SheetNameMasterPackingList" xml:space="preserve">
+    <value>MPL</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportPackingList_SheetNamePackingList" xml:space="preserve">
+    <value>PL</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportEstimatePartsList_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportEstimatePartsList_BukkenMei" xml:space="preserve">
+    <value>物件名</value>
+  </data>
+  <data name="ExportEstimatePartsList_CODE" xml:space="preserve">
+    <value>CODE</value>
+  </data>
+  <data name="ExportEstimatePartsList_DrawingNumberFormat" xml:space="preserve">
+    <value>図番/型式</value>
+  </data>
+  <data name="ExportEstimatePartsList_DrawingNumberFormat2" xml:space="preserve">
+    <value>図番/型式2</value>
+  </data>
+  <data name="ExportEstimatePartsList_DrawingSerialNumber" xml:space="preserve">
+    <value>追番</value>
+  </data>
+  <data name="ExportEstimatePartsList_ECSNo" xml:space="preserve">
+    <value>ECS No.</value>
+  </data>
+  <data name="ExportEstimatePartsList_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="ExportEstimatePartsList_Free1" xml:space="preserve">
+    <value>Free1</value>
+  </data>
+  <data name="ExportEstimatePartsList_Free2" xml:space="preserve">
+    <value>Free2</value>
+  </data>
+  <data name="ExportEstimatePartsList_INVName" xml:space="preserve">
+    <value>INV 付加名</value>
+  </data>
+  <data name="ExportEstimatePartsList_JpName" xml:space="preserve">
+    <value>品名(和文)</value>
+  </data>
+  <data name="ExportEstimatePartsList_Maker" xml:space="preserve">
+    <value>Maker</value>
+  </data>
+  <data name="ExportEstimatePartsList_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportEstimatePartsList_Name" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportEstimatePartsList_Note" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ExportEstimatePartsList_ProductNumber" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportEstimatePartsList_QuantityUnit" xml:space="preserve">
+    <value>数量単位</value>
+  </data>
+  <data name="ExportEstimatePartsList_RobSumRmb" xml:space="preserve">
+    <value>運賃込合計(現地通貨)</value>
+  </data>
+  <data name="ExportEstimatePartsList_RobUnitPriceRmb" xml:space="preserve">
+    <value>運賃込単価(現地通貨)</value>
+  </data>
+  <data name="ExportEstimatePartsList_ShukkaQty" xml:space="preserve">
+    <value>出荷数</value>
+  </data>
+  <data name="ExportEstimatePartsList_STNo" xml:space="preserve">
+    <value>ST-No.</value>
+  </data>
+  <data name="ExportEstimatePartsList_SumRmb" xml:space="preserve">
+    <value>Parts費 Total(現地通貨)</value>
+  </data>
+  <data name="ExportEstimatePartsList_UnitPrice" xml:space="preserve">
+    <value>単価(JPY)</value>
+  </data>
+  <data name="ExportEstimatePartsList_UnitPriceRmb" xml:space="preserve">
+    <value>単価(現地通貨)</value>
+  </data>
+  <data name="ExportEstimatePartsList_UnitPriceSalse" xml:space="preserve">
+    <value>単価*販管費</value>
+  </data>
+  <data name="ExportEstimatePartsList_PartsCost" xml:space="preserve">
+    <value>Parts費</value>
+  </data>
+  <data name="ExportEstimatePartsList_POCost" xml:space="preserve">
+    <value>PO金額</value>
+  </data>
+  <data name="ExportEstimatePartsList_Rob" xml:space="preserve">
+    <value>運賃</value>
+  </data>
+  <data name="ExportEstimatePartsList_ListSheetName" xml:space="preserve">
+    <value>EstimatePartsList</value>
+    <comment>0:見積名称</comment>
+  </data>
+  <data name="ExportEstimatePartsList_FarePackingCostEnabled" xml:space="preserve">
+    <value>運賃梱包費on</value>
+  </data>
+  <data name="ExportEstimatePartsList_SellingAndGeneralExpensesEnabled" xml:space="preserve">
+    <value>販管費on</value>
+  </data>
+  <data name="ExportPacking_SheetNamePacking" xml:space="preserve">
+    <value>荷姿表</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportAllARCost_HasseiYouin" xml:space="preserve">
+    <value>発生原因</value>
+  </data>
+  <data name="ExportEstimatePartsList_ListSheetTitle" xml:space="preserve">
+    <value>{0}向け有償支給部品 特別便</value>
+    <comment>0:見積名称</comment>
+  </data>
+  <data name="ExportEstimatePartsList_ListTemplateSheetName" xml:space="preserve">
+    <value>EstimatePartsList</value>
+    <comment>DoNotTranslate テンプレートのシート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetNameExportConfirmation" xml:space="preserve">
+    <value>輸出通関確認書</value>
+    <comment>DoNotTranslate テンプレートのシート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetNameGratisInvoice" xml:space="preserve">
+    <value>(無償版)INVOICE＆PACKING LIST</value>
+    <comment>DoNotTranslate テンプレートのシート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetNameGratisInvoiceAttached" xml:space="preserve">
+    <value>(無償版)ATTACHED SHEET</value>
+    <comment>DoNotTranslate テンプレートのシート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetNameImportDescriptionChina" xml:space="preserve">
+    <value>中国輸入時記載事項</value>
+    <comment>DoNotTranslate テンプレートのシート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetNameOnerousAttached" xml:space="preserve">
+    <value>(有償版)ATTACHED SHEET</value>
+    <comment>DoNotTranslate テンプレートのシート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetNameOnerousInvoice" xml:space="preserve">
+    <value>(有償版)INVOICE＆PACKING LIST</value>
+    <comment>DoNotTranslate テンプレートのシート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetNameShukkameisai" xml:space="preserve">
+    <value>出荷明細</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetNameAttachedSheet" xml:space="preserve">
+    <value>ATTACHED SHEET</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetName_G_INVOICE" xml:space="preserve">
+    <value>INVOICE&amp;PACKING LIST</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetName_G_PACKING" xml:space="preserve">
+    <value>PACKING</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetName_O_INVOICE" xml:space="preserve">
+    <value>invoice&amp;packing list</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetName_O_PACKING" xml:space="preserve">
+    <value>packing</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportShippingDocument_SheetName_SHUKKAMEISAI" xml:space="preserve">
+    <value>出荷明細</value>
+    <comment>宣言のみされており使用されていない</comment>
+  </data>
+  <data name="ExportShukkaMeisai_Maker" xml:space="preserve">
+    <value>MAKER</value>
+  </data>
+  <data name="ExportPartsMatomeList_Title" xml:space="preserve">
+    <value>{0} Parts便出荷品まとめ</value>
+  </data>
+  <data name="ExportPackingList_TehaiRenkeiNo" xml:space="preserve">
+    <value>連携No.</value>
+  </data>
+  <data name="ExportPackingList_Weight" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="ExportPackingList_KojiName" xml:space="preserve">
+    <value>工事識別 NO.</value>
+  </data>
+  <data name="ExportPackingList_Title" xml:space="preserve">
+    <value>梱包明細書</value>
+  </data>
+  <data name="ExportShukkaMeisai_NouhinSaki" xml:space="preserve">
+    <value>納品先</value>
+  </data>
+  <data name="ExportShukkaMeisai_SetteiDate" xml:space="preserve">
+    <value>設定納期</value>
+  </data>
+  <data name="ExportShukkaMeisai_SyukkaSaki" xml:space="preserve">
+    <value>出荷先</value>
+  </data>
+  <data name="ExportShukkaMeisai_UnitPrice" xml:space="preserve">
+    <value>単価(JPY)</value>
+  </data>
+  <data name="ExportShukkaMeisai_ZumenKeishiki2" xml:space="preserve">
+    <value>図面/型式2</value>
+  </data>
+  <data name="ExportShukkaMeisai_EcsQuota" xml:space="preserve">
+    <value>期</value>
+  </data>
+  <data name="ExportShukkaMeisai_EstimateFlagName" xml:space="preserve">
+    <value>有償</value>
+  </data>
+  <data name="ExportShukkaMeisai_QuantityUnitName" xml:space="preserve">
+    <value>数量単位</value>
+  </data>
+  <data name="ExportShukkaMeisai_TehaiFlagName" xml:space="preserve">
+    <value>手配区分</value>
+  </data>
+  <data name="ExportTehaiMeisai_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_ArrivalQty" xml:space="preserve">
+    <value>入荷実績数</value>
+  </data>
+  <data name="ExportTehaiMeisai_AssyQty" xml:space="preserve">
+    <value>組立実績数</value>
+  </data>
+  <data name="ExportTehaiMeisai_Code" xml:space="preserve">
+    <value>CODE</value>
+  </data>
+  <data name="ExportTehaiMeisai_EcsNo" xml:space="preserve">
+    <value>ECS No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_EcsQuota" xml:space="preserve">
+    <value>期</value>
+  </data>
+  <data name="ExportTehaiMeisai_EstimateFlagName" xml:space="preserve">
+    <value>有償</value>
+  </data>
+  <data name="ExportTehaiMeisai_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="ExportTehaiMeisai_Free1" xml:space="preserve">
+    <value>材質</value>
+  </data>
+  <data name="ExportTehaiMeisai_Free2" xml:space="preserve">
+    <value>原産国</value>
+  </data>
+  <data name="ExportTehaiMeisai_HacchuQty" xml:space="preserve">
+    <value>発注数</value>
+  </data>
+  <data name="ExportTehaiMeisai_Hinmei" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportTehaiMeisai_HinmeiInv" xml:space="preserve">
+    <value>品名(INV)</value>
+  </data>
+  <data name="ExportTehaiMeisai_HinmeiJp" xml:space="preserve">
+    <value>品名(和文)</value>
+  </data>
+  <data name="ExportTehaiMeisai_Kishu" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportTehaiMeisai_Maker" xml:space="preserve">
+    <value>Maker</value>
+  </data>
+  <data name="ExportTehaiMeisai_NonyuJyotai" xml:space="preserve">
+    <value>納入状態</value>
+  </data>
+  <data name="ExportTehaiMeisai_Note" xml:space="preserve">
+    <value>備考1</value>
+  </data>
+  <data name="ExportTehaiMeisai_NouhinSaki" xml:space="preserve">
+    <value>納品先</value>
+  </data>
+  <data name="ExportTehaiMeisai_QuantityUnitName" xml:space="preserve">
+    <value>数量単位</value>
+  </data>
+  <data name="ExportTehaiMeisai_Seiban" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportTehaiMeisai_SetteiDate" xml:space="preserve">
+    <value>設定納期</value>
+  </data>
+  <data name="ExportTehaiMeisai_ShukkaJissekiQty" xml:space="preserve">
+    <value>出荷実績数</value>
+  </data>
+  <data name="ExportTehaiMeisai_ShukkaQty" xml:space="preserve">
+    <value>出荷数</value>
+  </data>
+  <data name="ExportTehaiMeisai_STNo" xml:space="preserve">
+    <value>ST No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_SyukkaFlagName" xml:space="preserve">
+    <value>出荷状況</value>
+  </data>
+  <data name="ExportTehaiMeisai_SyukkaSaki" xml:space="preserve">
+    <value>出荷先</value>
+  </data>
+  <data name="ExportTehaiMeisai_TagTorokuQty" xml:space="preserve">
+    <value>TAG登録数</value>
+  </data>
+  <data name="ExportTehaiMeisai_TehaiAssyFlagName" xml:space="preserve">
+    <value>組立状況</value>
+  </data>
+  <data name="ExportTehaiMeisai_TehaiFlagName" xml:space="preserve">
+    <value>手配区分</value>
+  </data>
+  <data name="ExportTehaiMeisai_TehaiNyukaFlagName" xml:space="preserve">
+    <value>入荷状況</value>
+  </data>
+  <data name="ExportTehaiMeisai_TehaiQty" xml:space="preserve">
+    <value>手配数</value>
+  </data>
+  <data name="ExportTehaiMeisai_TehaiRenkeiNo" xml:space="preserve">
+    <value>連携No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_TehaiTagTourokuFlagName" xml:space="preserve">
+    <value>TAG登録状況</value>
+  </data>
+  <data name="ExportTehaiMeisai_UnitPrice" xml:space="preserve">
+    <value>単価(JPN)</value>
+  </data>
+  <data name="ExportTehaiMeisai_ZumenKeishiki" xml:space="preserve">
+    <value>図番/型式</value>
+  </data>
+  <data name="ExportTehaiMeisai_ZumenKeishiki2" xml:space="preserve">
+    <value>図番/型式2</value>
+  </data>
+  <data name="ExportTehaiMeisai_ZumenOiban" xml:space="preserve">
+    <value>追番</value>
+  </data>
+  <data name="ExportARJoho_GirenNo4" xml:space="preserve">
+    <value>技連No④</value>
+  </data>
+  <data name="ExportARJoho_GirenNo5" xml:space="preserve">
+    <value>技連No⑤</value>
+  </data>
+  <data name="ExportAllARJoho_GirenNo4" xml:space="preserve">
+    <value>技連No④</value>
+  </data>
+  <data name="ExportAllARJoho_GirenNo5" xml:space="preserve">
+    <value>技連No⑤</value>
+  </data>
+  <data name="ExportUserMaster_Authority" xml:space="preserve">
+    <value>権限</value>
+  </data>
+  <data name="ExportUserMaster_ChangeAuthority" xml:space="preserve">
+    <value>MailAddress変更権限</value>
+  </data>
+  <data name="ExportUserMaster_MailAddress" xml:space="preserve">
+    <value>MailAddress</value>
+  </data>
+  <data name="ExportUserMaster_MailPackingFlag" xml:space="preserve">
+    <value>荷姿表送信対象</value>
+  </data>
+  <data name="ExportUserMaster_Remarks" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ExportUserMaster_StaffCode" xml:space="preserve">
+    <value>担当者Code</value>
+  </data>
+  <data name="ExportUserMaster_StaffKbn" xml:space="preserve">
+    <value>Staff区分</value>
+  </data>
+  <data name="ExportUserMaster_StaffName" xml:space="preserve">
+    <value>担当者Name</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_Customer" xml:space="preserve">
+    <value>取引先</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_InvName" xml:space="preserve">
+    <value>品名(INV)</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_JPName" xml:space="preserve">
+    <value>品名(和文)</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_Maker" xml:space="preserve">
+    <value>Maker</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_Name" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_Notes" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_OriginCountry" xml:space="preserve">
+    <value>原産国</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_Type" xml:space="preserve">
+    <value>型式</value>
+  </data>
+  <data name="ExportUserMaster_MailTagRenkeiFlag" xml:space="preserve">
+    <value>TAG連携送信対象</value>
+  </data>
+  <data name="ExportShukkaMeisai_Picture" xml:space="preserve">
+    <value>写真</value>
+  </data>
+  <data name="ExportTehaiMeisai_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ExportTehaiMeisai_BoxNo" xml:space="preserve">
+    <value>BoxNo.</value>
+  </data>
+  <data name="ExportTehaiMeisai_BukkenName" xml:space="preserve">
+    <value>物件名</value>
+  </data>
+  <data name="ExportTehaiMeisai_GRWT" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="ExportTehaiMeisai_JyotaiName" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="ExportTehaiMeisai_KuwariNo" xml:space="preserve">
+    <value>区割No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_MNo" xml:space="preserve">
+    <value>M-No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_Note2" xml:space="preserve">
+    <value>備考2</value>
+  </data>
+  <data name="ExportTehaiMeisai_Note3" xml:space="preserve">
+    <value>備考3</value>
+  </data>
+  <data name="ExportTehaiMeisai_Photo" xml:space="preserve">
+    <value>写真</value>
+  </data>
+  <data name="ExportTehaiMeisai_Ship_ARNo" xml:space="preserve">
+    <value>便/AR No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_ShukaDate" xml:space="preserve">
+    <value>集荷日</value>
+  </data>
+  <data name="ExportTehaiMeisai_ShukkaDate" xml:space="preserve">
+    <value>出荷日</value>
+  </data>
+  <data name="ExportTehaiMeisai_TagNo" xml:space="preserve">
+    <value>Tag No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_TehaiNo" xml:space="preserve">
+    <value>手配No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_AcceptanceDate" xml:space="preserve">
+    <value>受入日</value>
+  </data>
+  <data name="ExportTehaiMeisai_AcceptanceStaff" xml:space="preserve">
+    <value>受入担当者</value>
+  </data>
+  <data name="ExportTehaiMeisai_BLNo" xml:space="preserve">
+    <value>BLNo.</value>
+  </data>
+  <data name="ExportTehaiMeisai_BoxPackingDate" xml:space="preserve">
+    <value>Box梱包日</value>
+  </data>
+  <data name="ExportTehaiMeisai_CNo" xml:space="preserve">
+    <value>C/No</value>
+  </data>
+  <data name="ExportTehaiMeisai_InvoiceNo" xml:space="preserve">
+    <value>INVOICENo.</value>
+  </data>
+  <data name="ExportTehaiMeisai_OkurijyoNo" xml:space="preserve">
+    <value>送り状No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_PalletNo" xml:space="preserve">
+    <value>Pallet No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_PalletPackingDate" xml:space="preserve">
+    <value>Pallet梱包日</value>
+  </data>
+  <data name="ExportTehaiMeisai_ShippingCompany" xml:space="preserve">
+    <value>運送会社</value>
+  </data>
+  <data name="ExportTehaiMeisai_WoodFramePackingDate" xml:space="preserve">
+    <value>木枠梱包日</value>
+  </data>
+  <data name="ExportTehaiMeisai_WoodFrameShip" xml:space="preserve">
+    <value>木枠便</value>
+  </data>
+  <data name="ExportTehaiMeisai_HenkyakuhinFlag" xml:space="preserve">
+    <value>出荷制限</value>
+  </data>
+  <data name="ExportARJoho_KekkaARNo" xml:space="preserve">
+    <value>結果ARNo.</value>
+  </data>
+  <data name="ExportARJoho_MotoARNo" xml:space="preserve">
+    <value>元ARNo.</value>
+  </data>
+  <data name="ExportAllARJoho_KekkaARNo" xml:space="preserve">
+    <value>結果ARNo.</value>
+  </data>
+  <data name="ExportAllARJoho_MotoARNo" xml:space="preserve">
+    <value>元ARNo.</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_ChumonshoHinmoku" xml:space="preserve">
+    <value>注文書品目名称</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_CustomerName" xml:space="preserve">
+    <value>Customer名</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_EcsNo" xml:space="preserve">
+    <value>ECS No.</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_ErrotDetail" xml:space="preserve">
+    <value>Error内容</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_Hinban" xml:space="preserve">
+    <value>品番</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_Katashiki" xml:space="preserve">
+    <value>型式</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_Nonyubasho" xml:space="preserve">
+    <value>納入場所</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_Result" xml:space="preserve">
+    <value>結果</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_SeibanCode" xml:space="preserve">
+    <value>製番CODE</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_ShipARNo" xml:space="preserve">
+    <value>便/AR No.</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_TehaiNo" xml:space="preserve">
+    <value>手配No.</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_TehaiQty" xml:space="preserve">
+    <value>手配数</value>
+  </data>
+  <data name="ExportHandyDataErrorMeisaiKenpin_TorikomiDate" xml:space="preserve">
+    <value>取込日時</value>
+  </data>
+  <data name="ExportTehaiMeisai_PONo" xml:space="preserve">
+    <value>Po No.</value>
+  </data>
+  <data name="ExportTehaiMeisai_CreateDate" xml:space="preserve">
+    <value>登録日時</value>
+  </data>
+  <data name="ExportTehaiMeisai_CreateUserName" xml:space="preserve">
+    <value>登録者</value>
+  </data>
+  <data name="ExportEstimatePartsList_PoNo" xml:space="preserve">
+    <value>PONo</value>
+  </data>
+  <data name="ExportEstimatePartsList_ShippingFlights" xml:space="preserve">
+    <value>出荷便名</value>
+  </data>
+  <data name="ExportEstimatePartsList_TagNo" xml:space="preserve">
+    <value>TagNo</value>
+  </data>
+  <data name="ExportEstimatePartsList_TehaiNo" xml:space="preserve">
+    <value>手配No</value>
+  </data>
+  <data name="ExportEstimatePartsList_TehaiRenkeiNo" xml:space="preserve">
+    <value>連携No</value>
+  </data>
+  <data name="ExportShukkaMeisai_SipFromName" xml:space="preserve">
+    <value>出荷元</value>
+    <comment>2022/10/07 出荷情報照会（SMS.S02）への出荷元追加による</comment>
+  </data>
+  <data name="ExportShukkaMeisai_DrawingNumberFormat2" xml:space="preserve">
+    <value>図番/型式2</value>
+  </data>
+  <data name="ExportShukkaMeisai_INVName" xml:space="preserve">
+    <value>INV 付加名</value>
+  </data>
+  <data name="ExportShukkaMeisai_Note" xml:space="preserve">
+    <value>備考1</value>
+  </data>
+  <data name="ExportShukkaMeisai_Note2" xml:space="preserve">
+    <value>備考2</value>
+  </data>
+  <data name="ExportShukkaMeisai_Note3" xml:space="preserve">
+    <value>備考3</value>
+  </data>
+  <data name="ExportShukkaMeisai_TagShip" xml:space="preserve">
+    <value>TAG便名</value>
+  </data>
+  <data name="ExportPackingList_INVName" xml:space="preserve">
+    <value>INV付加名</value>
+  </data>
+  <data name="ExportPackingList_TagShip" xml:space="preserve">
+    <value>TAG便名</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_Biko" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_BukkenName" xml:space="preserve">
+    <value>物件名</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_EstimateFlag" xml:space="preserve">
+    <value>有償/無償</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_KikaiParts" xml:space="preserve">
+    <value>機械Parts</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_KiShu" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_Naiyo" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_Seiban" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_SeigyoParts" xml:space="preserve">
+    <value>制御Parts</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_Ship" xml:space="preserve">
+    <value>便名</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_ShipSeiban" xml:space="preserve">
+    <value>運賃・梱包製番</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_ShukkaDate" xml:space="preserve">
+    <value>出荷日</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_ShukkaFrom" xml:space="preserve">
+    <value>出荷元</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_ShukkaTo" xml:space="preserve">
+    <value>出荷先</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_TagNum" xml:space="preserve">
+    <value>TAG発行状況</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_TouchakuyoteiDate" xml:space="preserve">
+    <value>到着予定日</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_TransportFlag" xml:space="preserve">
+    <value>AIR/SHIP</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_TagStatus" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="ExportEstimatePartsList_PAmountCost" xml:space="preserve">
+    <value>仕切り金額</value>
+  </data>
+  <data name="ExportQuotationSheetName" xml:space="preserve">
+    <value>Quotation</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Code" xml:space="preserve">
+    <value>CODE</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_CurrencyFlagName" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_ECSNo" xml:space="preserve">
+    <value>ECS No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_EstimateFlagName" xml:space="preserve">
+    <value>有償</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_EstimateName" xml:space="preserve">
+    <value>見積名称</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_EstimateNo" xml:space="preserve">
+    <value>見積No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Free1" xml:space="preserve">
+    <value>Free1</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Free2" xml:space="preserve">
+    <value>Free2</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_HacchuQty" xml:space="preserve">
+    <value>発注数</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_HenkyakuhinFlagName" xml:space="preserve">
+    <value>出荷制限</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Hinmei" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_HinmeiINV" xml:space="preserve">
+    <value>品名（INV）</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_HinmeiJP" xml:space="preserve">
+    <value>品名（和文）</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_InvoiceNo" xml:space="preserve">
+    <value>Invoice No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_InvoiceUnitPrice" xml:space="preserve">
+    <value>Inv単価</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_InvoiceValue" xml:space="preserve">
+    <value>INV Value</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_JyotaiName" xml:space="preserve">
+    <value>出荷状況</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Kishu" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Maker" xml:space="preserve">
+    <value>Maker</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Note" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_NouhinSaki" xml:space="preserve">
+    <value>納品先</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_PONo" xml:space="preserve">
+    <value>PO No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_QuantityUnitName" xml:space="preserve">
+    <value>数量単位</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_RateJPY" xml:space="preserve">
+    <value>ER（JPY）</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_RobPER" xml:space="preserve">
+    <value>運賃（％）</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_SalsesPER" xml:space="preserve">
+    <value>販管(%)</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Seiban" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_SetteiDate" xml:space="preserve">
+    <value>設定納期</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Ship" xml:space="preserve">
+    <value>便名</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_ShukkaDate" xml:space="preserve">
+    <value>出荷日</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_ShukkaQty" xml:space="preserve">
+    <value>出荷数</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_STNo" xml:space="preserve">
+    <value>ST No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_SyukkaSaki" xml:space="preserve">
+    <value>出荷先</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_TagNo" xml:space="preserve">
+    <value>TAG No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_TehaiFlagName" xml:space="preserve">
+    <value>手配区分</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_TehaiNo" xml:space="preserve">
+    <value>手配No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_TehaiQty" xml:space="preserve">
+    <value>手配数</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_TehaiRenkeiNo" xml:space="preserve">
+    <value>手配連携No.</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_UnitPrice" xml:space="preserve">
+    <value>単価(JPY)</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_Zumenkeishiki" xml:space="preserve">
+    <value>図番/型式</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_ZumenKeishiki2" xml:space="preserve">
+    <value>図番/型式2</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_ZumenOiban" xml:space="preserve">
+    <value>追番</value>
+  </data>
+  <data name="ExportQuotation_SheetNameQuotation" xml:space="preserve">
+    <value>Quotation</value>
+    <comment>シート名</comment>
+  </data>
+  <data name="ExportUserMaster_MailShukkakeikakuFlag" xml:space="preserve">
+    <value>計画取込一括設定</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_Address" xml:space="preserve">
+    <value>住所</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_Fax" xml:space="preserve">
+    <value>FAX</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_ShippingContact" xml:space="preserve">
+    <value>出荷先担当者</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_ShippingItem" xml:space="preserve">
+    <value>出荷物</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_ShippingType" xml:space="preserve">
+    <value>出荷区分</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_SortNo" xml:space="preserve">
+    <value>並び順</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_Tel1" xml:space="preserve">
+    <value>TEL</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_Tel2" xml:space="preserve">
+    <value>TEL(2)</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_UnavailAug" xml:space="preserve">
+    <value>受取不可日8月連休</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_UnavailMay" xml:space="preserve">
+    <value>受取不可日5月連休</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_UnavailNorm" xml:space="preserve">
+    <value>受取不可日通常</value>
+  </data>
+  <data name="ExportHaisosakiHoshu_UnavailNy" xml:space="preserve">
+    <value>受取不可日正月連休</value>
+  </data>
+  <data name="ExportDeliver_TemplateSheetName" xml:space="preserve">
+    <value>Deliver</value>
+    <comment>DoNotTranslate テンプレートのシート名</comment>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_GenbayoButsuryo" xml:space="preserve">
+    <value>物量</value>
+  </data>
+  <data name="ExportShukkaKeikakuShokai_GenbayoStatus" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="ExportTehaiMeisai_TehaiRireki" xml:space="preserve">
+    <value>変更履歴</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_EstimateRireki" xml:space="preserve">
+    <value>変更履歴</value>
+  </data>
+  <data name="ExportPartsNameHonyaku_CustomsStatus" xml:space="preserve">
+    <value>通関確認状態</value>
+  </data>
+  <data name="ExportTehaiMeisai_CustomsStatus" xml:space="preserve">
+    <value>通関確認状態</value>
+  </data>
+  <data name="ExportShukkaMeisai_CustomsStatus" xml:space="preserve">
+    <value>通関確認状態</value>
+  </data>
+  <data name="ExportPackingList_CustomsStatus" xml:space="preserve">
+    <value>通関確認状態</value>
+  </data>
+  <data name="ExportMitsumoriMeisai_CustomsStatus" xml:space="preserve">
+    <value>通関確認状態</value>
+  </data>
+  <data name="ExportEstimatePartsList_CustomsStatus" xml:space="preserve">
+    <value>通関確認状態</value>
+  </data>
+</root>

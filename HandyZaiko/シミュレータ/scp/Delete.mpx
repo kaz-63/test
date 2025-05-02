@@ -1,0 +1,108 @@
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(10) : FileList:dataNum PROPERTY 0
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(11) : FileList:data PROPERTYARRAY 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(251) : TEMP_MEMORY:tempUpdate PROPERTY 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(252) : TEMP_MEMORY:tempReverse PROPERTY 3
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(253) : TEMP_MEMORY:tempFont PROPERTY 4
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(254) : TEMP_MEMORY:tempFontSize PROPERTY 5
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(255) : TEMP_MEMORY:tempFontGapx PROPERTY 6
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(256) : TEMP_MEMORY:tempFontGapy PROPERTY 7
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(257) : TEMP_MEMORY:tempPosx PROPERTY 8
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(258) : TEMP_MEMORY:tempPosy PROPERTY 9
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(259) : TEMP_MEMORY:tempStatus PROPERTY 10
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(6) : ConstString:DRIVE_NAME CONSTPROPERTY 11
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(9) : ConstString:TAG0_INITIAL CONSTPROPERTY 12
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(10) : ConstString:TAG1_INITIAL CONSTPROPERTY 13
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(11) : ConstString:BOX_INITIAL CONSTPROPERTY 14
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(12) : ConstString:PALLET_INITIAL CONSTPROPERTY 15
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(15) : ConstString:FILE_LOCATION CONSTPROPERTY 16
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(16) : ConstString:FILE_KANRYO CONSTPROPERTY 17
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(17) : ConstString:FILE_TANAOROSHI CONSTPROPERTY 18
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(19) : ConstString:LOCATION_SIZE CONSTPROPERTY 19
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(20) : ConstString:TAG_SIZE CONSTPROPERTY 20
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(21) : ConstString:NO_SIZE CONSTPROPERTY 21
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(23) : ConstString:K_SIZE CONSTPROPERTY 22
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Const.scp(24) : ConstString:L_SIZE CONSTPROPERTY 23
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(12) : ErrorCode:error_code PROPERTY 24
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(27) : LOGDELETE:btvEachInput PROPERTY 25
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(28) : LOGDELETE:loc_count PROPERTY 26
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(29) : LOGDELETE:ivt_count PROPERTY 27
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(30) : LOGDELETE:cpl_count PROPERTY 28
+[FileList:file_list] : 20
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(21) : title ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(21) : filename ARG 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(22) : ret LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(23) : rowsPerPage LOCAL 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(24) : lastPage LOCAL 3
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(25) : curPage LOCAL 4
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(26) : curPage_Pos LOCAL 5
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(27) : curPos LOCAL 6
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(28) : refresh LOCAL 7
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(29) : rowSize LOCAL 8
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(30) : tmpStr LOCAL 9
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(31) : tmpNum LOCAL 10
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(32) : outstr LOCAL 11
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(33) : i LOCAL 12
+[FileList:item_delete] : 3580
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(186) : filename ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(186) : curPos ARG 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(187) : i LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(188) : first LOCAL 2
+[FileList:filelist_printpos] : 4020
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(217) : strmsg ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(217) : x ARG 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(217) : y ARG 3
+[FileList:filelist_drawline] : 4104
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(226) : y ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(227) : x1 LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(228) : x2 LOCAL 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(229) : i LOCAL 3
+[FileList:fileSearch] : 4328
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Utility.scp(237) : title ARG 1
+[ErrorCode:ErrorString] : 4804
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(14) : no ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(15) : ret LOCAL 1
+[MatchCode:location_match] : 5940
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(93) : location ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(94) : i LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(95) : s LOCAL 2
+[MatchCode:stockNo_match] : 6528
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(120) : code ARG 1
+[MatchCode:stockNo_match_NotP] : 6792
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(135) : code ARG 1
+[MatchCode:box_pallet_match] : 7060
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(151) : code ARG 1
+[MatchCode:tag_match] : 7484
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(176) : code ARG 1
+[MatchCode:user_match] : 8368
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Error.scp(221) : code ARG 1
+[Common:data_count] : 9940
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(83) : filename ARG 1
+[Common:get_last_data] : 10204
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(98) : fileName ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(99) : codeSize LOCAL 1
+[Common:str_pad] : 10440
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(112) : str ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(112) : sz ARG 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(113) : padding LOCAL 1
+[Common:delete_user_file] : 10644
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(124) : findflg LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(125) : ret LOCAL 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(126) : filename LOCAL 3
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(127) : protectName LOCAL 4
+[InputLoop:input_loop] : 11500
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(182) : btvKeycode ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(182) : current ARG 2
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Lib\Common.scp(183) : btvRet LOCAL 1
+[LOGDELETE:delete_main] : 12636
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(33) : btvRet LOCAL 1
+[LOGDELETE:log_delete] : 13388
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(73) : error_String LOCAL 1
+[LOGDELETE:input_loop] : 15656
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(152) : btvKeycode ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(153) : btvRet LOCAL 1
+[LOGDELETE:input_String] : 15976
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(171) : btvEachInput ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(172) : btvRet LOCAL 1
+[LOGDELETE:wait_input] : 16288
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(192) : btvKeycode LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\scp\Delete.scp(193) : btvRet LOCAL 2

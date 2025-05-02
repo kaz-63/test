@@ -1,0 +1,63 @@
+// Copyright (c) 2005-2010 KEYENCE CORPORATION. All rights reserved.
+/*!
+ * @file Common_Utility.scp
+ * @brief 
+ */
+
+/*!
+ * @class 文字列操作などの純粋なユーティリティ関連のパッケージ
+ */
+Package	COMMON_UTL
+
+	default_foreColor = "0|0|0"
+	default_backColor = "255|255|255"
+	default_selectForeColor = "255|255|255"
+	default_selectBackColor = "0|0|0"
+
+    /*!
+     * @brief 色設定
+     * 
+     * @param foreColor 
+     * @param backColor
+     * @param selectForeColor
+     * @param selectBackColor
+     * @return なし
+     * @attention なし
+     */
+	Method SetColor(foreColor, backColor, selectForeColor, selectBackColor)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Common_Utility.scp [func] COMMON_UTL:SetColor()\n")
+		EndIf
+
+		With Screen
+			If not foreColor is nil Then :foreColor = foreColor EndIf
+			If not backColor is nil Then :backColor = backColor EndIf
+			If not selectForeColor is nil Then :selectForeColor = selectForeColor EndIf
+			If not selectBackColor is nil Then :selectBackColor = selectBackColor EndIf
+		EndWith
+	EndMethod
+
+    /*!
+     * @brief 色設定初期化
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method ResetColor()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] Common_Utility.scp [func] COMMON_UTL:ResetColor()\n")
+		EndIf
+
+		With Screen
+			:foreColor = default_foreColor
+			:backColor = default_backColor
+			:selectForeColor = default_selectForeColor
+			:selectBackColor = default_selectBackColor
+		EndWith
+	EndMethod
+
+EndPackage
+

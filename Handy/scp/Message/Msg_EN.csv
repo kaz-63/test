@@ -1,0 +1,26 @@
+Error,0,Duplication
+Error,1,Unmatch ship type
+Error,2,Short length
+Error,3,Long length
+Error,4,Mismatch prefix
+Error,5,NG box no. format
+Error,6,NG pallet no. format
+Error,7,Full memory
+Error,8,Time out
+Error,9,Invalid value
+Error,10,Mismatch prefix
+Utility,11,Delete no. [{0}] ?
+Utility,12,Deleted.
+Utility,13,Canceled.
+BOX,14,Full memory. {0}You need to send (or delete) scan data.
+DELETE,15,Not found file.
+DELETE,16,Delete picking data ?
+DELETE,17,Deleted.
+DELETE,18,Delete all scan data ?
+DELETE,19,Deleted.
+Error,20,Invalid value
+FileRecord,21,Delete {0} ?
+FileRecord,22,
+Error,23,Invalid value
+KENPIN,24,Full memory. {0}You need to send (or delete) scan data.
+DELETE,25,Delete handover data ?

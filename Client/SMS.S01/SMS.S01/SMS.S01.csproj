@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0D20C91E-35AD-4D84-BC8D-25BF3D3C1448}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMS.S01</RootNamespace>
+    <AssemblyName>SMS.S01</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSWControl, Version=1.7.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DSWUtil, Version=0.5.4.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\DSWUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="ElTabelleHelper, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\ElTabelleHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.Excel, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=b0e38629244efa22" />
+    <Reference Include="GrapeCity.Win.BaseGrid.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+    <Reference Include="GrapeCity.Win.WorkBook.v40, Version=4.0.2008.1215, Culture=neutral, PublicKeyToken=a26afe6ac959b1f8" />
+    <Reference Include="MultiRowTabelle, Version=1.0.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\MultiRowTabelle.dll</HintPath>
+    </Reference>
+    <Reference Include="SMS.P02, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\SMS.P02.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XlsCreatorHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsCreatorHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="XlsxCreatorHelper, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\XlsxCreatorHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\BinkanIdo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BinkanIdo.Designer.cs">
+      <DependentUpon>BinkanIdo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IkkatsuUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IkkatsuUpload.Designer.cs">
+      <DependentUpon>IkkatsuUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\KiwakuCaseInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KiwakuCaseInput.Designer.cs">
+      <DependentUpon>KiwakuCaseInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShukkakeikakuRenkei.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShukkakeikakuRenkei.Designer.cs">
+      <DependentUpon>ShukkakeikakuRenkei.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShukkaKeikaku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShukkaKeikaku.Designer.cs">
+      <DependentUpon>ShukkaKeikaku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShukkaKeikakuMeisai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShukkaKeikakuMeisai.Designer.cs">
+      <DependentUpon>ShukkaKeikakuMeisai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShukkaKeikakuBunkatsu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShukkaKeikakuBunkatsu.Designer.cs">
+      <DependentUpon>ShukkaKeikakuBunkatsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NisugataHakko.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NisugataHakko.Designer.cs">
+      <DependentUpon>NisugataHakko.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MailSousinRireki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MailSousinRireki.Designer.cs">
+      <DependentUpon>MailSousinRireki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShukkaKeikakuShokai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShukkaKeikakuShokai.Designer.cs">
+      <DependentUpon>ShukkaKeikakuShokai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\BinkanIdo.en.resx">
+      <DependentUpon>BinkanIdo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BinkanIdo.ja.resx">
+      <DependentUpon>BinkanIdo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BinkanIdo.resx">
+      <DependentUpon>BinkanIdo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IkkatsuUpload.en.resx">
+      <DependentUpon>IkkatsuUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IkkatsuUpload.ja.resx">
+      <DependentUpon>IkkatsuUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IkkatsuUpload.resx">
+      <DependentUpon>IkkatsuUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KiwakuCaseInput.en.resx">
+      <DependentUpon>KiwakuCaseInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KiwakuCaseInput.ja.resx">
+      <DependentUpon>KiwakuCaseInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KiwakuCaseInput.resx">
+      <DependentUpon>KiwakuCaseInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkakeikakuRenkei.en.resx">
+      <DependentUpon>ShukkakeikakuRenkei.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkakeikakuRenkei.ja.resx">
+      <DependentUpon>ShukkakeikakuRenkei.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkakeikakuRenkei.resx">
+      <DependentUpon>ShukkakeikakuRenkei.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikaku.en.resx">
+      <DependentUpon>ShukkaKeikaku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikaku.ja.resx">
+      <DependentUpon>ShukkaKeikaku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikaku.resx">
+      <DependentUpon>ShukkaKeikaku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuMeisai.en.resx">
+      <DependentUpon>ShukkaKeikakuMeisai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuMeisai.ja.resx">
+      <DependentUpon>ShukkaKeikakuMeisai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuMeisai.resx">
+      <DependentUpon>ShukkaKeikakuMeisai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuBunkatsu.en.resx">
+      <DependentUpon>ShukkaKeikakuBunkatsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuBunkatsu.ja.resx">
+      <DependentUpon>ShukkaKeikakuBunkatsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuBunkatsu.resx">
+      <DependentUpon>ShukkaKeikakuBunkatsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NisugataHakko.en.resx">
+      <DependentUpon>NisugataHakko.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NisugataHakko.ja.resx">
+      <DependentUpon>NisugataHakko.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NisugataHakko.resx">
+      <DependentUpon>NisugataHakko.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MailSousinRireki.en.resx">
+      <DependentUpon>MailSousinRireki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MailSousinRireki.ja.resx">
+      <DependentUpon>MailSousinRireki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MailSousinRireki.resx">
+      <DependentUpon>MailSousinRireki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuShokai.en.resx">
+      <DependentUpon>ShukkaKeikakuShokai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuShokai.ja.resx">
+      <DependentUpon>ShukkaKeikakuShokai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShukkaKeikakuShokai.resx">
+      <DependentUpon>ShukkaKeikakuShokai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.en.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Commons\Commons\Commons.csproj">
+      <Project>{7CF83010-9C8F-482B-B0C0-CA10DA669345}</Project>
+      <Name>Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\WsConnection\WsConnection\WsConnection.csproj">
+      <Project>{95E0D7DC-64D3-4CA5-A944-0795F2284AB2}</Project>
+      <Name>WsConnection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMS.E01\SMS.E01\SMS.E01.csproj">
+      <Project>{E1D56A03-5204-4548-9C84-C40C8FA95F6A}</Project>
+      <Name>SMS.E01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMS.K01\SMS.K01\SMS.K01.csproj">
+      <Project>{4A267BE7-A471-4396-8FA1-E9FB016DEEB6}</Project>
+      <Name>SMS.K01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SystemBase\SystemBase\SystemBase.csproj">
+      <Project>{17F0EEB1-3A50-423F-8934-AAC2E8EF2542}</Project>
+      <Name>SystemBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(ProjectDir)"
+copy "$(TargetPath)" "..\..\..\Bin\
+if exist "$(TargetDir)en\" xcopy "$(TargetDir)en\*.*" "..\..\..\Bin\en\" /D/E/C/I/H/Y
+if exist "$(TargetDir)ja\" xcopy "$(TargetDir)ja\*.*" "..\..\..\Bin\ja\" /D/E/C/I/H/Y
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

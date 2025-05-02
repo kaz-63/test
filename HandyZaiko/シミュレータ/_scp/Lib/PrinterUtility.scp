@@ -1,0 +1,1033 @@
+// Copyright (c) 2005-2010 KEYENCE CORPORATION. All rights reserved.
+/*!
+ * @file PrinterUtility.scp
+ * @brief Keyence BT-Series アプリケーション用 印刷ユーティリティライブラリ
+ */
+
+
+/*!
+ * @class 印刷ユーティリティパッケージ
+ */
+Package UTL_PRT
+
+	/** 現在位置(Y座標) */
+	curPos = 0
+
+	/** 送信コマンドファイル名 */
+	fileName = ""
+
+	/** 送信コマンドファイル数 */
+	fileCount = 1
+
+	/** 基準位置からの相対座標 */
+	posx = 0
+	posy = 0
+
+	/** 反転属性 */
+	reverse = False
+
+	/** 倍率(1:等倍 2:横倍角 3:縦倍角 4:４倍角) */
+	font = 1
+
+	/** 印刷枚数(1-9999) */
+	printCount = 1
+
+	/** BC種別(1:UPC-E,2:JAN13,3:JAN8,4:CODE39,5:ITF,6:NW-7,7:CODE128,8:QR,9:DM,10:RSS,11:コンポジット) */
+	bcType = 0
+
+	/** ナロー幅(2,3,4ドット) (CODE39,ITF,NW-7) */
+	bcNarrow = 2
+
+	/** ワイド幅(0:小 1:中 2:大) (CODE39,ITF,NW-7) */
+	bcWide = 1
+
+	/** スタートキャラ(A-D,a-d) (NW-7) */
+	bcStartChar = "A"
+
+	/** ストップキャラ(A-D,a-d) (NW-7) */
+	bcStopChar = "A"
+
+	/** 文字列印字(True:する False:しない) */
+	bcPrintStr = True
+
+
+	// QRコード設定
+	/** データモード
+	 *  1:数字,2:英数字,3:漢字,4:バイナリ
+	 */
+	qrMode = 2
+
+	/** QRモデル
+	 *  1:モデル1 2:モデル２ 3:マイクロQR
+	 */
+	qrModel = 2
+
+	/** エラー訂正レベル
+	 *  モデル１：   "L","M","Q","H"
+	 *  モデル２：   "L","M","Q","H"
+	 *  マイクロQR： "L","M","Q"
+	 */
+	qrErrorLevel = "M"	
+
+	/** セルサイズ(1-32) */
+	qrSize = 4			
+
+	//// データマトリクス設定情報
+	/** データモード
+	 *  1:数字,2:英数字,3:バイナリ
+	 */
+	dmMode = 2			
+
+	/** セルサイズ縦(1-16) */
+	dmHSize = 4			
+
+	/** セルサイズ横(1-16) */
+	dmWSize = 4			
+
+	//// RSS設定情報
+	/** RSS種別
+	 *  1:RSS-14, 2:RSS-14 Truncated, 3:RSS-14 Stacked,
+	 *  4:RSS-14 Stacked Omnidirectional, 5:RSS Limited)
+	 */
+	rssType = 1			
+
+	/** 最小バー幅（ドット）(1-12) */
+	rssNarrow = 2		
+
+	//// コンポジットコード設定情報
+	/** １次元バーコード種別
+	 *  1:RSS-14, 2:RSS-14 Truncated, 3:RSS-14 Stacked, 4:RSS-14 Stacked Omnidirectional, 
+	 *  5:RSS Limited, 7:UPC-A, 8:UPC-E, 9:EAN-13, 10:EAN-8, 11:EAN-128(CC-A/B), 12:EAN-128(CC-C)
+	 */
+	cn1DType = 1		
+
+	/** 最小バー幅（ドット）(1-12) */
+	cnNarrow = 2		
+
+	/** テキスト最大表示数(横) */
+	textmax_x = 32
+
+	/** テキスト最大表示数(縦) */
+	textmax_y = 32
+
+	endset_flg = 0
+
+    /*!
+     * @brief 数値→HEX変換
+     * 
+     * @param num 入力値(2桁限定(0-255))
+     * @return 結果文字列(0未満は"00"、256以上は"ff"を返します)
+     * @attention なし
+     */
+	Method num2hex(num)
+		str = ""	// 戻り値
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:num2hex()\n")
+		EndIf
+
+		If num > 255 Then Return ("ff") EndIf
+		If num < 0 Then Return ("00") EndIf
+		str = num.Hex(False)
+		If str.length == 3 Then
+			Return("0" & str.mid(2, 1))
+		else
+			Return(str.mid(2, 2))
+		EndIf
+	EndMethod
+
+    /*!
+     * @brief 初期処理(プロパティ初期化、印刷初期設定コマンド保存)
+     * 
+     * @param prtfName ファイル名
+     * @return なし
+     * @attention なし
+     */
+	Method Initialize(prtfName)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:Initialize()\n")
+		EndIf
+
+		Printer:printerType = 8
+		Printer:baudRate = 115200
+
+		// プロパティ初期化
+		posx = 0			// 基準位置からの相対座標
+		posy = 0			// 基準位置からの相対座標
+		reverse = False		// 反転属性
+		font = 1			// 倍率(1:等倍 2:横倍角 3:縦倍角 4:４倍角)
+		printCount = 1		// 印刷枚数
+		bcType = 0
+		bcNarrow = 2
+		bcWide = 1
+		bcStartChar = "A"
+		bcStopChar = "A"
+		bcPrintStr = True
+
+		qrMode = 2			// データモード(1:数字,2:英数字,3:漢字,4:バイナリ)
+		qrModel = 2			// QRモデル(1:モデル1 2:モデル２ 3:マイクロQR)
+		qrErrorLevel = "M"	// エラー訂正レベル
+		qrSize = 4			// セルサイズ(1-32)
+		dmMode = 2			// データモード(1:数字,2:英数字,3:バイナリ)
+		dmHSize = 4			// セルサイズ縦(1-16)
+		dmWSize = 4			// セルサイズ横(1-16)
+		rssType = 1			// RSS種別(1:RSS-14, 2:RSS-14 Truncated, 3:RSS-14 Stacked, 4:RSS-14 Stacked Omnidirectional, 5:RSS Limited)
+		rssNarrow = 2		// 最小バー幅（ドット）(1-12)
+		cn1DType = 1		// １次元バーコード種別
+		cnNarrow = 2		// 最小バー幅（ドット）(1-12)
+
+		fileName = prtfName
+		File:name = fileName
+		fileCount = 1
+
+		endset_flg = 0
+		File:Write("1b411b503030", "create")	// "A" + 文字間スペース０ドット
+		curPos = 0
+	EndMethod
+
+    /*!
+     * @brief 印刷実行
+     * 
+     * @param なし
+     * @return 印刷結果(true/false)
+     * @attention なし
+     */
+	Method Exec()
+		ret
+		cnt
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:Exec()\n")
+		EndIf
+
+		If endset_flg == 0 Then		// "A"と"Z"を、必ず１対にする
+			File:Write("1b51", "append")	// 枚数
+			File:Puts(("000" & printCount).Right(4), "append")
+			File:Write("1b5a", "append")			// "Z"
+			endset_flg = 1
+		EndIf
+		File:Initialize()
+		For cnt = 1 To fileCount
+			If cnt == 1 Then
+				ret = Printer:SendCommand( fileName )
+			Else
+				ret = Printer:SendCommand( fileName & "_" & cnt )
+			EndIf
+			If ret is False Then Return (ret) EndIf
+		Next
+		Return (ret)
+	EndMethod
+
+
+    /*!
+     * @brief 文字列印刷コマンド保存
+     * 
+     * @param str 文字列
+     * @return 0固定
+     * @attention なし
+     */
+	Method SetCmd_STR(str)
+		str_h		// 印字高さ
+		strtmp
+		val = 0
+		val_old = 0
+		str_w		// 印字文字列長さ(文字折り返し判定用)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:SetCmd_STR()\n")
+		EndIf
+
+		File:name = fileName
+		str_h = 24 + 4
+		str_w = str.length
+
+		// Y移動
+		File:Write("1b56", "append")
+		File:Puts(posy+1, "append")
+		// X移動
+		File:Write("1b48", "append")
+		File:Puts(posx+1, "append")
+
+		// 属性変更
+		File:Write("1b503030", "append")	// 文字間ピッチゼロ
+		If font == 1 Then					// 等倍
+		ElseIf font == 2 Then				// 横倍
+			File:Write("1b4c30323031", "append")
+			str_w = str_w + str.length
+		ElseIf font == 3 Then				// 縦倍
+			File:Write("1b4c30313032", "append")
+			str_h = str_h + 24
+		ElseIf font == 4 Then				// 4倍
+			File:Write("1b4c30323032", "append")
+			str_w = str_w + str.length
+			str_h = str_h + 24
+		EndIf
+
+		// 文字列印刷
+		File:Write("1b4b3942", "append")	// 24ドットフォント指定(半角、全角、漢字混在可)
+		File:Puts(str, "append")	// 文字列
+		File:Write("0d", "append")	// 改行
+
+		// 反転(矩形指定、文字列が折り返されないことを前提にしています)
+		If reverse is True Then
+			// Y移動
+			File:Write("1b56", "append")
+			File:Puts(posy+1, "append")
+			// X移動
+			File:Write("1b48", "append")
+			File:Puts(posx+1, "append")
+
+			File:Write("1b28" , "append")
+			File:Puts(str_w*12 & "," & str_h, "append")
+		EndIf
+
+		// 属性を戻す
+		If font <> 1 Then					// 等倍
+			File:Write("1b4c30313031", "append")
+			File:Write("1b4b3942", "append")	// 24ドットフォント指定(半角、全角、漢字混在可)
+		EndIf
+		Return (0)
+	EndMethod
+
+
+    /*!
+     * @brief ビットマップ印刷コマンド保存
+     * 
+     * @param bmpfilename ビットマップファイル名
+     * @param bmptmpfilename 一時使用ファイル名
+     * @param bmpheight ビットマップの高さ
+     * @return 0固定
+     * @attention なし
+     */
+	Method SetCmd_BMP(bmpfilename, bmptmpfilename, bmpheight)
+		strtmp
+		tposx
+		tposy
+		val = 0
+		val_old = 0
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:SetCmd_BMP()\n")
+		EndIf
+
+		// Y移動
+		//File:Write("1b56", "append")
+		//File:Puts(posy+1, "append")
+		// X移動
+		//File:Write("1b48", "append")
+		//File:Puts(posx+1, "append")
+
+		FileSystem:Delete(bmptmpfilename)
+		tposx = posx
+		If tposx == 0 Then tposx = 1 EndIf
+		tposy = posy
+		If tposy == 0 Then tposy = 1 EndIf
+		If Printer:CreateBMPCommand(bmpfilename, bmptmpfilename, tposx, tposy) is True Then
+			// ビットマップ印刷コマンド結合
+			ret = FileSystem:Delete("2:__BMP.TMP")
+			ret = FileSystem:Cat(fileName, bmptmpfilename, "2:__BMP.TMP")
+			ret = FileSystem:Delete(fileName)
+			ret = FileSystem:Rename("2:__BMP.TMP",fileName)
+			ret = FileSystem:Delete(bmptmpfilename)
+		EndIf
+		curPos = posy + bmpheight
+		Return (0)
+	EndMethod
+
+
+    /*!
+     * @brief バーコード印刷コマンド保存
+     * 
+     * @param data バーコードデータ
+     * @param height バーコードの高さ
+     * @return 0固定
+     * @attention なし
+     */
+	Method SetCmd_BCR(data, height)
+		ret
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:SetCmd_BCR()\n")
+		EndIf
+
+		ret = SetCmd_BCREx(data, data, height)
+		Return (ret)
+	EndMethod
+
+
+    /*!
+     * @brief バーコード印刷コマンド保存
+     * 
+     * @param data バーコードデータ
+     * @param printData 印字データ
+     * @param height バーコードの高さ
+     * @return 0固定
+     * @attention なし
+     */
+	Method SetCmd_BCREx(data, printData, height)
+		str_h = 0		// バーコード高さ
+		strtmp
+		val = 0
+		val_old = 0
+		widetmp = 0		// ワイド幅
+		tfont
+		tposy
+		treverse
+		subLen = 0
+		barcodeData
+		extendedData
+		cnt = 0
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:SetCmd_BCREx()\n")
+		EndIf
+
+		// Y移動
+		File:Write("1b56", "append")
+		File:Puts(posy+1, "append")
+		// X移動
+		File:Write("1b48", "append")
+		If bcType == 2 and bcPrintStr is True and posx < 30 Then		// JAN13 and 文字列印字有り and X座標30未満
+			File:Puts(30, "append")
+		Else
+			File:Puts(posx+1, "append")
+		EndIf
+
+		// パラメータチェック
+		If height < 0 Then Return (-1) EndIf
+		If bcType == 1 Then				// UPC-E
+			If data.length > 6 Then	// 6桁以外で入力された場合は6桁にする
+				data = data.Left(6)
+				printData = printData.Left(6)
+			ElseIf data.length < 6 Then
+				Return (-1)
+			EndIf
+		ElseIf bcType == 2 Then			// JAN13
+			If data.length > 12 Then
+				data = data.Left(12)
+				printData = printData.Left(12)
+			ElseIf data.length < 12 Then
+				Return (-1)
+			EndIf
+		ElseIf bcType == 3 Then			// JAN8
+			If data.length > 7 Then
+				data = data.Left(7)
+				printData = printData.Left(7)
+			ElseIf data.length < 7 Then
+				Return (-1)
+			EndIf
+		ElseIf bcType == 4 or bcType == 5 or bcType == 6 Then	// CODE39,ITF,NW-7
+			If bcNarrow < 2 or 4 < bcNarrow Then Return (-1) EndIf
+			If bcWide < 0 or 2 < bcWide Then Return (-1) EndIf
+
+			If bcType == 5 Then	// ITF
+				If data.length %2 == 1 Then		// データ長が奇数
+					data = data & "0"
+					printData = printData & "0"
+				EndIf
+			EndIf
+
+		ElseIf bcType == 10 Then			// RSS
+			If data.length > 13 Then
+				data = data.Left(13)
+				printData = printData.Left(13)
+			EndIf
+		ElseIf bcType == 11 Then			// コンポジット
+			If cn1DType == 1 or cn1DType == 2 or cn1DType == 3 or cn1DType == 4 or cn1DType == 5 Then
+				subLen = data.Find("|",0)
+				If subLen is nil Then
+					If data.length > 13 Then
+						data = data.Left(13)
+					EndIf
+				Else
+					If subLen > 13 Then
+						data = data.Left(13) & data.Right(data.Length-subLen)
+					EndIf
+				EndIf
+			ElseIf cn1DType == 8 Then
+				subLen = data.Find("|",0)
+				If subLen is nil Then
+					subLen = data.length
+				EndIf
+				If subLen < 9 Then
+					If subLen <= 6 Then
+						barcodeData = data.Left(subLen)
+						For cnt = 1 To 6 - subLen
+							barcodeData = barcodeData & "0"
+						Next
+					ElseIf subLen==7 or subLen==8 Then
+						barcodeData = data.Mid(1,6)
+					EndIf
+
+					Select Case barcodeData.Mid(5,1)
+					case "0"
+					        extendedData = barcodeData.Mid(0, 2)
+					        extendedData = extendedData & "00000"
+					        extendedData = extendedData & barcodeData.Mid(2, 3)
+					case "1"
+					        extendedData = barcodeData.Mid(0, 2)
+					        extendedData = extendedData & "10000"
+					        extendedData = extendedData & barcodeData.Mid(2, 3)
+					case "2"
+					        extendedData = barcodeData.Mid(0, 2)
+					        extendedData = extendedData & "20000"
+					        extendedData = extendedData & barcodeData.Mid(2, 3)
+					case "3"
+					        extendedData = barcodeData.Mid(0, 3)
+					        extendedData = extendedData & "00000"
+					        extendedData = extendedData & barcodeData.Mid(3, 2)
+					case "4"
+					        extendedData = barcodeData.Mid(0, 4)
+					        extendedData = extendedData & "00000"
+					        extendedData = extendedData & barcodeData.Mid(4, 1)
+					Case Else
+					        extendedData = barcodeData.Mid(0, 5)
+					        extendedData = extendedData & "0000"
+					        extendedData = extendedData & barcodeData.Mid(5, 1)
+					End Select
+					
+					If data.Length-subLen>0 Then
+						data = extendedData & data.Right(data.Length-subLen)
+					Else
+						data = extendedData
+					EndIf
+				EndIf
+			ElseIf cn1DType == 11 or cn1DType == 12 Then
+				subLen = data.Find("|",0)
+				If subLen is nil Then
+					If data.length < 8 Then
+						subLen = data.length
+						For cnt = 1 To 8 - subLen
+							data = data & "0"
+						Next
+					EndIf
+				Else
+					If subLen < 8 Then
+						barcodeData = data.Left(subLen)
+						For cnt = 1 To 8 - subLen
+							barcodeData = barcodeData & "0"
+						Next
+						data = barcodeData & data.Right(data.Length-subLen)
+					EndIf
+				EndIf
+			EndIf
+		EndIf
+
+		If 1 <= bcType and bcType <= 6 Then				// UPC-E,JAN13,JAN8,CODE39,ITF,NW-7
+
+			If bcType == 4 or bcType == 5 or bcType == 6 Then	// CODE39,ITF,NW-7
+				If bcWide == 0 Then
+					File:Write("1b44", "append")
+				ElseIf bcWide == 1 Then
+					File:Write("1b4244", "append")
+				ElseIf bcWide == 2 Then
+					File:Write("1b42", "append")
+				EndIf
+			Else
+				If bcType == 1 Then					// UPC-E
+					File:Write("1b42", "append")
+				ElseIf bcPrintStr is True Then		// JAN13,JAN8(データ表示ON)
+					File:Write("1b4244", "append")
+				Else								// JAN13,JAN8(データ表示OFF)
+					File:Write("1b44", "append")
+				EndIf
+			EndIf
+
+			If bcType == 1 Then File:Puts("E", "append")	// UPC-E
+			ElseIf bcType == 2 Then File:Puts("3", "append")	// JAN13
+			ElseIf bcType == 3 Then File:Puts("4", "append")	// JAN8
+			ElseIf bcType == 4 Then File:Puts("1", "append")	// CODE39
+			ElseIf bcType == 5 Then File:Puts("2", "append")	// ITF
+			ElseIf bcType == 6 Then File:Puts("0", "append")	// NW-7
+			EndIf
+
+			If bcType == 1 or bcType == 2 or bcType == 3 Then
+				File:Puts("02", "append")
+			ElseIf bcWide == 1 Then
+				File:Puts(("0" & ((bcNarrow+1)/2).toInt).Right(2), "append")
+			Else
+				File:Puts(("0" & bcNarrow).Right(2), "append")
+			EndIf
+			File:Puts(("00" & height).Right(3), "append")
+
+			If bcType == 4 Then // CODE39
+				File:Puts("*", "append")
+			ElseIf bcType == 6 Then	// NW-7
+				File:Puts(bcStartChar.left(1), "append")
+			EndIf
+			File:Puts(data, "append")
+			If bcType == 4 Then // CODE39
+				File:Puts("*", "append")
+			ElseIf bcType == 6 Then	// NW-7
+				File:Puts(bcStopChar.left(1), "append")
+			EndIf
+
+			// データ表示
+			If bcPrintStr is True Then
+				If bcType == 2 or bcType == 3 Then		// JAN13,JAN8(データ表示ON)
+				Else
+					tposy = posy	tfont = font	treverse = reverse
+					posy = posy+height+2	font = 1	reverse = False
+
+					If bcType == 4 Then // CODE39
+						strtmp = "*" & printData & "*"
+					ElseIf bcType == 6 Then	// NW-7
+						strtmp = bcStartChar.left(1) & printData & bcStopChar.left(1)
+					Else
+						strtmp = printData
+					EndIf
+					SetCmd_STR(strtmp)
+					font = tfont	posy = tposy	reverse = treverse
+				EndIf
+			EndIf
+
+		ElseIf bcType == 7 Then				// CODE128
+			File:Write("1b4247", "append")
+			File:Puts(("0" & bcNarrow).Right(2), "append")
+			File:Puts(("00" & height).Right(3), "append")
+			File:Puts(">H" & data, "append")
+			// データ表示
+			If bcPrintStr is True Then
+				tposy = posy	tfont = font	treverse = reverse
+				posy = posy+height+2	font = 1	reverse = False
+				SetCmd_STR(printData)
+				font = tfont	posy = tposy	reverse = treverse
+			EndIf
+
+		ElseIf bcType == 12 Then			// EAN128
+			File:Write("1b4247", "append")
+			File:Puts(("0" & bcNarrow).Right(2), "append")
+			File:Puts(("00" & height).Right(3), "append")
+			File:Puts(data, "append")
+			// データ表示
+			If bcPrintStr is True Then
+				tposy = posy	tfont = font	treverse = reverse
+				posy = posy+height+2	font = 1	reverse = False
+				SetCmd_STR(printData)
+				font = tfont	posy = tposy	reverse = treverse
+			EndIf
+
+		ElseIf bcType == 8 Then				// QR
+
+			If qrModel == 1 Then
+				File:Write("1b32443331", "append")
+			ElseIf qrModel == 2 Then
+				File:Write("1b32443330", "append")
+			ElseIf qrModel == 3 Then
+				File:Write("1b32443332", "append")
+			Else
+				Return (-1)
+			EndIf
+			File:Puts(",", "append")
+			File:Puts(qrErrorLevel, "append")
+			File:Puts(",", "append")
+			File:Puts(("0" & qrSize).Right(2), "append")
+			File:Puts(",1", "append")
+			If qrModel == 1 or qrModel == 2 Then File:Puts(",0", "append") EndIf
+
+			File:Write("1b444E", "append")
+			File:Puts(("0000" & data.length).Right(4) & ",", "append")
+			File:Puts(data, "append")
+
+		ElseIf bcType == 9 Then				// DM
+			File:Write("1b32443530", "append")
+			File:Puts("," & ("0" & dmWSize).Right(2), "append")
+			File:Puts("," & ("0" & dmHSize).Right(2), "append")
+			File:Puts(",000,000", "append")
+
+			File:Write("1b444E", "append")
+			File:Puts(data.length, "append")
+			File:Puts("," & data, "append")
+
+		ElseIf bcType == 10 Then			// RSS
+			File:Write("1b4555", "append")
+			File:Puts(("0" & rssType).Right(2), "append")
+			File:Puts(("0" & rssNarrow).Right(2), "append")
+			File:Puts(data, "append")
+			// データ表示
+			If bcPrintStr is True Then
+				tposy = posy	tfont = font	treverse = reverse
+				posy = posy+height+2	font = 1	reverse = False
+				SetCmd_STR("(01)" & printData)
+				font = tfont	posy = tposy	reverse = treverse
+			EndIf
+
+		ElseIf bcType == 11 Then			// コンポジット
+			File:Write("1b4555", "append")
+			File:Puts(("0" & cn1DType).Right(2), "append")
+			File:Puts(("0" & cnNarrow).Right(2), "append")
+			If cn1DType == 11 or cn1DType == 12 Then
+				File:Puts(("00" & height).Right(3), "append")
+			EndIf
+			File:Puts(data, "append")
+		Else
+			Return (-1)
+		EndIf
+
+		Return (0)
+	EndMethod
+
+    /*!
+     * @brief データを印刷コマンドに変換
+     * 
+     * @param srcData データ
+     * @return 印刷コマンド
+     * @attention なし
+     */
+	Method ConvertCmd(srcData)
+		count = 0
+		isStartA = false
+		cmdData = ""
+		cmdTmpData[2]
+		dataArray[8192]
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:ConvertCmd()\n")
+		EndIf
+
+		// EAN128データを印刷用コマンドへ変換(CODE Cには対応しない)
+		If bcType == 12 Then
+
+			dataArray = srcData.Unpack
+
+			// データ中に制御文字があるかどうかチェック
+			For count = 0 to 8192 - 1
+
+				// 文字列がなくなった場合
+				If dataArray[count] is nil Then
+					Fbreak
+				EndIf
+
+				// <GS>はFUNC1に変換するため対象外
+				// <NUL>(0x00)は文字列の終端を表すため対象外
+				If (0x01 <= dataArray[count] And dataArray[count] <= 0x1f) And dataArray[count] <> 0x1d Then
+					// データに制御文字がある
+					isStartA = true
+					Fbreak
+				EndIf
+
+			Next
+
+			If isStartA is true Then
+				// スタートキャラクタをCODE A
+				cmdData = ">G>F"
+			Else
+				// スタートキャラクタをCODE B
+				cmdData = ">H>F"
+			EndIf
+
+			For count = 0 to 8192 - 1
+
+				// 文字列がなくなった場合
+				// <NUL>(0x00)は文字列の終端を表すため変換しない
+				If dataArray[count] is nil Or dataArray[count] == 0x00 Then
+					Fbreak
+				EndIf
+
+				If 0x1d == dataArray[count] Then
+
+					// <GS>はFNC1に変換
+					cmdData = cmdData & ">F"
+
+				ElseIf dataArray[count] <= 0x1f Then
+
+					If isStartA is false Then
+						// 制御文字なのでCODE Aに変換
+						cmdData = cmdData & ">E"
+						isStartA = true
+					EndIf
+
+					cmdTmpData[0] = dataArray[count] + 0x20
+					cmdTmpData[1] = 0x00
+					cmdData = cmdData & ">" & cmdTmpData.Pack
+
+				ElseIf 0x3e == dataArray[count] Then
+
+					// '>'は">J"に変換
+					cmdData = cmdData & ">J"
+
+				ElseIf 0x60 <= dataArray[count] And dataArray[count] <= 0x7f Then
+
+					If isStartA is true Then
+						// CODE Aでは扱えないのでCODE Bに変換
+						cmdData = cmdData & ">D"
+						isStartA = false
+					End If
+
+					cmdTmpData[0] = dataArray[count]
+					cmdTmpData[1] = 0x00
+					cmdData = cmdData & cmdTmpData.Pack
+
+				Else
+
+					cmdTmpData[0] = dataArray[count]
+					cmdTmpData[1] = 0x00
+					cmdData = cmdData & cmdTmpData.Pack
+
+				EndIf
+
+			Next
+
+			return (cmdData)
+
+		Else
+
+			return (srcData)
+
+		EndIf
+
+	Catch
+
+		cmdData = ">H>F" & srcData
+		return (cmdData)
+
+	EndMethod
+
+    /*!
+     * @brief データを印刷用データに変換
+     * 
+     * @param srcData データ
+     * @return 印刷用データ
+     * @attention なし
+     */
+	Method ConvertData(srcData)
+		count = 0
+		cmdData = ""
+		cmdTmpData[2]
+		dataArray[8192]
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:ConvertData()\n")
+		EndIf
+
+		// EAN128は制御コードを除去する
+		If bcType == 12 Then
+
+			dataArray = srcData.Unpack
+
+			For count = 0 to 8192 - 1
+
+				// 文字列がなくなった場合
+				If dataArray[count] is nil Then
+					Fbreak
+				EndIf
+
+				If dataArray[count] > 0x1f And dataArray[count] <> 0x7f Then
+					cmdTmpData[0] = dataArray[count]
+					cmdTmpData[1] = 0x00
+					cmdData = cmdData & cmdTmpData.Pack
+				EndIf
+
+			Next
+
+			return (cmdData)
+
+		Else
+
+			return (srcData)
+
+		EndIf
+
+	Catch
+
+		return (srcData)
+
+	EndMethod
+
+    /*!
+     * @brief 紙送り処理(上方)
+     * 
+     * @param mode 0:ラベル印刷/1:履歴印刷
+     * @return なし
+     * @attention なし
+     */
+	Method Move_Up(mode)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:Move_Up()\n")
+		EndIf
+
+		//If mode == 0 Then
+		//	File:Write("127000","append")		// 紙無しエラー無効
+		//	File:Write("1b6a60","append")		// 用紙逆送り
+		//	File:Write("126d018001","append")	// マーク位置検出
+		//	File:Write("127e7800","append")		// 印字濃度を上げる
+		//Else
+		//	File:Write("127001","append")		// 紙無しエラー有効
+		//	File:Write("1b6a10","append")		// 用紙逆送り
+		//EndIf
+	EndMethod
+
+
+    /*!
+     * @brief 紙送り処理(下方)
+     * 
+     * @param mode 0:ラベル印刷/1:履歴印刷
+     * @return なし
+     * @attention なし
+     */
+	Method Move_Down(mode)
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:Move_Down()\n")
+		EndIf
+
+		//If mode == 0 Then
+		//	File:Write("127e6400","append")		// 印字濃度を元に戻す
+		//	File:Write("126d018001","append")	// マーク位置検出
+		//	File:Write("1b4a40","append")		// 用紙順送り
+		//Else
+		//	File:Write("1b4a60","append")		// 用紙順送り
+		//EndIf
+	EndMethod
+
+
+    /*!
+     * @brief 履歴印刷コマンド保存
+     * 
+     * @param なし
+     * @return 成功時:true / 失敗時:false
+     * @attention なし
+     */
+	Method PrintHistory()
+		cnt = 1
+		cnt2 = 0
+		totalNum = 0		// 合計数量
+		strRecord			// 印字文字列
+		tmpNum
+		tmpStr
+		tmpfilename
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:PrintHistory()\n")
+		EndIf
+
+		font = 0
+		reverse = false
+		File:name = fileName
+		posx = 0
+
+		// 次の印刷コマンドファイルへ移行
+		tmpfilename = fileName
+		File:Write("1b5130303031", "append")	// 枚数
+		File:Write("1b5a", "append")			// "Z"
+		File:Initialize()
+		fileCount = fileCount + 1
+		fileName = tmpfilename & "_" & fileCount
+		File:name = fileName
+		posx = 0	posy = 0
+		File:Write("1b411b503030", "create")	// "A" + 文字間スペース０ドット
+
+		File:Write("1b453130", "append")	// 改行コードを認識させる
+		File:Write("1b4b3942", "append")	// 24ドットフォント指定(半角、全角、漢字混在可)
+
+		SetCmd_STR("")
+		For cnt = 1 To LogAccess:GetCount()
+			If LogAccess:Read(cnt) is False Then Fbreak EndIf
+
+			If LogAccess:fieldNum <= 1 Then
+				strRecord = UTL:utlFixLength(20, LogAccess:GetData(1))
+			Else
+				strRecord = UTL:utlFixLength(20, LogAccess:GetData(LogAccess:fieldNum-1))
+			EndIf
+			tmpStr = LogAccess:GetData(LogAccess:fieldNum)
+			If tmpStr.isDigit is True Then
+				tmpNum = LogAccess:GetData(LogAccess:fieldNum).toInt	// 前ゼロを除去する為に一旦数値に変換する
+				If tmpNum < -999 Then
+					strRecord = strRecord & "  x  -" & UTL:utlMakeFixedNumEx(0-tmpNum,3)&"\r\n"	// -符号を付ける
+				Else
+					strRecord = strRecord & "  x  " & UTL:utlMakeFixedNumEx(tmpNum,4)&"\r\n"
+				EndIf
+			Else
+				If tmpStr.Mid(0, 1) eq "*" Then
+					strRecord = strRecord & "  x  " & "   *" & "\r\n"
+				Else
+					strRecord = strRecord & "  x  " & "    " & "\r\n"
+				EndIf
+			EndIf
+
+			If tmpNum.isDigit Then totalNum = totalNum + tmpNum EndIf
+			File:Puts(strRecord,"append")
+
+			cnt2 = cnt2 + 1
+			If cnt2 == 20 Then
+				// 次の印刷コマンドファイルへ移行
+				File:Write("1b5130303031", "append")	// 枚数
+				File:Write("1b5a", "append")			// "Z"
+				File:Initialize()
+				fileCount = fileCount + 1
+				fileName = tmpfilename & "_" & fileCount
+				File:name = fileName
+				posx = 0	posy = 0
+				File:Write("1b411b503030", "create")	// "A" + 文字間スペース０ドット
+				File:Write("1b453130", "append")	// 改行コードを認識させる
+				File:Write("1b4b3942", "append")	// 24ドットフォント指定(半角、全角、漢字混在可)
+				cnt2 = 0
+			EndIf
+		Next
+
+		File:Puts("数量合計             "&UTL:utlMakeFixedNumEx(totalNum,8)&"\r\n","append" )
+		File:Puts("件数合計             "&UTL:utlMakeFixedNumEx(LogAccess:GetCount(),8)&"件\r\n","append" )
+		fileName = tmpfilename
+		Return (True)
+	Catch
+		Dialog:Message(nil, "不正なログデータです","confirm", "", "", "middle")
+		fileName = tmpfilename
+		Return (False)
+	EndMethod
+
+	
+    /*!
+     * @brief 履歴印刷メッセージを表示
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method PrintHistoryMessage()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:PrintHistoryMessage()\n")
+		EndIf
+
+		TempScreenInfo:Push()
+		With Screen
+			:update = False
+			:Clear()
+			:fontSize = "middle" :fontGapy = 1	:fontGapx = 0
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = False :font = 1 :OutputText("履歴印刷を")
+			:posx = 1 :posy = 3 :multiColumn = 1 :reverse = False :font = 1 :OutputText("実行しています")
+			:update = True
+		EndWith
+		TempScreenInfo:Pop()
+	EndMethod
+	
+	
+    /*!
+     * @brief ラベル印刷メッセージを表示
+     * 
+     * @param なし
+     * @return なし
+     * @attention なし
+     */
+	Method PrintLabelMessage()
+	Begin
+		If TraceLog:isOutput is True Then
+			TraceLog:Output("[file] PrinterUtility.scp [func] UTL_PRT:PrintLabelMessage()\n")
+		EndIf
+
+		TempScreenInfo:Push()
+		With Screen
+			:update = False
+			:Clear()
+			:fontSize = "middle" :fontGapy = 1	:fontGapx = 0
+			:posx = 1 :posy = 1 :multiColumn = 1 :reverse = False :font = 1 :OutputText("ラベル印刷を")
+			:posx = 1 :posy = 3 :multiColumn = 1 :reverse = False :font = 1 :OutputText("実行しています")
+			:update = True
+		EndWith
+		TempScreenInfo:Pop()
+	EndMethod
+EndPackage
+

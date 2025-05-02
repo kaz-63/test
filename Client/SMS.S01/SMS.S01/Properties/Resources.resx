@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ShukkaKeikakuMeisai_Area" xml:space="preserve">
+    <value>Area</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Code" xml:space="preserve">
+    <value>CODE</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_DeliveryDestination" xml:space="preserve">
+    <value>納入先</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_DivisionNo" xml:space="preserve">
+    <value>区割No.</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_DrawingNoFormat" xml:space="preserve">
+    <value>図番/形式</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_DrawingAdditionalNo" xml:space="preserve">
+    <value>図面追番</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Floor" xml:space="preserve">
+    <value>Floor</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Free1" xml:space="preserve">
+    <value>Free1</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Free2" xml:space="preserve">
+    <value>Free2</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_JpName" xml:space="preserve">
+    <value>品名(和文)</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_MNo" xml:space="preserve">
+    <value>M-No.</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Model" xml:space="preserve">
+    <value>機種</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Name" xml:space="preserve">
+    <value>品名</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Numeric" xml:space="preserve">
+    <value>数値が入力可能です。</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_PlatformDependentChar" xml:space="preserve">
+    <value>環境依存文字は使用できません。</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Quantity" xml:space="preserve">
+    <value>数量</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Remarks" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_ProductNo" xml:space="preserve">
+    <value>製番</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_ShippingFlights" xml:space="preserve">
+    <value>出荷便</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Singlebyte" xml:space="preserve">
+    <value>半角英数が入力可能です。</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_STNo" xml:space="preserve">
+    <value>ST-No.</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_UpperAndNumber" xml:space="preserve">
+    <value>英大文字、数値が入力可能です。</value>
+  </data>
+  <data name="BinkanIdo_Box" xml:space="preserve">
+    <value>【Box】</value>
+  </data>
+  <data name="BinkanIdo_Pallet" xml:space="preserve">
+    <value>【Pallet】</value>
+  </data>
+  <data name="BinkanIdo_Tag" xml:space="preserve">
+    <value>【TAG】</value>
+  </data>
+  <data name="BinkanIdo_WoodFrame" xml:space="preserve">
+    <value>【木枠】</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_AcceptanceDate" xml:space="preserve">
+    <value>受入日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_AcceptanceStaff" xml:space="preserve">
+    <value>受入担当者</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_AssemblyDate" xml:space="preserve">
+    <value>集荷日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_BLNo" xml:space="preserve">
+    <value>BLNo.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_BoxNo" xml:space="preserve">
+    <value>BoxNo.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_BoxPackingDate" xml:space="preserve">
+    <value>Box梱包日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_InvoiceNo" xml:space="preserve">
+    <value>INVOICENo.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Memo" xml:space="preserve">
+    <value>Memo(備考)</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_OkurijyoNo" xml:space="preserve">
+    <value>送り状No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_PalletNo" xml:space="preserve">
+    <value>PalletNo.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_PalletPackingDate" xml:space="preserve">
+    <value>Pallet梱包日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_SectioningNo" xml:space="preserve">
+    <value>区割No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_ShippingCompany" xml:space="preserve">
+    <value>運送会社</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_ShippingDate" xml:space="preserve">
+    <value>出荷日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_State" xml:space="preserve">
+    <value>状態</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_TagNo" xml:space="preserve">
+    <value>Tag No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_WoodFrameNo" xml:space="preserve">
+    <value>木枠No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_WoodFramePackingDate" xml:space="preserve">
+    <value>木枠梱包日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_EstimateFlag" xml:space="preserve">
+    <value>有償/無償</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_Ship" xml:space="preserve">
+    <value>便</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_ShoriFlag" xml:space="preserve">
+    <value>処理フラグ</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_ShukkaDate" xml:space="preserve">
+    <value>出荷日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_ShukkaFrom" xml:space="preserve">
+    <value>出荷元</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_ShukkaTo" xml:space="preserve">
+    <value>出荷先</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_TransportFlag" xml:space="preserve">
+    <value>AIR/SHIP</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_Numeric" xml:space="preserve">
+    <value>数値が入力可能です。</value>
+  </data>
+  <data name="ShukkaKeikaku_PlatformDependentChar" xml:space="preserve">
+    <value>環境依存文字は使用できません。</value>
+  </data>
+  <data name="ShukkaKeikaku_Singlebyte" xml:space="preserve">
+    <value>半角英数が入力可能です。</value>
+  </data>
+  <data name="ShukkaKeikaku_UpperAndNumber" xml:space="preserve">
+    <value>英大文字、数値が入力可能です。</value>
+  </data>
+  <data name="ShukkaKeikaku_BukkenName" xml:space="preserve">
+    <value>物件名</value>
+  </data>
+  <data name="ShukkaKeikaku_ShipNo" xml:space="preserve">
+    <value>案件管理No.</value>
+  </data>
+  <data name="ShukkaKeikaku_ShipSeiban" xml:space="preserve">
+    <value>運賃・梱包 製番</value>
+  </data>
+  <data name="ShukkaKeikaku_RefDlgTitle" xml:space="preserve">
+    <value>出荷計画ExcelFiles選択</value>
+  </data>
+  <data name="ShukkakeikakuRenkei_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_ECSNo" xml:space="preserve">
+    <value>ECS No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_Hinmei" xml:space="preserve">
+    <value>品名</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_Hinmei_jp" xml:space="preserve">
+    <value>品名(和文)</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_Syukkasu" xml:space="preserve">
+    <value>出荷数</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_TagMax" xml:space="preserve">
+    <value>TAG登録可能数</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_TagNum" xml:space="preserve">
+    <value>TAG登録数</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_Zansu" xml:space="preserve">
+    <value>残数</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_Zuban" xml:space="preserve">
+    <value>図番/型式</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_TagAllow" xml:space="preserve">
+    <value>TAG登録許容数</value>
+    <comment>Sheetのタイトル列(非表示)</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_TehaiRenkeiNo" xml:space="preserve">
+    <value>手配連携No</value>
+    <comment>Sheetのタイトル列(非表示)</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_Version" xml:space="preserve">
+    <value>バージョン</value>
+    <comment>Sheetのタイトル列(非表示)</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_SMeisaiNum" xml:space="preserve">
+    <value>出荷明細数量</value>
+    <comment>Sheetのタイトル列(非表示)</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Grwt" xml:space="preserve">
+    <value>重量</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_ArNo" xml:space="preserve">
+    <value>AR No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_TehaiRenkeiNo" xml:space="preserve">
+    <value>連携No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Version" xml:space="preserve">
+    <value>バージョン</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="IkkatsuUpload_Code" xml:space="preserve">
+    <value>CODE</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="IkkatsuUpload_DrawingNoFormat" xml:space="preserve">
+    <value>図番/形式</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="IkkatsuUpload_FileName" xml:space="preserve">
+    <value>ファイル名</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="IkkatsuUpload_JpName" xml:space="preserve">
+    <value>品名(和文)</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="IkkatsuUpload_ProductNo" xml:space="preserve">
+    <value>製番</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="IkkatsuUpload_Quantity" xml:space="preserve">
+    <value>数量</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="IkkatsuUpload_TagNo" xml:space="preserve">
+    <value>Tag No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="IkkatsuUpload_PictureFolderDescription" xml:space="preserve">
+    <value>画像フォルダ選択</value>
+  </data>
+  <data name="NisugataHakko_AR" xml:space="preserve">
+    <value>AR</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_ARNo" xml:space="preserve">
+    <value>AR No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Atesaki" xml:space="preserve">
+    <value>宛先</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Bikou" xml:space="preserve">
+    <value>備考</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Cancel" xml:space="preserve">
+    <value>CAN</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_CTNo" xml:space="preserve">
+    <value>CT No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_CTQty" xml:space="preserve">
+    <value>CT Qty</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Doukon" xml:space="preserve">
+    <value>同梱</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_ECSNo" xml:space="preserve">
+    <value>ECS No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_GRWT" xml:space="preserve">
+    <value>GRWT</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_InvoiceNo" xml:space="preserve">
+    <value>Invoice No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Item" xml:space="preserve">
+    <value>Item</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Kokunai" xml:space="preserve">
+    <value>国内</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_KonpoNo" xml:space="preserve">
+    <value>梱包No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_PLType" xml:space="preserve">
+    <value>P/L Type</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Seihinmei" xml:space="preserve">
+    <value>製品名</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Ship" xml:space="preserve">
+    <value>Ship</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_SizeH" xml:space="preserve">
+    <value>Size H</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_SizeL" xml:space="preserve">
+    <value>Size L</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_SizeW" xml:space="preserve">
+    <value>Size W</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Teikei" xml:space="preserve">
+    <value>定形</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_UnsoKaisha" xml:space="preserve">
+    <value>運送会社</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NisugataHakko_Hakkou" xml:space="preserve">
+    <value>発行状態</value>
+    <comment>Sheetのタイトル列(非表示)</comment>
+  </data>
+  <data name="NisugataHakko_NounyusakiCD" xml:space="preserve">
+    <value>納入先CD</value>
+    <comment>Sheetのタイトル列(非表示)</comment>
+  </data>
+  <data name="NisugataHakko_SeibanCode" xml:space="preserve">
+    <value>製番CODE</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_sdfExcel_Filter" xml:space="preserve">
+    <value>ExcelFiles|*.xls</value>
+    <comment>ファイル保存ダイアログのフィルタ</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_sdfExcel_Ttitle" xml:space="preserve">
+    <value>明細ExcelFiles保存</value>
+    <comment>ファイル保存ダイアログのタイトル</comment>
+  </data>
+  <data name="NisugataHakko_sfdExcel_Filter" xml:space="preserve">
+    <value>ExcelFiles|*.xlsx</value>
+    <comment>ファイル保存ダイアログのフィルタ</comment>
+  </data>
+  <data name="NisugataHakko_sfdExcel_Title" xml:space="preserve">
+    <value>荷姿表ExcelFile保存</value>
+    <comment>ファイル保存ダイアログのタイトル</comment>
+  </data>
+  <data name="IkkatsuUpload_Picture" xml:space="preserve">
+    <value>写真</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="IkkatsuUpload_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="IkkatsuUpload_Name" xml:space="preserve">
+    <value>品名</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="IkkatsuUpload_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="ShukkaKeikakuMeisai_Picture" xml:space="preserve">
+    <value>写真</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="NounyusakiHoshu_SipFromName" xml:space="preserve">
+    <value>出荷元</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_SipFromName" xml:space="preserve">
+    <value>出荷元</value>
+    <comment>Sheetの列タイトル（2022/10/11追加）</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_ZUMEN_KEISHIKI2" xml:space="preserve">
+    <value>図番/形式2</value>
+    <comment>Sheetのタイトル列としても使用</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_TagShip" xml:space="preserve">
+    <value>TAG便名</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikaku_KikaiParts" xml:space="preserve">
+    <value>機械Parts</value>
+  </data>
+  <data name="ShukkaKeikaku_Model" xml:space="preserve">
+    <value>機種</value>
+  </data>
+  <data name="ShukkaKeikaku_Naiyo" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="ShukkaKeikaku_Remarks" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="ShukkaKeikaku_SeigyoParts" xml:space="preserve">
+    <value>制御Parts</value>
+  </data>
+  <data name="ShukkaKeikaku_TouchakuyoteiDate" xml:space="preserve">
+    <value>到着予定日</value>
+  </data>
+  <data name="ShukkaKeikaku_Seiban" xml:space="preserve">
+    <value>製番</value>
+  </data>
+  <data name="ShukkaKeikaku_sdfExcel_Filter" xml:space="preserve">
+    <value>ExcelFiles|*.xlsx</value>
+    <comment>ファイル保存ダイアログのフィルタ</comment>
+  </data>
+  <data name="ShukkaKeikaku_sfdExcel_Title" xml:space="preserve">
+    <value>出荷計画ExcelFiles保存</value>
+    <comment>ファイル保存ダイアログのタイトル</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_Biko" xml:space="preserve">
+    <value>備考</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_BukkenName" xml:space="preserve">
+    <value>物件名</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_EstimateFlag" xml:space="preserve">
+    <value>有償/無償</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_KikaiParts" xml:space="preserve">
+    <value>機械Parts</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_KiShu" xml:space="preserve">
+    <value>機種</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_Naiyo" xml:space="preserve">
+    <value>内容</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_Seiban" xml:space="preserve">
+    <value>製番</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_SeigyoParts" xml:space="preserve">
+    <value>制御Parts</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_Ship" xml:space="preserve">
+    <value>便名</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_ShipSeiban" xml:space="preserve">
+    <value>運賃・梱包製番</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_ShoriFlag" xml:space="preserve">
+    <value>処理フラグ</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_ShukkaDate" xml:space="preserve">
+    <value>出荷日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_ShukkaFrom" xml:space="preserve">
+    <value>出荷元</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_ShukkaTo" xml:space="preserve">
+    <value>出荷先</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_TagNum" xml:space="preserve">
+    <value>TAG発行状況</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_TagStatus" xml:space="preserve">
+    <value>ステータス</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_TouchakuyoteiDate" xml:space="preserve">
+    <value>到着予定日</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_TransportFlag" xml:space="preserve">
+    <value>AIR/SHIP</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_Min_JyotaiFlag" xml:space="preserve">
+    <value>状態</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_ConsignCD" xml:space="preserve">
+    <value>荷受先CD</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_sfdExcel_Filter" xml:space="preserve">
+    <value>ExcelFiles|*.xlsx</value>
+    <comment>ファイル保存ダイアログのフィルタ</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_sfdExcel_Title" xml:space="preserve">
+    <value>明細ExcelFiles保存</value>
+    <comment>ファイル保存ダイアログのフィルタ</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_EstimateFlag_Commercial" xml:space="preserve">
+    <value>有償</value>
+    <comment>多言語</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_EstimateFlag_Noncommercial" xml:space="preserve">
+    <value>無償</value>
+    <comment>多言語</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_SelectAll" xml:space="preserve">
+    <value>全て</value>
+    <comment>コンボボックス多言語</comment>
+  </data>
+  <data name="ShukkakeikakuRenkei_TehaiNo" xml:space="preserve">
+    <value>手配No.</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_GenbayoButsuryo" xml:space="preserve">
+    <value>物量</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuShokai_GenbayoStatus" xml:space="preserve">
+    <value>状態</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+  <data name="ShukkaKeikakuMeisai_CustomsStatus" xml:space="preserve">
+    <value>通関確認状態</value>
+    <comment>Sheetのタイトル列</comment>
+  </data>
+</root>

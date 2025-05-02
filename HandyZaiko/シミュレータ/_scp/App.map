@@ -1,0 +1,147 @@
+[TraceLog:Output]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(15) : 8
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(29) : 24
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(30) : 44
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(31) : 108
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(32) : 140
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(33) : 156
+[APP_RES:InitializeTraceLog]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(12) : 176
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(14) : 192
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(16) : 204
+[APP_RES:make_file_list]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(20) : 224
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(25) : 240
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(26) : 256
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(27) : 280
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(28) : 304
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(29) : 328
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(30) : 352
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(31) : 376
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(32) : 400
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(33) : 424
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(35) : 432
+[APP_RES:set_application_action]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(40) : 452
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(45) : 468
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(46) : 488
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(49) : 500
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(50) : 516
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(51) : 532
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(52) : 548
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(55) : 568
+[APP_RES:ShowMainScreen]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(59) : 588
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(62) : 604
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(63) : 612
+[MENU_1_RES:set_statusbar]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(70) : 632
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(74) : 648
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(75) : 664
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(77) : 676
+[MENU_1_RES:disp_menu_main]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(81) : 696
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(88) : 712
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(89) : 728
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(90) : 740
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(91) : 752
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(93) : 764
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(95) : 820
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(96) : 852
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(97) : 920
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(98) : 928
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(99) : 952
+[MENU_1_RES:ShowMainScreen]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(103) : 972
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(106) : 988
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(107) : 996
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(108) : 1028
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(109) : 1044
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(110) : 1072
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(112) : 1096
+[MENU_2_RES:set_statusbar]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(119) : 1116
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(123) : 1132
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(124) : 1148
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(126) : 1160
+[MENU_2_RES:disp_menu_main]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(130) : 1180
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(137) : 1196
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(138) : 1212
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(139) : 1224
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(140) : 1236
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(142) : 1248
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(144) : 1304
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(145) : 1336
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(146) : 1404
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(147) : 1412
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(148) : 1436
+[MENU_2_RES:ShowMainScreen]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(152) : 1456
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(155) : 1472
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(156) : 1480
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(157) : 1508
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(159) : 1532
+[COMMON_UTL:SetColor]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(12) : 1552
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(29) : 1568
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(30) : 1596
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(34) : 1612
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(35) : 1664
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(36) : 1716
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(37) : 1768
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(39) : 1820
+[COMMON_UTL:ResetColor]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(48) : 1840
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(50) : 1856
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(51) : 1884
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(55) : 1900
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(56) : 1916
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(57) : 1932
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(58) : 1948
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(60) : 1964
+[main]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(13) : 1984
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(17) : 2000
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(20) : 2008
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(21) : 2028
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(22) : 2044
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(24) : 2052
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(26) : 2060
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(27) : 2080
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(28) : 2088
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(31) : 2116
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(32) : 2128
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(33) : 2212
+[APP:menu_main]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(37) : 2232
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(44) : 2248
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(46) : 2256
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(47) : 2308
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(48) : 2360
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(51) : 2368
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(53) : 2376
+[MENU_1:menu_main]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(59) : 2396
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(67) : 2412
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(68) : 2432
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(69) : 2468
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(73) : 2484
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(75) : 2492
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(76) : 2512
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(77) : 2540
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(78) : 2572
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(79) : 2608
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(82) : 2632
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(84) : 2648
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(85) : 2664
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(86) : 2672
+[MENU_2:menu_main]
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(95) : 2692
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(99) : 2708
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(102) : 2728
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(104) : 2736
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(105) : 2756
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(106) : 2784
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(107) : 2800
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(108) : 2808

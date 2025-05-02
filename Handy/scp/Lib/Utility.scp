@@ -1,0 +1,512 @@
+//////////////////////////////////////////////////////////////////////////
+//							FileListパッケージ
+//
+// ファイル一覧表示
+// BOX梱包時、拡張子".B"ファイルを検索し、削除します。
+// ﾊﾟﾚｯﾄ梱包時、拡張子".P"ファイルを検索し、削除します。
+//////////////////////////////////////////////////////////////////////////
+Package FileList
+
+	//---------------------------------------------------
+	// ファイルリスト表示
+	//  引数
+	//   title   : タイトル文字列
+	//   fileExt : 拡張子(.B or .P)
+	//  戻り値
+	//   なし
+	//---------------------------------------------------
+	Method filelist(title, fileExt)
+		ret
+		fileName[100]	// ファイル名(1-100まで)
+		fileName2[28]	// ファイル名(101-128まで)
+		fileNum			// 処理ファイル数
+		lastPage		// 最終表示ページ数
+		curPage			// 現在のページ
+		curPage_Pos		// 現在のページの先頭ファイルインデックス
+		curPos			// 現在のファイルインデックス
+		chgDrv = true	// 再表示フラグ
+		tmpnum
+		tmpstr
+		outstr
+		i
+		deleteMsg[2]	// 削除確認メッセージ
+	Begin
+
+		TEMP_MEMORY:push_Screen()
+		Screen:status = false
+		Screen:fontSize = 12
+		Screen:fontGapx = 0
+		Screen:fontGapy = 1
+		While 1
+		
+			// 画面再表示
+			If ( chgDrv is true ) Then
+				// タイトル表示
+				Screen:update = false
+				Screen:Clear()
+				UtilityDisp:filelist_printpos(title, 1, 1)
+				// 破線表示
+				UtilityDisp:filelist_drawline(16)
+
+				// ドライブからファイル取得
+				chgDrv = false	fileNum = 0
+				curPos = 0		curPage_Pos = 0		curPage = 0
+				
+				ret = FileSystem:FindFirst( ConstString:DRIVE_NAME )
+				While (ret is true)
+					If (FileSystem:findFileName.Right(2) eq fileExt) Then
+						tmpstr = FileSystem:findFileName.Right(FileSystem:findFileName.length - 2)
+						//tmpstr = tmpstr.Left(tmpstr.length - 2)
+						
+						If ( fileNum < 100 ) Then fileName[fileNum] = tmpstr
+						Else fileName2[fileNum - 100] = tmpstr EndIf
+
+						fileNum = fileNum + 1
+					EndIf
+					ret = FileSystem:FindNext()
+				Wend
+				CommonDisp:fillBlack("small", 0, 159)
+				Screen:update = true
+				
+				If fileNum == 0 Then
+					return()
+				EndIf
+				
+			EndIf
+
+			// ページ計算
+			tmpnum = curPos / 5  curPage = tmpnum.toInt
+			curPage_Pos = curPos % 5
+			tmpnum = ((fileNum - 1) / 5) lastPage = tmpnum.toInt
+			If ( fileNum > 0 ) Then
+				If ( curPos < 100 ) Then outstr = ConstString:DRIVE_NAME & fileName[curPos]
+				Else outstr = ConstString:DRIVE_NAME & fileName2[28 - curPos] EndIf
+			Else
+				outstr = ConstString:DRIVE_NAME 
+			EndIf
+
+			// ファイル表示
+			For i = 0 to 4
+				If (curPage*5 + i + 1 > fileNum) Then
+					UtilityDisp:filelist_printpos((" ").Repeat(21), 1, (4 + i * 2))
+				Else
+					If (i == curPage_Pos) Then
+						Screen:reverse = true
+					Else
+						Screen:reverse = false
+					EndIf
+					
+					If ( i < 100 ) Then
+						tmpstr = fileName[curPage*5 + i]
+					Else
+						tmpstr = fileName2[curPage*5 + i - 100]
+					EndIf
+					
+					UtilityDisp:filelist_printpos(tmpstr & (" ").Repeat(21), 1, (4 + i * 2))
+					Screen:reverse = false
+				EndIf
+			Next
+			
+			With Screen
+			:update = false
+			:posx = 1 :posy = 14 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[0])
+			:update = true
+			EndWith
+			
+			// キー操作
+			ret = Handy:KeyWait()
+			If ( ret eq "UP" ) Then
+				If ( curPos == 0 ) Then
+					curPos = fileNum - 1
+				Else
+					curPos = curPos - 1
+				EndIf
+			ElseIf ( ret eq "DOWN" ) Then
+				If ( curPos == fileNum - 1 ) Then
+					curPos = 0
+				Else
+					curPos = curPos + 1
+				EndIf
+			ElseIf ( ret eq "LEFT" ) Then
+				If ( curPos < 5 ) Then
+					tmpnum = (lastPage * 5) + (curPage_Pos)
+					If ( tmpnum > fileNum - 1 ) Then curPos = fileNum - 1
+					Else curPos = tmpnum EndIf
+				Else
+					curPos = curPos - 5
+				EndIf
+			ElseIf ( ret eq "RIGHT" ) Then
+				If ( curPage == lastPage ) Then
+					curPos = curPage_Pos
+				Else
+					If ( curPos + 5 > fileNum - 1 ) Then curPos = fileNum - 1
+					Else curPos = curPos + 5 EndIf
+				EndIf
+			ElseIf ( ret eq "F1" or ret eq "C" ) Then
+				outstr = ""
+				Wbreak
+			ElseIf ( ret eq "ENT" ) Then
+				If ( fileNum > 0 ) Then
+					deleteMsg = Message:MessageItem[11].split("{0}")
+					If Handy:ShowMessageBox(deleteMsg[0] & outstr.Right(7) & deleteMsg[1],"yesno|no") Then
+						File:Initialize()
+						Handy:ShowMessageBox(Message:MessageItem[12],"ok")
+						FileSystem:Delete(outstr)
+						chgDrv = true
+					Else
+						Handy:ShowMessageBox(Message:MessageItem[13],"ok")
+					EndIf
+					
+				EndIf
+				
+			EndIf
+		Wend
+
+		Screen:Clear()
+		TEMP_MEMORY:pop_Screen()
+
+		return ()
+	EndMethod
+	
+EndPackage
+
+
+//////////////////////////////////////////////////////////////////////////
+//							FileRecordパッケージ
+//
+// 入荷検品ファイル
+// 計測ファイル
+//////////////////////////////////////////////////////////////////////////
+Package FileRecord
+	dataNum			// データ数
+	data[500]		// データ
+	rowSize			// 行のバイトサイズ
+	
+	/*!
+	 * @brief ファイルレコード表示
+	 * 
+	 * @param title タイトル
+	 * @param filename ファイル名
+	 */
+	Method file_record(title, filename)
+		keyRet
+		rowsPerPage = 4	// １ページごとの行数
+		lastPage		// 最終表示ページ数
+		curPage			// 現在ページ
+		curPage_Pos		// 現在ページの先頭インデックス
+		curPos			// カーソル現在位置
+		refresh = true	// 再表示フラグ
+		tmpStr
+		tmpNum
+		outstr
+		curPageFirst
+		curPageLast
+		i
+		message_items[10]
+		message_output
+	Begin
+
+		TEMP_MEMORY:push_Screen()
+		Screen:status = false
+		Screen:fontSize = "small"
+		Screen:fontGapx = 0
+		Screen:fontGapy = 1
+		While 1
+			Common:Initialize()
+			
+			// 画面再表示(初回起動時、ファイル削除時に表示)
+			If ( refresh is true ) Then
+				refresh = false
+				// タイトル表示
+				With Screen
+					:update = false
+					:Clear()
+					:foreColor = "0|0|0" :backColor = "255|255|255" :fontSize = "middle"
+					UtilityDisp:filelist_printpos(title, 1, 1)
+					:foreColor = "0|0|0" :backColor = "255|255|255" :fontSize = "small"
+				EndWith
+				// 直線表示
+				UtilityDisp:filelist_drawline(16)
+				// 右端未使用領域埋め
+				CommonDisp:fillBlack("small", 0, 159)
+				Screen:update = true
+
+				curPos = 0
+				curPage_Pos = 0
+				curPage = 0
+				
+				dataNum = Common:dataCount(filename)
+				If (dataNum == 0) Then
+					Return ()
+				EndIf
+				
+				// ファイル別1レコードのバイト数
+				If filename eq ConstString:KENPIN_DATA Then
+					rowSize = ConstString:KENPIN_BYTE_SIZE			// 入荷検品
+				Else
+					rowSize = ConstString:MEASURE_BYTE_SIZE			// 計測
+				EndIf
+				
+			EndIf
+			
+			File:Initialize()
+			File:name = filename
+			
+			curPageFirst = rowsPerPage * (curPos / rowsPerPage).toInt
+			curPageLast = curPageFirst + rowsPerPage - 1
+			If curPageLast >= dataNum Then
+				curPageLast = dataNum - 1
+			EndIf
+			
+			If curPageFirst > 0 Then
+				File:currentPos = curPageFirst * rowSize
+			EndIf
+			For i = curPageFirst to curPageLast step 1
+				data[i - curPageFirst] = File:Gets(rowSize)
+			Next
+			File:Close()
+			
+			// ページ計算
+			curPage = (curPos / rowsPerPage).toInt
+			curPage_Pos = curPos % rowsPerPage
+			lastPage = ((dataNum + 3) / rowsPerPage).toInt - 1
+			
+			If (rowSize == ConstString:KENPIN_BYTE_SIZE) Then
+				outstr = data[curPage_Pos].Left(ConstString:TEHAI_NO_SIZE)
+			Else
+				outstr = data[curPage_Pos].Left(ConstString:TAG_SIZE)
+			EndIf
+			
+			// ファイル表示
+			For i = 0 to rowsPerPage - 1
+				If ((curPage) * rowsPerPage + i + 1 > dataNum) Then
+					// 最終ページの空欄処理
+					Screen:reverse = false
+					UtilityDisp:filelist_printpos((" ").Repeat(21), 1, (4 + i * 4))
+					UtilityDisp:filelist_printpos((" ").Repeat(21), 1, (6 + i * 4))
+				Else
+					// レコード表示処理
+					If (i == curPage_Pos) Then
+						Screen:reverse = true
+					Else
+						Screen:reverse = false
+					EndIf
+					tmpStr = data[i]
+					If (rowSize == ConstString:KENPIN_BYTE_SIZE) Then
+						UtilityDisp:filelist_printpos(tmpStr.Left(ConstString:TEHAI_NO_SIZE) & (" ").Repeat(13), 1, (4 + i * 4))
+						UtilityDisp:filelist_printpos((" ").Repeat(14) & tmpStr.Mid(ConstString:TEHAI_NO_SIZE + 1, ConstString:NYUKA_COUNT_SIZE) & (" ").Repeat(1), 1, (6 + i * 4))
+					Else
+						UtilityDisp:filelist_printpos(tmpStr.Left(ConstString:TAG_SIZE) & (" ").Repeat(11), 1, (4 + i * 4))
+						UtilityDisp:filelist_printpos((" ").Repeat(13) & tmpStr.Mid(ConstString:TAG_SIZE + 1, ConstString:WEIGHT_SIZE) & (" ").Repeat(1), 1, (6 + i * 4))
+					EndIf
+				EndIf
+			Next
+			
+			With Screen
+			:update = false
+			:posx = 1 :posy = 21 :multiColumn = 1 :reverse = false :font = 1 :OutputText(Language:langItem[0])
+			:update = true
+			EndWith
+			
+			// キー操作
+			keyRet = Handy:KeyWait()
+			If ( keyRet eq "UP" ) Then
+				If ( curPos == 0 ) Then
+					curPos = dataNum - 1
+				Else
+					curPos = curPos - 1
+				EndIf
+			ElseIf ( keyRet eq "DOWN" ) Then
+				If ( curPos == dataNum - 1 ) Then
+					curPos = 0
+				Else
+					curPos = curPos + 1
+				EndIf
+			ElseIf ( keyRet eq "LEFT" ) Then
+				If ( curPos < rowsPerPage ) Then
+					tmpNum = (lastPage * rowsPerPage) + (curPage_Pos)
+					If ( tmpNum > dataNum - 1 ) Then curPos = dataNum - 1
+					Else curPos = tmpNum EndIf
+				Else
+					curPos = curPos - rowsPerPage
+				EndIf
+			ElseIf ( keyRet eq "RIGHT" ) Then
+				If ( curPage == lastPage ) Then
+					curPos = curPage_Pos
+				Else
+					If ( curPos + rowsPerPage > dataNum - 1 ) Then curPos = dataNum - 1
+					Else curPos = curPos + rowsPerPage EndIf
+				EndIf
+			ElseIf ( keyRet eq "F1" or keyRet eq "C" ) Then
+				outstr = ""
+				Wbreak
+			ElseIf ( keyRet eq "ENT" ) Then
+				If ( dataNum > 0 ) Then
+					// メッセージ："[ファイル名]を削除します。よろしいですか？"
+					message_items = Message:MessageItem[21].split("{0}")
+					message_output = message_items[0] & outstr & message_items[1] & Message:MessageItem[22]
+					
+					If Handy:ShowMessageBox(message_output,"yesno|no") Then
+						Handy:ShowMessageBox(Message:MessageItem[12],"ok")
+						item_delete(filename, curPos)
+						refresh = true
+					Else
+						Handy:ShowMessageBox(Message:MessageItem[13],"ok")
+					EndIf
+					
+				EndIf
+				
+			EndIf
+		Wend
+
+		Screen:Clear()
+		TEMP_MEMORY:pop_Screen()
+		
+		Return ()
+	EndMethod
+
+	//---------------------------------------------------
+	// ファイルリスト表示
+	//  引数
+	//   filename   : (文字列型)ファイル名
+	//   curPos		: カーソル現在位置
+	//  戻り値
+	//   なし
+	//---------------------------------------------------
+	Method item_delete( filename, curPos )
+		i
+		tempfile
+		first = true
+		tempStr
+	Begin
+		filename = ConstString:DRIVE_NAME & filename
+		// 最後の１行を削除するときはファイル削除
+		If (dataNum == 1) Then
+			If FileSystem:FindFirst(filename) is true Then
+				FileSystem:Delete(filename)
+			EndIf
+		Else
+			tempfile = filename & ".tmp"
+
+			FileStream<filename>:Open("r")
+			FileStream<tempfile>:Open("w")
+			
+			For i = 0 to dataNum - 1
+				If (i == curPos) Then
+					FileStream<filename>:Read(rowSize)
+					Fcontinue
+				EndIf
+				If (first) Then
+					tempStr = FileStream<filename>:Read(rowSize)
+					FileStream<tempfile>:Write(tempStr)
+					first = false
+					Fcontinue
+				EndIf
+				tempStr = FileStream<filename>:Read(rowSize)
+				FileStream<tempfile>:Write(tempStr)
+			Next
+			FileStream<filename>:Close()
+			FileStream<tempfile>:Close()
+			FileSystem:Copy(tempfile, filename, true)
+			FileSystem:Delete(tempfile)
+		EndIf
+	Catch
+		Handy:ShowMessageBox("Application Error(" & System:errorInf2 & ")", "ok" )
+	EndMethod
+	
+EndPackage
+
+
+//////////////////////////////////////////////////////////////////////////
+//						情報一時保存パッケージ							//
+//////////////////////////////////////////////////////////////////////////
+Package	TEMP_MEMORY
+
+	// 一時保存情報
+	tempUpdate
+	tempReverse
+	tempFont
+	tempFontSize
+	tempFontGapx
+	tempFontGapy
+	tempPosx
+	tempPosy
+	tempStatus
+
+	//---------------------------------------------------
+	// 退避
+	Method push_Screen()
+	Begin
+		//退避
+		With Screen
+			
+			tempUpdate	= :update
+			tempReverse	= :reverse
+			tempFont	= :font
+			tempFontSize= :fontSize
+			tempFontGapx= :fontGapx
+			tempFontGapy= :fontGapy
+			tempPosx	= :posx
+			tempPosy	= :posy
+			tempStatus	= :status
+		EndWith
+		
+	EndMethod
+
+
+	//---------------------------------------------------
+	// 復帰
+	Method pop_Screen()
+	Begin
+		
+		//復帰
+		With Screen
+			:update 	= tempUpdate
+			:reverse	= tempReverse
+			:font		= tempFont
+			:fontSize	= tempFontSize
+			:fontGapx	= tempFontGapx
+			:fontGapy	= tempFontGapy
+			:posx 		= tempPosx
+			:posy 		= tempPosy
+			If ( :status is false or tempStatus is false ) Then
+				:status		= tempStatus
+			EndIf
+		EndWith
+		
+	EndMethod
+	
+EndPackage
+
+//////////////////////////////////////////////////////////////////////////
+//						Utility画面表示パッケージ						//
+//////////////////////////////////////////////////////////////////////////
+Package	UtilityDisp
+	
+	//---------------------------------------------------
+	// @brief 位置指定文字列表示
+	//
+	// @param strmsg 表示文字列
+	// @param x x座標
+	// @param y y座標
+	//---------------------------------------------------
+	Method filelist_printpos(strmsg, x, y)
+	Begin
+		Screen:posx = x		Screen:posy = y
+		Screen:OutputText(strmsg)
+	EndMethod
+	
+	//---------------------------------------------------
+	// @brief 破線描画
+	//
+	// @param y y座標
+	//---------------------------------------------------
+	Method filelist_drawline(y)
+		i
+	Begin
+		For i = 0 to 127 Step 4
+			Screen:DrawLine(i, y, i+1, y, "black")
+		Next
+	EndMethod
+	
+EndPackage

@@ -1,0 +1,64 @@
+/********************************************************************************
+ファイル名	：	App.scp
+バージョン	：	Ver.1.00
+作成日付	：	2010/04/22
+動作説明	：	メニュー・初期設定
+
+********************************************************************************/
+
+Include "Lib\Common"
+
+//---------------------------------------------------
+// メインメソッド
+Method main()
+
+Begin
+	
+	While 1
+		MENU:menu_main()
+	Wend
+	
+// スクリプトカスタマイズをする場合は下記の2行をコメントアウトするとデバッグ効率が良くなります
+Catch
+	Handy:ShowMessageBox("Applicationに問題が発生しました("&System:error&")", "ok" )
+End Method
+
+
+Package MENU
+	
+	//---------------------------------------------------
+	// メニュメソッド
+	Method menu_main()
+		btvItem1
+		btvItem2
+		btvMenupos
+	Begin
+		Common:Initialize()	
+		btvItem1 = " １. Location登録| ２. 完了登録| ３. 棚卸登録| ４. Data削除"
+		btvItem2 = " ５. LogOut"
+		btvMenupos = 1
+		// ステータス表示設定
+		Screen:status = true
+		With Screen
+			:fontSize = "middle"
+		EndWith
+		
+		While 1
+			btvMenupos = Handy:ShowMenu("UserID: " & System:arg2, btvItem1,btvItem2,nil,nil,btvMenupos)
+			Select Case btvMenupos
+			Case 1
+				System:Load("Location","Menu",System:arg2,0,0)
+			Case 2
+				System:Load("Kanryo","Menu",System:arg2,0,0)
+			Case 3
+				System:Load("Tanaoroshi","Menu",System:arg2,0,0)
+			Case 4
+				System:Load("Delete","Menu",System:arg2,0,0)
+			Case 5,"C"
+				System:Load("App",0,0,0,0)
+			End Select
+		Wend
+	End Method
+EndPackage
+
+

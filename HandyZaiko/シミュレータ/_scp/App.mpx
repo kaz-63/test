@@ -1,0 +1,37 @@
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(15) : TraceLog:isOutput PROPERTY 0
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(16) : TraceLog:tickCount PROPERTY 1
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(12) : COMMON_UTL:default_foreColor PROPERTY 2
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(13) : COMMON_UTL:default_backColor PROPERTY 3
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(14) : COMMON_UTL:default_selectForeColor PROPERTY 4
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(15) : COMMON_UTL:default_selectBackColor PROPERTY 5
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(37) : APP:model PROPERTY 6
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(59) : MENU_1:btvMenupos_old PROPERTY 7
+[TraceLog:Output] : 8
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(25) : message ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(26) : tempTickCount LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Trace.scp(27) : tickCountMessage LOCAL 2
+[MENU_1_RES:disp_menu_main] : 696
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(81) : btvMenupos ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(82) : btvItem1 LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(83) : btvItem2 LOCAL 2
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(84) : btvItem3 LOCAL 3
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(85) : btvItem4 LOCAL 4
+[MENU_1_RES:ShowMainScreen] : 972
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(103) : btvMenupos ARG 1
+[MENU_2_RES:disp_menu_main] : 1180
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(130) : btvMenupos ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(131) : btvItem1 LOCAL 1
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(132) : btvItem2 LOCAL 2
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(133) : btvItem3 LOCAL 3
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(134) : btvItem4 LOCAL 4
+[MENU_2_RES:ShowMainScreen] : 1456
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\RES\App_Res.scp(152) : btvMenupos ARG 1
+[COMMON_UTL:SetColor] : 1552
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(27) : foreColor ARG 1
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(27) : backColor ARG 2
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(27) : selectForeColor ARG 3
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\Lib\Common_Utility.scp(27) : selectBackColor ARG 4
+[MENU_1:menu_main] : 2396
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(64) : btvMenupos LOCAL 1
+[MENU_2:menu_main] : 2692
+C:\»”Ô\ ‰êFHê\Handy600\app\_scp\App.scp(96) : btvMenupos LOCAL 1

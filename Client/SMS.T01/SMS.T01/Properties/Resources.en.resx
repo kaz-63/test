@@ -1,0 +1,1170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="cboAll" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="cboAllNo" xml:space="preserve">
+    <value>0000</value>
+  </data>
+  <data name="SearchShipmentNumber_AcceptanceDate" xml:space="preserve">
+    <value>Receiving date</value>
+  </data>
+  <data name="SearchShipmentNumber_AcceptanceStaff" xml:space="preserve">
+    <value>Receiver</value>
+  </data>
+  <data name="SearchShipmentNumber_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="SearchShipmentNumber_ARNo" xml:space="preserve">
+    <value>AR no.</value>
+  </data>
+  <data name="SearchShipmentNumber_AssemblyDate" xml:space="preserve">
+    <value>Pickup date</value>
+  </data>
+  <data name="SearchShipmentNumber_BLNo" xml:space="preserve">
+    <value>BL no.</value>
+  </data>
+  <data name="SearchShipmentNumber_BoxNo" xml:space="preserve">
+    <value>Box no.</value>
+  </data>
+  <data name="SearchShipmentNumber_BoxPackingDate" xml:space="preserve">
+    <value>Box packing date</value>
+  </data>
+  <data name="SearchShipmentNumber_BukkenNo" xml:space="preserve">
+    <value>Project no.</value>
+  </data>
+  <data name="SearchShipmentNumber_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="SearchShipmentNumber_DrawingAdditionalNo" xml:space="preserve">
+    <value>Sequence no.</value>
+  </data>
+  <data name="SearchShipmentNumber_DrawingNoFormat" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="SearchShipmentNumber_EcsQuota" xml:space="preserve">
+    <value>Fiscal year</value>
+  </data>
+  <data name="SearchShipmentNumber_EstimateFlagName" xml:space="preserve">
+    <value>Commercial flag</value>
+  </data>
+  <data name="SearchShipmentNumber_FileName" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="SearchShipmentNumber_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="SearchShipmentNumber_Free1" xml:space="preserve">
+    <value>Free1</value>
+  </data>
+  <data name="SearchShipmentNumber_Free2" xml:space="preserve">
+    <value>Free2</value>
+  </data>
+  <data name="SearchShipmentNumber_GWRT" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="SearchShipmentNumber_InvoiceNo" xml:space="preserve">
+    <value>Invoice no.</value>
+  </data>
+  <data name="SearchShipmentNumber_JpName" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="SearchShipmentNumber_Maker" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="SearchShipmentNumber_Memo" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="SearchShipmentNumber_MNo" xml:space="preserve">
+    <value>Model no.</value>
+  </data>
+  <data name="SearchShipmentNumber_Model" xml:space="preserve">
+    <value>Device type</value>
+  </data>
+  <data name="SearchShipmentNumber_Name" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="SearchShipmentNumber_NouhinSaki" xml:space="preserve">
+    <value>Delivery-to</value>
+  </data>
+  <data name="SearchShipmentNumber_OkurijyoNo" xml:space="preserve">
+    <value>Invoice no. (domestic)</value>
+  </data>
+  <data name="SearchShipmentNumber_PalletNo" xml:space="preserve">
+    <value>Pallet no.</value>
+  </data>
+  <data name="SearchShipmentNumber_PalletPackingDate" xml:space="preserve">
+    <value>Pallet packing date</value>
+  </data>
+  <data name="SearchShipmentNumber_ProductNo" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="SearchShipmentNumber_Quantity" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="SearchShipmentNumber_QuantityUnitName" xml:space="preserve">
+    <value>Unit symbol</value>
+  </data>
+  <data name="SearchShipmentNumber_SectioningNo" xml:space="preserve">
+    <value>Section no.</value>
+  </data>
+  <data name="SearchShipmentNumber_SetteiDate" xml:space="preserve">
+    <value>Need date</value>
+  </data>
+  <data name="SearchShipmentNumber_ShipARNo" xml:space="preserve">
+    <value>Shipment no. / AR no.</value>
+  </data>
+  <data name="SearchShipmentNumber_ShippingCompany" xml:space="preserve">
+    <value>Shipper</value>
+  </data>
+  <data name="SearchShipmentNumber_ShippingDate" xml:space="preserve">
+    <value>Actual ship date</value>
+  </data>
+  <data name="SearchShipmentNumber_ShukkaFlag" xml:space="preserve">
+    <value>Shipment type</value>
+  </data>
+  <data name="SearchShipmentNumber_State" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="SearchShipmentNumber_STNo" xml:space="preserve">
+    <value>Station no.</value>
+  </data>
+  <data name="SearchShipmentNumber_SyukkaSaki" xml:space="preserve">
+    <value>Ship-to</value>
+  </data>
+  <data name="SearchShipmentNumber_TagNo" xml:space="preserve">
+    <value>Tag no.</value>
+  </data>
+  <data name="SearchShipmentNumber_TagNonyusakiCd" xml:space="preserve">
+    <value>Shipment control no.</value>
+  </data>
+  <data name="SearchShipmentNumber_TehaiFlagName" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="SearchShipmentNumber_TehaiRenkeiNo" xml:space="preserve">
+    <value>Procurement unique no.</value>
+  </data>
+  <data name="SearchShipmentNumber_UnitPrice" xml:space="preserve">
+    <value>Unit price (JPY)</value>
+  </data>
+  <data name="SearchShipmentNumber_WoodFrameNo" xml:space="preserve">
+    <value>Crate no.</value>
+  </data>
+  <data name="SearchShipmentNumber_WoodFramePackingDate" xml:space="preserve">
+    <value>Crate packing date</value>
+  </data>
+  <data name="SearchShipmentNumber_ZumenKeishiki2" xml:space="preserve">
+    <value>Drawing/Model no. 2</value>
+  </data>
+  <data name="TehaiJohoShokai_AcceptanceDate" xml:space="preserve">
+    <value>Receiving date</value>
+  </data>
+  <data name="TehaiJohoShokai_AcceptanceStaff" xml:space="preserve">
+    <value>Receiver</value>
+  </data>
+  <data name="TehaiJohoShokai_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="TehaiJohoShokai_ArrangementQty" xml:space="preserve">
+    <value>Procurement qty</value>
+  </data>
+  <data name="TehaiJohoShokai_ArrangementType" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="TehaiJohoShokai_AssemblyDate" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="TehaiJohoShokai_AssemblyPerformance" xml:space="preserve">
+    <value>Assembled qty</value>
+  </data>
+  <data name="TehaiJohoShokai_AssemblySituation" xml:space="preserve">
+    <value>Assembly status</value>
+  </data>
+  <data name="TehaiJohoShokai_BLNo" xml:space="preserve">
+    <value>BL no.</value>
+  </data>
+  <data name="TehaiJohoShokai_BoxNo" xml:space="preserve">
+    <value>Box no.</value>
+  </data>
+  <data name="TehaiJohoShokai_BoxPackingDate" xml:space="preserve">
+    <value>Box packing date</value>
+  </data>
+  <data name="TehaiJohoShokai_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="TehaiJohoShokai_CNo" xml:space="preserve">
+    <value>Case no.</value>
+  </data>
+  <data name="TehaiJohoShokai_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TehaiJohoShokai_Compensation" xml:space="preserve">
+    <value>Commercial flag</value>
+  </data>
+  <data name="TehaiJohoShokai_CooperationNo" xml:space="preserve">
+    <value>Procurement unique no.</value>
+  </data>
+  <data name="TehaiJohoShokai_DeliveryDestination" xml:space="preserve">
+    <value>Delivery-to</value>
+  </data>
+  <data name="TehaiJohoShokai_DeliveryState" xml:space="preserve">
+    <value>SKS status</value>
+  </data>
+  <data name="TehaiJohoShokai_DrawingAdditionalNo" xml:space="preserve">
+    <value>Sequence no.</value>
+  </data>
+  <data name="TehaiJohoShokai_ECSNo" xml:space="preserve">
+    <value>ECS no.</value>
+  </data>
+  <data name="TehaiJohoShokai_ECSQuota" xml:space="preserve">
+    <value>Fiscal year</value>
+  </data>
+  <data name="TehaiJohoShokai_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="TehaiJohoShokai_Free1" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="TehaiJohoShokai_Free2" xml:space="preserve">
+    <value>Country of origin</value>
+  </data>
+  <data name="TehaiJohoShokai_GWRT" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="TehaiJohoShokai_InvName" xml:space="preserve">
+    <value>Part name extension</value>
+  </data>
+  <data name="TehaiJohoShokai_InvoiceNo" xml:space="preserve">
+    <value>Invoice no.</value>
+  </data>
+  <data name="TehaiJohoShokai_JPName" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiJohoShokai_JPYUnitPrice" xml:space="preserve">
+    <value>Unit price (JPY)</value>
+  </data>
+  <data name="TehaiJohoShokai_Maker" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="TehaiJohoShokai_MNo" xml:space="preserve">
+    <value>Model no.</value>
+  </data>
+  <data name="TehaiJohoShokai_Model" xml:space="preserve">
+    <value>Device type</value>
+  </data>
+  <data name="TehaiJohoShokai_Name" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiJohoShokai_Note1" xml:space="preserve">
+    <value>Note1</value>
+  </data>
+  <data name="TehaiJohoShokai_Note2" xml:space="preserve">
+    <value>Note2</value>
+  </data>
+  <data name="TehaiJohoShokai_Note3" xml:space="preserve">
+    <value>Note3</value>
+  </data>
+  <data name="TehaiJohoShokai_OkurijyoNo" xml:space="preserve">
+    <value>Invoice no. (domestic)</value>
+  </data>
+  <data name="TehaiJohoShokai_OrderQty" xml:space="preserve">
+    <value>Order qty</value>
+  </data>
+  <data name="TehaiJohoShokai_PalletNo" xml:space="preserve">
+    <value>Pallet no.</value>
+  </data>
+  <data name="TehaiJohoShokai_PalletPackingDate" xml:space="preserve">
+    <value>Pallet packing date</value>
+  </data>
+  <data name="TehaiJohoShokai_PartNo" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiJohoShokai_PartNo2" xml:space="preserve">
+    <value>Drawing/Model no. 2</value>
+  </data>
+  <data name="TehaiJohoShokai_Picture" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="TehaiJohoShokai_ProductNo" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="TehaiJohoShokai_QtyUnit" xml:space="preserve">
+    <value>Unit symbol</value>
+  </data>
+  <data name="TehaiJohoShokai_QuantityUnitName" xml:space="preserve">
+    <value>Unit symbol</value>
+  </data>
+  <data name="TehaiJohoShokai_RequestedDue" xml:space="preserve">
+    <value>Need date</value>
+  </data>
+  <data name="TehaiJohoShokai_SectioningNo" xml:space="preserve">
+    <value>Section no.</value>
+  </data>
+  <data name="TehaiJohoShokai_sfdExcel_Filter" xml:space="preserve">
+    <value>Excel files|*.xlsx</value>
+  </data>
+  <data name="TehaiJohoShokai_sfdExcel_Title" xml:space="preserve">
+    <value>Export data in Excel file format.</value>
+  </data>
+  <data name="TehaiJohoShokai_ShipARNo" xml:space="preserve">
+    <value>Shipment no. / AR no.</value>
+  </data>
+  <data name="TehaiJohoShokai_ShippingCompany" xml:space="preserve">
+    <value>Shipper</value>
+  </data>
+  <data name="TehaiJohoShokai_ShippingDate" xml:space="preserve">
+    <value>Actual ship date</value>
+  </data>
+  <data name="TehaiJohoShokai_ShippingDestination" xml:space="preserve">
+    <value>Ship-to</value>
+  </data>
+  <data name="TehaiJohoShokai_ShippingPerformance" xml:space="preserve">
+    <value>Shipped qty</value>
+  </data>
+  <data name="TehaiJohoShokai_ShippingQty" xml:space="preserve">
+    <value>Shipment qty</value>
+  </data>
+  <data name="TehaiJohoShokai_ShippingSituation" xml:space="preserve">
+    <value>Shipment status</value>
+  </data>
+  <data name="TehaiJohoShokai_State" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TehaiJohoShokai_STNo" xml:space="preserve">
+    <value>Station no.</value>
+  </data>
+  <data name="TehaiJohoShokai_StockPerformance" xml:space="preserve">
+    <value>Inspected qty</value>
+  </data>
+  <data name="TehaiJohoShokai_StockSituation" xml:space="preserve">
+    <value>Inspection status</value>
+  </data>
+  <data name="TehaiJohoShokai_TagNo" xml:space="preserve">
+    <value>Tag no.</value>
+  </data>
+  <data name="TehaiJohoShokai_TagRegistrationQty" xml:space="preserve">
+    <value>Associated qty</value>
+  </data>
+  <data name="TehaiJohoShokai_TagRegistrationSituation" xml:space="preserve">
+    <value>Tag association status</value>
+  </data>
+  <data name="TehaiJohoShokai_TehaiFlagName" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="TehaiJohoShokai_TehaiNo" xml:space="preserve">
+    <value>Procurement no.</value>
+  </data>
+  <data name="TehaiJohoShokai_WoodFramePackingDate" xml:space="preserve">
+    <value>Crate packing date</value>
+  </data>
+  <data name="TehaiJohoShokai_WoodFrameShip" xml:space="preserve">
+    <value>Shipment no. of Crate</value>
+  </data>
+  <data name="TehaiKenpin_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="TehaiKenpin_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TehaiKenpin_EcsNo" xml:space="preserve">
+    <value>ECS no.</value>
+  </data>
+  <data name="TehaiKenpin_HacchuQty" xml:space="preserve">
+    <value>Order qty</value>
+  </data>
+  <data name="TehaiKenpin_Hinmei" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiKenpin_HinmeiJp" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiKenpin_Nouhinsaki" xml:space="preserve">
+    <value>Delivery-to</value>
+  </data>
+  <data name="TehaiKenpin_NyukaQty" xml:space="preserve">
+    <value>Inspection qty</value>
+  </data>
+  <data name="TehaiKenpin_RemainQty" xml:space="preserve">
+    <value>Undelivered order qty</value>
+  </data>
+  <data name="TehaiKenpin_Seiban" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="TehaiKenpin_TehaiNo" xml:space="preserve">
+    <value>Procurement no.</value>
+  </data>
+  <data name="TehaiKenpin_ZumenKeishiki" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiKumitate_ARNo" xml:space="preserve">
+    <value>AR no.</value>
+  </data>
+  <data name="TehaiKumitate_ArrangementQty" xml:space="preserve">
+    <value>Procurement qty</value>
+  </data>
+  <data name="TehaiKumitate_AssemblyQty" xml:space="preserve">
+    <value>Assembly qty</value>
+  </data>
+  <data name="TehaiKumitate_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="TehaiKumitate_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TehaiKumitate_ECSNo" xml:space="preserve">
+    <value>ECS no.</value>
+  </data>
+  <data name="TehaiKumitate_JPName" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiKumitate_Name" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiKumitate_PartNo" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiKumitate_RemainQty" xml:space="preserve">
+    <value>Unassenbled qty</value>
+  </data>
+  <data name="TehaiKumitate_Seiban" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="TehaiKumitate_SetteiNouki" xml:space="preserve">
+    <value>Need date</value>
+  </data>
+  <data name="TehaiMeisai_ArrangementFlag" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="TehaiMeisai_ArrangementQty" xml:space="preserve">
+    <value>Procurement qty</value>
+  </data>
+  <data name="TehaiMeisai_AssyNo" xml:space="preserve">
+    <value>Assy no.</value>
+  </data>
+  <data name="TehaiMeisai_CooperationNo" xml:space="preserve">
+    <value>Unique no.</value>
+  </data>
+  <data name="TehaiMeisai_CreateUserName" xml:space="preserve">
+    <value>Entered by</value>
+  </data>
+  <data name="TehaiMeisai_CreateDate" xml:space="preserve">
+    <value>Registration date</value>
+  </data>
+  <data name="TehaiMeisai_DeliveryDestination" xml:space="preserve">
+    <value>Delivery-to</value>
+  </data>
+  <data name="TehaiMeisai_DwgNo" xml:space="preserve">
+    <value>Sequence no.</value>
+  </data>
+  <data name="TehaiMeisai_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="TehaiMeisai_Free1" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="TehaiMeisai_Free2" xml:space="preserve">
+    <value>Country of origin</value>
+  </data>
+  <data name="TehaiMeisai_InvName" xml:space="preserve">
+    <value>Part name extension</value>
+  </data>
+  <data name="TehaiMeisai_JpName" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiMeisai_Maker" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="TehaiMeisai_Name" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiMeisai_Note1" xml:space="preserve">
+    <value>Note1</value>
+  </data>
+  <data name="TehaiMeisai_Note2" xml:space="preserve">
+    <value>Note2</value>
+  </data>
+  <data name="TehaiMeisai_Note3" xml:space="preserve">
+    <value>Note3</value>
+  </data>
+  <data name="TehaiMeisai_OrderQty" xml:space="preserve">
+    <value>Order qty</value>
+  </data>
+  <data name="TehaiMeisai_Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="TehaiMeisai_QtyUnit" xml:space="preserve">
+    <value>Unit symbol</value>
+  </data>
+  <data name="TehaiMeisai_SettingDate" xml:space="preserve">
+    <value>Need date</value>
+  </data>
+  <data name="TehaiMeisai_ShippingDestination" xml:space="preserve">
+    <value>Ship-to</value>
+  </data>
+  <data name="TehaiMeisai_ShippingQty" xml:space="preserve">
+    <value>Shipment qty</value>
+  </data>
+  <data name="TehaiMeisai_STNo" xml:space="preserve">
+    <value>Station no.</value>
+  </data>
+  <data name="TehaiMeisai_TehaiRenkeiNo" xml:space="preserve">
+    <value>Unique no.</value>
+  </data>
+  <data name="TehaiMeisai_UnitPrice" xml:space="preserve">
+    <value>Unit price (JPY)</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_ARNo" xml:space="preserve">
+    <value>AR no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_CurencyFlag" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_ECSNo" xml:space="preserve">
+    <value>ECS no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_EstimateFlag" xml:space="preserve">
+    <value>Commercial flag</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_EstimateName" xml:space="preserve">
+    <value>Estimate name</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_EstimateNo" xml:space="preserve">
+    <value>Estimate no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Free1" xml:space="preserve">
+    <value>Free1</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Free2" xml:space="preserve">
+    <value>Free2</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_HacchuQty" xml:space="preserve">
+    <value>Order qty</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Hinmei" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_HinmeiINV" xml:space="preserve">
+    <value>Part name extension</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_HinmeiJP" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_InvUnitPrice" xml:space="preserve">
+    <value>Unit price of invoice</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Kishu" xml:space="preserve">
+    <value>Device type</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Maker" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Note" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Nouhinsaki" xml:space="preserve">
+    <value>Delivery-to</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Oiban" xml:space="preserve">
+    <value>Sequence no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_PONo" xml:space="preserve">
+    <value>PO no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_QuantityUnit" xml:space="preserve">
+    <value>Unit symbol</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_RateJPY" xml:space="preserve">
+    <value>Exchange rate (JPY)</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_RenkaiNo" xml:space="preserve">
+    <value>Unique no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_RobPer" xml:space="preserve">
+    <value>Shipping rate</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_SalsesPer" xml:space="preserve">
+    <value>SG&amp;A rate</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Seiban" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_SetteiDate" xml:space="preserve">
+    <value>Need date</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_ShukkaQty" xml:space="preserve">
+    <value>Shipment qty</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Shukkasaki" xml:space="preserve">
+    <value>Ship-to</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_STNo" xml:space="preserve">
+    <value>Station no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_TehaiFlag" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_TehaiQty" xml:space="preserve">
+    <value>Procurement qty</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_UnitPrice" xml:space="preserve">
+    <value>Unit price (JPY)</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_ZumenKeishiki" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_ZumenKeishiki2" xml:space="preserve">
+    <value>Drawing/Model no. 2</value>
+  </data>
+  <data name="TehaiMitsumori_ARNo" xml:space="preserve">
+    <value>AR no.</value>
+  </data>
+  <data name="TehaiMitsumori_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="TehaiMitsumori_Hinmei" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiMitsumori_HinmeiJp" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiMitsumori_ROBSumRMB" xml:space="preserve">
+    <value>Total price of local currency including shipping price</value>
+  </data>
+  <data name="TehaiMitsumori_ROBUnitPriceRMB" xml:space="preserve">
+    <value>Unit price of local currency including shipping price</value>
+  </data>
+  <data name="TehaiMitsumori_sfdExcel_Filter" xml:space="preserve">
+    <value>Excel files|*.xlsx</value>
+  </data>
+  <data name="TehaiMitsumori_sfdExcel_Title" xml:space="preserve">
+    <value>Export data in Excel file format.</value>
+  </data>
+  <data name="TehaiMitsumori_ShukkaQty" xml:space="preserve">
+    <value>Shipment qty</value>
+  </data>
+  <data name="TehaiMitsumori_SumRMB" xml:space="preserve">
+    <value>Total price of local currency</value>
+  </data>
+  <data name="TehaiMitsumori_UnitPrice" xml:space="preserve">
+    <value>Unit price (JPY)</value>
+  </data>
+  <data name="TehaiMitsumori_UnitPriceRMB" xml:space="preserve">
+    <value>Unit price of local currency</value>
+  </data>
+  <data name="TehaiMitsumori_UnitPriceSalsesPer" xml:space="preserve">
+    <value>Unit price including SG&amp;A</value>
+  </data>
+  <data name="TehaiMitsumori_ZumenKeishiki" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiRenkei_AddNo" xml:space="preserve">
+    <value>Sequence no.</value>
+  </data>
+  <data name="TehaiRenkei_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="TehaiRenkei_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TehaiRenkei_ECSNo" xml:space="preserve">
+    <value>ECS no.</value>
+  </data>
+  <data name="TehaiRenkei_JPName" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiRenkei_Name" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiRenkei_NeedInspection" xml:space="preserve">
+    <value>Need inspection</value>
+  </data>
+  <data name="TehaiRenkei_OrderQty" xml:space="preserve">
+    <value>Order qty</value>
+  </data>
+  <data name="TehaiRenkei_PartNo" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiRenkei_PartNo2" xml:space="preserve">
+    <value>Drawing/Model no. 2</value>
+  </data>
+  <data name="TehaiRenkei_ProductNo" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="TehaiRenkei_ReplyDue" xml:space="preserve">
+    <value>Available to promise</value>
+  </data>
+  <data name="TehaiRenkei_ShukkaQty" xml:space="preserve">
+    <value>Shipment qty</value>
+  </data>
+  <data name="TehaiRenkei_SKSOrderQty" xml:space="preserve">
+    <value>Order qty</value>
+  </data>
+  <data name="TehaiRenkei_SKSStatus" xml:space="preserve">
+    <value>SKS status</value>
+  </data>
+  <data name="TehaiRenkei_SKSUnitPrice" xml:space="preserve">
+    <value>Unit price</value>
+  </data>
+  <data name="TehaiRenkei_TehaiKind" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="TehaiRenkei_TehaiNo" xml:space="preserve">
+    <value>Procurement no.</value>
+  </data>
+  <data name="TehaiShokai_AddNo" xml:space="preserve">
+    <value>Sequence no.</value>
+  </data>
+  <data name="TehaiShokai_ARNo" xml:space="preserve">
+    <value>AR no.</value>
+  </data>
+  <data name="TehaiMitsumori_sfdExcel_Filter_Duplicate[1]" xml:space="preserve">
+    <value>Excel files | *.xlsx</value>
+  </data>
+  <data name="TehaiShokai_ArrangementQty" xml:space="preserve">
+    <value>Procurement qty</value>
+  </data>
+  <data name="TehaiShokai_ArrangementType" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="TehaiShokai_AssemblyPerformance" xml:space="preserve">
+    <value>Assembled qty</value>
+  </data>
+  <data name="TehaiShokai_AssemblySituation" xml:space="preserve">
+    <value>Assembly status</value>
+  </data>
+  <data name="TehaiShokai_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="TehaiShokai_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TehaiShokai_Compensation" xml:space="preserve">
+    <value>Commercial flag</value>
+  </data>
+  <data name="TehaiShokai_CooperationNo" xml:space="preserve">
+    <value>Procurement unique no.</value>
+  </data>
+  <data name="TehaiShokai_DeliveryDestination" xml:space="preserve">
+    <value>Delivery-to</value>
+  </data>
+  <data name="TehaiShokai_DeliveryState" xml:space="preserve">
+    <value>SKS status</value>
+  </data>
+  <data name="TehaiShokai_ECSNo" xml:space="preserve">
+    <value>ECS no.</value>
+  </data>
+  <data name="TehaiShokai_ECSQuota" xml:space="preserve">
+    <value>Fiscal year</value>
+  </data>
+  <data name="TehaiShokai_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="TehaiShokai_Free1" xml:space="preserve">
+    <value>Free1</value>
+  </data>
+  <data name="TehaiShokai_Free2" xml:space="preserve">
+    <value>Free2</value>
+  </data>
+  <data name="TehaiShokai_GWRT" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="TehaiShokai_INVName" xml:space="preserve">
+    <value>Part name extension</value>
+  </data>
+  <data name="TehaiShokai_JPName" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiShokai_JPYUnitPrice" xml:space="preserve">
+    <value>Unit price (JPY)</value>
+  </data>
+  <data name="TehaiShokai_Maker" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="TehaiShokai_Model" xml:space="preserve">
+    <value>Device type</value>
+  </data>
+  <data name="TehaiShokai_Name" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiShokai_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="TehaiShokai_OrderQty" xml:space="preserve">
+    <value>Order qty</value>
+  </data>
+  <data name="TehaiShokai_PartNo" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiShokai_PartNo2" xml:space="preserve">
+    <value>Drawing/Model no. 2</value>
+  </data>
+  <data name="TehaiShokai_ProductNo" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="TehaiShokai_QtyUnit" xml:space="preserve">
+    <value>Unit symbol</value>
+  </data>
+  <data name="TehaiShokai_RequestedDue" xml:space="preserve">
+    <value>Need date</value>
+  </data>
+  <data name="TehaiShokai_sfdExcel_Filter" xml:space="preserve">
+    <value>Excel files | *.xlsx</value>
+  </data>
+  <data name="TehaiShokai_sfdExcel_Title" xml:space="preserve">
+    <value>Export data in Excel file format.</value>
+  </data>
+  <data name="TehaiShokai_ShippingDestination" xml:space="preserve">
+    <value>Ship-to</value>
+  </data>
+  <data name="TehaiShokai_ShippingPerformance" xml:space="preserve">
+    <value>Shipped qty</value>
+  </data>
+  <data name="TehaiShokai_ShippingQty" xml:space="preserve">
+    <value>Shipment qty</value>
+  </data>
+  <data name="TehaiShokai_ShippingSituation" xml:space="preserve">
+    <value>Shipment status</value>
+  </data>
+  <data name="TehaiShokai_STNo" xml:space="preserve">
+    <value>Station no.</value>
+  </data>
+  <data name="TehaiShokai_StockPerformance" xml:space="preserve">
+    <value>Inspected qty</value>
+  </data>
+  <data name="TehaiShokai_StockSituation" xml:space="preserve">
+    <value>Inspection status</value>
+  </data>
+  <data name="TehaiShokai_TagRegistrationQty" xml:space="preserve">
+    <value>Associated qty</value>
+  </data>
+  <data name="TehaiShokai_TagRegistrationSituation" xml:space="preserve">
+    <value>Tag association status</value>
+  </data>
+  <data name="TehaiMeisai_PartNo" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiMeisai_PartNo2" xml:space="preserve">
+    <value>Drawing/Model no. 2</value>
+  </data>
+  <data name="TehaiJohoShokai_ShukaDate" xml:space="preserve">
+    <value>Pickup date</value>
+  </data>
+  <data name="TehaiJohoShokai_HenkyakuhinFlagName" xml:space="preserve">
+    <value>Shipment Restrictions</value>
+  </data>
+  <data name="TehaiMeisai_HenkyakuhinFlag" xml:space="preserve">
+    <value>Shipment Restrictions</value>
+  </data>
+  <data name="TehaiRenkei_UnitPrice" xml:space="preserve">
+    <value>Unit price (JPY)</value>
+  </data>
+  <data name="TehaiJohoShokai_PONo" xml:space="preserve">
+    <value>Po no.</value>
+  </data>
+  <data name="TehaiKenpin_TehaiFlagName" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="TehaiJohoShokai_CreateDate" xml:space="preserve">
+    <value>Registration date</value>
+  </data>
+  <data name="TehaiJohoShokai_CreateUserName" xml:space="preserve">
+    <value>Entered by</value>
+  </data>
+  <data name="TehaiMeisaiList_HenkyakuhinFlag" xml:space="preserve">
+    <value>Shipment Restrictions</value>
+  </data>
+  <data name="TehaiMeisaiList_BukkenName" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="TehaiMeisaiList_HinmeiJp" xml:space="preserve">
+    <value>Part name (JPN)</value>
+  </data>
+  <data name="TehaiMeisaiList_Hinmei" xml:space="preserve">
+    <value>Part name</value>
+  </data>
+  <data name="TehaiMeisaiList__Singlebyte" xml:space="preserve">
+    <value>Characters allowed: alphabetic, numeric, sign, space</value>
+  </data>
+  <data name="TehaiMeisaiList_NouhinSaki" xml:space="preserve">
+    <value>Delivery-to</value>
+  </data>
+  <data name="TehaiMeisaiList_SetteiDate" xml:space="preserve">
+    <value>Need date</value>
+  </data>
+  <data name="TehaiMeisaiList_Seiban" xml:space="preserve">
+    <value>Job no.</value>
+  </data>
+  <data name="TehaiMeisaiList_QuantityUnit" xml:space="preserve">
+    <value>Unit symbol</value>
+  </data>
+  <data name="TehaiMeisaiList__Numeric" xml:space="preserve">
+    <value>Characters allowed: numeric</value>
+  </data>
+  <data name="TehaiMeisaiList_ZumenOiban" xml:space="preserve">
+    <value>Sequence no.</value>
+  </data>
+  <data name="TehaiMeisaiList_ZhumenKeishiki" xml:space="preserve">
+    <value>Drawing/Model no.</value>
+  </data>
+  <data name="TehaiMeisaiList_ZumenKeishiki2" xml:space="preserve">
+    <value>Drawing/Model no. 2</value>
+  </data>
+  <data name="TehaiMeisaiList_SyukkaSaki" xml:space="preserve">
+    <value>Ship-to</value>
+  </data>
+  <data name="TehaiMeisaiList_TehaiQty" xml:space="preserve">
+    <value>Procurement qty</value>
+  </data>
+  <data name="TehaiMeisaiList_TehaiFlag" xml:space="preserve">
+    <value>Procurement type</value>
+  </data>
+  <data name="TehaiMeisai_ArrangementNo" xml:space="preserve">
+    <value>Procurement no.</value>
+  </data>
+  <data name="TehaiMeisaiList_TehaiNo" xml:space="preserve">
+    <value>Procurement no.</value>
+  </data>
+  <data name="TehaiMeisaiList_Kishu" xml:space="preserve">
+    <value>Device type</value>
+  </data>
+  <data name="TehaiMeisaiList_ECSQuota" xml:space="preserve">
+    <value>Fiscal year</value>
+  </data>
+  <data name="TehaiMeisaiList__PlatformDependentChar" xml:space="preserve">
+    <value>Characters disallowed: platform-dependent characters</value>
+  </data>
+  <data name="TehaiMeisaiList_STNo" xml:space="preserve">
+    <value>Station no.</value>
+  </data>
+  <data name="TehaiMeisaiList_Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="TehaiMeisaiList_ECSNo" xml:space="preserve">
+    <value>ECS no.</value>
+  </data>
+  <data name="TehaiMeisaiList_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TehaiMeisaiList_ARno" xml:space="preserve">
+    <value>AR no.</value>
+  </data>
+  <data name="MitsumoriMeisai_sfdExcel_Filter" xml:space="preserve">
+    <value>ExcelFiles|*.xlsx</value>
+  </data>
+  <data name="TehaiMitsumori_sfdExcelAndAll_Filter" xml:space="preserve">
+    <value>ExcelFiles|*.xlsx|AllFiles|*.*</value>
+  </data>
+  <data name="TehaiValueShokai_InvoiceNo" xml:space="preserve">
+    <value>INVOICE No.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_InvoiceNo" xml:space="preserve">
+    <value>INVOICE No.</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_InvoiceValue" xml:space="preserve">
+    <value>Invoice Value</value>
+  </data>
+  <data name="TehaiValueShokai_PoNo" xml:space="preserve">
+    <value>Po No.</value>
+  </data>
+  <data name="TehaiValueShokai_POAmount" xml:space="preserve">
+    <value>PO price</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_TagNo" xml:space="preserve">
+    <value>Tag no.</value>
+  </data>
+  <data name="TehaiValueShokai_Rate_JPY" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="TehaiValueShokai_PartitionAmount" xml:space="preserve">
+    <value>Wholesale Price</value>
+  </data>
+  <data name="TehaiValueShokai_UsedValue" xml:space="preserve">
+    <value>Total used value</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_Ship" xml:space="preserve">
+    <value>Ship</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_HenkyakuhinFlag" xml:space="preserve">
+    <value>Shipment Restrictions</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_ShukkaDate" xml:space="preserve">
+    <value>Actual ship date</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_JyotaiName" xml:space="preserve">
+    <value>Shipment status</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_TehaiNo" xml:space="preserve">
+    <value>Procurement no.</value>
+  </data>
+  <data name="MitsumoriMeisai_sfdExcel_Title" xml:space="preserve">
+    <value>Export data in Excel file format.</value>
+  </data>
+  <data name="TehaiValueShokai_RemainingValue" xml:space="preserve">
+    <value>Residual value</value>
+  </data>
+  <data name="TehaiMitsumori_HacchuQty" xml:space="preserve">
+    <value>Order qty</value>
+  </data>
+  <data name="TehaiValueShokai_EstimationCount" xml:space="preserve">
+    <value>Estimation Count</value>
+  </data>
+  <data name="TehaiKenpin_CooperationNo" xml:space="preserve">
+    <value>Proc. ID no.</value>
+  </data>
+  <data name="TehaiMitsumori_sfdFilesForQuotation_Title" xml:space="preserve">
+    <value>Save Quotation Files</value>
+  </data>
+  <data name="TehaiMeisai_CustomsStatus" xml:space="preserve">
+    <value>CustomsStatus</value>
+  </data>
+  <data name="TehaiJohoShokai_CustomsStatus" xml:space="preserve">
+    <value>CustomsStatus</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_CustomsStatus" xml:space="preserve">
+    <value>CustomsStatus</value>
+  </data>
+  <data name="TehaiMeisai_TehaiRireki" xml:space="preserve">
+    <value>Change History</value>
+  </data>
+  <data name="TehaiJohoShokai_TehaiRireki" xml:space="preserve">
+    <value>Change History</value>
+  </data>
+  <data name="TehaiMitsumori_EstimateRireki" xml:space="preserve">
+    <value>Change History</value>
+  </data>
+  <data name="TehaiMitsumoriMeisai_EstimateRireki" xml:space="preserve">
+    <value>Change History</value>
+  </data>
+  <data name="TehaiMeisaiRireki_Naiyo" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="TehaiMeisaiRireki_UpdateDate" xml:space="preserve">
+    <value>Date updated</value>
+  </data>
+  <data name="TehaiMeisaiRireki_UpdateUser" xml:space="preserve">
+    <value>Updated by</value>
+  </data>
+</root>

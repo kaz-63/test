@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smssrv/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://smssrv/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smssrv/">
+      <s:element name="GetNowDateTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNowDateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNowDateTimeResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemParameter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondCommon">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TerminalRole" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TerminalGuest" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MenuItemFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MessageID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArrayMessageID" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="GroupCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BukkenNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConsignCD" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailKbn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListFlag" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CondBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginInfo" type="tns:LoginInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainteUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSystemParameterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemParameterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoginUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultiMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultiMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMultiMessageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommonResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdUserPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondUserPassword" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CondUserPassword">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CondBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConfirmPassword" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UpdUserPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdUserPasswordResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckMailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPackingMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPackingMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPackingMailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTagRenkeiMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTagRenkeiMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckTagRenkeiMailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPlanningMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPlanningMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPlanningMailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondCommon" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMailResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errMsgId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cond" type="tns:CondBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCondBaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNowDateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNowDateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetNowDateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNowDateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemParameterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemParameter" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemParameterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoginUser" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMultiMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMultiMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommon" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommonResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdUserPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="UpdUserPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckMailSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckMail" />
+  </wsdl:message>
+  <wsdl:message name="CheckMailSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPackingMailSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPackingMail" />
+  </wsdl:message>
+  <wsdl:message name="CheckPackingMailSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPackingMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckTagRenkeiMailSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckTagRenkeiMail" />
+  </wsdl:message>
+  <wsdl:message name="CheckTagRenkeiMailSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckTagRenkeiMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPlanningMailSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPlanningMail" />
+  </wsdl:message>
+  <wsdl:message name="CheckPlanningMailSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPlanningMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailData" />
+  </wsdl:message>
+  <wsdl:message name="GetMailDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMail" />
+  </wsdl:message>
+  <wsdl:message name="SaveMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCondBase" />
+  </wsdl:message>
+  <wsdl:message name="SendCondBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCondBaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsCommonSoap">
+    <wsdl:operation name="GetNowDateTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">サーバーの時間を取得する</wsdl:documentation>
+      <wsdl:input message="tns:GetNowDateTimeSoapIn" />
+      <wsdl:output message="tns:GetNowDateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemParameter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">システムパラメーター取得</wsdl:documentation>
+      <wsdl:input message="tns:GetSystemParameterSoapIn" />
+      <wsdl:output message="tns:GetSystemParameterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ログイン情報取得</wsdl:documentation>
+      <wsdl:input message="tns:GetLoginUserSoapIn" />
+      <wsdl:output message="tns:GetLoginUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メニュー取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMenuSoapIn" />
+      <wsdl:output message="tns:GetMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メッセージ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMessageSoapIn" />
+      <wsdl:output message="tns:GetMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メッセージ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMultiMessageSoapIn" />
+      <wsdl:output message="tns:GetMultiMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">汎用マスタ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetCommonSoapIn" />
+      <wsdl:output message="tns:GetCommonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">パスワード更新</wsdl:documentation>
+      <wsdl:input message="tns:UpdUserPasswordSoapIn" />
+      <wsdl:output message="tns:UpdUserPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メール登録前の確認</wsdl:documentation>
+      <wsdl:input message="tns:CheckMailSoapIn" />
+      <wsdl:output message="tns:CheckMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackingMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メール登録前の確認(荷姿用)</wsdl:documentation>
+      <wsdl:input message="tns:CheckPackingMailSoapIn" />
+      <wsdl:output message="tns:CheckPackingMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTagRenkeiMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メール登録前の確認(TAG連携用)</wsdl:documentation>
+      <wsdl:input message="tns:CheckTagRenkeiMailSoapIn" />
+      <wsdl:output message="tns:CheckTagRenkeiMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPlanningMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メール登録前の確認(出荷計画用)</wsdl:documentation>
+      <wsdl:input message="tns:CheckPlanningMailSoapIn" />
+      <wsdl:output message="tns:CheckPlanningMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">登録に必要なメールデータ取得</wsdl:documentation>
+      <wsdl:input message="tns:GetMailDataSoapIn" />
+      <wsdl:output message="tns:GetMailDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">メールデータの登録</wsdl:documentation>
+      <wsdl:input message="tns:SaveMailSoapIn" />
+      <wsdl:output message="tns:SaveMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">各WebサービスのCondBaseをクライアントで使用できるように定義する為のメソッド</wsdl:documentation>
+      <wsdl:input message="tns:SendCondBaseSoapIn" />
+      <wsdl:output message="tns:SendCondBaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsCommonSoap" type="tns:WsCommonSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNowDateTime">
+      <soap:operation soapAction="http://smssrv/GetNowDateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemParameter">
+      <soap:operation soapAction="http://smssrv/GetSystemParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginUser">
+      <soap:operation soapAction="http://smssrv/GetLoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <soap:operation soapAction="http://smssrv/GetMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://smssrv/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiMessage">
+      <soap:operation soapAction="http://smssrv/GetMultiMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommon">
+      <soap:operation soapAction="http://smssrv/GetCommon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserPassword">
+      <soap:operation soapAction="http://smssrv/UpdUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMail">
+      <soap:operation soapAction="http://smssrv/CheckMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackingMail">
+      <soap:operation soapAction="http://smssrv/CheckPackingMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTagRenkeiMail">
+      <soap:operation soapAction="http://smssrv/CheckTagRenkeiMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPlanningMail">
+      <soap:operation soapAction="http://smssrv/CheckPlanningMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailData">
+      <soap:operation soapAction="http://smssrv/GetMailData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMail">
+      <soap:operation soapAction="http://smssrv/SaveMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsCommonSoap12" type="tns:WsCommonSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNowDateTime">
+      <soap12:operation soapAction="http://smssrv/GetNowDateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemParameter">
+      <soap12:operation soapAction="http://smssrv/GetSystemParameter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginUser">
+      <soap12:operation soapAction="http://smssrv/GetLoginUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <soap12:operation soapAction="http://smssrv/GetMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap12:operation soapAction="http://smssrv/GetMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiMessage">
+      <soap12:operation soapAction="http://smssrv/GetMultiMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommon">
+      <soap12:operation soapAction="http://smssrv/GetCommon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserPassword">
+      <soap12:operation soapAction="http://smssrv/UpdUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMail">
+      <soap12:operation soapAction="http://smssrv/CheckMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackingMail">
+      <soap12:operation soapAction="http://smssrv/CheckPackingMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTagRenkeiMail">
+      <soap12:operation soapAction="http://smssrv/CheckTagRenkeiMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPlanningMail">
+      <soap12:operation soapAction="http://smssrv/CheckPlanningMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailData">
+      <soap12:operation soapAction="http://smssrv/GetMailData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMail">
+      <soap12:operation soapAction="http://smssrv/SaveMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCondBase">
+      <soap12:operation soapAction="http://smssrv/SendCondBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsCommon">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出荷管理システム</wsdl:documentation>
+    <wsdl:port name="WsCommonSoap" binding="tns:WsCommonSoap">
+      <soap:address location="http://smssrv/sms/WsCommon.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsCommonSoap12" binding="tns:WsCommonSoap12">
+      <soap12:address location="http://smssrv/sms/WsCommon.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

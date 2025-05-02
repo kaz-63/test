@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ComDefine_AcquisitionSituation" xml:space="preserve">
+    <value>取込状況</value>
+  </data>
+  <data name="ComDefine_ARInformationHelp" xml:space="preserve">
+    <value>AR情報Help</value>
+  </data>
+  <data name="ComDefine_ARInformationRegistration" xml:space="preserve">
+    <value>AR情報登録</value>
+  </data>
+  <data name="ComDefine_ARListUnitInfomationSetting" xml:space="preserve">
+    <value>AR List単位通知設定</value>
+  </data>
+  <data name="ComDefine_BoxLabel" xml:space="preserve">
+    <value>BOXラベル</value>
+  </data>
+  <data name="ComDefine_BoxList" xml:space="preserve">
+    <value>BOXリスト</value>
+  </data>
+  <data name="ComDefine_BoxPackingAcquisitionError" xml:space="preserve">
+    <value>Box梱包 - 取込Error詳細</value>
+  </data>
+  <data name="ComDefine_BoxTagList" xml:space="preserve">
+    <value>BOXタグリスト</value>
+  </data>
+  <data name="ComDefine_CommonInfomationSetting" xml:space="preserve">
+    <value>共通通知設定</value>
+  </data>
+  <data name="ComDefine_ConstructionIdentificationList" xml:space="preserve">
+    <value>工事識別一覧</value>
+  </data>
+  <data name="ComDefine_DeliverlDestinationList" xml:space="preserve">
+    <value>納入先一覧</value>
+  </data>
+  <data name="ComDefine_DestinationSetting" xml:space="preserve">
+    <value>送信先設定</value>
+  </data>
+  <data name="ComDefine_ExcelFileAR" xml:space="preserve">
+    <value>AR情報.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileFrame" xml:space="preserve">
+    <value>木枠明細.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileOperireki" xml:space="preserve">
+    <value>作業履歴List.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileShukkaMeisai" xml:space="preserve">
+    <value>出荷明細.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileTanaoroshi" xml:space="preserve">
+    <value>棚卸List.xls</value>
+  </data>
+  <data name="ComDefine_ExcelFileZaiko" xml:space="preserve">
+    <value>在庫List.xls</value>
+  </data>
+  <data name="ComDefine_FrameShipThroughTransfer" xml:space="preserve">
+    <value>木枠の便間移動</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_HistoryQuery" xml:space="preserve">
+    <value>履歴照会</value>
+  </data>
+  <data name="ComDefine_LocationAcquisitionError" xml:space="preserve">
+    <value>Location/完了 - 取込Error詳細</value>
+  </data>
+  <data name="ComDefine_MasterPackingList" xml:space="preserve">
+    <value>マスタパッキングリスト</value>
+  </data>
+  <data name="ComDefine_MenuImageBatch" xml:space="preserve">
+    <value>Batch</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImageForm" xml:space="preserve">
+    <value>Form</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImageMaster" xml:space="preserve">
+    <value>Master</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImagePrinter" xml:space="preserve">
+    <value>Printer</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImagePrinterSetting" xml:space="preserve">
+    <value>PrinterSetting</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImageSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MenuImageSearchForm" xml:space="preserve">
+    <value>SearchForm</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_MerchandiseTag" xml:space="preserve">
+    <value>現品TAG</value>
+  </data>
+  <data name="ComDefine_MsgConnectionError" xml:space="preserve">
+    <value>Serverに接続出来ませんでした。
+ご使用のPC環境またはServer環境をご確認ください。</value>
+  </data>
+  <data name="ComDefine_MsgErrorText" xml:space="preserve">
+    <value>予期せぬErrorが発生しました。</value>
+  </data>
+  <data name="ComDefine_MsgNotfoundText" xml:space="preserve">
+    <value>Messageが定義されていません。</value>
+  </data>
+  <data name="ComDefine_PackingDetail" xml:space="preserve">
+    <value>梱包明細書</value>
+  </data>
+  <data name="ComDefine_PackingList" xml:space="preserve">
+    <value>パッキングリスト</value>
+  </data>
+  <data name="ComDefine_PalletDetailRegistration" xml:space="preserve">
+    <value>PALLET明細登録</value>
+  </data>
+  <data name="ComDefine_PalletLabel" xml:space="preserve">
+    <value>パレットラベル</value>
+  </data>
+  <data name="ComDefine_PalletList" xml:space="preserve">
+    <value>パレットリスト</value>
+  </data>
+  <data name="ComDefine_PalletPackingAcquisitionError" xml:space="preserve">
+    <value>Pallet梱包 - 取込Error詳細</value>
+  </data>
+  <data name="ComDefine_PalletTagList" xml:space="preserve">
+    <value>パレットタグリスト</value>
+  </data>
+  <data name="ComDefine_PickupAcquisitionError" xml:space="preserve">
+    <value>引渡 / 集荷 - 取込Error詳細</value>
+  </data>
+  <data name="ComDefine_PrintCNoInput" xml:space="preserve">
+    <value>印刷C/NO入力</value>
+  </data>
+  <data name="ComDefine_PropertyNameList" xml:space="preserve">
+    <value>物件名一覧</value>
+  </data>
+  <data name="ComDefine_ReceivingInformartionDetail" xml:space="preserve">
+    <value>受入情報詳細</value>
+  </data>
+  <data name="ComDefine_ResidentTitle" xml:space="preserve">
+    <value>常駐監視</value>
+  </data>
+  <data name="ComDefine_ShippingInformationItem" xml:space="preserve">
+    <value>出荷情報明細</value>
+  </data>
+  <data name="ComDefine_StockTakingAcquisitionError" xml:space="preserve">
+    <value>棚卸 - 取込Error詳細</value>
+  </data>
+  <data name="ComDefine_TagDetailRegistration" xml:space="preserve">
+    <value>TAG明細登録</value>
+  </data>
+  <data name="ComDefine_TagList" xml:space="preserve">
+    <value>TAGリスト</value>
+  </data>
+  <data name="ComDefine_TitlePasswordChange" xml:space="preserve">
+    <value>Password変更</value>
+  </data>
+  <data name="ComDefine_ButtonTextDetail" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="ComDefine_ButtonTextKaijyo" xml:space="preserve">
+    <value>解除</value>
+  </data>
+  <data name="ComDefine_ButtonTextKonpo" xml:space="preserve">
+    <value>梱包</value>
+  </data>
+  <data name="ComDefine_ButtonTextKonpozumi" xml:space="preserve">
+    <value>梱包済</value>
+  </data>
+  <data name="ComDefine_ButtonTextShukka" xml:space="preserve">
+    <value>出荷</value>
+  </data>
+  <data name="ComDefine_ButtonTextTouroku" xml:space="preserve">
+    <value>登録</value>
+  </data>
+  <data name="ComDefine_ButtonTextUkeire" xml:space="preserve">
+    <value>受入</value>
+  </data>
+  <data name="ComDefine_DbBackupBackupName" xml:space="preserve">
+    <value>{0}-データベース バックアップ</value>
+  </data>
+  <data name="ComDefine_LabelCaptionKojiName" xml:space="preserve">
+    <value>工事識別NO</value>
+  </data>
+  <data name="ComDefine_LabelCaptionNonyusaki" xml:space="preserve">
+    <value>納入先(User)</value>
+  </data>
+  <data name="ComDefine_ShimeUpdateUserName" xml:space="preserve">
+    <value>日次処理</value>
+  </data>
+  <data name="ComDefine_ExcelFilePackingList" xml:space="preserve">
+    <value>PackingList({0}_{1}).xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFileTemplate" xml:space="preserve">
+    <value>Template.xlsx</value>
+  </data>
+  <data name="DbLanguage" xml:space="preserve">
+    <value>JP</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileARCost" xml:space="preserve">
+    <value>AR対応費用.xls</value>
+  </data>
+  <data name="ComDefine_KenpinAcquisitionError" xml:space="preserve">
+    <value>検品 - 取込Error詳細</value>
+  </data>
+  <data name="ComDefine_MeasureAcquisitionError" xml:space="preserve">
+    <value>計測 - 取込Error詳細</value>
+  </data>
+  <data name="ComDefine_ShukkaKeikakuMeisai" xml:space="preserve">
+    <value>TAG 入力・変更</value>
+  </data>
+  <data name="ComDefine_ComboAllDisp" xml:space="preserve">
+    <value>全て</value>
+  </data>
+  <data name="ComDefine_ShukkaKeikakuBunkatsu" xml:space="preserve">
+    <value>明細分割(出荷明細)</value>
+  </data>
+  <data name="ComDefine_TehaiMeisaiBunkatsu" xml:space="preserve">
+    <value>明細分割(手配明細)</value>
+  </data>
+  <data name="ComDefine_SKSRenkeiUserName" xml:space="preserve">
+    <value>SKS連携処理</value>
+  </data>
+  <data name="ComDefine_KenpinListName" xml:space="preserve">
+    <value>検品リスト</value>
+  </data>
+  <data name="ComDefine_TehaiEstimate" xml:space="preserve">
+    <value>手配見積</value>
+  </data>
+  <data name="ComDefine_TehaiEstimateMeisai" xml:space="preserve">
+    <value>手配見積明細</value>
+  </data>
+  <data name="ComDefine_TehaiMeisaiListImport" xml:space="preserve">
+    <value>手配LIST取込</value>
+  </data>
+  <data name="ComDefine_ExcelFilePacking" xml:space="preserve">
+    <value>荷姿表.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFilePackingTemplate" xml:space="preserve">
+    <value>PackingTemplate.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileEstimateParts" xml:space="preserve">
+    <value>{0}_{1}_見積明細 Rev{2}.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFilePartsListTemplate" xml:space="preserve">
+    <value>EstimatePartsList.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileInvoice" xml:space="preserve">
+    <value>IVPL_{0}{1}{2}{3}{4}{5}.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileQuantityOfPartsShipment" xml:space="preserve">
+    <value>PartsQtyList_{0}{1}{2}{3}{4}{5}.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileSummaryOfPartsShipment" xml:space="preserve">
+    <value>PartsList_{0}{1}{2}{3}{4}{5}.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileTempInvoice" xml:space="preserve">
+    <value>Invoice.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileTempQuantityOfPartsShipment" xml:space="preserve">
+    <value>QuantityOfPartsShipment.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileTempSummaryOfPartsShipment" xml:space="preserve">
+    <value>SummaryOfPartsShipment.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileTempEstimateParts" xml:space="preserve">
+    <value>EstimateParts.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFilePartsListDetail" xml:space="preserve">
+    <value>PartsListDetail_{0}.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_TehaiMeisai" xml:space="preserve">
+    <value>手配明細登録</value>
+  </data>
+  <data name="ComDefine_SearchShipmentNumber" xml:space="preserve">
+    <value>Ship照会</value>
+    <comment>ダイアログボックスの画面タイトル</comment>
+  </data>
+  <data name="ComDefine_ExcelFileTehaiMeisai" xml:space="preserve">
+    <value>手配明細.xlsx</value>
+  </data>
+  <data name="ComDefine_SinchokuKanriMailSetting" xml:space="preserve">
+    <value>進捗管理通知設定</value>
+  </data>
+  <data name="ComDefine_ExcelFileUserMaster" xml:space="preserve">
+    <value>担当者.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFilePartsNameHonyaku" xml:space="preserve">
+    <value>パーツ名翻訳保守.xlsx</value>
+  </data>
+  <data name="ComDefine_ARInformationInzuhyoImport" xml:space="preserve">
+    <value>員数表取込</value>
+  </data>
+  <data name="ComDefine_ARJohoMeisaiGokiIchiran" xml:space="preserve">
+    <value>号機一覧</value>
+  </data>
+  <data name="ComDefine_ShinchokuGokiIchiran" xml:space="preserve">
+    <value>号機選択</value>
+  </data>
+  <data name="ComDefine_ShinchokuKanriHenkoRireki" xml:space="preserve">
+    <value>変更履歴</value>
+  </data>
+  <data name="ComDefine_ShinchokuKishuIchiran" xml:space="preserve">
+    <value>機種選択</value>
+  </data>
+  <data name="ComDefine_ARShinchokuKanri" xml:space="preserve">
+    <value>AR進捗管理</value>
+  </data>
+  <data name="ComDefine_ExcelFileArShinchoku" xml:space="preserve">
+    <value>AR進捗.xlsx</value>
+  </data>
+  <data name="ComDefine_Exists" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="ComDefine_PartsMeiImport" xml:space="preserve">
+    <value>パーツ名翻訳取込</value>
+  </data>
+  <data name="ComDefine_ComboAllARDisp" xml:space="preserve">
+    <value>全て(AR)</value>
+  </data>
+  <data name="ComDefine_ComboAllMishukkaARDisp" xml:space="preserve">
+    <value>全て(AR未出荷)</value>
+  </data>
+  <data name="ComDefine_ARInformationRelationSelect" xml:space="preserve">
+    <value>AR情報関連付け選択</value>
+  </data>
+  <data name="ComDefine_ExcelFileHandyDataErrorMeisaiKenpin" xml:space="preserve">
+    <value>検品取込ERROR詳細.xlsx</value>
+  </data>
+  <data name="ComDefine_ReportCheck" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="ComDefine_NyuukaKenpinTouroku" xml:space="preserve">
+    <value>入荷検品登録</value>
+  </data>
+  <data name="ComDefine_SKSRenkeiJoukyouKakunin" xml:space="preserve">
+    <value>SKS連携状況確認</value>
+  </data>
+  <data name="ComDefine_TagTouroku" xml:space="preserve">
+    <value>TAG登録連携</value>
+  </data>
+  <data name="ComDefine_CommonInfomationSetting1" xml:space="preserve">
+    <value>計画取込Mail通知先設定</value>
+  </data>
+  <data name="ComDefine_MailSousinRireki" xml:space="preserve">
+    <value>Mail送信履歴</value>
+  </data>
+  <data name="ComDefine_ExcelFileShukkaKeikaku" xml:space="preserve">
+    <value>{0} {1} Parts支給便計画表 Rev.{2} {3:yyyyMMdd}.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFileShukkaKeikakuTemplate" xml:space="preserve">
+    <value>ShukkaKeikakuTemplate.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ShukkaKeikakuShuokai" xml:space="preserve">
+    <value>出荷計画照会</value>
+  </data>
+  <data name="ComDefine_ShukkaKaishi" xml:space="preserve">
+    <value>TAG 発行・照会</value>
+  </data>
+  <data name="ComDefine_ShukkaKeikaku" xml:space="preserve">
+    <value>出荷計画取込</value>
+  </data>
+  <data name="ComDefine_ExcelFileShukkaKeikakuShokai" xml:space="preserve">
+    <value>{0}_出荷計画_{1:yyyyMMdd}.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFileQuotationTemplate" xml:space="preserve">
+    <value>QuotationTemplate.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileQuotation" xml:space="preserve">
+    <value>{0}_{1}_見積書 Rev{2}.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileQuotationForZip" xml:space="preserve">
+    <value>{0}_{1}_{2:yyyyMMdd}.zip</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileMitsumoriMeisai" xml:space="preserve">
+    <value>{0}_見積明細.xlsx</value>
+  </data>
+  <data name="ComDefine_ExcelFileHaisosakiHoshu" xml:space="preserve">
+    <value>Haiso_{0:yyyyMMdd}.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_ExcelFileDeliverTemplate" xml:space="preserve">
+    <value>HaisoTemplate.xlsx</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_AttachmentFileArForZip" xml:space="preserve">
+    <value>{0}_{1}_{2:yyyyMMdd}.zip</value>
+    <comment>DoNotTranslate</comment>
+  </data>
+  <data name="ComDefine_TehaiMeisaiRireki" xml:space="preserve">
+    <value>手配明細履歴</value>
+  </data>
+</root>

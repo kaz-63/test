@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="shift-jis"?>
+<ApplicationProperties>
+  <Application>
+    <Category>
+      <Resume Id="AppResumeOn" ActualValue="On">オン</Resume>
+      <BackLight>
+        <Active Id="AppActiveMid" ActualValue="Mid">明るい</Active>
+        <StandBy Id="AppStandByOff" ActualValue="Off">オフ</StandBy>
+        <AutoPowerTime Id="AppAutoPowerTimeDef" ActualValue="60">60</AutoPowerTime>
+      </BackLight>
+      <AutoPowerOff>
+        <ValidInvalid Id="AppAutoPowerOffValid" ActualValue="Valid">有効</ValidInvalid>
+        <AutoOfTimer Id="AppAutoOfTimerVal" ActualValue="5">5</AutoOfTimer>
+      </AutoPowerOff>
+      <StartScreen>
+        <Display Id="AppScreenDisplayNo" ActualValue="No">しない</Display>
+        <BackColor Id="BackColor" ActualValue="255|255|255|255">255|255|255|255</BackColor>
+      </StartScreen>
+      <QutSetting>
+        <TermAppUpdateSetting Id="ComfirmAndForceUpdate" ActualValue="2">強制実行(確認)</TermAppUpdateSetting>
+        <KAppUpdateSetting Id="NonUpdate" ActualValue="0">無効</KAppUpdateSetting>
+        <SystemUpdateSetting Id="NonUpdate" ActualValue="0">無効</SystemUpdateSetting>
+      </QutSetting>
+      <SB2File>
+        <FileTitle Id="AppSB2FileTitle" ActualValue="ScriptOpen">K_Apl</FileTitle>
+        <FileName Id="AppSB2FileName" ActualValue="ScriptOpen">K_Apl</FileName>
+        <Version Id="AppSB2FileVer" ActualValue="1.00">1.00</Version>
+      </SB2File>
+      <Others>
+        <ModelName Id="AppModelName" ActualValue="BT-600(B)">BT-600(B)</ModelName>
+      </Others>
+    </Category>
+  </Application>
+</ApplicationProperties>

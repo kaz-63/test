@@ -1,0 +1,85 @@
+//////////////////////////////////////////////////////////////////////////
+//	メッセージパッケージ
+//////////////////////////////////////////////////////////////////////////
+Package Message
+	
+	Const MAX_ITEM_NUM = 50
+	MessageItem[50]			// メッセージ項目
+	
+	// ***** マスタファイル管理 *****
+	MESSAGE_MASTER_PARTIAL_USED = false			// メッセージマスタファイルを個別管理(Msg_XX.csvで一元化しない)
+	
+	// ***** 定数 *****
+	Const FILE_SUFFIX_JP = "_JP.csv"
+	Const FILE_SUFFIX_EN = "_EN.csv"
+	Const SAVE_DRIVE_LANG = "1:"
+	Const MESSAGE_MASTER_FILENAME = "Msg"
+	Const MESSAGE_TOTAL_KEY = 1
+	Const MESSAGE_KEY_1 = nil
+	
+	//-----------------------------------------------
+	// 言語設定に対応したメッセージを設定する
+	Method Initialize(lang, scpName)
+		fileSuffix
+		messageFile
+	Begin
+		
+		If lang eq "japanese" Then
+			fileSuffix = FILE_SUFFIX_JP
+		Else
+			fileSuffix = FILE_SUFFIX_EN
+		End If
+		
+		// メッセージマスタファイル名称
+		If MESSAGE_MASTER_PARTIAL_USED is false Then
+			messageFile = SAVE_DRIVE_LANG & MESSAGE_MASTER_FILENAME & fileSuffix
+		Else
+			messageFile = SAVE_DRIVE_LANG & scpName & fileSuffix
+		End If
+		
+		SetMessage(messageFile, MESSAGE_KEY_1)
+	End Method
+	
+	//-----------------------------------------------
+	// 言語マスタを読み込み、画面表示項目にセットする
+	Method SetMessage(masterFile, msgKey1)
+		openResult				// マスタオープン結果
+		getResult				// 読み込み結果
+		offset = 0				// レコードオフセット
+	Begin
+		// マスタ初期化
+		Master:Initialize()
+		
+		// マスタをオープンする
+		openResult = Master:Open(masterFile, ",", 3)
+		If openResult is false Then
+			Handy:ShowMessageBox("Message Master Error", "confirm")
+			Return()
+		End If
+		
+		// 1件ずつマスタ読み込み
+		Master:keyNum = MESSAGE_TOTAL_KEY
+		Master:SetKey(1, msgKey1)
+		While 1
+			Master:SetKey(2, offset)
+			
+			getResult = Master:GetFirst(nil, false)
+			If getResult is false Then
+				Wbreak
+			EndIf
+			
+			MessageItem[offset] = Master:GetData(3)
+			
+			offset = offset + 1
+			If offset == MAX_ITEM_NUM Then
+				Handy:ShowMessageBox("Message Master Error", "confirm")
+				Wbreak
+			EndIf
+		Wend
+		
+		// マスタファイルを閉じる
+		Master:Close()
+		
+	End Method
+	
+EndPackage

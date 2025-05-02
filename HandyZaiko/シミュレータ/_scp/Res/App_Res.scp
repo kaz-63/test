@@ -1,0 +1,161 @@
+/********************************************************************************************
+ファイル名    : App_Res.scp
+バージョン    : Ver 0.0.0.1 
+作成日付      : 8/6/2013
+動作説明      : Keyence BT-Series アプリケーション 
+********************************************************************************************/
+
+Package APP_RES
+
+	//---------------------------------------------------
+	// トレースログ出力初期化関数
+	Method InitializeTraceLog()
+	Begin
+		TraceLog:isOutput = False
+
+	End Method
+
+	//---------------------------------------------------
+	// ファイルリスト作成メソッド
+	Method make_file_list()
+
+	Begin
+
+		With File
+			:name="2:_FILE.LST"
+			:Puts("<used_file_list>","create")
+			:Puts("\n","append")
+			:Puts("1:K_Apl.sb3\n","append")
+			:Puts("2:K_Apl.sb3\n","append")
+			:Puts("2:_FILE.LST\n","append")
+			:Puts("<recieve_master_list>","append")
+			:Puts("\n","append")
+			:Initialize()
+		EndWith
+	End Method
+
+
+	//---------------------------------------------------
+	// アプリケーションの動作設定メソッド
+	Method set_application_action()
+
+	Begin
+
+		With Handy
+			:autoPowerOff = 5
+			:resumeOn = True
+		EndWith
+		With LCD
+			:backLightMode = "now"
+			:backLightNormal = "mid"
+			:backLightStandby = "off"
+			:backLightTimer = 60
+		EndWith
+
+	End Method
+
+	//---------------------------------------------------
+	// メイン画面表示表示メソッド
+	Method ShowMainScreen()
+	Begin
+
+		MENU_1:menu_main()
+	End Method
+
+EndPackage
+
+Package MENU_1_RES
+	//---------------------------------------------------
+	// ステータス表示設定
+	Method set_statusbar()
+	Begin
+
+		// ステータス表示設定
+		Screen:status = "bottom"
+		Screen:statusClock = True
+
+	End Method
+
+	//---------------------------------------------------
+	// メニュー表示メソッド
+	Method disp_menu_main(btvMenupos)
+		btvItem1
+		btvItem2
+		btvItem3
+		btvItem4
+	Begin
+
+		btvItem1="メニュー"
+		btvItem2=nil
+		btvItem3=nil
+		btvItem4=nil
+		With Screen
+			:fontSize = "middle":fontGapx = 0:fontGapy = 1
+		EndWith
+		COMMON_UTL:SetColor("0|0|0","255|255|255",nil,nil)
+		btvMenupos=Handy:ShowMenu("     メニュー     ",btvItem1,btvItem2,btvItem3,btvItem4,btvMenupos)
+		COMMON_UTL:ResetColor()
+		Return (btvMenupos)
+	End Method
+
+	//---------------------------------------------------
+	// メイン画面表示表示メソッド
+	Method ShowMainScreen(btvMenupos)
+	Begin
+
+		Select Case  btvMenupos
+		Case 1
+			MENU_2:menu_main()
+		Case "C"
+			MENU_1:menu_main()
+		End Select
+	End Method
+
+EndPackage
+
+Package MENU_2_RES
+	//---------------------------------------------------
+	// ステータス表示設定
+	Method set_statusbar()
+	Begin
+
+		// ステータス表示設定
+		Screen:status = "bottom"
+		Screen:statusClock = True
+
+	End Method
+
+	//---------------------------------------------------
+	// メニュー表示メソッド
+	Method disp_menu_main(btvMenupos)
+		btvItem1
+		btvItem2
+		btvItem3
+		btvItem4
+	Begin
+
+		btvItem1="-設定なし-"
+		btvItem2=nil
+		btvItem3=nil
+		btvItem4=nil
+		With Screen
+			:fontSize = "middle":fontGapx = 0:fontGapy = 1
+		EndWith
+		COMMON_UTL:SetColor("0|0|0","255|255|255",nil,nil)
+		btvMenupos=Handy:ShowMenu("     メニュー     ",btvItem1,btvItem2,btvItem3,btvItem4,btvMenupos)
+		COMMON_UTL:ResetColor()
+		Return (btvMenupos)
+	End Method
+
+	//---------------------------------------------------
+	// メイン画面表示表示メソッド
+	Method ShowMainScreen(btvMenupos)
+	Begin
+
+		Select Case  btvMenupos
+		Case "C"
+			MENU_1:menu_main()
+		End Select
+	End Method
+
+EndPackage

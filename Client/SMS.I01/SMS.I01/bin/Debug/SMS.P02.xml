@@ -1,0 +1,1339 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SMS.P02</name>
+    </assembly>
+    <members>
+        <member name="T:SMS.P02.Forms.KojiShikibetsuIchiran">
+            --------------------------------------------------
+            <summary>
+            工事識別一覧
+            </summary>
+            <create>Y.Higuchi 2010/06/28</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ(デザイナ用)
+            </summary>
+            <create>Y.Higuchi 2010/06/28</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.#ctor(Commons.UserInfo,System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="torokuFlag">登録区分</param>
+            <param name="kojiName">工事識別名称</param>
+            <param name="ship">出荷便</param>
+            <create>Y.Higuchi 2010/06/28</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="torokuFlag">登録区分</param>
+            <param name="kojiName">工事識別名称</param>
+            <param name="ship">出荷便</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.#ctor(Commons.UserInfo,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="isKonpo">木枠梱包チェック</param>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.InitializeLoadControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示される直前にコントロールの初期化するメソッド
+            </summary>
+            <create>Y.Higuchi 2010/06/28</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.InitializeShownControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示されるたびにコントロールの初期化するメソッド
+            </summary>
+            <create>Y.Higuchi 2010/06/28</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.CheckInputSearch">
+            --------------------------------------------------
+            <summary>
+            検索用入力チェック
+            </summary>
+            <returns>true:OK/false:NG</returns>
+            <create>Y.Higuchi 2010/06/28</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.RunSearch">
+            --------------------------------------------------
+            <summary>
+            検索処理制御部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>Y.Higuchi 2010/06/28</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.RunSearchExec">
+            --------------------------------------------------
+            <summary>
+            検索処理実行部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>Y.Higuchi 2010/06/28</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.txtKojiName_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            --------------------------------------------------
+            <summary>
+            工事識別Noのキーダウン
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.KojiShikibetsuIchiran.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SMS.P02.Forms.KojiShikibetsuIchiran.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:SMS.P02.Forms.BukkenMeiIchiran">
+            --------------------------------------------------
+            <summary>
+            物件名一覧
+            </summary>
+            <create>T.Sakiori 2012/04/05</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.BukkenMeiIchiran.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SMS.P02.Forms.BukkenMeiIchiran._shukkaFlag">
+            --------------------------------------------------
+            <summary>
+            出荷区分
+            </summary>
+            <create>T.Sakiori 2012/04/05</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.BukkenMeiIchiran._bukkenName">
+            --------------------------------------------------
+            <summary>
+            物件名
+            </summary>
+            <create>T.Sakiori 2012/04/05</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.BukkenMeiIchiran._isInitSearch">
+            --------------------------------------------------
+            <summary>
+            初期検索を行うかどうか
+            </summary>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ(デザイナ用)
+            </summary>
+            <create>T.Sakiori 2012/04/05</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.#ctor(Commons.UserInfo,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="bukkenName">物件名</param>
+            <create>T.Sakiori 2012/04/05</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.#ctor(Commons.UserInfo,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="bukkenName">物件名</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.InitializeLoadControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示される直前にコントロールの初期化するメソッド
+            </summary>
+            <create>T.Sakiori 2012/04/05</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.InitializeShownControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示されるたびにコントロールの初期化するメソッド
+            </summary>
+            <create>T.Sakiori 2012/04/05</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.CheckInputSearch">
+            --------------------------------------------------
+            <summary>
+            検索用入力チェック
+            </summary>
+            <returns>true:OK/false:NG</returns>
+            <create>T.Sakiori 2012/04/05</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.RunSearch">
+            --------------------------------------------------
+            <summary>
+            検索処理制御部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>T.Sakiori 2012/04/05</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.RunSearchExec">
+            --------------------------------------------------
+            <summary>
+            検索処理実行部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>T.Sakiori 2012/04/05</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.BukkenMeiIchiran.txtBukkenName_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            --------------------------------------------------
+            <summary>
+            物件名のキーダウン
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>H.Tajimi 2015/12/03</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:SMS.P02.Forms.NonyusakiIchiran">
+            --------------------------------------------------
+            <summary>
+            納入先一覧
+            </summary>
+            <remarks>
+            納入先を複数選択できるI/FでNonyusakiIchiranExに
+            同様の処理が実装されているので、修正時は注意してください
+            </remarks>
+            <create>Y.Higuchi 2010/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ(デザイナ用)
+            </summary>
+            <create>Y.Higuchi 2010/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.#ctor(Commons.UserInfo,System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <create>Y.Higuchi 2010/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="gamenFlag">画面区分</param>
+            <create>T.Sakiori 2012/05/09</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="gamenFlag">画面区分</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.InitializeLoadControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示される直前にコントロールの初期化するメソッド
+            </summary>
+            <create>Y.Higuchi 2010/06/25</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.InitializeShownControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示されるたびにコントロールの初期化するメソッド
+            </summary>
+            <create>Y.Higuchi 2010/06/25</create>
+            <update>H.Tajimi 2015/11/27 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.CheckInputSearch">
+            --------------------------------------------------
+            <summary>
+            検索用入力チェック
+            </summary>
+            <returns>true:OK/false:NG</returns>
+            <create>Y.Higuchi 2010/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.RunSearch">
+            --------------------------------------------------
+            <summary>
+            検索処理制御部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>Y.Higuchi 2010/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.RunSearchExec">
+            --------------------------------------------------
+            <summary>
+            検索処理実行部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>Y.Higuchi 2010/06/25</create>
+            <update>H.Tajimi 2015/11/30 納入先選択のUI改善</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.txtNonyusakiName_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            --------------------------------------------------
+            <summary>
+            納入先(User)のキーダウン
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.NonyusakiIchiran.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiran.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:SMS.P02.Forms.RirekiShokai">
+            --------------------------------------------------
+            <summary>
+            履歴照会
+            </summary>
+            <create>T.Sakiori 2012/04/06</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.RirekiShokai.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SMS.P02.Forms.RirekiShokai._gamenFlag">
+            --------------------------------------------------
+            <summary>
+            画面区分
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.RirekiShokai._shukkaFlag">
+            --------------------------------------------------
+            <summary>
+            出荷区分
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.RirekiShokai._nonyusakiCd">
+            --------------------------------------------------
+            <summary>
+            納入先コード
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.RirekiShokai._bukkenName">
+            --------------------------------------------------
+            <summary>
+            物件名
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.RirekiShokai._ship">
+            --------------------------------------------------
+            <summary>
+            便
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.RirekiShokai._arNo">
+            --------------------------------------------------
+            <summary>
+            ARNo
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.RirekiShokai._nonyusakiCdFst">
+            --------------------------------------------------
+            <summary>
+            初期時の納入先コード
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.#ctor(Commons.UserInfo,System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="menuCategoryID">メニュー種別ID</param>
+            <param name="menuItemID">メニュー項目ID</param>
+            <param name="title">画面タイトル</param>
+            <create>T.Sakiori 2012/04/06</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="gamenFlag">画面区分</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiCd">納入先コード</param>
+            <param name="bukkenName">物件名</param>
+            <param name="ship">便</param>
+            <param name="arNo">ARNo</param>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.InitializeLoadControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示される直前にコントロールの初期化するメソッド
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.InitializeShownControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示されるたびにコントロールの初期化するメソッド
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.DisplayClear">
+            --------------------------------------------------
+            <summary>
+            画面クリア処理
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update>H.Tajimi 2015/12/02 System全般/Clearボタン押下時の範囲</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.CheckInputSearch">
+            --------------------------------------------------
+            <summary>
+            検索用入力チェック
+            </summary>
+            <returns></returns>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.RunSearch">
+            --------------------------------------------------
+            <summary>
+            検索処理制御部
+            </summary>
+            <returns></returns>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.RunSearchExec">
+            --------------------------------------------------
+            <summary>
+            検索処理実行部
+            </summary>
+            <returns></returns>
+            <create>T.Sakiori 2012/04/16</create>
+            <update>H.Tajimi 2015/12/02 System全般/Clearボタン押下時の範囲</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.fbrFunction_F06Button_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            F6ボタンクリック
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2012/04/16</create>
+            <update>H.Tajimi 2015/12/08 System全般/Clearボタン押下時の範囲</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.fbrFunction_F07Button_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            F7ボタンクリック
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>H.Tajimi 2015/12/02</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.btnSearch_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            検索ボタンクリック
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2012/04/16</create>
+            <update>H.Tajimi 2015/11/30 納入先(User)選択を早くする</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.cboGamenFlag_SelectionChangeCommitted(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            画面区分コンボボックスSelectionChangeCommitted
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.cboShukkaFlag_SelectionChangeCommitted(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            出荷区分コンボボックスSelectionChangeCommitted
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.SheetClear">
+            --------------------------------------------------
+            <summary>
+            シートのクリア
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.SetOperationFlagData(System.String)">
+            --------------------------------------------------
+            <summary>
+            処理名コンボボックス作成
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.ChangeShukkaFlag">
+            --------------------------------------------------
+            <summary>
+            出荷区分切り替え
+            </summary>
+            <create>T.Sakiori 2012/04/16</create>
+            <update>H.Tajimi 2015/11/30 納入先(User)選択を早くする</update>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.ShowNonyusakiIchiran">
+            --------------------------------------------------
+            <summary>
+            納入先一覧画面表示
+            </summary>
+            <returns></returns>
+            <create>H.Tajimi 2015/11/30</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.RirekiShokai.ChangeFunctionButton(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            ファンクションバーのEnabled切替
+            </summary>
+            <param name="isEnabled">Enabled状態</param>
+            <create>H.Tajimi 2015/12/02</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:SMS.P02.Forms.SenderSetting">
+            --------------------------------------------------
+            <summary>
+            送信先設定
+            </summary>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.SenderSetting.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SMS.P02.Forms.SenderSetting._userList">
+            --------------------------------------------------
+            <summary>
+            選択済みのユーザー
+            </summary>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.#ctor">
+            --------------------------------------------------
+            <summary>
+            送信先設定(デザイナ用)
+            </summary>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.#ctor(Commons.UserInfo,System.Object,System.String)">
+            --------------------------------------------------
+            <summary>
+            送信先設定
+            </summary>
+            <param name="userInfo">ユーザー情報</param>
+            <param name="userList">選択済みのユーザー</param>
+            <param name="mailAddressFlag">メールフラグ</param>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.InitializeLoadControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示される直前にコントロールの初期化するメソッド
+            </summary>
+            <create>T.Sakiori 2017/09/14</create>
+            <update>H.Tajimi 2018/10/17 複数宛先を選択して一括選択を可能とする</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.InitializeShownControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示されるたびにコントロールの初期化するメソッド
+            </summary>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.CheckInputSearch">
+            --------------------------------------------------
+            <summary>
+            検索用入力チェック
+            </summary>
+            <returns>true:OK/false:NG</returns>
+            <create>T.Sakiori 2012/04/05</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.RunSearch">
+            --------------------------------------------------
+            <summary>
+            検索処理制御部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.RunSearchExec">
+            --------------------------------------------------
+            <summary>
+            検索処理実行部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.txtSearchUserName_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            --------------------------------------------------
+            <summary>
+            物件名のキーダウン
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.btnSet_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            選択ボタン
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2017/09/14</create>
+            <update>H.Tajimi 2018/10/17 複数宛先を選択して一括選択を可能とする</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.btnRowDelete_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            行削除ボタン
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.btnAllClear_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            All Clearボタン
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.shtResult_CellDoubleClick(System.Object,GrapeCity.Win.ElTabelle.ClickEventArgs)">
+            --------------------------------------------------
+            <summary>
+            左側シートのセルダブルクリック
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.shtSend_CellDoubleClick(System.Object,GrapeCity.Win.ElTabelle.ClickEventArgs)">
+            --------------------------------------------------
+            <summary>
+            右側シートのセルダブルクリック
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.btnSelect_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            選択ボタンクリック
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>T.Sakiori 2017/09/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.btnMassAdd_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            一括追加ボタンクリック
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>H.Tajimi 2018/10/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.SenderSetting.GetSelectedIndexList(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.BlocksType,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            選択されている行インデックスリストを取得
+            </summary>
+            <param name="sheet">ElTabelle</param>
+            <param name="blocksType">選択タイプ</param>
+            <param name="isDesc">降順に並べ替えるかどうか</param>
+            <returns></returns>
+            <create>H.Tajimi 2018/10/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:SMS.P02.Forms.SenderSetting.SendData">
+            --------------------------------------------------
+            <summary>
+            送信先データ
+            </summary>
+            <create>T.Sakiori 2017/09/14</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:SMS.P02.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.Culture">
+            <summary>
+              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.BukkenMeiIchiran_PropertyManagementNo">
+            <summary>
+              物件管理No. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.BukkenMeiIchiran_PropertyName">
+            <summary>
+              物件名 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.BukkenMeiIchiran_ShippingDivision">
+            <summary>
+              出荷区分 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.KojiShikibetsuIchiran_ConstructionIdentificationNo">
+            <summary>
+              工事識別No. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.KojiShikibetsuIchiran_ManagementNo">
+            <summary>
+              管理No. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.KojiShikibetsuIchiran_Ship">
+            <summary>
+              便 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.NonyusakiIchiran_DeliveryDestination">
+            <summary>
+              納入先(User) に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.NonyusakiIchiran_ManagementNo">
+            <summary>
+              管理No. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.NonyusakiIchiran_Ship">
+            <summary>
+              便(Ship) に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.NonyusakiIchiranEx_Choice">
+            <summary>
+              選択 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.NonyusakiIchiranEx_DeliveryDestination">
+            <summary>
+              納入先(User) に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.NonyusakiIchiranEx_ManagementNo">
+            <summary>
+              管理No. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.NonyusakiIchiranEx_Ship">
+            <summary>
+              便(Ship) に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.RirekiShokai_ModifiedDateTime">
+            <summary>
+              更新日時 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.RirekiShokai_ModifiedUser">
+            <summary>
+              更新者 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.RirekiShokai_ProcessName">
+            <summary>
+              処理名 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.SenderSetting_Sender">
+            <summary>
+              送信先 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SMS.P02.Properties.Resources.SenderSetting_UserName">
+            <summary>
+              担当者名 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="T:SMS.P02.Forms.NonyusakiIchiranEx">
+            --------------------------------------------------
+            <summary>
+            納入先一覧（複数選択）
+            </summary>
+            <remarks>
+            ダブルクリック時の動作、選択データ格納先が異なりNonyusakiIchiranを
+            継承すると制御が煩雑になってしまうため、CustomOrderSearchDialogを
+            継承して、画面デザイン・処理はNonyusakiIchiranをコピーして作成
+            </remarks>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.NonyusakiIchiranEx.COL_SELECT_CHK">
+            --------------------------------------------------
+            <summary>
+            シートで使用する選択の列インデックス
+            </summary>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.NonyusakiIchiranEx.DEFAULT_SELECT_VALUE">
+            --------------------------------------------------
+            <summary>
+            選択の列の初期値
+            </summary>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:SMS.P02.Forms.NonyusakiIchiranEx.components">
+            <summary>
+            必要なデザイナ変数です。
+            </summary>
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージ リソースが破棄される場合 true、破棄されない場合は false です。</param>
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.InitializeComponent">
+            <summary>
+            デザイナ サポートに必要なメソッドです。このメソッドの内容を
+            コード エディタで変更しないでください。
+            </summary>
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.#ctor">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ(デザイナ用)
+            </summary>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.#ctor(Commons.UserInfo,System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="gamenFlag">画面区分</param>
+            <create>H.Tajimi 2015/12/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <param name="isAllShip">全便かどうか</param>
+            <create>H.Tajimi 2015/12/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="gamenFlag">画面区分</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <create>H.Tajimi 2015/12/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="gamenFlag">画面区分</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <param name="isAllShip">全便かどうか</param>
+            <create>H.Tajimi 2015/12/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.#ctor(Commons.UserInfo,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="userInfo">ログインユーザー情報</param>
+            <param name="shukkaFlag">出荷区分</param>
+            <param name="nonyusakiName">納入先</param>
+            <param name="ship">出荷便</param>
+            <param name="tagship">TAG便</param>
+            <param name="gamenFlag">画面区分</param>
+            <param name="isInitSearch">初期検索を行うかどうか</param>
+            <param name="isAllShip">全便かどうか</param>
+            <create>T.SASAYAMA 2023/06/27</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.InitializeLoadControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示される直前にコントロールの初期化するメソッド
+            </summary>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.InitializeShownControl">
+            --------------------------------------------------
+            <summary>
+            フォームが初めて表示されるたびにコントロールの初期化するメソッド
+            </summary>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.CheckInputSearch">
+            --------------------------------------------------
+            <summary>
+            検索用入力チェック
+            </summary>
+            <returns>true:OK/false:NG</returns>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.RunSearch">
+            --------------------------------------------------
+            <summary>
+            検索処理制御部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.RunSearchExec">
+            --------------------------------------------------
+            <summary>
+            検索処理実行部
+            </summary>
+            <returns>true:検索成功/false:検索失敗</returns>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.txtNonyusakiName_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            --------------------------------------------------
+            <summary>
+            納入先(User)のキーダウン
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.btnSelect_Click(System.Object,System.EventArgs)">
+            --------------------------------------------------
+            <summary>
+            選択ボタンクリック
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.SetElTabelleColumnText(System.Int32,System.String,System.String,System.Int32,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            テキスト用列設定
+            </summary>
+            <remarks>
+            Enabledを設定すると文字色がグレーアウトされるため
+            ReadOnlyとLockプロパティで変更不可にする
+            </remarks>
+            <param name="colIndex">列のインデックス</param>
+            <param name="title">列ヘッダタイトル</param>
+            <param name="dataField">データフィールド</param>
+            <param name="width">列幅</param>
+            <param name="isEnabled">列が操作可能かどうか</param>
+            <create>H.Tajimi 2015/12/04</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.SetElTabelleColumnCheckBox(System.Int32,System.String,System.String,System.Int32,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            チェックボックス型用列設定
+            </summary>
+            <param name="colIndex">列のインデックス</param>
+            <param name="title">列ヘッダタイトル</param>
+            <param name="dataField">データフィールド</param>
+            <param name="width">列幅</param>
+            <param name="isEnabled">列が操作可能かどうか</param>
+            <create>H.Tajimi 2015/12/04</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:SMS.P02.Forms.NonyusakiIchiranEx.GetSelectedDifferentBukkenNo(System.Data.DataTable,System.String)">
+            --------------------------------------------------
+            <summary>
+            指定した物件NOと異なる物件NOの行インデックスを取得
+            </summary>
+            <param name="dt">検索元のDataTable</param>
+            <param name="bukkenNo">物件NO</param>
+            <returns></returns>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="P:SMS.P02.Forms.NonyusakiIchiranEx.SelectedRowsData">
+            --------------------------------------------------
+            <summary>
+            選択チェックボックスがチェックされている行
+            </summary>
+            <create>H.Tajimi 2015/12/07</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+    </members>
+</doc>

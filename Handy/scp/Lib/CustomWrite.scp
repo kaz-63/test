@@ -1,0 +1,208 @@
+//////////////////////////////////////////////////////////////////////
+//  ファイル書き込み
+//  引数
+//		filename  書き込むファイル名
+//		inputData 書き込む内容
+//		userId    作業者コード
+//	返り値
+//		ErrorCodeの値	(1：二重登録 2：納入先不一致)
+//
+//	書き込むファイル名によって書き込む位置・書き込む量・チェックする内容が変化します。
+//////////////////////////////////////////////////////////////////////
+Package CustomWrite
+
+	startPos	// 開始位置
+	countPos	// 刻み数
+	codeSize	// 入力コードの最大値
+	writeString	// 書き込む内容
+	
+	Method LogWrite(filename, inputData, userId)
+	temPos
+	temDat
+	temType = ConstString:SAVE_TYPE
+	Begin
+		File:Initialize()
+		
+		init(filename, inputData, userId)
+
+		If filename.length > 6 Then
+			temType = ConstString:TYPE(filename.Left(1))
+
+		ElseIf filename.length == 6 Then
+			temType = ConstString:TYPE(filename.Left(1))
+			filename = filename.Right(5)
+		EndIf
+		
+		File:name = filename & temType
+		
+		If FileSystem:FindFirst(filename & temType) is true Then
+			// box梱包の場合出荷フラグが一致しているかチェック
+			If temType.Right(1) eq ConstString:BOX_NAME Then
+				File:currentPos = FileSystem:findFileSize - ConstString:LAST_SB_POS
+				
+				If File:Gets(1) ne inputData.Left(1) Then
+					Return (2)
+				EndIf
+			EndIf
+			
+			temPos = FileSystem:findFileSize
+			File:currentPos = startPos
+			temDat = File:Gets(codeSize)
+			
+			//データ重複チェック
+			While (temDat is true)
+				If inputData eq temDat Then
+					Return (1)
+				End If
+
+				File:currentPos = File:currentPos + countPos
+				temDat = File:Gets(codeSize)
+			Wend
+			File:currentPos = temPos
+			File:Puts(writeString, "append")
+			
+		Else
+			
+			File:Puts(writeString, "create")
+		EndIf
+		
+		Return (0)
+	EndMethod
+	
+	
+	// 開始位置等、初期値の代入
+	Method init(fileName, inputData, userId)
+	Begin
+	If fileName.Left(1) eq "S" Then
+		startPos = ConstString:START_S_POS
+		countPos = ConstString:COUNT_S_POS
+		codeSize = ConstString:TAG_SIZE
+		writeString = inputData & "," & Common:str_pad(userId, ConstString:USER_ID_SIZE) & "\n"
+	ElseIf fileName.Left(1) eq "H" Then
+		startPos = ConstString:START_S_POS
+		countPos = ConstString:COUNT_S_POS
+		codeSize = ConstString:TAG_SIZE
+		writeString = inputData & "," & Common:str_pad(userId, ConstString:USER_ID_SIZE) & "\n"
+	ElseIf fileName.Left(1) eq ConstString:BOX_NAME Then
+		startPos = ConstString:START_BP_POS
+		countPos = ConstString:COUNT_BP_POS
+		codeSize = ConstString:TAG_SIZE
+		writeString = fileName & "," & inputData & "," & Common:str_pad(userId, ConstString:USER_ID_SIZE) & "\n"
+	ElseIf fileName.Left(1) eq ConstString:PARET_NAME Then
+		startPos = ConstString:START_BP_POS
+		countPos = ConstString:COUNT_BP_POS
+		codeSize = ConstString:NO_SIZE
+		writeString = fileName & "," & inputData & "," & Common:str_pad(userId, ConstString:USER_ID_SIZE) & "\n"
+	EndIf
+	EndMethod
+	
+EndPackage
+
+//---------------------------------------------------
+// パッケージ：WriteLine
+Package WriteLine
+	
+	
+	// レコード重複チェック用変数
+	DUP_RECORD_BYTE_SIZE				// 1行レコード長
+	DUP_UNIQUE_KEY_SIZE					// 重複確認キーの長さ
+	
+	
+	/*!
+	 * @brief 入荷検品のログ記入
+	 * 
+	 * @param filename ファイル名(拡張子を含む)
+	 * @param tehaiNo  手配No.
+	 * @param nyukaNum 入荷数
+	 * @param userId   作業者コード
+	 * @return ErrorCodeの値(0：成功 1：二重登録)
+	 */
+	Method LogWriteKenpin(filename, tehaiNo, nyukaNum, userId)
+		record = ""
+		filepath = ""
+	Begin
+		
+		// 手配No.の二重登録チェックを行う
+		DUP_RECORD_BYTE_SIZE = ConstString:KENPIN_BYTE_SIZE
+		DUP_UNIQUE_KEY_SIZE = ConstString:TEHAI_NO_SIZE
+		
+		record = tehaiNo & "," & Common:str_pad(nyukaNum, ConstString:NYUKA_COUNT_SIZE) & "," & Common:str_pad(userId, ConstString:USER_ID_SIZE) & "\n"
+		filepath = ConstString:DRIVE_NAME & filename
+		Return (LogWrite(filepath, record))
+		
+	EndMethod
+	
+	/*!
+	 * @brief 計測画面のログ記入
+	 *
+	 * @param filename ファイル名(拡張子を含む)
+	 * @param tagNo    現品TagNo
+	 * @param weight   重量
+	 * @param userId   作業者コード
+	 * @return ErrorCodeの値(0：成功 1：二重登録)
+	 */
+	Method LogWriteMeasure(filename, tagNo, weight, userId)
+		record = ""
+		filepath = ""
+		splitWeight[2]
+	Begin
+		
+		// 現品TagNoの二重登録チェックを行う
+		DUP_RECORD_BYTE_SIZE = ConstString:MEASURE_BYTE_SIZE
+		DUP_UNIQUE_KEY_SIZE = ConstString:TAG_SIZE
+		
+		// 小数点2桁までゼロパディング
+		If weight.Find(".", 0) is nil Then
+			weight = weight & ".00"
+		Else
+			splitWeight = weight.split(".")
+			If splitWeight[1].length < 2 Then
+				weight = splitWeight[0] & "." & splitWeight[1] & "0"
+			EndIf
+		EndIf
+		
+		record = tagNo & "," & Common:str_pad(weight, ConstString:WEIGHT_SIZE) & "," & Common:str_pad(userId, ConstString:USER_ID_SIZE) & "\n"
+		filepath = ConstString:DRIVE_NAME & filename
+		Return (LogWrite(filepath, record))
+		
+	EndMethod
+	
+	/*!
+	 * @brief ファイル書き込み
+	 * 
+	 * @param filename ファイル名(拡張子を含む)
+	 * @param record 登録レコード
+	 * @return ErrorCodeの値(0：成功 1：二重登録)
+	 * @attention なし
+	 */
+	Method LogWrite(filename, record)
+		uniqueKey
+		tempUniqueKey			// 作業用ユニークキー
+		tempLine				// 作業用1行レコード
+	Begin
+		File:Initialize()
+		File:name = filename
+		
+		If FileSystem:FindFirst(filename) is true Then
+			uniqueKey = record.Left(DUP_UNIQUE_KEY_SIZE)
+			
+			// 二重登録チェック(1行ずつ読み込んで先頭のユニークキーで判断する)
+			tempLine = File:Gets(DUP_RECORD_BYTE_SIZE)
+			While (tempLine is true)
+				tempUniqueKey = tempLine.Left(DUP_UNIQUE_KEY_SIZE)
+				If uniqueKey eq tempUniqueKey Then
+					Return (1)
+				End If
+				
+				tempLine = File:Gets(DUP_RECORD_BYTE_SIZE)
+			Wend
+			
+			File:Puts(record, "append")
+		Else
+			File:Puts(record, "create")
+		EndIf
+		
+		File:Close()
+		Return (0)
+	EndMethod
+EndPackage

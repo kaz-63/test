@@ -1,0 +1,17 @@
+C:\contec002\source\SMSAll\Common\Commons\Commons\bin\Debug\Commons.dll
+C:\contec002\source\SMSAll\Common\Commons\Commons\bin\Debug\Commons.pdb
+C:\contec002\source\SMSAll\Common\Commons\Commons\bin\Debug\en\Commons.resources.dll
+C:\contec002\source\SMSAll\Common\Commons\Commons\bin\Debug\ja\Commons.resources.dll
+C:\contec002\source\SMSAll\Common\Commons\Commons\bin\Debug\DSWUtil.dll
+C:\contec002\source\SMSAll\Common\Commons\Commons\bin\Debug\DSWUtil.xml
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\ResolveAssemblyReference.cache
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\Commons.ComResource.resources
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\Commons.Properties.Resources.resources
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\Commons.Properties.Resources.en.resources
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\Commons.Properties.Resources.ja.resources
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\Commons.csproj.GenerateResource.Cache
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\en\Commons.resources.dll
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\ja\Commons.resources.dll
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\Commons.dll
+C:\contec002\source\SMSAll\Common\Commons\Commons\obj\Debug\Commons.pdb
+C:\contec002\source\SMSAll\Common\Commons\Commons\bin\Debug\Commons.XML

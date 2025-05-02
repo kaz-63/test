@@ -1,0 +1,1809 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ElTabelleHelper</name>
+    </assembly>
+    <members>
+        <member name="T:ElTabelleHelper.MaskFormatPattern">
+            --------------------------------------------------
+            <summary>
+            マスクフォーマット用のパターン列挙型
+            </summary>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:ElTabelleHelper.MaskFormatPattern.Zip">
+            --------------------------------------------------
+            <summary>
+            郵便番号(〒付き)
+            </summary>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:ElTabelleHelper.MaskFormatPattern.ZipNoSymbol">
+            --------------------------------------------------
+            <summary>
+            郵便番号(〒無し)
+            </summary>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:ElTabelleHelper.MaskFormatPattern.Tel">
+            --------------------------------------------------
+            <summary>
+            電話番号(℡付き)
+            </summary>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="F:ElTabelleHelper.MaskFormatPattern.TelNoSymbol">
+            --------------------------------------------------
+            <summary>
+            電話番号(℡無し)
+            </summary>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="T:ElTabelleHelper.ElTabelleSheetHelper">
+            --------------------------------------------------
+            <summary>
+            El Tabelle Sheetのヘルパークラス
+            </summary>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <param name="colIndex">背景色を設定するヘッダーの列番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <param name="colIndex">背景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">背景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <param name="colIndex">前景色を設定するヘッダーの列番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <param name="colIndex">前景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">前景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <param name="colIndex">背景色・前景色を設定するヘッダーの列番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetColumnHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <param name="colIndex">背景色・前景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">背景色・前景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <param name="rowIndex">背景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <param name="colIndex">背景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">背景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <param name="rowIndex">背景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <param name="colIndex">背景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">背景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <param name="rowIndex">背景色・前景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetRowHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <param name="colIndex">背景色・前景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">背景色・前景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetCornerHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            コーナーヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetCornerHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コーナーヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <param name="colIndex">背景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">背景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetCornerHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            コーナーヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetCornerHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コーナーヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <param name="colIndex">前景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">前景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetCornerHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            コーナーヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetCornerHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            コーナーヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <param name="colIndex">背景色・前景色を設定するヘッダーの列番号</param>
+            <param name="rowIndex">背景色・前景色を設定するヘッダーの行番号</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetHeaderBackColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            ヘッダーの背景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色を設定するシート</param>
+            <param name="color">設定する背景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetHeaderForeColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            ヘッダーの前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">前景色を設定するシート</param>
+            <param name="color">設定する前景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetHeaderColor(GrapeCity.Win.ElTabelle.Sheet,System.Drawing.Color,System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            ヘッダーの背景色・前景色を設定します。
+            全ヘッダースタイルを Windows XP から Normal に変更します。
+            </summary>
+            <param name="sheet">背景色・前景色を設定するシート</param>
+            <param name="backColor">設定する背景色</param>
+            <param name="foreColor">設定する前景色</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.GetDataSource4DataSet(GrapeCity.Win.ElTabelle.Sheet)">
+            --------------------------------------------------
+            <summary>
+            シートに設定されている DataSource を取得します。
+            </summary>
+            <param name="sheet">DataSource を取得するシート</param>
+            <returns>取得した DataSource</returns>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.GetDataSource4DataTable(GrapeCity.Win.ElTabelle.Sheet)">
+            --------------------------------------------------
+            <summary>
+            シートに設定されている DataSource を取得します。
+            </summary>
+            <param name="sheet">DataSource を取得するシート</param>
+            <returns>取得した DataSource</returns>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.InitializeSheet(GrapeCity.Win.ElTabelle.Sheet)">
+            --------------------------------------------------
+            <summary>
+            シートの初期化を行います。
+            </summary>
+            <param name="sheet">初期化を行うシート</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update>T.Sakiori 2010/04/23</update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.ViewMode)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="viewMode">表示モード</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.EditType)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="editType">編集モード</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.SelectionType)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="selectionType">選択モード</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.SelectableArea)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="selectableArea">選択範囲</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.ViewMode,GrapeCity.Win.ElTabelle.EditType)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="viewMode">表示モード</param>
+            <param name="editType">編集モード</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.ViewMode,GrapeCity.Win.ElTabelle.SelectionType)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="viewMode">表示モード</param>
+            <param name="selectionType">選択モード</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.ViewMode,GrapeCity.Win.ElTabelle.SelectableArea)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="viewMode">表示モード</param>
+            <param name="selectableArea">選択範囲</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.EditType,GrapeCity.Win.ElTabelle.SelectionType)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="editType">編集モード</param>
+            <param name="selectionType">選択モード</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.EditType,GrapeCity.Win.ElTabelle.SelectableArea)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="editType">編集モード</param>
+            <param name="selectableArea">選択範囲</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.SelectionType,GrapeCity.Win.ElTabelle.SelectableArea)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="selectionType">選択モード</param>
+            <param name="selectableArea">選択範囲</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.ViewMode,GrapeCity.Win.ElTabelle.EditType,GrapeCity.Win.ElTabelle.SelectionType)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="viewMode">表示モード</param>
+            <param name="editType">編集モード</param>
+            <param name="selectionType">選択モード</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.ViewMode,GrapeCity.Win.ElTabelle.EditType,GrapeCity.Win.ElTabelle.SelectableArea)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="viewMode">表示モード</param>
+            <param name="editType">編集モード</param>
+            <param name="selectableArea">選択範囲</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.ViewMode,GrapeCity.Win.ElTabelle.SelectionType,GrapeCity.Win.ElTabelle.SelectableArea)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="viewMode">表示モード</param>
+            <param name="selectionType">選択モード</param>
+            <param name="selectableArea">選択範囲</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.EditType,GrapeCity.Win.ElTabelle.SelectionType,GrapeCity.Win.ElTabelle.SelectableArea)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="editType">編集モード</param>
+            <param name="selectionType">選択モード</param>
+            <param name="selectableArea">選択範囲</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetOperationMode(GrapeCity.Win.ElTabelle.Sheet,GrapeCity.Win.ElTabelle.ViewMode,GrapeCity.Win.ElTabelle.EditType,GrapeCity.Win.ElTabelle.SelectionType,GrapeCity.Win.ElTabelle.SelectableArea)">
+            --------------------------------------------------
+            <summary>
+            シートの操作モードを設定します。
+            </summary>
+            <param name="sheet">操作モードを設定するシート</param>
+            <param name="viewMode">表示モード</param>
+            <param name="editType">編集モード</param>
+            <param name="selectionType">選択モード</param>
+            <param name="selectableArea">選択範囲</param>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewTextEditor">
+            --------------------------------------------------
+            <summary>
+            文字列型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をした文字列型エディタ</returns>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewTextEditor(System.Int32)">
+            --------------------------------------------------
+            <summary>
+            文字列型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="maxLength">文字列型セルに入力できる最大文字数</param>
+            <returns>初期設定をした文字列型エディタ</returns>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewTextEditor(System.Int32,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            文字列型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="maxLength">文字列型セルに入力できる最大文字数</param>
+            <param name="LengthAsByte">文字列型セルに入力可能な最大文字数をバイト単位と文字単位のどちらで指定するか</param>
+            <returns>初期設定をした文字列型エディタ</returns>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewTextEditor(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            文字列型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="readOnly">文字列型セルを読み取り専用モードにするかどうか</param>
+            <returns>初期設定をした文字列型エディタ</returns>
+            <create>T.Sakiori 2009/06/17</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewNumberEditor">
+            --------------------------------------------------
+            <summary>
+            数値型エディタの新しいインスタンスを取得します。
+            編集状態に入ったとき、テキストを選択するかどうかを示す HighlightText が無い為、
+            NumberEditor を使用する際は編集時にテキストを全選択するようなイベントを追加したほうがよいです。
+            </summary>
+            <returns>初期設定をした数値型エディタ</returns>
+            <create>T.Sakiori 2009/06/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewNumberEditor(System.Decimal,System.Decimal)">
+            --------------------------------------------------
+            <summary>
+            数値型エディタの新しいインスタンスを取得します。
+            編集状態に入ったとき、テキストを選択するかどうかを示す HighlightText が無い為、
+            NumberEditor を使用する際は編集時にテキストを全選択するようなイベントを追加したほうがよいです。
+            </summary>
+            <param name="maxValue">最大値</param>
+            <param name="minValue">最小値</param>
+            <returns>初期設定を行った数値型エディタ</returns>
+            <exception cref="T:System.ArgumentException">
+            maxValue より minValue が大きな場合エラーを返します。
+            </exception>
+            <create>T.Sakiori 2009/06/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewNumberEditor(System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            数値型エディタの新しいインスタンスを取得します。
+            編集状態に入ったとき、テキストを選択するかどうかを示す HighlightText が無い為、
+            NumberEditor を使用する際は編集時にテキストを全選択するようなイベントを追加したほうがよいです。
+            </summary>
+            <param name="integerLength">整数部の桁数</param>
+            <param name="decimalLength">小数部の桁数</param>
+            <returns>初期設定をした数値型エディタ</returns>
+            <exception cref="T:System.OverflowException">
+            integerLengthか、decimalLengthのいずれかが負の値の場合エラーを返します。
+            </exception>
+            <create>T.Sakiori 2009/06/23</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewNumberEditor(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            数値型エディタの新しいインスタンスを取得します。
+            編集状態に入ったとき、テキストを選択するかどうかを示す HighlightText が無い為、
+            NumberEditor を使用する際は編集時にテキストを全選択するようなイベントを追加したほうがよいです。
+            </summary>
+            <param name="readOnly">数値型セルを読み取り専用モードにするかどうか</param>
+            <returns>初期設定をした数値型エディタ</returns>
+            <create>T.Sakiori 2009/06/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewDateEditor">
+            --------------------------------------------------
+            <summary>
+            日付型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をした日付型エディタ</returns>
+            <create>T.Sakiori 2009/06/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewDateEditor(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            日付型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="readOnly">日付型セルを読み取り専用モードにするかどうか</param>
+            <returns>初期設定をした日付型エディタ</returns>
+            <create>T.Sakiori 2009/06/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="readOnly">マスク型セルを読み取り専用モードにするかどうか</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(ElTabelleHelper.MaskFormatPattern)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="pattern">入力マスクとなるパターン</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(ElTabelleHelper.MaskFormatPattern,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="pattern">入力マスクとなるパターン</param>
+            <param name="readOnly">マスク型セルを読み取り専用モードにするかどうか</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(ElTabelleHelper.MaskFormatPattern,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="pattern">入力マスクとなるパターン</param>
+            <param name="nullString">セルの値が Null のとき、編集状態のマスク型セルに表示するプレースホルダ</param>
+            <param name="nonFocusNull">セルの値が Null のとき、非編集状態のマスク型セルに表示するプレースホルダ</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(ElTabelleHelper.MaskFormatPattern,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="pattern">入力マスクとなるパターン</param>
+            <param name="nullString">セルの値が Null のとき、編集状態のマスク型セルに表示するプレースホルダ</param>
+            <param name="nonFocusNull">セルの値が Null のとき、非編集状態のマスク型セルに表示するプレースホルダ</param>
+            <param name="readOnly">マスク型セルを読み取り専用モードにするかどうか</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(System.String)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="pattern">入力マスクとなる文字列</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="pattern">入力マスクとなる文字列</param>
+            <param name="readOnly">マスク型セルを読み取り専用モードにするかどうか</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="pattern">入力マスクとなる文字列</param>
+            <param name="nullString">セルの値が Null のとき、編集状態のマスク型セルに表示するプレースホルダ</param>
+            <param name="nonFocusNull">セルの値が Null のとき、非編集状態のマスク型セルに表示するプレースホルダ</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewMaskEditor(System.String,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            マスク型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="pattern">入力マスクとなる文字列</param>
+            <param name="nullString">セルの値が Null のとき、編集状態のマスク型セルに表示するプレースホルダ</param>
+            <param name="nonFocusNull">セルの値が Null のとき、非編集状態のマスク型セルに表示するプレースホルダ</param>
+            <param name="readOnly">マスク型セルを読み取り専用モードにするかどうか</param>
+            <returns>初期設定をしたマスク型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewImageEditor">
+            --------------------------------------------------
+            <summary>
+            イメージ型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたイメージ型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewImageEditor(System.Drawing.Image)">
+            --------------------------------------------------
+            <summary>
+            イメージ型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="image">ビットマップイメージ</param>
+            <returns>初期設定をしたイメージ型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLabelEditor">
+            --------------------------------------------------
+            <summary>
+            ラベル型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLabelEditor(System.String)">
+            --------------------------------------------------
+            <summary>
+            ラベル型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="text">ラベル型セルに関連付けられているテキスト</param>
+            <returns>初期設定をしたラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLabelEditor(System.Drawing.Image)">
+            --------------------------------------------------
+            <summary>
+            ラベル型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="image">ラベル型セルに表示されるイメージ</param>
+            <returns>初期設定をしたラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLabelEditor(System.Drawing.Image,System.Drawing.ContentAlignment)">
+            --------------------------------------------------
+            <summary>
+            ラベル型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="image">ラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">ラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLabelEditor(System.Drawing.Image,GrapeCity.Win.ElTabelle.AttachAlignment)">
+            --------------------------------------------------
+            <summary>
+            ラベル型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="image">ラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">ラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLabelEditor(System.String,System.Drawing.Image,System.Drawing.ContentAlignment)">
+            --------------------------------------------------
+            <summary>
+            ラベル型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="text">ラベル型セルに関連付けられているテキスト</param>
+            <param name="image">ラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">ラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLabelEditor(System.String,System.Drawing.Image,GrapeCity.Win.ElTabelle.AttachAlignment)">
+            --------------------------------------------------
+            <summary>
+            ラベル型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="text">ラベル型セルに関連付けられているテキスト</param>
+            <param name="image">ラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">ラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.String)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="text">リンクラベル型セルのリンクに表示する文字列</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="text">リンクラベル型セルのリンクに表示する文字列</param>
+            <param name="linkString">リンクラベル型セルのリンクに関連付けられているテキスト</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.Drawing.Image)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="image">リンクラベル型セルに表示されるイメージ</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.Drawing.Image,System.Drawing.ContentAlignment)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="image">リンクラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">リンクラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.Drawing.Image,GrapeCity.Win.ElTabelle.AttachAlignment)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="image">リンクラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">リンクラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.String,System.Drawing.Image,System.Drawing.ContentAlignment)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="text">リンクラベル型セルのリンクに表示する文字列</param>
+            <param name="image">リンクラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">リンクラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.String,System.Drawing.Image,GrapeCity.Win.ElTabelle.AttachAlignment)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="text">リンクラベル型セルのリンクに表示する文字列</param>
+            <param name="image">リンクラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">リンクラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.String,System.String,System.Drawing.Image,System.Drawing.ContentAlignment)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="text">リンクラベル型セルのリンクに表示する文字列</param>
+            <param name="linkString">リンクラベル型セルのリンクに関連付けられているテキスト</param>
+            <param name="image">リンクラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">リンクラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewLinkLabelEditor(System.String,System.String,System.Drawing.Image,GrapeCity.Win.ElTabelle.AttachAlignment)">
+            --------------------------------------------------
+            <summary>
+            リンクラベル型エディタの新しいインスタンスを取得します。
+            リンクラベル型セルは、リンクがクリックされた際に処理を行いません。
+            リンクのクリックに合わせて、アプリケーションの起動や URL を開くには、Sheet.CellClick イベント に処理を記述します。
+            </summary>
+            <param name="text">リンクラベル型セルのリンクに表示する文字列</param>
+            <param name="linkString">リンクラベル型セルのリンクに関連付けられているテキスト</param>
+            <param name="image">リンクラベル型セルに表示されるイメージ</param>
+            <param name="imageAlign">リンクラベル型セルに表示されるイメージの配置を示す値</param>
+            <returns>初期設定をしたリンクラベル型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewButtonEditor">
+            --------------------------------------------------
+            <summary>
+            ボタン型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたボタン型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewButtonEditor(System.String)">
+            --------------------------------------------------
+            <summary>
+            ボタン型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="text">ボタン型セルに関連付けられているテキスト</param>
+            <returns>初期設定をしたボタン型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewButtonEditor(System.Drawing.Image)">
+            --------------------------------------------------
+            <summary>
+            ボタン型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="image">ボタン型セルに表示されるイメージ</param>
+            <returns>初期設定をしたボタン型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewButtonEditor(System.Drawing.Image,System.Drawing.ContentAlignment)">
+            --------------------------------------------------
+            <summary>
+            ボタン型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="image">ボタン型セルに表示されるイメージ</param>
+            <param name="imageAlign">ボタン型セルのイメージの配置</param>
+            <returns>初期設定をしたボタン型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewButtonEditor(System.Drawing.Image,GrapeCity.Win.ElTabelle.AttachAlignment)">
+            --------------------------------------------------
+            <summary>
+            ボタン型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="image">ボタン型セルに表示されるイメージ</param>
+            <param name="imageAlign">ボタン型セルのイメージの配置</param>
+            <returns>初期設定をしたボタン型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewButtonEditor(System.String,System.Drawing.Image,System.Drawing.ContentAlignment)">
+            --------------------------------------------------
+            <summary>
+            ボタン型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="text">ボタン型セルに関連付けられているテキスト</param>
+            <param name="image">ボタン型セルに表示されるイメージ</param>
+            <param name="imageAlign">ボタン型セルのイメージの配置</param>
+            <returns>初期設定をしたボタン型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewButtonEditor(System.String,System.Drawing.Image,GrapeCity.Win.ElTabelle.AttachAlignment)">
+            --------------------------------------------------
+            <summary>
+            ボタン型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="text">ボタン型セルに関連付けられているテキスト</param>
+            <param name="image">ボタン型セルに表示されるイメージ</param>
+            <param name="imageAlign">ボタン型セルのイメージの配置</param>
+            <returns>初期設定をしたボタン型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewComboBoxEditor">
+            --------------------------------------------------
+            <summary>
+            コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたコンボボックス型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewComboBoxEditor(System.String[])">
+            --------------------------------------------------
+            <summary>
+            コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="items">コンボボックス型セルのドロップダウンリストの項目のコレクションを表す文字列型配列</param>
+            <returns>初期設定をしたコンボボックス型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewComboBoxEditor(System.Boolean,System.String[])">
+            --------------------------------------------------
+            <summary>
+            コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="editable">コンボボックス型セルが入力可能かどうかを示す値</param>
+            <param name="items">コンボボックス型セルのドロップダウンリストの項目のコレクションを表す文字列型配列</param>
+            <returns>初期設定をしたコンボボックス型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewSuperiorComboEditor">
+            --------------------------------------------------
+            <summary>
+            拡張コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をした拡張コンボボックス型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewSuperiorComboEditor(System.Data.DataTable,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            拡張コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dt">データソース</param>
+            <param name="displayMember">内容として扱うデータソースのプロパティを示す文字列</param>
+            <param name="valueMenber">値として扱うデータソースのプロパティを示す文字列</param>
+            <returns>初期設定をした拡張コンボボックス型エディタ</returns>
+            <create>T.Sakiori 2010/04/28</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewSuperiorComboEditor(System.Data.DataTable,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            拡張コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dt">データソース</param>
+            <param name="displayMember">内容として扱うデータソースのプロパティを示す文字列</param>
+            <param name="valueMenber">値として扱うデータソースのプロパティを示す文字列</param>
+            <param name="editable">入力可能な場合は true 。入力可能でない場合は false</param>
+            <returns>初期設定をした拡張コンボボックス型エディタ</returns>
+            <create>T.Sakiori 2010/04/28</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewSuperiorComboEditor(System.Data.DataTable,System.String,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            拡張コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dt">データソース</param>
+            <param name="displayMember">内容として扱うデータソースのプロパティを示す文字列</param>
+            <param name="valueMenber">値として扱うデータソースのプロパティを示す文字列</param>
+            <param name="descriptionMember">アイテムの説明として扱うデータソースのプロパティを示す文字列</param>
+            <returns>初期設定をした拡張コンボボックス型エディタ</returns>
+            <create>T.Sakiori 2010/04/28</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewSuperiorComboEditor(System.Data.DataTable,System.String,System.String,System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            拡張コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dt">データソース</param>
+            <param name="displayMember">内容として扱うデータソースのプロパティを示す文字列</param>
+            <param name="valueMenber">値として扱うデータソースのプロパティを示す文字列</param>
+            <param name="descriptionMember">アイテムの説明として扱うデータソースのプロパティを示す文字列</param>
+            <param name="editable">入力可能な場合は true 。入力可能でない場合は false</param>
+            <returns>初期設定をした拡張コンボボックス型エディタ</returns>
+            <create>T.Sakiori 2010/04/28</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewSuperiorComboEditor(System.Data.DataTable,System.String,System.String,System.String,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            拡張コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dt">データソース</param>
+            <param name="displayMember">内容として扱うデータソースのプロパティを示す文字列</param>
+            <param name="valueMenber">値として扱うデータソースのプロパティを示す文字列</param>
+            <param name="descriptionMember">アイテムの説明として扱うデータソースのプロパティを示す文字列</param>
+            <param name="dropDownWidth">ドロップダウン部分の幅</param>
+            <param name="descriptionWidth">表示する説明文の幅（</param>
+            <returns>初期設定をした拡張コンボボックス型エディタ</returns>
+            <create>T.Sakiori 2010/04/28</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewSuperiorComboEditor(System.Data.DataTable,System.String,System.String,System.String,System.Int32,System.Int32,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            拡張コンボボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dt">データソース</param>
+            <param name="displayMember">内容として扱うデータソースのプロパティを示す文字列</param>
+            <param name="valueMenber">値として扱うデータソースのプロパティを示す文字列</param>
+            <param name="descriptionMember">アイテムの説明として扱うデータソースのプロパティを示す文字列</param>
+            <param name="dropDownWidth">ドロップダウン部分の幅</param>
+            <param name="descriptionWidth">表示する説明文の幅（</param>
+            <param name="editable">入力可能な場合は true 。入力可能でない場合は false</param>
+            <returns>初期設定をした拡張コンボボックス型エディタ</returns>
+            <create>T.Sakiori 2010/04/28</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewCheckBokEditor">
+            --------------------------------------------------
+            <summary>
+            チェックボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたチェックボックス型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewCheckBokEditor(System.String)">
+            --------------------------------------------------
+            <summary>
+            チェックボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="text">チェックボックス型セルに関連付けられているテキスト</param>
+            <returns>初期設定をしたチェックボックス型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewCheckBokEditor(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            チェックボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="threeState">チェックボックス型セルで２つではなく３つのチェックの状態が表示できるかどうか</param>
+            <returns>初期設定をしたチェックボックス型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewCheckBokEditor(System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            チェックボックス型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="text">チェックボックス型セルに関連付けられているテキスト</param>
+            <param name="threeState">チェックボックス型セルで２つではなく３つのチェックの状態が表示できるかどうか</param>
+            <returns>初期設定をしたチェックボックス型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewRadioGroupEditor">
+            --------------------------------------------------
+            <summary>
+            ラジオグループ型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたラジオグループ型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewRadioGroupEditor(System.String[])">
+            --------------------------------------------------
+            <summary>
+            ラジオグループ型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="items">ラジオグループ型セルに含まれている項目のコレクションを表す文字列型配列</param>
+            <returns>初期設定をしたラジオグループ型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewRadioGroupEditor(System.Int32,System.String[])">
+            --------------------------------------------------
+            <summary>
+            ラジオグループ型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="repeatColumns">ラジオボタンの列数</param>
+            <param name="items">ラジオグループ型セルに含まれている項目のコレクションを表す文字列型配列</param>
+            <returns>初期設定をしたラジオグループ型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewRadioGroupEditor(System.Int32,System.Int32,System.Int32,System.String[])">
+            --------------------------------------------------
+            <summary>
+            ラジオグループ型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="repeatColumns">ラジオボタンの列数</param>
+            <param name="verticalSpace">ラジオグループ型セルに含まれている項目の垂直方向のスペース</param>
+            <param name="horizontalSpace">ラジオグループ型セルに含まれている項目の水平方向のスペース</param>
+            <param name="items">ラジオグループ型セルに含まれている項目のコレクションを表す文字列型配列</param>
+            <returns>初期設定をしたラジオグループ型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewProgressBarEditor">
+            --------------------------------------------------
+            <summary>
+            プログレスバー型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたプログレスバー型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewProgressBarEditor(System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            プログレスバー型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="showText">プログレスバー型セルに文字列を表示するかどうかを示す値</param>
+            <returns>初期設定をしたプログレスバー型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewProgressBarEditor(System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            プログレスバー型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="maximum">プログレスバー型セルの範囲の最大値</param>
+            <param name="minimum">プログレスバー型セルの範囲の最小値</param>
+            <returns>初期設定をしたプログレスバー型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewProgressBarEditor(System.Boolean,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            プログレスバー型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="showText">プログレスバー型セルに文字列を表示するかどうかを示す値</param>
+            <param name="maximum">プログレスバー型セルの範囲の最大値</param>
+            <param name="minimum">プログレスバー型セルの範囲の最小値</param>
+            <returns>初期設定をしたプログレスバー型エディタ</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewProgressBarEditor(System.Drawing.Color)">
+            --------------------------------------------------
+            <summary>
+            プログレスバー型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="fillColor">プログレスバー型セルの塗りつぶし色</param>
+            <returns>初期設定をしたプログレスバー型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewProgressBarEditor(System.Drawing.Color,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            プログレスバー型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="fillColor">プログレスバー型セルの塗りつぶし色</param>
+            <param name="showText">プログレスバー型セルに文字列を表示するかどうかを示す値</param>
+            <returns>初期設定をしたプログレスバー型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewProgressBarEditor(System.Drawing.Color,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            プログレスバー型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="fillColor">プログレスバー型セルの塗りつぶし色</param>
+            <param name="maximum">プログレスバー型セルの範囲の最大値</param>
+            <param name="minimum">プログレスバー型セルの範囲の最小値</param>
+            <returns>初期設定をしたプログレスバー型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewProgressBarEditor(System.Drawing.Color,System.Boolean,System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            プログレスバー型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="fillColor">プログレスバー型セルの塗りつぶし色</param>
+            <param name="showText">プログレスバー型セルに文字列を表示するかどうかを示す値</param>
+            <param name="maximum">プログレスバー型セルの範囲の最大値</param>
+            <param name="minimum">プログレスバー型セルの範囲の最小値</param>
+            <returns>初期設定をしたプログレスバー型エディタ</returns>
+            <create>T.Sakiori 2009/09/08</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor(System.Data.DataSet,System.String)">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dataSource">チャート型セルのチャートのデータソース</param>
+            <param name="dataMember">表示するテーブル名</param>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor(System.Data.DataTable)">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dataSource">チャート型セルのチャートのデータソース</param>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor(System.Data.DataSet,System.String,GrapeCity.Win.ElTabelle.Editors.ChartType)">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dataSource">チャート型セルのチャートのデータソース</param>
+            <param name="dataMember">表示するテーブル名</param>
+            <param name="chartType">チャート型セルのチャートの種類</param>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor(System.Data.DataTable,GrapeCity.Win.ElTabelle.Editors.ChartType)">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dataSource">チャート型セルのチャートのデータソース</param>
+            <param name="chartType">チャート型セルのチャートの種類</param>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor(System.Data.DataSet,System.String,System.String)">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dataSource">チャート型セルのチャートのデータソース</param>
+            <param name="dataMember">表示するテーブル名</param>
+            <param name="title">チャート型セルのチャートのタイトル</param>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor(System.Data.DataTable,System.String)">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dataSource">チャート型セルのチャートのデータソース</param>
+            <param name="title">チャート型セルのチャートのタイトル</param>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor(System.Data.DataSet,System.String,GrapeCity.Win.ElTabelle.Editors.ChartType,System.String)">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dataSource">チャート型セルのチャートのデータソース</param>
+            <param name="dataMember">表示するテーブル名</param>
+            <param name="chartType">チャート型セルのチャートの種類</param>
+            <param name="title">チャート型セルのチャートのタイトル</param>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewChartEditor(System.Data.DataTable,GrapeCity.Win.ElTabelle.Editors.ChartType,System.String)">
+            --------------------------------------------------
+            <summary>
+            チャート型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="dataSource">チャート型セルのチャートのデータソース</param>
+            <param name="chartType">チャート型セルのチャートの種類</param>
+            <param name="title">チャート型セルのチャートのタイトル</param>
+            <returns>初期設定をしたチャート型エディタ</returns>
+            <create>T.Sakiori 2009/06/26</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewBarCodeEditor">
+            --------------------------------------------------
+            <summary>
+            バーコード型エディタの新しいインスタンスを取得します。
+            </summary>
+            <returns>初期設定をしたバーコード型エディタ</returns>
+            <create>T.Sakiori 2009/06/29</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewBarCodeEditor(System.String)">
+            --------------------------------------------------
+            <summary>
+            バーコード型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="value">バーコード型セルでバーコードの値</param>
+            <returns>初期設定をしたバーコード型エディタ</returns>
+            <create>T.Sakiori 2009/06/29</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewBarCodeEditor(System.String,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            バーコード型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="value">バーコード型セルでバーコードの値</param>
+            <param name="checkDigit">バーコード型セルでバーコードにチェックデジットを自動で付加するかどうか</param>
+            <returns>初期設定をしたバーコード型エディタ</returns>
+            <create>T.Sakiori 2009/06/29</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewBarCodeEditor(System.String,GrapeCity.Win.ElTabelle.Editors.BarType)">
+            --------------------------------------------------
+            <summary>
+            バーコード型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="value">バーコード型セルでバーコードの値</param>
+            <param name="type">バーコード型セルでバーコードの種類</param>
+            <returns>初期設定をしたバーコード型エディタ</returns>
+            <create>T.Sakiori 2009/06/29</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewBarCodeEditor(System.String,System.Single,System.Single)">
+            --------------------------------------------------
+            <summary>
+            バーコード型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="value">バーコード型セルでバーコードの値</param>
+            <param name="height">バーコード全体の高さ</param>
+            <param name="width">バーコード全体の幅</param>
+            <returns>初期設定をしたバーコード型エディタ</returns>
+            <create>T.Sakiori 2009/06/29</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewBarCodeEditor(System.String,GrapeCity.Win.ElTabelle.Editors.BarType,System.Boolean)">
+            --------------------------------------------------
+            <summary>
+            バーコード型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="value">バーコード型セルでバーコードの値</param>
+            <param name="type">バーコード型セルでバーコードの種類</param>
+            <param name="checkDigit">バーコード型セルでバーコードにチェックデジットを自動で付加するかどうか</param>
+            <returns>初期設定をしたバーコード型エディタ</returns>
+            <create>T.Sakiori 2009/06/29</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewBarCodeEditor(System.String,GrapeCity.Win.ElTabelle.Editors.BarType,System.Single,System.Single)">
+            --------------------------------------------------
+            <summary>
+            バーコード型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="value">バーコード型セルでバーコードの値</param>
+            <param name="type">バーコード型セルでバーコードの種類</param>
+            <param name="height">バーコード全体の高さ</param>
+            <param name="width">バーコード全体の幅</param>
+            <returns>初期設定をしたバーコード型エディタ</returns>
+            <create>T.Sakiori 2009/06/29</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewBarCodeEditor(System.String,GrapeCity.Win.ElTabelle.Editors.BarType,System.Boolean,System.Single,System.Single)">
+            --------------------------------------------------
+            <summary>
+            バーコード型エディタの新しいインスタンスを取得します。
+            </summary>
+            <param name="value">バーコード型セルでバーコードの値</param>
+            <param name="type">バーコード型セルでバーコードの種類</param>
+            <param name="checkDigit">バーコード型セルでバーコードにチェックデジットを自動で付加するかどうか</param>
+            <param name="height">バーコード全体の高さ</param>
+            <param name="width">バーコード全体の幅</param>
+            <returns>初期設定をしたバーコード型エディタ</returns>
+            <create>T.Sakiori 2009/06/29</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.DeleteShortcut(GrapeCity.Win.ElTabelle.Sheet)">
+            --------------------------------------------------
+            <summary>
+            シートのショートカットを削除します。
+            </summary>
+            <param name="sheet">削除を行うシート</param>
+            <create>T.Sakiori 2010/04/23</create>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewNumberFormat(System.Int32,System.Int32)">
+            --------------------------------------------------
+            <summary>
+            指定された桁数に初期設定した NumberFormat を返します。
+            </summary>
+            <param name="integerLength">整数部の桁数</param>
+            <param name="decimalLength">小数部の桁数</param>
+            <returns>指定された桁数に初期設定を行った NumberFormat</returns>
+            <create>T.Sakiori 2009/06/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewDateFormat">
+            --------------------------------------------------
+            <summary>
+            yyyy/MM/dd の形に初期設定した DateFormat を返します。
+            </summary>
+            <returns>日付書式を設定した DateFormat</returns>
+            <create>T.Sakiori 2009/06/24</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.NewDateDisplayFormat">
+            --------------------------------------------------
+            <summary>
+            yyyy/MM/dd の形に初期設定した DateDisplayFormat を返します。
+            </summary>
+            <returns>日付書式を設定した NewDateDisplayFormat</returns>
+            <create>T.Sakiori 2009/06/25</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetNormalColumnHeaderStyle(GrapeCity.Win.ElTabelle.Sheet)">
+            --------------------------------------------------
+            <summary>
+            列ヘッダーのスタイルを WindowsXP から Normal に設定する。
+            </summary>
+            <param name="sheet">対象のシート</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetNormalRowHeaderStyle(GrapeCity.Win.ElTabelle.Sheet)">
+            --------------------------------------------------
+            <summary>
+            行ヘッダーのスタイルを WindowsXP から Normal に設定する。
+            </summary>
+            <param name="sheet">対象のシート</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetNormalCornerHeaderStyle(GrapeCity.Win.ElTabelle.Sheet)">
+            --------------------------------------------------
+            <summary>
+            コーナーヘッダーのスタイルを WindowsXP から Normal に設定する。
+            </summary>
+            <param name="sheet">対象のシート</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+        <member name="M:ElTabelleHelper.ElTabelleSheetHelper.SetNormalHeaderStyle(GrapeCity.Win.ElTabelle.Sheet)">
+            --------------------------------------------------
+            <summary>
+            ヘッダーのスタイルを WindowsXP から Normal に設定する
+            </summary>
+            <param name="sheet">対象のシート</param>
+            <create>T.Sakiori 2009/06/16</create>
+            <update></update>
+            --------------------------------------------------
+        </member>
+    </members>
+</doc>
